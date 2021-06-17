@@ -12,7 +12,7 @@ namespace XICSM.MiscTools.Translations
 {
     public partial class LangSelection : Form
     {
-        public string SelectedItem { get { return c_lang.SelectedValue.ToString(); } }
+        public string SelectedItem { get { return c_lang.SelectedItem.ToString(); } }
 
         public LangSelection(List<string> Langs)
         {
