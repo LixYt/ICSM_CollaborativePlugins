@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace XICSM.MiscTools.Translations
+namespace XICSM.MiscTools
 {
     public partial class LangSelection : Form
     {

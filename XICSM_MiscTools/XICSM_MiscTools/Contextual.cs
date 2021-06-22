@@ -33,6 +33,19 @@ namespace XICSM.MiscTools
                     lst.Add(new IMQueryMenuNode(L.Txt("Delete query configuration selection"), null, QueryStore.DeleteRecords, IMQueryMenuNode.ExecMode.SelectionOfRecords));
                 }
             }
+            
+            if (tableName == "XMISC_TRANSLATIONS")
+            {
+                if (nbSelMin == 1)
+                {
+                    //lst.Add(new IMQueryMenuNode(L.Txt("Edit query record"), null, null, IMQueryMenuNode.ExecMode.FirstRecord));
+                    //lst.Add(new IMQueryMenuNode(L.Txt("Try Google Translation"), null, null, IMQueryMenuNode.ExecMode.FirstRecord)); 
+                }
+                if (nbSelMin >= 1)
+                {
+                    lst.Add(new IMQueryMenuNode(L.Txt("Delete record(s)"), null, Translations.DeleteRecords, IMQueryMenuNode.ExecMode.SelectionOfRecords));
+                }
+            }
 
             
             if (tableName == "MICROWA" && nbSelMin == 1 && ICSMConfig.Flavor == "DIRISI")

@@ -80,11 +80,23 @@
     <Compile Include="QueryStore\QueryStoreEditor.Designer.cs">
       <DependentUpon>QueryStoreEditor.cs</DependentUpon>
     </Compile>
+    <Compile Include="Tools\MiscProgressBar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Tools\MiscProgressBar.Designer.cs">
+      <DependentUpon>MiscProgressBar.cs</DependentUpon>
+    </Compile>
     <Compile Include="Translations\LangSelection.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Translations\LangSelection.Designer.cs">
       <DependentUpon>LangSelection.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Translations\TranslationEditor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Translations\TranslationEditor.Designer.cs">
+      <DependentUpon>TranslationEditor.cs</DependentUpon>
     </Compile>
     <Compile Include="Translations\Translations.cs" />
   </ItemGroup>
@@ -92,8 +104,14 @@
     <EmbeddedResource Include="QueryStore\QueryStoreEditor.resx">
       <DependentUpon>QueryStoreEditor.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Tools\MiscProgressBar.resx">
+      <DependentUpon>MiscProgressBar.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Translations\LangSelection.resx">
       <DependentUpon>LangSelection.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Translations\TranslationEditor.resx">
+      <DependentUpon>TranslationEditor.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

@@ -1,5 +1,5 @@
 ﻿
-namespace XICSM.MiscTools.Translations
+namespace XICSM.MiscTools
 {
     partial class LangSelection
     {

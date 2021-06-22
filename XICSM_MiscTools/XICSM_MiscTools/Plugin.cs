@@ -143,7 +143,7 @@ namespace XICSM.MiscTools
 
         public void ImportLangFile()
         {
-            Translations.Translations.ImportFile();
+            Translations.ImportFile();
         }
 
         
