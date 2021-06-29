@@ -124,7 +124,22 @@ namespace XICSM.MiscTools
 
             return true; //Return true if query should be refreshed due to modification of some record(s)
         }
+        static public bool EditRecord(IMQueryMenuNode.Context context)
+        {
+            YXmiscTranslations y = new YXmiscTranslations();
+            y.Fetch(context.TableId);
 
+            TranslationEditor edt = new TranslationEditor(y);
+            edt.ShowDialog();
+    
+            return (edt.DialogResult == DialogResult.OK ? true : false); //Return true if query should be refreshed due to modification of some record(s)
+        }
+        static public bool GenerateFile(IMQueryMenuNode.Context context)
+        {
+            
 
+            return true; //Return true if query should be refreshed due to modification of some record(s)
+        }
+        
     }
 }
