@@ -30,8 +30,6 @@ namespace XICSM.MiscTools.Tools
         private void InitializeComponent()
         {
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
-            this.labelMin = new System.Windows.Forms.Label();
-            this.labelMax = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // progressBar1
@@ -44,35 +42,12 @@ namespace XICSM.MiscTools.Tools
             this.progressBar1.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
             this.progressBar1.TabIndex = 0;
             // 
-            // labelMin
-            // 
-            this.labelMin.AutoSize = true;
-            this.labelMin.BackColor = System.Drawing.Color.Transparent;
-            this.labelMin.Location = new System.Drawing.Point(13, 13);
-            this.labelMin.Name = "labelMin";
-            this.labelMin.Size = new System.Drawing.Size(35, 13);
-            this.labelMin.TabIndex = 1;
-            this.labelMin.Text = "label1";
-            // 
-            // labelMax
-            // 
-            this.labelMax.AutoSize = true;
-            this.labelMax.BackColor = System.Drawing.Color.Transparent;
-            this.labelMax.Location = new System.Drawing.Point(437, 13);
-            this.labelMax.Name = "labelMax";
-            this.labelMax.Size = new System.Drawing.Size(35, 13);
-            this.labelMax.TabIndex = 2;
-            this.labelMax.Text = "label2";
-            this.labelMax.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
             // MiscProgressBar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(484, 41);
             this.ControlBox = false;
-            this.Controls.Add(this.labelMax);
-            this.Controls.Add(this.labelMin);
             this.Controls.Add(this.progressBar1);
             this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(500, 80);
@@ -84,14 +59,11 @@ namespace XICSM.MiscTools.Tools
             this.Text = "MiscProgressBar";
             this.TopMost = true;
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
 
         private System.Windows.Forms.ProgressBar progressBar1;
-        private System.Windows.Forms.Label labelMin;
-        private System.Windows.Forms.Label labelMax;
     }
 }

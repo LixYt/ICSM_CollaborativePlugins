@@ -28,11 +28,11 @@ namespace XICSM.MiscTools
                 + "Description = [DESCRIPTION]");
             s.DeclareField("ID", "NUMBER(9,0)", null, "NOTNULL", null);
             s.DeclareIndex("PK_XMISC_QUERYSTORE", "PRIMARY", "ID");
-            s.DeclareField("NAME", "VARCHAR(250)", null, null, null); s.Info("Title of this query configuration");
+            s.DeclareField("NAME", "VARCHAR(250)", "Text", null, null); s.Info("Title of this query configuration");
             s.DeclareField("TYPE", "VARCHAR(250)", "eri_QueryStoreType", null, null); s.Info("Type of element");
             s.DeclareField("TABLE_NAME", "VARCHAR(250)", null, null, null); s.Info("Source table of this configuration");
-            s.DeclareField("DESCRIPTION", "VARCHAR(5000)", null, null, null); s.Info("Short description of this configuration");
-            s.DeclareField("ITEMSTORE", "VARCHAR(8000)", null, null, null); s.Info("Configuration or item stored");
+            s.DeclareField("DESCRIPTION", "VARCHAR(5000)", "Text", null, null); s.Info("Short description of this configuration");
+            s.DeclareField("ITEMSTORE", "VARCHAR(8000)", "Text", null, null); s.Info("Configuration or item stored");
             s.DeclareField("DATE_CREATED", "DATE", "Date", null, null); s.Info("Date/Time of creation");
             s.DeclareField("CREATED_BY", "VARCHAR(30)", null, null, null); s.Info("Author");
             s.DeclareField("DATE_MODIFIED", "DATE", "Date", null, null); s.Info("Date of modification");
@@ -123,7 +123,8 @@ namespace XICSM.MiscTools
         public void GetMainMenu(IMMainMenu mainMenu) 
         {
            mainMenu.SetInsertLocation("Tools\\Administrator\\*", IMMainMenu.InsertLocation.After);
-           mainMenu.InsertItem("Tools\\Administrator\\" + L.Txt("Import SYS_LANG file"), ImportLangFile, "XMISC_TRANSLATIONS");
+           mainMenu.InsertItem("Tools\\Administrator\\" + L.Txt("Import SYS_LANG file in Translation table"), ImportLangFile, "XMISC_TRANSLATIONS");
+           mainMenu.InsertItem("Tools\\Administrator\\" + L.Txt("Export Translation records to SYS_LANG file"), ExportLangFile, "XMISC_TRANSLATIONS");
         }
         public bool OtherMessage(string message, object inParam, ref object outParam) 
         {
@@ -140,13 +141,15 @@ namespace XICSM.MiscTools
            
                 return true;
         }
-
         public void ImportLangFile()
         {
             Translations.ImportFile();
         }
+        public void ExportLangFile()
+        {
+            Translations.ExportFile();
+        }
 
-        
 
     }
 }

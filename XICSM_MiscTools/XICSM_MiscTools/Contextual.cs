@@ -39,6 +39,7 @@ namespace XICSM.MiscTools
                 if (nbSelMin == 1)
                 {
                     lst.Add(new IMQueryMenuNode(L.Txt("Edit query record"), null, Translations.EditRecord, IMQueryMenuNode.ExecMode.FirstRecord));
+                    lst.Add(new IMQueryMenuNode(L.Txt("Edit query record"), null, Translations.GenerateFile, IMQueryMenuNode.ExecMode.FirstRecord));
                     //lst.Add(new IMQueryMenuNode(L.Txt("Try Google Translation"), null, null, IMQueryMenuNode.ExecMode.FirstRecord)); 
                 }
                 if (nbSelMin >= 1)

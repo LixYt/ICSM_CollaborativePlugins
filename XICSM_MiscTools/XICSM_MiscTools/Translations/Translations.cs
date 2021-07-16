@@ -9,6 +9,7 @@ using System.Collections;
 using System.Windows.Forms;
 using OrmCs;
 using System.Diagnostics;
+using DatalayerCs;
 
 namespace XICSM.MiscTools
 {
@@ -32,15 +33,6 @@ namespace XICSM.MiscTools
             {
                 try
                 {
-                    YImportOp import = new YImportOp
-                    {
-                        m_imported_by = IM.ConnectedUser(),
-                        m_source_name = l.SelectedItem
-                    };
-                    import.AllocID();
-                    import.Save();
-                    
-                    //string fileContent = File.ReadAllText(l.SelectedItem);
                     YXmiscTranslations itemTranslation = null;
 
                     FileStream fileStream = File.OpenRead(l.SelectedItem);
@@ -50,8 +42,20 @@ namespace XICSM.MiscTools
                     while (( streamReader.ReadLine()) != null) { NbLines++; }
                     streamReader.Close();
 
+                    YImportOp import = new YImportOp
+                    {
+                        m_imported_by = IM.ConnectedUser(),
+                        m_source_name = l.SelectedItem,
+                        m_creat_date = DateTime.Now,
+                        m_dest_table = "XMISC_TRANSLATIONS",
+                        m_nb_imp = NbLines,
+                        m_source_fmt = L.Txt("Native ICS Manager language txt file"),
+                    };
+                    import.AllocID();
+                    import.Save();
+
                     bar.MaxValue = NbLines;
-                    bar.Title = "Import of Translations";
+                    bar.Title = L.TxT("Import of Translations file");
                     bar.Show();
 
                     string line; int i = 1;
@@ -95,6 +99,8 @@ namespace XICSM.MiscTools
                         i++;
                         bar.PerformStep();
                     }
+
+                    
                 }
                 catch (Exception e) { Debug.WriteLine(e); }
 
@@ -103,6 +109,62 @@ namespace XICSM.MiscTools
             }
 
             
+
+        }
+        public static void ExportFile()
+        {
+            List<string> LangFiles = new List<string>();
+
+            Tools.MiscProgressBar bar = new Tools.MiscProgressBar();
+
+            string path = Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().GetName().CodeBase);
+            DirectoryInfo dir = new DirectoryInfo(new Uri(path).LocalPath);
+            foreach (FileInfo flInfo in dir.GetFiles())
+            {
+                if (flInfo.Name.StartsWith("SYS_") && flInfo.Name.EndsWith(".txt")) LangFiles.Add(flInfo.Name);
+            }
+
+            LangSelection l = new LangSelection(LangFiles);
+            if (l.ShowDialog() == DialogResult.OK)
+            {
+                try
+                {
+                    YXmiscTranslations translations = new YXmiscTranslations();
+                    string lang = l.SelectedItem.Trim("SYS_".ToCharArray()).Trim(".txt".ToCharArray());
+                    translations.Filter = $"LANG like '{lang}'";
+                    
+                    bar.MaxValue = translations.Count();
+                    bar.Title = L.Txt("Export of Translations");
+
+                    bar.Show();
+
+                    SaveFileDialog saveFileDialog1 = new SaveFileDialog
+                    {
+                        Filter = "txt files (*.txt)|*.txt|All files (*.*)|*.*",
+                        FilterIndex = 2,
+                        RestoreDirectory = true,
+                    };
+
+                    if (saveFileDialog1.ShowDialog() == DialogResult.OK)
+                    {
+                        string OutFile = $"LANGUAGE  \r\n";
+
+                        for (translations.OpenRs(); !translations.IsEOF(); translations.MoveNext())
+                        {
+                            string replacement = (translations.m_to_string == "??") ? translations.m_to_string : $"\"{translations.m_to_string}\"";
+                            OutFile += $"\"{translations.m_from_string}\"\r\n> {replacement}\r\n";
+                            bar.PerformStep();
+                        }
+                        File.WriteAllText(saveFileDialog1.FileName, OutFile);
+                    }
+
+                    MessageBox.Show(L.Txt($"Language {translations.m_lang} exported"));
+                }
+                catch (Exception e) { Debug.WriteLine(e); }
+
+                bar.Close();
+                bar.Dispose();
+            }
 
         }
         static public bool DeleteRecord(IMQueryMenuNode.Context context)

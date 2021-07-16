@@ -29,13 +29,16 @@ namespace XICSM.MiscTools
 
             l_desc.Text = L.Txt("Description");
             l_name.Text = L.Txt("Name");
-            l_query.Text = L.Txt("Query config");
+            l_type.Text = L.Txt("Type");
+            l_tablename.Text = L.Txt("Table name");
+            l_item.Text = L.Txt("Item stored");
             c_paste.Text = L.Txt("query config from clipboard");
             Save.Text = L.Txt("Save");
             SaveExit.Text = L.Txt("Save and Exit");
             CancelExit.Text = L.Txt("Cancel and Exit");
-            Text = L.Txt("QueryStoreEditor");
-
+            Text = L.Txt("Query Store Editor");
+            l_created.Text = L.Txt("Created");
+            l_created.Text = L.Txt("Modified");
 
             yQS = new YXmiscQuerystore();
             yQS.m_itemstore = s;
@@ -51,9 +54,18 @@ namespace XICSM.MiscTools
 
         public void Bindings()
         {
+            c_type.DataBindings.Add(new Binding("Value", yQS, "m_type"));
+            c_table.DataBindings.Add(new Binding("Value", yQS, "m_table_name"));
+
             c_name.DataBindings.Add(new Binding("Text", yQS, "m_name"));
             c_desc.DataBindings.Add(new Binding("Text", yQS, "m_description"));
-            c_query.DataBindings.Add(new Binding("Text", yQS, "m_query"));
+            c_item.DataBindings.Add(new Binding("Text", yQS, "m_itemstore"));
+            C_CreatedBy.DataBindings.Add(new Binding("Text", yQS, "m_created_by"));
+            C_ModifiedBy.DataBindings.Add(new Binding("Text", yQS, "m_modified_by"));
+
+            C_CreatedDate.DataBindings.Add(new Binding("Text", yQS, "m_date_created"));
+            C_ModifiedDate.DataBindings.Add(new Binding("Text", yQS, "m_date_modified"));
+            
         }
         public void SaveY()
         {
@@ -66,7 +78,7 @@ namespace XICSM.MiscTools
         private void Save_Click(object sender, EventArgs e)
         {
             SaveY();
-            DialogResult = DialogResult.OK;
+            //DialogResult = DialogResult.OK;
         }
 
         private void SaveExit_Click(object sender, EventArgs e)
@@ -84,7 +96,12 @@ namespace XICSM.MiscTools
 
         private void c_paste_Click(object sender, EventArgs e)
         {
-            c_query.Text = Clipboard.GetText();
+            c_item.Text = Clipboard.GetText();
+        }
+
+        private void QueryStoreEditor_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            
         }
     }
 }
