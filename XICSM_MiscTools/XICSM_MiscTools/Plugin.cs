@@ -17,6 +17,8 @@ namespace XICSM.MiscTools
     {
         public string Description { get { return "Miscellaneous Tools"; } }
         public string Ident { get { return "MiscTools"; } }
+        public string Version = "1.0.0.0";
+
         public void RegisterSchema(IMSchema s) 
         {
             #region QUERYSTORE
@@ -125,6 +127,8 @@ namespace XICSM.MiscTools
            mainMenu.SetInsertLocation("Tools\\Administrator\\*", IMMainMenu.InsertLocation.After);
            mainMenu.InsertItem("Tools\\Administrator\\" + L.Txt("Import SYS_LANG file in Translation table"), ImportLangFile, "XMISC_TRANSLATIONS");
            mainMenu.InsertItem("Tools\\Administrator\\" + L.Txt("Export Translation records to SYS_LANG file"), ExportLangFile, "XMISC_TRANSLATIONS");
+           mainMenu.InsertItem("Help\\" + $"{Description} Version", VersionInfo, "XMISC_TRANSLATIONS");
+           mainMenu.InsertItem("Help\\" + $"{Description} Help and resources", PluginResources, "XMISC_TRANSLATIONS");
         }
         public bool OtherMessage(string message, object inParam, ref object outParam) 
         {
@@ -152,6 +156,10 @@ namespace XICSM.MiscTools
             Translations.ExportFile();
         }
         #endregion
-
+        public void VersionInfo()
+        { MessageBox.Show(L.Txt("Plugin version is : " + Version) + L.Txt("\r\nPlugin schema version is : ") + 20210615.00) ; }
+        public void PluginResources()
+        { System.Diagnostics.Process.Start("https://github.com/LixYt/ICSM_CollaborativePlugins"); }
+        
     }
 }

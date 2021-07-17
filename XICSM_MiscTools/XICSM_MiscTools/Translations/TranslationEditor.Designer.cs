@@ -29,6 +29,7 @@ namespace XICSM.MiscTools
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TranslationEditor));
             this.l_fromString = new System.Windows.Forms.Label();
             this.CancelExit = new System.Windows.Forms.Button();
             this.l_toString = new System.Windows.Forms.Label();
@@ -101,6 +102,7 @@ namespace XICSM.MiscTools
             this.Controls.Add(this.l_toString);
             this.Controls.Add(this.CancelExit);
             this.Controls.Add(this.l_fromString);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(362, 193);
             this.MinimizeBox = false;

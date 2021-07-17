@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(QueryStoreEditor));
             this.CancelExit = new System.Windows.Forms.Button();
             this.Save = new System.Windows.Forms.Button();
             this.SaveExit = new System.Windows.Forms.Button();
@@ -268,6 +269,7 @@
             this.Controls.Add(this.SaveExit);
             this.Controls.Add(this.Save);
             this.Controls.Add(this.CancelExit);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "QueryStoreEditor";
             this.Text = "QueryStoreEditor";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.QueryStoreEditor_FormClosing);

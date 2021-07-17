@@ -29,6 +29,7 @@ namespace XICSM.MiscTools
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LangSelection));
             this.c_lang = new System.Windows.Forms.ListBox();
             this.c_OK = new System.Windows.Forms.Button();
             this.c_Cancel = new System.Windows.Forms.Button();
@@ -70,6 +71,7 @@ namespace XICSM.MiscTools
             this.Controls.Add(this.c_Cancel);
             this.Controls.Add(this.c_OK);
             this.Controls.Add(this.c_lang);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "LangSelection";
             this.Text = "LangSelection";
             this.ResumeLayout(false);

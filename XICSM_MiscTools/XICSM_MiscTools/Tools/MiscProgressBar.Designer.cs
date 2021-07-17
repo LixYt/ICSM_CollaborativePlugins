@@ -29,6 +29,7 @@ namespace XICSM.MiscTools.Tools
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MiscProgressBar));
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.SuspendLayout();
             // 
@@ -49,6 +50,7 @@ namespace XICSM.MiscTools.Tools
             this.ClientSize = new System.Drawing.Size(484, 41);
             this.ControlBox = false;
             this.Controls.Add(this.progressBar1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(500, 80);
             this.MinimizeBox = false;
