@@ -7,25 +7,27 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using DatalayerCs;
 
 namespace XICSM.MiscTools.Tools
 {
     public partial class MiscProgressBar : Form
     {
-        public string Title { get { return Text; } set { Text = value; } }
+        private string BaseTitle = L.Txt("Progression");
         public int CurrentValue { get { return progressBar1.Value; } set { progressBar1.Value = value; } }
         public int MaxValue { get { return progressBar1.Maximum; }  set { progressBar1.Maximum = value; } }
         public int MinValue { get { return progressBar1.Minimum; }  set => progressBar1.Minimum = value;  }
         public int Step { get { return progressBar1.Step; } set => progressBar1.Step = value; }
 
-        public MiscProgressBar()
+        public MiscProgressBar(string Title)
         {
             InitializeComponent();
+            Text = Title; BaseTitle = Title;
         }
         public void PerformStep()
         {
             progressBar1.PerformStep();
-            Text = $"{progressBar1.Value} / {MaxValue}";
+            Text = $"{BaseTitle} - {progressBar1.Value} / {MaxValue}";
         }
     }
 }

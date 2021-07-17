@@ -141,6 +141,8 @@ namespace XICSM.MiscTools
            
                 return true;
         }
+
+        #region Translations
         public void ImportLangFile()
         {
             Translations.ImportFile();
@@ -149,7 +151,7 @@ namespace XICSM.MiscTools
         {
             Translations.ExportFile();
         }
-
+        #endregion
 
     }
 }

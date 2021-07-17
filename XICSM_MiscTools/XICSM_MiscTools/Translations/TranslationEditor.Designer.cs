@@ -29,22 +29,22 @@ namespace XICSM.MiscTools
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
+            this.l_fromString = new System.Windows.Forms.Label();
             this.CancelExit = new System.Windows.Forms.Button();
-            this.label2 = new System.Windows.Forms.Label();
+            this.l_toString = new System.Windows.Forms.Label();
             this.c_SourceString = new System.Windows.Forms.TextBox();
             this.c_TranslatedString = new System.Windows.Forms.TextBox();
             this.SaveExit = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // label1
+            // l_fromString
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 9);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(66, 13);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Native string";
+            this.l_fromString.AutoSize = true;
+            this.l_fromString.Location = new System.Drawing.Point(12, 9);
+            this.l_fromString.Name = "l_fromString";
+            this.l_fromString.Size = new System.Drawing.Size(70, 13);
+            this.l_fromString.TabIndex = 0;
+            this.l_fromString.Text = "Original string";
             // 
             // CancelExit
             // 
@@ -56,14 +56,14 @@ namespace XICSM.MiscTools
             this.CancelExit.UseVisualStyleBackColor = true;
             this.CancelExit.Click += new System.EventHandler(this.CancelExit_Click);
             // 
-            // label2
+            // l_toString
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(13, 64);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(87, 13);
-            this.label2.TabIndex = 3;
-            this.label2.Text = "Translated String";
+            this.l_toString.AutoSize = true;
+            this.l_toString.Location = new System.Drawing.Point(13, 64);
+            this.l_toString.Name = "l_toString";
+            this.l_toString.Size = new System.Drawing.Size(85, 13);
+            this.l_toString.TabIndex = 3;
+            this.l_toString.Text = "Translated string";
             // 
             // c_SourceString
             // 
@@ -98,9 +98,9 @@ namespace XICSM.MiscTools
             this.Controls.Add(this.SaveExit);
             this.Controls.Add(this.c_TranslatedString);
             this.Controls.Add(this.c_SourceString);
-            this.Controls.Add(this.label2);
+            this.Controls.Add(this.l_toString);
             this.Controls.Add(this.CancelExit);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.l_fromString);
             this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(362, 193);
             this.MinimizeBox = false;
@@ -115,9 +115,9 @@ namespace XICSM.MiscTools
 
         #endregion
 
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label l_fromString;
         private System.Windows.Forms.Button CancelExit;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label l_toString;
         private System.Windows.Forms.TextBox c_SourceString;
         private System.Windows.Forms.TextBox c_TranslatedString;
         private System.Windows.Forms.Button SaveExit;

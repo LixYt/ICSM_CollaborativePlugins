@@ -19,7 +19,7 @@ namespace XICSM.MiscTools
         {
             List<string> LangFiles = new List<string>();
 
-            Tools.MiscProgressBar bar = new Tools.MiscProgressBar();
+            Tools.MiscProgressBar bar = new Tools.MiscProgressBar(L.Txt("Importing LANG file"));
 
             string path = Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().GetName().CodeBase);
             DirectoryInfo dir = new DirectoryInfo(new Uri(path).LocalPath);
@@ -55,7 +55,6 @@ namespace XICSM.MiscTools
                     import.Save();
 
                     bar.MaxValue = NbLines;
-                    bar.Title = L.TxT("Import of Translations file");
                     bar.Show();
 
                     string line; int i = 1;
@@ -107,15 +106,16 @@ namespace XICSM.MiscTools
                 bar.Close();
                 bar.Dispose();
             }
-
+            else
+            {
+                MessageBox.Show(L.Txt("Language import cancelled"));
+            }
             
 
         }
         public static void ExportFile()
         {
             List<string> LangFiles = new List<string>();
-
-            Tools.MiscProgressBar bar = new Tools.MiscProgressBar();
 
             string path = Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().GetName().CodeBase);
             DirectoryInfo dir = new DirectoryInfo(new Uri(path).LocalPath);
@@ -127,43 +127,15 @@ namespace XICSM.MiscTools
             LangSelection l = new LangSelection(LangFiles);
             if (l.ShowDialog() == DialogResult.OK)
             {
-                try
-                {
-                    YXmiscTranslations translations = new YXmiscTranslations();
-                    string lang = l.SelectedItem.Trim("SYS_".ToCharArray()).Trim(".txt".ToCharArray());
-                    translations.Filter = $"LANG like '{lang}'";
-                    
-                    bar.MaxValue = translations.Count();
-                    bar.Title = L.Txt("Export of Translations");
+                YXmiscTranslations translations = new YXmiscTranslations();
+                string lang = l.SelectedItem.Trim("SYS_".ToCharArray()).Trim(".txt".ToCharArray());
+                translations.Filter = $"LANG like '{lang}'";
 
-                    bar.Show();
-
-                    SaveFileDialog saveFileDialog1 = new SaveFileDialog
-                    {
-                        Filter = "txt files (*.txt)|*.txt|All files (*.*)|*.*",
-                        FilterIndex = 2,
-                        RestoreDirectory = true,
-                    };
-
-                    if (saveFileDialog1.ShowDialog() == DialogResult.OK)
-                    {
-                        string OutFile = $"LANGUAGE  \r\n";
-
-                        for (translations.OpenRs(); !translations.IsEOF(); translations.MoveNext())
-                        {
-                            string replacement = (translations.m_to_string == "??") ? translations.m_to_string : $"\"{translations.m_to_string}\"";
-                            OutFile += $"\"{translations.m_from_string}\"\r\n> {replacement}\r\n";
-                            bar.PerformStep();
-                        }
-                        File.WriteAllText(saveFileDialog1.FileName, OutFile);
-                    }
-
-                    MessageBox.Show(L.Txt($"Language {translations.m_lang} exported"));
-                }
-                catch (Exception e) { Debug.WriteLine(e); }
-
-                bar.Close();
-                bar.Dispose();
+                GenerateLangFile(translations);
+            }
+            else
+            {
+                MessageBox.Show(L.Txt("Language export cancelled"));
             }
 
         }
@@ -196,11 +168,52 @@ namespace XICSM.MiscTools
     
             return (edt.DialogResult == DialogResult.OK ? true : false); //Return true if query should be refreshed due to modification of some record(s)
         }
-        static public bool GenerateFile(IMQueryMenuNode.Context context)
+        static public bool ExportAsLangFile(IMQueryMenuNode.Context context)
         {
-            
+            YXmiscTranslations translations = new YXmiscTranslations
+            {
+                Filter = context.DataList.GetOQLFilter(true),
+            };
 
-            return true; //Return true if query should be refreshed due to modification of some record(s)
+            GenerateLangFile(translations);
+
+            return false;
+        }
+        static public void GenerateLangFile(YXmiscTranslations translations)
+        {
+            try
+            {
+                Tools.MiscProgressBar bar = new Tools.MiscProgressBar(L.Txt("Exporting LANG file"));
+                bar.MaxValue = translations.Count();
+
+                SaveFileDialog saveFileDialog1 = new SaveFileDialog
+                {
+                    Filter = "txt files (*.txt)|*.txt|All files (*.*)|*.*",
+                    FilterIndex = 2,
+                    RestoreDirectory = true,
+                };
+
+                bar.Show();
+
+                if (saveFileDialog1.ShowDialog() == DialogResult.OK)
+                {
+                    string OutFile = $"LANGUAGE  \r\n";
+
+                    for (translations.OpenRs(); !translations.IsEOF(); translations.MoveNext())
+                    {
+                        string replacement = (translations.m_to_string == "??") ? translations.m_to_string : $"\"{translations.m_to_string}\"";
+                        OutFile += $"\"{translations.m_from_string}\"\r\n> {replacement}\r\n";
+                        bar.PerformStep();
+                    }
+                    File.WriteAllText(saveFileDialog1.FileName, OutFile, Encoding.Unicode);
+                }
+
+                MessageBox.Show(L.Txt($"Language {translations.m_lang} exported"));
+
+                bar.Close();
+                bar.Dispose(); 
+            } 
+            catch (Exception e) { Debug.WriteLine(e); }
         }
         
     }
