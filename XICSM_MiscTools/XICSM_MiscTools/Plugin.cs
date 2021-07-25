@@ -105,9 +105,8 @@ namespace XICSM.MiscTools
 
             */
             string appFolder = System.IO.Path.GetDirectoryName(Application.ExecutablePath);
-            string err;
-            if (!OrmCs.OrmSchema.ParseSchema(appFolder, "MiscTools", "XICSM_MiscTools", out err)) MessageBox.Show("Unable to load 'MiscTools.Schema' :" + err);
-            
+            if (!OrmCs.OrmSchema.ParseSchema(appFolder, "MiscTools", "XICSM_MiscTools", out string err)) MessageBox.Show("Unable to load 'MiscTools.Schema' :" + err);
+
 
         }
         public double SchemaVersion { get { return 20210615.00; } }
