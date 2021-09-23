@@ -38,14 +38,14 @@ namespace XICSM.MiscTools
             // c_lang
             // 
             this.c_lang.FormattingEnabled = true;
-            this.c_lang.Location = new System.Drawing.Point(12, 12);
+            this.c_lang.Location = new System.Drawing.Point(12, 64);
             this.c_lang.Name = "c_lang";
             this.c_lang.Size = new System.Drawing.Size(275, 290);
             this.c_lang.TabIndex = 0;
             // 
             // c_OK
             // 
-            this.c_OK.Location = new System.Drawing.Point(13, 306);
+            this.c_OK.Location = new System.Drawing.Point(13, 362);
             this.c_OK.Name = "c_OK";
             this.c_OK.Size = new System.Drawing.Size(75, 23);
             this.c_OK.TabIndex = 1;
@@ -55,7 +55,7 @@ namespace XICSM.MiscTools
             // 
             // c_Cancel
             // 
-            this.c_Cancel.Location = new System.Drawing.Point(212, 306);
+            this.c_Cancel.Location = new System.Drawing.Point(212, 362);
             this.c_Cancel.Name = "c_Cancel";
             this.c_Cancel.Size = new System.Drawing.Size(75, 23);
             this.c_Cancel.TabIndex = 2;
@@ -67,13 +67,15 @@ namespace XICSM.MiscTools
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(299, 341);
+            this.ClientSize = new System.Drawing.Size(299, 399);
             this.Controls.Add(this.c_Cancel);
             this.Controls.Add(this.c_OK);
             this.Controls.Add(this.c_lang);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "LangSelection";
-            this.Text = "LangSelection";
+            this.Resizable = false;
+            this.Style = "Purple";
+            this.Text = "Language Selection";
             this.ResumeLayout(false);
 
         }

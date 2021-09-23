@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FormsCs;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -10,7 +11,7 @@ using System.Windows.Forms;
 
 namespace XICSM.MiscTools
 {
-    public partial class LangSelection : Form
+    public partial class LangSelection : IcsMetroForm
     {
         public string SelectedItem { get { return c_lang.SelectedItem.ToString(); } }
 

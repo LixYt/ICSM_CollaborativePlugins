@@ -23,7 +23,7 @@ namespace XICSM.MiscTools
                 if (nbSelMin == 1)
                 {
                     lst.Add(new IMQueryMenuNode(L.Txt("Get the query configuration"), null, QueryStore.GetConfig, IMQueryMenuNode.ExecMode.FirstRecord));
-                    lst.Add(new IMQueryMenuNode(L.Txt("Edit query record"), null, QueryStore.EditRecord, IMQueryMenuNode.ExecMode.FirstRecord));
+                    lst.Add(new IMQueryMenuNode(L.Txt("Edit query record"), null, QueryStoreEditor.EditRecord, IMQueryMenuNode.ExecMode.FirstRecord));
                     lst.Add(new IMQueryMenuNode(L.Txt("Delete query record"), null, QueryStore.DeleteRecord, IMQueryMenuNode.ExecMode.FirstRecord));
                 }
                 if (nbSelMin > 1)
@@ -35,7 +35,7 @@ namespace XICSM.MiscTools
             {
                 if (nbSelMin == 1)
                 {
-                    lst.Add(new IMQueryMenuNode(L.Txt("Edit query record"), null, Translations.EditRecord, IMQueryMenuNode.ExecMode.FirstRecord));
+                    lst.Add(new IMQueryMenuNode(L.Txt("Edit translation"), null, TranslationEditor.EditRecord, IMQueryMenuNode.ExecMode.FirstRecord));
                     
                 }
                 if (nbSelMin >= 1)

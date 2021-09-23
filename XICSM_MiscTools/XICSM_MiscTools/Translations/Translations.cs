@@ -133,7 +133,6 @@ namespace XICSM.MiscTools
                     Debug.WriteLine($"{e}"); 
                 }
 
-                
             }
             else
             {
@@ -297,16 +296,6 @@ namespace XICSM.MiscTools
 
 
             return true; //Return true if query should be refreshed due to modification of some record(s)
-        }
-        static public bool EditRecord(IMQueryMenuNode.Context context)
-        {
-            YXmiscTranslations y = new YXmiscTranslations();
-            y.Fetch(context.TableId);
-
-            TranslationEditor edt = new TranslationEditor(y);
-            edt.ShowDialog();
-    
-            return (edt.DialogResult == DialogResult.OK ? true : false); //Return true if query should be refreshed due to modification of some record(s)
         }
         static public bool ExportAsLangFile(IMQueryMenuNode.Context context)
         {

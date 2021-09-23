@@ -17,7 +17,7 @@ namespace XICSM.MiscTools
     {
         public string Description { get { return "Miscellaneous Tools"; } }
         public string Ident { get { return "MiscTools"; } }
-        public string Version = "1.0.0.0";
+        public string Version = "1.0.1.0";
 
         public void RegisterSchema(IMSchema s) 
         {
@@ -116,13 +116,8 @@ namespace XICSM.MiscTools
         public void RegisterBoard(IMBoard b)
         {
             b.RegisterQueryMenuBuilder("MICROWA", Contextual.onGetQueryMenu);
-
             b.RegisterQueryMenuBuilder("XMISC_QUERYSTORE", Contextual.onGetQueryMenu);
-            b.ReplaceDefaultEditor("XMISC_QUERYSTORE");
-
             b.RegisterQueryMenuBuilder("XMISC_TRANSLATIONS", Contextual.onGetQueryMenu);
-            b.ReplaceDefaultEditor("XMISC_TRANSLATIONS");
-            
         }
         public void GetMainMenu(IMMainMenu mainMenu) 
         {
@@ -135,6 +130,18 @@ namespace XICSM.MiscTools
         }
         public bool OtherMessage(string message, object inParam, ref object outParam) 
         {
+            outParam = null;
+            if (message == "EditRecord")
+            {
+                IntPtr owner = (IntPtr)IM.GetMainWindow();
+                string[] s = ((string)inParam).Split('/');
+                int id = s[1].Substring(1).ParseInt();
+                bool ro = s[2] == "true"; //Readonly
+                if (s[0] == "XMISC_TRANSLATIONS") { outParam = TranslationEditor.EditRecord(id, owner); return true; }
+                if (s[0] == "XMISC_QUERYSTORE") { outParam = QueryStoreEditor.EditRecord(id, owner); return true; }
+                return false;
+            }
+
             return false; 
         }
         public bool UpgradeDatabase(IMSchema s, double dbCurVersion) 
@@ -152,7 +159,7 @@ namespace XICSM.MiscTools
             s.SetDatabaseVersion(20210917.1901);
             return true;
         }
-
+        
         #region Translations
         public void ImportLangFile()
         {
@@ -167,10 +174,14 @@ namespace XICSM.MiscTools
             Translations.ExportFile();
         }
         #endregion
+
+
         public void VersionInfo()
         { MessageBox.Show(L.Txt("Plugin version is : " + Version) + L.Txt("\r\nPlugin schema version is : ") + 20210615.00) ; }
         public void PluginResources()
-        { System.Diagnostics.Process.Start("https://github.com/LixYt/ICSM_CollaborativePlugins"); }
+        {
+            MessageBox.Show("A github page will open in your default browser. Feel free to give feedback and hints on this tool.");
+            System.Diagnostics.Process.Start("https://github.com/LixYt/ICSM_CollaborativePlugins"); }
         
     }
 }
