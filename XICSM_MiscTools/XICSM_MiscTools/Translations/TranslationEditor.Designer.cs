@@ -30,45 +30,46 @@ namespace XICSM.MiscTools
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TranslationEditor));
-            this.l_fromString = new System.Windows.Forms.Label();
-            this.CancelExit = new System.Windows.Forms.Button();
-            this.l_toString = new System.Windows.Forms.Label();
-            this.c_SourceString = new System.Windows.Forms.TextBox();
-            this.c_TranslatedString = new System.Windows.Forms.TextBox();
-            this.SaveExit = new System.Windows.Forms.Button();
+            this.l_fromString = new FormsCs.IcsMetroLabel();
+            this.CancelExit = new FormsCs.IcsMetroButton();
+            this.l_toString = new FormsCs.IcsMetroLabel();
+            this.c_SourceString = new FormsCs.IcsMetroTextBox();
+            this.c_TranslatedString = new FormsCs.IcsMetroTextBox();
+            this.SaveExit = new FormsCs.IcsMetroButton();
             this.SuspendLayout();
             // 
             // l_fromString
             // 
             this.l_fromString.AutoSize = true;
-            this.l_fromString.Location = new System.Drawing.Point(12, 9);
+            this.l_fromString.BackColor = System.Drawing.Color.Transparent;
+            this.l_fromString.Location = new System.Drawing.Point(22, 54);
             this.l_fromString.Name = "l_fromString";
-            this.l_fromString.Size = new System.Drawing.Size(70, 13);
+            this.l_fromString.Size = new System.Drawing.Size(92, 19);
             this.l_fromString.TabIndex = 0;
             this.l_fromString.Text = "Original string";
             // 
             // CancelExit
             // 
-            this.CancelExit.Location = new System.Drawing.Point(234, 123);
+            this.CancelExit.Location = new System.Drawing.Point(244, 147);
             this.CancelExit.Name = "CancelExit";
             this.CancelExit.Size = new System.Drawing.Size(95, 23);
             this.CancelExit.TabIndex = 2;
             this.CancelExit.Text = "Cancel and Exit";
-            this.CancelExit.UseVisualStyleBackColor = true;
             this.CancelExit.Click += new System.EventHandler(this.CancelExit_Click);
             // 
             // l_toString
             // 
             this.l_toString.AutoSize = true;
-            this.l_toString.Location = new System.Drawing.Point(13, 64);
+            this.l_toString.BackColor = System.Drawing.Color.Transparent;
+            this.l_toString.Location = new System.Drawing.Point(22, 99);
             this.l_toString.Name = "l_toString";
-            this.l_toString.Size = new System.Drawing.Size(85, 13);
+            this.l_toString.Size = new System.Drawing.Size(103, 19);
             this.l_toString.TabIndex = 3;
             this.l_toString.Text = "Translated string";
             // 
             // c_SourceString
             // 
-            this.c_SourceString.Location = new System.Drawing.Point(12, 25);
+            this.c_SourceString.Location = new System.Drawing.Point(23, 76);
             this.c_SourceString.Name = "c_SourceString";
             this.c_SourceString.ReadOnly = true;
             this.c_SourceString.Size = new System.Drawing.Size(317, 20);
@@ -76,26 +77,25 @@ namespace XICSM.MiscTools
             // 
             // c_TranslatedString
             // 
-            this.c_TranslatedString.Location = new System.Drawing.Point(12, 80);
+            this.c_TranslatedString.Location = new System.Drawing.Point(22, 121);
             this.c_TranslatedString.Name = "c_TranslatedString";
             this.c_TranslatedString.Size = new System.Drawing.Size(317, 20);
             this.c_TranslatedString.TabIndex = 5;
             // 
             // SaveExit
             // 
-            this.SaveExit.Location = new System.Drawing.Point(133, 123);
+            this.SaveExit.Location = new System.Drawing.Point(143, 147);
             this.SaveExit.Name = "SaveExit";
             this.SaveExit.Size = new System.Drawing.Size(95, 23);
             this.SaveExit.TabIndex = 6;
             this.SaveExit.Text = "Save and Exit";
-            this.SaveExit.UseVisualStyleBackColor = true;
             this.SaveExit.Click += new System.EventHandler(this.SaveExit_Click);
             // 
             // TranslationEditor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(346, 154);
+            this.ClientSize = new System.Drawing.Size(362, 193);
             this.Controls.Add(this.SaveExit);
             this.Controls.Add(this.c_TranslatedString);
             this.Controls.Add(this.c_SourceString);
@@ -109,7 +109,8 @@ namespace XICSM.MiscTools
             this.MinimumSize = new System.Drawing.Size(362, 193);
             this.Name = "TranslationEditor";
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
-            this.Text = "TranslationEditor";
+            this.Style = "Purple";
+            this.Text = "Translation";
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -117,11 +118,11 @@ namespace XICSM.MiscTools
 
         #endregion
 
-        private System.Windows.Forms.Label l_fromString;
-        private System.Windows.Forms.Button CancelExit;
-        private System.Windows.Forms.Label l_toString;
-        private System.Windows.Forms.TextBox c_SourceString;
-        private System.Windows.Forms.TextBox c_TranslatedString;
-        private System.Windows.Forms.Button SaveExit;
+        private FormsCs.IcsMetroLabel l_fromString;
+        private FormsCs.IcsMetroButton CancelExit;
+        private FormsCs.IcsMetroLabel l_toString;
+        private FormsCs.IcsMetroTextBox c_SourceString;
+        private FormsCs.IcsMetroTextBox c_TranslatedString;
+        private FormsCs.IcsMetroButton SaveExit;
     }
 }

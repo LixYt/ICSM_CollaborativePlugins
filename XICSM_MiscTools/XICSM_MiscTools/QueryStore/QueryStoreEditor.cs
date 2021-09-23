@@ -9,13 +9,36 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using DatalayerCs;
 using OrmCs;
+using ICSM;
+using NetPlugins2;
 
 namespace XICSM.MiscTools
 {
-    public partial class QueryStoreEditor : Form
+    public partial class QueryStoreEditor : EntityMainMetroForm
     {
         YXmiscQuerystore yQS;
 
+        public static bool EditRecord(int isId, IntPtr owner)
+        {
+            if (isId.IsNull()) return false;
+            Cursor.Current = Cursors.WaitCursor;
+            YXmiscQuerystore y = new YXmiscQuerystore();
+            y.Fetch(isId);
+            QueryStoreEditor dlg = new QueryStoreEditor(y);
+            EntityEditOptions opt = new EntityEditOptions();
+            opt.CurForm = owner;
+            return dlg.Edit("XMISC_QUERYSTORE", isId, opt);
+        }
+        public static bool EditRecord(IMQueryMenuNode.Context context)
+        {
+            YXmiscQuerystore y = new YXmiscQuerystore();
+            y.Fetch(context.TableId);
+
+            QueryStoreEditor edt = new QueryStoreEditor(y);
+            edt.ShowDialog();
+
+            return (edt.DialogResult == DialogResult.OK ? true : false); //Return true if query should be refreshed due to modification of some record(s)
+        }
         public QueryStoreEditor()
         {
             InitializeComponent();

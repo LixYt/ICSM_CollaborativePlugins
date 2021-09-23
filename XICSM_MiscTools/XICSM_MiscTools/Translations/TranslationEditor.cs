@@ -10,12 +10,36 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using ICSM;
 using DatalayerCs;
+using NetPlugins2;
 
 namespace XICSM.MiscTools
 {
-    public partial class TranslationEditor : Form
+    public partial class TranslationEditor : EntityMainMetroForm
     {
         public YXmiscTranslations YTranslation;
+
+        public static bool EditRecord(int isId, IntPtr owner)
+        {
+            if (isId.IsNull()) return false;
+            Cursor.Current = Cursors.WaitCursor;
+            YXmiscTranslations y = new YXmiscTranslations();
+            y.Fetch(isId);
+            TranslationEditor dlg = new TranslationEditor(y);
+            EntityEditOptions opt = new EntityEditOptions();
+            opt.CurForm = owner;
+            //dlg.ShowDialog();
+            return dlg.Edit("XMISC_TRANSLATIONS", isId, opt);
+        }
+        public static bool EditRecord(IMQueryMenuNode.Context context)
+        {
+            YXmiscTranslations y = new YXmiscTranslations();
+            y.Fetch(context.TableId);
+
+            TranslationEditor edt = new TranslationEditor(y);
+            edt.ShowDialog();
+
+            return (edt.DialogResult == DialogResult.OK ? true : false); //Return true if query should be refreshed due to modification of some record(s)
+        }
 
         public TranslationEditor(YXmiscTranslations y)
         {

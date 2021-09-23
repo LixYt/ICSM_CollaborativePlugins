@@ -29,148 +29,150 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(QueryStoreEditor));
-            this.CancelExit = new System.Windows.Forms.Button();
-            this.Save = new System.Windows.Forms.Button();
-            this.SaveExit = new System.Windows.Forms.Button();
-            this.l_name = new System.Windows.Forms.Label();
-            this.l_desc = new System.Windows.Forms.Label();
-            this.l_item = new System.Windows.Forms.Label();
-            this.c_paste = new System.Windows.Forms.Button();
-            this.c_name = new System.Windows.Forms.TextBox();
-            this.c_desc = new System.Windows.Forms.TextBox();
-            this.c_item = new System.Windows.Forms.TextBox();
-            this.l_type = new System.Windows.Forms.Label();
-            this.l_tablename = new System.Windows.Forms.Label();
+            this.CancelExit = new FormsCs.IcsMetroButton();
+            this.Save = new FormsCs.IcsMetroButton();
+            this.SaveExit = new FormsCs.IcsMetroButton();
+            this.l_name = new FormsCs.IcsMetroLabel();
+            this.l_desc = new FormsCs.IcsMetroLabel();
+            this.l_item = new FormsCs.IcsMetroLabel();
+            this.c_paste = new FormsCs.IcsMetroButton();
+            this.c_name = new FormsCs.IcsMetroTextBox();
+            this.c_desc = new FormsCs.IcsMetroTextBox();
+            this.c_item = new FormsCs.IcsMetroTextBox();
+            this.l_type = new FormsCs.IcsMetroLabel();
+            this.l_tablename = new FormsCs.IcsMetroLabel();
             this.c_table = new NetPlugins2.IcsCombo();
             this.c_type = new NetPlugins2.IcsCombo();
-            this.C_CreatedDate = new System.Windows.Forms.TextBox();
-            this.C_ModifiedDate = new System.Windows.Forms.TextBox();
-            this.C_CreatedBy = new System.Windows.Forms.TextBox();
-            this.C_ModifiedBy = new System.Windows.Forms.TextBox();
-            this.l_created = new System.Windows.Forms.Label();
-            this.l_modified = new System.Windows.Forms.Label();
+            this.C_CreatedDate = new FormsCs.IcsMetroTextBox();
+            this.C_ModifiedDate = new FormsCs.IcsMetroTextBox();
+            this.C_CreatedBy = new FormsCs.IcsMetroTextBox();
+            this.C_ModifiedBy = new FormsCs.IcsMetroTextBox();
+            this.l_created = new FormsCs.IcsMetroLabel();
+            this.l_modified = new FormsCs.IcsMetroLabel();
             this.SuspendLayout();
             // 
             // CancelExit
             // 
             this.CancelExit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.CancelExit.Location = new System.Drawing.Point(336, 346);
+            this.CancelExit.Location = new System.Drawing.Point(385, 395);
             this.CancelExit.Name = "CancelExit";
             this.CancelExit.Size = new System.Drawing.Size(96, 23);
             this.CancelExit.TabIndex = 0;
             this.CancelExit.Text = "Cancel and exit";
-            this.CancelExit.UseVisualStyleBackColor = true;
             this.CancelExit.Click += new System.EventHandler(this.CancelExit_Click);
             // 
             // Save
             // 
             this.Save.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.Save.Location = new System.Drawing.Point(255, 346);
+            this.Save.Location = new System.Drawing.Point(304, 395);
             this.Save.Name = "Save";
             this.Save.Size = new System.Drawing.Size(75, 23);
             this.Save.TabIndex = 1;
             this.Save.Text = "Save";
-            this.Save.UseVisualStyleBackColor = true;
             this.Save.Click += new System.EventHandler(this.Save_Click);
             // 
             // SaveExit
             // 
             this.SaveExit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.SaveExit.Location = new System.Drawing.Point(438, 346);
+            this.SaveExit.Location = new System.Drawing.Point(487, 395);
             this.SaveExit.Name = "SaveExit";
             this.SaveExit.Size = new System.Drawing.Size(98, 23);
             this.SaveExit.TabIndex = 2;
             this.SaveExit.Text = "Save and exit";
-            this.SaveExit.UseVisualStyleBackColor = true;
             this.SaveExit.Click += new System.EventHandler(this.SaveExit_Click);
             // 
             // l_name
             // 
             this.l_name.AutoSize = true;
-            this.l_name.Location = new System.Drawing.Point(5, 9);
+            this.l_name.BackColor = System.Drawing.Color.Transparent;
+            this.l_name.Location = new System.Drawing.Point(23, 60);
             this.l_name.Name = "l_name";
-            this.l_name.Size = new System.Drawing.Size(33, 13);
+            this.l_name.Size = new System.Drawing.Size(42, 19);
             this.l_name.TabIndex = 3;
             this.l_name.Text = "name";
             // 
             // l_desc
             // 
             this.l_desc.AutoSize = true;
-            this.l_desc.Location = new System.Drawing.Point(5, 100);
+            this.l_desc.BackColor = System.Drawing.Color.Transparent;
+            this.l_desc.Location = new System.Drawing.Point(23, 151);
             this.l_desc.Name = "l_desc";
-            this.l_desc.Size = new System.Drawing.Size(60, 13);
+            this.l_desc.Size = new System.Drawing.Size(74, 19);
             this.l_desc.TabIndex = 4;
             this.l_desc.Text = "Description";
             // 
             // l_item
             // 
             this.l_item.AutoSize = true;
-            this.l_item.Location = new System.Drawing.Point(5, 156);
+            this.l_item.BackColor = System.Drawing.Color.Transparent;
+            this.l_item.Location = new System.Drawing.Point(23, 207);
             this.l_item.Name = "l_item";
-            this.l_item.Size = new System.Drawing.Size(59, 13);
+            this.l_item.Size = new System.Drawing.Size(76, 19);
             this.l_item.TabIndex = 5;
             this.l_item.Text = "Item stored";
             // 
             // c_paste
             // 
-            this.c_paste.Location = new System.Drawing.Point(4, 216);
+            this.c_paste.Location = new System.Drawing.Point(22, 267);
             this.c_paste.Name = "c_paste";
-            this.c_paste.Size = new System.Drawing.Size(66, 54);
+            this.c_paste.Size = new System.Drawing.Size(82, 54);
             this.c_paste.TabIndex = 6;
-            this.c_paste.Text = "import from clipboard";
-            this.c_paste.UseVisualStyleBackColor = true;
+            this.c_paste.Text = "import from\r\nclipboard";
             this.c_paste.Click += new System.EventHandler(this.c_paste_Click);
             // 
             // c_name
             // 
-            this.c_name.Location = new System.Drawing.Point(76, 6);
+            this.c_name.Location = new System.Drawing.Point(110, 57);
             this.c_name.Name = "c_name";
-            this.c_name.Size = new System.Drawing.Size(457, 20);
+            this.c_name.Size = new System.Drawing.Size(441, 20);
             this.c_name.TabIndex = 7;
             // 
             // c_desc
             // 
-            this.c_desc.Location = new System.Drawing.Point(76, 97);
+            this.c_desc.Location = new System.Drawing.Point(110, 148);
             this.c_desc.Multiline = true;
             this.c_desc.Name = "c_desc";
-            this.c_desc.Size = new System.Drawing.Size(457, 50);
+            this.c_desc.Size = new System.Drawing.Size(441, 50);
             this.c_desc.TabIndex = 8;
             // 
             // c_item
             // 
-            this.c_item.Location = new System.Drawing.Point(76, 153);
+            this.c_item.Location = new System.Drawing.Point(110, 204);
             this.c_item.Multiline = true;
             this.c_item.Name = "c_item";
-            this.c_item.Size = new System.Drawing.Size(457, 117);
+            this.c_item.Size = new System.Drawing.Size(441, 117);
             this.c_item.TabIndex = 9;
             // 
             // l_type
             // 
             this.l_type.AutoSize = true;
-            this.l_type.Location = new System.Drawing.Point(5, 35);
+            this.l_type.BackColor = System.Drawing.Color.Transparent;
+            this.l_type.Location = new System.Drawing.Point(23, 86);
             this.l_type.Name = "l_type";
-            this.l_type.Size = new System.Drawing.Size(27, 13);
+            this.l_type.Size = new System.Drawing.Size(34, 19);
             this.l_type.TabIndex = 3;
             this.l_type.Text = "type";
             // 
             // l_tablename
             // 
             this.l_tablename.AutoSize = true;
-            this.l_tablename.Location = new System.Drawing.Point(5, 69);
+            this.l_tablename.BackColor = System.Drawing.Color.Transparent;
+            this.l_tablename.Location = new System.Drawing.Point(23, 120);
             this.l_tablename.Name = "l_tablename";
-            this.l_tablename.Size = new System.Drawing.Size(63, 13);
+            this.l_tablename.Size = new System.Drawing.Size(76, 19);
             this.l_tablename.TabIndex = 11;
             this.l_tablename.Text = "Table name";
             // 
             // c_table
             // 
+            this.c_table.BackColor = System.Drawing.Color.Transparent;
             this.c_table.Coded = true;
-            this.c_table.Location = new System.Drawing.Point(76, 66);
+            this.c_table.Location = new System.Drawing.Point(110, 117);
             this.c_table.Margin = new System.Windows.Forms.Padding(0);
             this.c_table.MaxLen = 50;
             this.c_table.Name = "c_table";
             this.c_table.ReadOnly = false;
-            this.c_table.Size = new System.Drawing.Size(457, 25);
+            this.c_table.Size = new System.Drawing.Size(441, 25);
             this.c_table.Subtype = null;
             this.c_table.TabIndex = 12;
             this.c_table.Upperc = false;
@@ -178,13 +180,14 @@
             // 
             // c_type
             // 
+            this.c_type.BackColor = System.Drawing.Color.Transparent;
             this.c_type.Coded = true;
-            this.c_type.Location = new System.Drawing.Point(76, 35);
+            this.c_type.Location = new System.Drawing.Point(110, 86);
             this.c_type.Margin = new System.Windows.Forms.Padding(0);
             this.c_type.MaxLen = 50;
             this.c_type.Name = "c_type";
             this.c_type.ReadOnly = false;
-            this.c_type.Size = new System.Drawing.Size(457, 31);
+            this.c_type.Size = new System.Drawing.Size(441, 31);
             this.c_type.Subtype = "eri_QueryStoreType";
             this.c_type.TabIndex = 13;
             this.c_type.Upperc = false;
@@ -193,54 +196,56 @@
             // C_CreatedDate
             // 
             this.C_CreatedDate.BackColor = System.Drawing.SystemColors.Info;
-            this.C_CreatedDate.Enabled = false;
-            this.C_CreatedDate.Location = new System.Drawing.Point(381, 276);
+            this.C_CreatedDate.Location = new System.Drawing.Point(399, 327);
             this.C_CreatedDate.Name = "C_CreatedDate";
+            this.C_CreatedDate.ReadOnly = true;
             this.C_CreatedDate.Size = new System.Drawing.Size(152, 20);
             this.C_CreatedDate.TabIndex = 14;
             // 
             // C_ModifiedDate
             // 
             this.C_ModifiedDate.BackColor = System.Drawing.SystemColors.Info;
-            this.C_ModifiedDate.Enabled = false;
-            this.C_ModifiedDate.Location = new System.Drawing.Point(381, 307);
+            this.C_ModifiedDate.Location = new System.Drawing.Point(399, 358);
             this.C_ModifiedDate.Name = "C_ModifiedDate";
+            this.C_ModifiedDate.ReadOnly = true;
             this.C_ModifiedDate.Size = new System.Drawing.Size(152, 20);
             this.C_ModifiedDate.TabIndex = 15;
             // 
             // C_CreatedBy
             // 
             this.C_CreatedBy.BackColor = System.Drawing.SystemColors.Info;
-            this.C_CreatedBy.Enabled = false;
-            this.C_CreatedBy.Location = new System.Drawing.Point(223, 276);
+            this.C_CreatedBy.Location = new System.Drawing.Point(241, 327);
             this.C_CreatedBy.Name = "C_CreatedBy";
+            this.C_CreatedBy.ReadOnly = true;
             this.C_CreatedBy.Size = new System.Drawing.Size(152, 20);
             this.C_CreatedBy.TabIndex = 16;
             // 
             // C_ModifiedBy
             // 
             this.C_ModifiedBy.BackColor = System.Drawing.SystemColors.Info;
-            this.C_ModifiedBy.Enabled = false;
-            this.C_ModifiedBy.Location = new System.Drawing.Point(223, 307);
+            this.C_ModifiedBy.Location = new System.Drawing.Point(241, 358);
             this.C_ModifiedBy.Name = "C_ModifiedBy";
+            this.C_ModifiedBy.ReadOnly = true;
             this.C_ModifiedBy.Size = new System.Drawing.Size(152, 20);
             this.C_ModifiedBy.TabIndex = 17;
             // 
             // l_created
             // 
             this.l_created.AutoSize = true;
-            this.l_created.Location = new System.Drawing.Point(154, 279);
+            this.l_created.BackColor = System.Drawing.Color.Transparent;
+            this.l_created.Location = new System.Drawing.Point(172, 330);
             this.l_created.Name = "l_created";
-            this.l_created.Size = new System.Drawing.Size(44, 13);
+            this.l_created.Size = new System.Drawing.Size(56, 19);
             this.l_created.TabIndex = 5;
             this.l_created.Text = "Created";
             // 
             // l_modified
             // 
             this.l_modified.AutoSize = true;
-            this.l_modified.Location = new System.Drawing.Point(154, 310);
+            this.l_modified.BackColor = System.Drawing.Color.Transparent;
+            this.l_modified.Location = new System.Drawing.Point(172, 361);
             this.l_modified.Name = "l_modified";
-            this.l_modified.Size = new System.Drawing.Size(47, 13);
+            this.l_modified.Size = new System.Drawing.Size(62, 19);
             this.l_modified.TabIndex = 5;
             this.l_modified.Text = "Modified";
             // 
@@ -248,7 +253,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(548, 381);
+            this.ClientSize = new System.Drawing.Size(597, 430);
             this.Controls.Add(this.C_ModifiedBy);
             this.Controls.Add(this.C_CreatedBy);
             this.Controls.Add(this.C_ModifiedDate);
@@ -271,7 +276,8 @@
             this.Controls.Add(this.CancelExit);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "QueryStoreEditor";
-            this.Text = "QueryStoreEditor";
+            this.Style = "Purple";
+            this.Text = "Query configuration";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.QueryStoreEditor_FormClosing);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -280,25 +286,25 @@
 
         #endregion
 
-        private System.Windows.Forms.Button CancelExit;
-        private System.Windows.Forms.Button Save;
-        private System.Windows.Forms.Button SaveExit;
-        private System.Windows.Forms.Label l_name;
-        private System.Windows.Forms.Label l_desc;
-        private System.Windows.Forms.Label l_item;
-        private System.Windows.Forms.Button c_paste;
-        private System.Windows.Forms.TextBox c_name;
-        private System.Windows.Forms.TextBox c_desc;
-        private System.Windows.Forms.TextBox c_item;
-        private System.Windows.Forms.Label l_type;
-        private System.Windows.Forms.Label l_tablename;
+        private FormsCs.IcsMetroButton CancelExit;
+        private FormsCs.IcsMetroButton Save;
+        private FormsCs.IcsMetroButton SaveExit;
+        private FormsCs.IcsMetroLabel l_name;
+        private FormsCs.IcsMetroLabel l_desc;
+        private FormsCs.IcsMetroLabel l_item;
+        private FormsCs.IcsMetroButton c_paste;
+        private FormsCs.IcsMetroTextBox c_name;
+        private FormsCs.IcsMetroTextBox c_desc;
+        private FormsCs.IcsMetroTextBox c_item;
+        private FormsCs.IcsMetroLabel l_type;
+        private FormsCs.IcsMetroLabel l_tablename;
         private NetPlugins2.IcsCombo c_table;
         private NetPlugins2.IcsCombo c_type;
-        private System.Windows.Forms.TextBox C_CreatedDate;
-        private System.Windows.Forms.TextBox C_ModifiedDate;
-        private System.Windows.Forms.TextBox C_CreatedBy;
-        private System.Windows.Forms.TextBox C_ModifiedBy;
-        private System.Windows.Forms.Label l_created;
-        private System.Windows.Forms.Label l_modified;
+        private FormsCs.IcsMetroTextBox C_CreatedDate;
+        private FormsCs.IcsMetroTextBox C_ModifiedDate;
+        private FormsCs.IcsMetroTextBox C_CreatedBy;
+        private FormsCs.IcsMetroTextBox C_ModifiedBy;
+        private FormsCs.IcsMetroLabel l_created;
+        private FormsCs.IcsMetroLabel l_modified;
     }
 }

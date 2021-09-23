@@ -12,12 +12,6 @@ namespace XICSM.MiscTools
 {
     class QueryStore
     {
-        static public bool EditRecord(IMQueryMenuNode.Context context)
-        {
-            YXmiscQuerystore y = new YXmiscQuerystore(); y.Fetch(context.TableId);
-            QueryStoreEditor edt = new QueryStoreEditor(y);
-            return (edt.ShowDialog() == DialogResult.OK ? true : false); //Return true if query should be refreshed due to modification of some record(s)
-        }
         static public bool NewRecord(IMQueryMenuNode.Context context)
         {
             QueryStoreEditor edt = new QueryStoreEditor();

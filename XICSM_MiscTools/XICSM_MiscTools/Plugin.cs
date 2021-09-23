@@ -17,7 +17,7 @@ namespace XICSM.MiscTools
     {
         public string Description { get { return "Miscellaneous Tools"; } }
         public string Ident { get { return "MiscTools"; } }
-        public string Version = "1.0.0.0";
+        public string Version = "1.0.1.0";
 
         public void RegisterSchema(IMSchema s) 
         {
@@ -54,10 +54,13 @@ namespace XICSM.MiscTools
             s.DeclareField("LANG", "VARCHAR(50)", null, null, null); s.Info("Translation Language");
             s.DeclareField("FROM_STRING", "VARCHAR(255)", null, "NOTNULL", null); s.Info("Original String in ICSM");
             s.DeclareField("TO_STRING", "VARCHAR(255)", null, null, null); s.Info("Translated String in ICSM");
+            s.DeclareField("isFromStrings", "NUMBER(1,0)", "Bool", "NOTNULL", "0"); s.Info("This translation was added from STRINGS file");
+            s.DeclareField("isObsolete", "NUMBER(1,0)", "Bool", "NOTNULL", "0"); s.Info("This translation was missing from STRINGS file");
+            s.DeclareField("isCustomF", "NUMBER(1,0)", "Bool", "NOTNULL", "0"); s.Info("This translation is a Custom field (CUST_xxx in DB)");
             #endregion
-            /*
+
             #region MGT_PLANNING
-            s.DeclareTable("XMISC_EVENTTYPE|SOURCER", "Shared agenda event type", "PLUGIN_4,100");
+            /*s.DeclareTable("XMISC_EVENTTYPE|SOURCER", "Shared agenda event type", "PLUGIN_4,100");
             s.DeclareShortDesc("Shared agen event type configuration");
             s.DeclareFullDesc(
                  "Type of event = [EVENTTYPE_NAME]\r\n"
@@ -75,11 +78,11 @@ namespace XICSM.MiscTools
             s.DeclareField("DATE_CREATED", "DATE", "Date", null, null); s.Info("Date/Time of creation");
             s.DeclareField("CREATED_BY", "VARCHAR(30)", null, null, null); s.Info("Author");
             s.DeclareField("DATE_MODIFIED", "DATE", "Date", null, null); s.Info("Date of modification");
-            s.DeclareField("MODIFIED_BY", "VARCHAR(30)", null, null, null); s.Info("Modified by");
-            #endregion*/
-            /*
+            s.DeclareField("MODIFIED_BY", "VARCHAR(30)", null, null, null); s.Info("Modified by");*/
+            #endregion
+
             #region MGT_SHAREDAGENDA
-            s.DeclareTable("XMISC_SHAREDAGENGA|SOURCER", "Shared agenda", "PLUGIN_4,100");
+            /*s.DeclareTable("XMISC_SHAREDAGENGA|SOURCER", "Shared agenda", "PLUGIN_4,100");
             s.DeclareShortDesc("Shared agenda");
             s.DeclareFullDesc(
                  "From [DATE_BEGIN] to [DATE_END] \r\n" +
@@ -100,38 +103,45 @@ namespace XICSM.MiscTools
             s.DeclareField("DATE_CREATED", "DATE", "Date", null, null); s.Info("Date/Time of creation");
             s.DeclareField("CREATED_BY", "VARCHAR(30)", null, null, null); s.Info("Author");
             s.DeclareField("DATE_MODIFIED", "DATE", "Date", null, null); s.Info("Date of modification");
-            s.DeclareField("MODIFIED_BY", "VARCHAR(30)", null, null, null); s.Info("Modified by");
+            s.DeclareField("MODIFIED_BY", "VARCHAR(30)", null, null, null); s.Info("Modified by");*/
             #endregion
 
-            */
+
             string appFolder = System.IO.Path.GetDirectoryName(Application.ExecutablePath);
-            string err;
-            if (!OrmCs.OrmSchema.ParseSchema(appFolder, "MiscTools", "XICSM_MiscTools", out err)) MessageBox.Show("Unable to load 'MiscTools.Schema' :" + err);
-            
+            if (!OrmCs.OrmSchema.ParseSchema(appFolder, "MiscTools", "XICSM_MiscTools", out string err)) MessageBox.Show("Unable to load 'MiscTools.Schema' :" + err);
+
 
         }
-        public double SchemaVersion { get { return 20210615.00; } }
+        public double SchemaVersion { get { return 20210917.1901; } }
         public void RegisterBoard(IMBoard b)
         {
             b.RegisterQueryMenuBuilder("MICROWA", Contextual.onGetQueryMenu);
-
             b.RegisterQueryMenuBuilder("XMISC_QUERYSTORE", Contextual.onGetQueryMenu);
-            b.ReplaceDefaultEditor("XMISC_QUERYSTORE");
-
             b.RegisterQueryMenuBuilder("XMISC_TRANSLATIONS", Contextual.onGetQueryMenu);
-            b.ReplaceDefaultEditor("XMISC_TRANSLATIONS");
-            
         }
         public void GetMainMenu(IMMainMenu mainMenu) 
         {
            mainMenu.SetInsertLocation("Tools\\Administrator\\*", IMMainMenu.InsertLocation.After);
-           mainMenu.InsertItem("Tools\\Administrator\\" + L.Txt("Import SYS_LANG file in Translation table"), ImportLangFile, "XMISC_TRANSLATIONS");
-           mainMenu.InsertItem("Tools\\Administrator\\" + L.Txt("Export Translation records to SYS_LANG file"), ExportLangFile, "XMISC_TRANSLATIONS");
-           mainMenu.InsertItem("Help\\" + $"{Description} Version", VersionInfo, "XMISC_TRANSLATIONS");
-           mainMenu.InsertItem("Help\\" + $"{Description} Help and resources", PluginResources, "XMISC_TRANSLATIONS");
+           mainMenu.InsertItem("Tools\\Translations\\" + L.Txt("Import SYS_LANG file in Translation table"), ImportLangFile, "XMISC_TRANSLATIONS");
+           mainMenu.InsertItem("Tools\\Translations\\" + L.Txt("Export Translation records to SYS_LANG file"), ExportLangFile, "XMISC_TRANSLATIONS");
+           mainMenu.InsertItem("Tools\\Translations\\" + L.Txt("Consolidate importe translation with STRINGS file"), ImportSTRINGSFile, "XMISC_TRANSLATIONS");
+           mainMenu.InsertItem("Help\\Translations\\" + $"{Description}" + L.TxT("Version"), VersionInfo, "XMISC_TRANSLATIONS");
+           mainMenu.InsertItem("Help\\Translations\\" + $"{Description}" + L.TxT("Help and resources"), PluginResources, "XMISC_TRANSLATIONS");
         }
         public bool OtherMessage(string message, object inParam, ref object outParam) 
         {
+            outParam = null;
+            if (message == "EditRecord")
+            {
+                IntPtr owner = (IntPtr)IM.GetMainWindow();
+                string[] s = ((string)inParam).Split('/');
+                int id = s[1].Substring(1).ParseInt();
+                bool ro = s[2] == "true"; //Readonly
+                if (s[0] == "XMISC_TRANSLATIONS") { outParam = TranslationEditor.EditRecord(id, owner); return true; }
+                if (s[0] == "XMISC_QUERYSTORE") { outParam = QueryStoreEditor.EditRecord(id, owner); return true; }
+                return false;
+            }
+
             return false; 
         }
         public bool UpgradeDatabase(IMSchema s, double dbCurVersion) 
@@ -140,26 +150,38 @@ namespace XICSM.MiscTools
             {
                 s.CreateTables("XMISC_QUERYSTORE");
                 s.CreateTables("XMISC_TRANSLATIONS");
-                s.SetDatabaseVersion(20210615.00);
             }
-           
-                return true;
-        }
+            if (dbCurVersion < 20210917.1901)
+            {
+                s.CreateTableFields("XMISC_TRANSLATIONS", "isFromStrings,isObsolete,isCustomF");
+            }
 
+            s.SetDatabaseVersion(20210917.1901);
+            return true;
+        }
+        
         #region Translations
         public void ImportLangFile()
         {
             Translations.ImportFile();
+        }
+        public void ImportSTRINGSFile()
+        {
+            Translations.ImportStrings();
         }
         public void ExportLangFile()
         {
             Translations.ExportFile();
         }
         #endregion
+
+
         public void VersionInfo()
         { MessageBox.Show(L.Txt("Plugin version is : " + Version) + L.Txt("\r\nPlugin schema version is : ") + 20210615.00) ; }
         public void PluginResources()
-        { System.Diagnostics.Process.Start("https://github.com/LixYt/ICSM_CollaborativePlugins"); }
+        {
+            MessageBox.Show("A github page will open in your default browser. Feel free to give feedback and hints on this tool.");
+            System.Diagnostics.Process.Start("https://github.com/LixYt/ICSM_CollaborativePlugins"); }
         
     }
 }

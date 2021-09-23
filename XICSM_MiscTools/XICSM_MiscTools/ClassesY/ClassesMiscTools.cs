@@ -47,6 +47,12 @@ namespace OrmCs
 		public DatPtr z_from_string { get { return new DatPtr(this, 4); } }
 		public string m_to_string { get { return getString(5); } set { setString(5, 255, value); } }
 		public DatPtr z_to_string { get { return new DatPtr(this, 5); } }
+		public int m_isfromstrings { get { return getInt(6); } set { setInt(6, value); } }
+		public DatPtr z_isfromstrings { get { return new DatPtr(this, 6); } }
+		public int m_isobsolete { get { return getInt(7); } set { setInt(7, value); } }
+		public DatPtr z_isobsolete { get { return new DatPtr(this, 7); } }
+		public int m_iscustomf { get { return getInt(8); } set { setInt(8, value); } }
+		public DatPtr z_iscustomf { get { return new DatPtr(this, 8); } }
 	}
 
 }
