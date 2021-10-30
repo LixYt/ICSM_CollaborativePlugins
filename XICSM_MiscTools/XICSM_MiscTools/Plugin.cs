@@ -4,11 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using ICSM;
-using NetPlugins2;
-using FormsCs;
 using OrmCs;
 using DatalayerCs;
-using Image2;
 using System.Windows.Forms;
 
 namespace XICSM.MiscTools
@@ -17,7 +14,7 @@ namespace XICSM.MiscTools
     {
         public string Description { get { return "Miscellaneous Tools"; } }
         public string Ident { get { return "MiscTools"; } }
-        public string Version = "1.0.1.0";
+        public string Version = "1.0.2.0";
 
         public void RegisterSchema(IMSchema s) 
         {
@@ -175,13 +172,15 @@ namespace XICSM.MiscTools
         }
         #endregion
 
-
         public void VersionInfo()
-        { MessageBox.Show(L.Txt("Plugin version is : " + Version) + L.Txt("\r\nPlugin schema version is : ") + 20210615.00) ; }
+        { 
+            MessageBox.Show(L.Txt("Plugin version is : " + Version) + L.Txt("\r\nPlugin schema version is : ") + 20210615.00) ;
+        }
         public void PluginResources()
         {
             MessageBox.Show("A github page will open in your default browser. Feel free to give feedback and hints on this tool.");
             System.Diagnostics.Process.Start("https://github.com/LixYt/ICSM_CollaborativePlugins"); }
         
+
     }
 }

@@ -110,6 +110,7 @@
     <Compile Include="Tools\MiscProgressBar.Designer.cs">
       <DependentUpon>MiscProgressBar.cs</DependentUpon>
     </Compile>
+    <Compile Include="Tools\XTools.cs" />
     <Compile Include="Translations\LangSelection.cs">
       <SubType>Form</SubType>
     </Compile>
