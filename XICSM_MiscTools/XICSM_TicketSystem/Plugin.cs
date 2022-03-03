@@ -137,7 +137,7 @@ namespace XICSM.TicketSystem
 
 
         }
-        public double SchemaVersion { get { return 20210923.0000; } }
+        public double SchemaVersion { get { return 20220301.2007; } }
         public void RegisterBoard(IMBoard b)
         {
             b.RegisterQueryMenuBuilder("XTICKET_TICKETS", onGetQueryMenu);
@@ -164,8 +164,8 @@ namespace XICSM.TicketSystem
         public void GetMainMenu(IMMainMenu mainMenu) 
         {
            mainMenu.SetInsertLocation("Tools", IMMainMenu.InsertLocation.Before);
-           mainMenu.InsertItem("Ticket\\" + $"{Description} Version", VersionInfo, "XMISC_TRANSLATIONS");
-           mainMenu.InsertItem("Ticket\\" + $"{Description} Help and resources", PluginResources, "XMISC_TRANSLATIONS");
+           mainMenu.InsertItem("Ticket\\" + $"{Description} " + L.TxT("Version"), VersionInfo, "XMISC_TRANSLATIONS");
+           mainMenu.InsertItem("Ticket\\" + $"{Description} " + L.TxT("Help and resources"), PluginResources, "XMISC_TRANSLATIONS");
         }
         public bool OtherMessage(string message, object inParam, ref object outParam) 
         {
@@ -192,7 +192,16 @@ namespace XICSM.TicketSystem
                 s.CreateTables("XTICKET_MESSAGES");
                 s.SetDatabaseVersion(20210923.0000);
             }
-            
+            if (dbCurVersion < 20220301.2007)
+            {
+                s.DeleteTables("XTICKET_KNOWDB,XTICKET_TASK,XTICKET_TICKETS,XTICKET_MESSAGES", false);
+                s.CreateTables("XTICKET_KNOWDB");
+                s.CreateTables("XTICKET_TASK");
+                s.CreateTables("XTICKET_TICKETS");
+                s.CreateTables("XTICKET_MESSAGES");
+                s.SetDatabaseVersion(20220301.2007);
+            }
+
             return true;
         }
 

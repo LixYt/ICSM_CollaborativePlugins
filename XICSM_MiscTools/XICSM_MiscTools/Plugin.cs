@@ -6,7 +6,9 @@ using System.Threading.Tasks;
 using ICSM;
 using OrmCs;
 using DatalayerCs;
+using NetPlugins2;
 using System.Windows.Forms;
+using NetPlugins2Ext;
 
 namespace XICSM.MiscTools
 {
@@ -118,12 +120,20 @@ namespace XICSM.MiscTools
         }
         public void GetMainMenu(IMMainMenu mainMenu) 
         {
-           mainMenu.SetInsertLocation("Tools\\Administrator\\*", IMMainMenu.InsertLocation.After);
-           mainMenu.InsertItem("Tools\\Translations\\" + L.Txt("Import SYS_LANG file in Translation table"), ImportLangFile, "XMISC_TRANSLATIONS");
-           mainMenu.InsertItem("Tools\\Translations\\" + L.Txt("Export Translation records to SYS_LANG file"), ExportLangFile, "XMISC_TRANSLATIONS");
-           mainMenu.InsertItem("Tools\\Translations\\" + L.Txt("Consolidate importe translation with STRINGS file"), ImportSTRINGSFile, "XMISC_TRANSLATIONS");
-           mainMenu.InsertItem("Help\\Translations\\" + $"{Description}" + L.TxT("Version"), VersionInfo, "XMISC_TRANSLATIONS");
-           mainMenu.InsertItem("Help\\Translations\\" + $"{Description}" + L.TxT("Help and resources"), PluginResources, "XMISC_TRANSLATIONS");
+            mainMenu.SetInsertLocation("Tools", IMMainMenu.InsertLocation.After);
+            mainMenu.InsertItem("Demo\\" + L.Txt("Advanced Geoview"), GeoviewTester, "XMISC_TRANSLATIONS");
+            mainMenu.InsertItem("Demo\\" + L.Txt("Geoview Query on ANFR"), GeoviewQueryTester, "XMISC_TRANSLATIONS");
+            mainMenu.InsertItem("Demo\\" + L.Txt("Geoview Query on MOB_STATION"), GeoviewQueryTester2, "XMISC_TRANSLATIONS");
+            mainMenu.InsertItem("Demo\\" + L.Txt("3D map viewer"), Viewer3D, "XMISC_TRANSLATIONS");
+
+            mainMenu.SetInsertLocation("Tools\\Administrator", IMMainMenu.InsertLocation.After);
+            mainMenu.InsertItem("Tools\\Translations\\" + L.Txt("Import SYS_LANG file in Translation table"), ImportLangFile, "XMISC_TRANSLATIONS");
+            mainMenu.InsertItem("Tools\\Translations\\" + L.Txt("Export Translation records to SYS_LANG file"), ExportLangFile, "XMISC_TRANSLATIONS");
+            mainMenu.InsertItem("Tools\\Translations\\" + L.Txt("Consolidate importe translation with STRINGS file"), ImportSTRINGSFile, "XMISC_TRANSLATIONS");
+
+            mainMenu.SetInsertLocation("Help\\*", IMMainMenu.InsertLocation.Top);
+            mainMenu.InsertItem("Help\\Translations\\" + $"{Description} " + L.TxT("Version"), VersionInfo, "XMISC_TRANSLATIONS");
+            mainMenu.InsertItem("Help\\Translations\\" + $"{Description} " + L.TxT("Help and resources"), PluginResources, "XMISC_TRANSLATIONS");
         }
         public bool OtherMessage(string message, object inParam, ref object outParam) 
         {
@@ -172,6 +182,44 @@ namespace XICSM.MiscTools
         }
         #endregion
 
+        public void Viewer3D()
+        {
+            using (Module3d.Viewer3d Window3D = new Module3d.Viewer3d())
+            {
+                Window3D.Run();
+            }
+        }
+        public void GeoviewTester()
+        {
+            Form f = new Form();
+            IcsMetroGeoView g = new IcsMetroGeoView();
+            g.Dock = DockStyle.Fill;
+            f.Controls.Add(g);
+            f.ShowDialog();
+        }
+
+        public void GeoviewQueryTester()
+        {
+            Form f = new Form();
+            IcsMetroGeoViewQuery g = new IcsMetroGeoViewQuery
+            {
+                TableName = "ANFR",
+                Dock = DockStyle.Fill
+            };
+            f.Controls.Add(g);
+            f.ShowDialog();
+        }
+        public void GeoviewQueryTester2()
+        {
+            Form f = new Form();
+            IcsMetroGeoViewQuery g = new IcsMetroGeoViewQuery
+            {
+                TableName = "MOB_STATION",
+                Dock = DockStyle.Fill
+            };
+            f.Controls.Add(g);
+            f.ShowDialog();
+        }
         public void VersionInfo()
         { 
             MessageBox.Show(L.Txt("Plugin version is : " + Version) + L.Txt("\r\nPlugin schema version is : ") + 20210615.00) ;

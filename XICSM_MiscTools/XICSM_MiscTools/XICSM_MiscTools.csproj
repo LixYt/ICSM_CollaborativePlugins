@@ -9,7 +9,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>XICSM.MiscTools</RootNamespace>
     <AssemblyName>XICSM_MiscTools</AssemblyName>
-    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
     <TargetFrameworkProfile />
@@ -80,6 +80,24 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>C:\ATDI\ICS Manager\OrmCs.dll</HintPath>
     </Reference>
+    <Reference Include="SharpDX, Version=4.2.0.0, Culture=neutral, PublicKeyToken=b4dcf0f35e5521f1, processorArchitecture=MSIL">
+      <HintPath>..\packages\SharpDX.4.2.0\lib\net45\SharpDX.dll</HintPath>
+    </Reference>
+    <Reference Include="SharpDX.D3DCompiler, Version=4.2.0.0, Culture=neutral, PublicKeyToken=b4dcf0f35e5521f1, processorArchitecture=MSIL">
+      <HintPath>..\packages\SharpDX.D3DCompiler.4.2.0\lib\net45\SharpDX.D3DCompiler.dll</HintPath>
+    </Reference>
+    <Reference Include="SharpDX.Desktop, Version=4.2.0.0, Culture=neutral, PublicKeyToken=b4dcf0f35e5521f1, processorArchitecture=MSIL">
+      <HintPath>..\packages\SharpDX.Desktop.4.2.0\lib\net45\SharpDX.Desktop.dll</HintPath>
+    </Reference>
+    <Reference Include="SharpDX.Direct3D11, Version=4.2.0.0, Culture=neutral, PublicKeyToken=b4dcf0f35e5521f1, processorArchitecture=MSIL">
+      <HintPath>..\packages\SharpDX.Direct3D11.4.2.0\lib\net45\SharpDX.Direct3D11.dll</HintPath>
+    </Reference>
+    <Reference Include="SharpDX.DXGI, Version=4.2.0.0, Culture=neutral, PublicKeyToken=b4dcf0f35e5521f1, processorArchitecture=MSIL">
+      <HintPath>..\packages\SharpDX.DXGI.4.2.0\lib\net45\SharpDX.DXGI.dll</HintPath>
+    </Reference>
+    <Reference Include="SharpDX.Mathematics, Version=4.2.0.0, Culture=neutral, PublicKeyToken=b4dcf0f35e5521f1, processorArchitecture=MSIL">
+      <HintPath>..\packages\SharpDX.Mathematics.4.2.0\lib\net45\SharpDX.Mathematics.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Drawing" />
@@ -95,6 +113,45 @@
     <Compile Include="ClassesY\ClassesMiscTools.cs" />
     <Compile Include="Contextual.cs" />
     <Compile Include="Converter.cs" />
+    <Compile Include="IngeneeringTools\SearchInterf.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IngeneeringTools\SearchInterf.designer.cs">
+      <DependentUpon>SearchInterf.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Module3d\Viewer3d.cs" />
+    <Compile Include="NetPluginsExt\IcsMetroDbListSelector.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NetPluginsExt\IcsMetroDbListSelector.designer.cs">
+      <DependentUpon>IcsMetroDbListSelector.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NetPluginsExt\IcsMetroGeoViewQuery.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="NetPluginsExt\IcsMetroGeoViewQuery.designer.cs">
+      <DependentUpon>IcsMetroGeoViewQuery.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NetPluginsExt\IcsMetroGeoView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="NetPluginsExt\IcsMetroGeoView.designer.cs">
+      <DependentUpon>IcsMetroGeoView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NetPluginsExt\IcsOpenlayers3.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="NetPluginsExt\IcsOpenlayers3.designer.cs">
+      <DependentUpon>IcsOpenlayers3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NetPluginsExt\MapControlStuff.cs" />
+    <Compile Include="NetPluginsExt\Openlayers3.cs" />
+    <Compile Include="NetPluginsExt\Openlayers3Kml.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NetPluginsExt\Openlayers3Kml.designer.cs">
+      <DependentUpon>Openlayers3Kml.cs</DependentUpon>
+    </Compile>
     <Compile Include="Plugin.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="QueryStore\QueryStore.cs" />
@@ -126,6 +183,24 @@
     <Compile Include="Translations\Translations.cs" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="IngeneeringTools\SearchInterf.resx">
+      <DependentUpon>SearchInterf.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NetPluginsExt\IcsMetroDbListSelector.resx">
+      <DependentUpon>IcsMetroDbListSelector.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NetPluginsExt\IcsMetroGeoViewQuery.resx">
+      <DependentUpon>IcsMetroGeoViewQuery.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NetPluginsExt\IcsMetroGeoView.resx">
+      <DependentUpon>IcsMetroGeoView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NetPluginsExt\IcsOpenlayers3.resx">
+      <DependentUpon>IcsOpenlayers3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NetPluginsExt\Openlayers3Kml.resx">
+      <DependentUpon>Openlayers3Kml.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="QueryStore\QueryStoreEditor.resx">
       <DependentUpon>QueryStoreEditor.cs</DependentUpon>
     </EmbeddedResource>
@@ -143,9 +218,49 @@
     <None Include="Enums\QueryStoreType.eri">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="ICSM3.ico">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\boat.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\broadcast.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\gsm.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\microwa.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\microws.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\nato.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\nato24.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\sat.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\warfare.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\warfare1.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Module3d\pixelShader.hlsl">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Module3d\vertexShader.hlsl">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="OpenLayers3.js">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>

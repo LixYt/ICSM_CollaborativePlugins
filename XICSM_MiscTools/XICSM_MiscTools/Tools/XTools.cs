@@ -6,6 +6,7 @@ using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
+
 namespace XICSM.MiscTools.Tools
 {
     public static class XTools
@@ -40,6 +41,16 @@ namespace XICSM.MiscTools.Tools
             Tables.Sort();
             return Tables;
         }
-
+        static public bool Compatible(this DateTime d)
+        {
+            return (d >= DateTime.MinValue && d <= DateTime.MaxValue);
+        }
+        static public bool IsNull(this float f)
+        {
+            double d = float.Parse(f.ToString());
+            return (d.IsNull());
+        }
     }
+
+    
 }
