@@ -454,7 +454,7 @@ namespace NetPlugins2Ext
 
             Yyy yAllP = Yyy.CreateObject(TableName);
             string FormatString = "*";
-            if (yAllP.IsPresent2("POS_ID") || yAllP.IsPresent2("SITE_ID")) { FormatString += ",Position(LONGITUDE,LATITUDE)"; }
+            if (yAllP.IsPresent2("POS_ID") || yAllP.IsPresent2("SITE_ID")) { FormatString += ",Position(NAME,LONGITUDE,LATITUDE)"; }
             yAllP.Format(FormatString);
             yAllP.Filter = filter;
             
@@ -469,6 +469,7 @@ namespace NetPlugins2Ext
             for (yAllP.OpenRs(); !yAllP.IsEOF(); yAllP.MoveNext())
             {
                 i++;
+                bool noPoint = false;
 
                 StationN s = new StationN();
                 s.distance_border = 0;
@@ -477,6 +478,7 @@ namespace NetPlugins2Ext
 
                 if (yAllP.IsPresent2("NAME")) { s.name = yAllP.Get("NAME").ToString(); }
                 else if (yAllP.IsPresent2("NOM")) { s.name = yAllP.Get("NOM").ToString(); }
+                else if (yAllP.IsPresent2("Position.Name")) { s.name = yAllP.Get("Position.Name").ToString(); }
                 else { s.name = s.key; }
                 
                 if (yAllP.IsPresent2("LONGITUDE") && yAllP.IsPresent2("LATITUDE"))
@@ -491,23 +493,69 @@ namespace NetPlugins2Ext
                 }
                 else
                 {
-
-                }
-                        
+                    noPoint = true;
+                    IMLogFile log = new IMLogFile();
+                    log.Create("GeeoViewQuery.log");
+                    log.Error($"Table '{TableName}' not handled because no coordinate field has been found by the method.");
+                    log.Info($"If you think this table should be supported by this function, ask for developpers to check this log file.");
+                } 
 
                 if (yAllP.IsPresent2("POINTS"))
                 {
                     if (yAllP.Get("POINTS").ToString() == "") { s.isPolygon = false; }
                     else { s.isPolygon = true; s.area = yAllP.Get("POINTS").ToString(); }
                 }
-
-                if (yAllP.IsPresent2("RADIUS"))
+                if (yAllP.IsPresent2("RADIUS") && !noPoint)
                 {
-                    if (double.Parse(yAllP.Get("RADIUS").ToString()) != Null.D) 
+                    if (double.Parse(yAllP.Get("RADIUS").ToString()) != Null.D)
                     { s.radius = double.Parse(yAllP.Get("RADIUS").ToString()); s.isCircle = true; }
                 }
 
-                CurrStations.Add(tp.UpdatePosition(s));
+                switch(TableName)
+                {
+                    case "MOB_STATION":
+                    case "MOB_STATION2":
+                    case "PMR_FREQ":
+                    case "MOB_ASSIGN":
+                    case "WIEN_COORD_MOB":
+                        CurrStations.Add(tpMob.UpdatePosition(s));
+                        break;
+                    case "MICROWS":
+                        CurrStations.Add(tpFix.UpdatePosition(s));
+                        break;
+                    case "EARTH_STATION":
+                        CurrStations.Add(tpSat.UpdatePosition(s));
+                        break;
+                    case "SFAF":
+                    case "SFAF_TX":
+                    case "SFAF_RX":
+                        CurrStations.Add(tpFix.UpdatePosition(s));
+                        break;
+                    case "S4_STATION":
+                    case "S4_ANTENNA":
+                    case "S4_FREQ":
+                    case "S4_LINK":
+                        CurrStations.Add(tpNato.UpdatePosition(s));
+                        break;
+                    case "GSM":
+                        CurrStations.Add(tpGsm.UpdatePosition(s));
+                        break;
+                    case "T15":
+                        CurrStations.Add(tpOther.UpdatePosition(s));
+                        break;
+                    case "ANFR":
+                        CurrStations.Add(tp.UpdatePosition(s));
+                        break;
+                    case "HF":
+                    case "TV_STATION":
+                    case "TDAB_STATION":
+                    case "FMTV_STATION":
+                    case "FM_STATION":
+                    case "DVBT_STATION":
+                    default:
+                        CurrStations.Add(tp.UpdatePosition(s));
+                        break;
+                }              
                 IMProgress.ShowProgress(i, c);
             }
 
@@ -812,18 +860,18 @@ namespace NetPlugins2Ext
 
             IMProgress.Destroy();
         }
-        private void UpdateAllTransmitters(List<string> CurrStations)
+        private void UpdateAllTransmitters(List<string> Stations)
         {
-            UpdateTransmitters(tp, CurrStations);
-            UpdateTransmitters(tpMob, CurrStations);
-            UpdateTransmitters(tpFix, CurrStations);
-            UpdateTransmitters(tpSat, CurrStations);
-            UpdateTransmitters(tpGsm, CurrStations);
-            UpdateTransmitters(tpBoat, CurrStations);
-            UpdateTransmitters(tpBroadCast, CurrStations);
-            UpdateTransmitters(tpWarfare, CurrStations);
-            UpdateTransmitters(tpNato, CurrStations);
-            UpdateTransmitters(tpOther, CurrStations);
+            UpdateTransmitters(tp, Stations);
+            UpdateTransmitters(tpMob, Stations);
+            UpdateTransmitters(tpFix, Stations);
+            UpdateTransmitters(tpSat, Stations);
+            UpdateTransmitters(tpGsm, Stations);
+            UpdateTransmitters(tpBoat, Stations);
+            UpdateTransmitters(tpBroadCast, Stations);
+            UpdateTransmitters(tpWarfare, Stations);
+            UpdateTransmitters(tpNato, Stations);
+            UpdateTransmitters(tpOther, Stations);
             UpdateTransmitters(tpDeactivated, null);
         }
         private void MoveAllTransmitters(Transmitters ToThisTp, List<string> ExeptThisStations)

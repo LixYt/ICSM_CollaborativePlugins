@@ -129,9 +129,9 @@ namespace XICSM.MiscTools
             this.geoParam.Controls.Add(this.N0);
             this.geoParam.Controls.Add(this.N1);
             this.geoParam.Controls.Add(this.N2);
-            this.geoParam.Location = new System.Drawing.Point(153, 6);
+            this.geoParam.Location = new System.Drawing.Point(187, 6);
             this.geoParam.Name = "geoParam";
-            this.geoParam.Size = new System.Drawing.Size(161, 134);
+            this.geoParam.Size = new System.Drawing.Size(218, 134);
             this.geoParam.TabIndex = 1;
             this.geoParam.TabStop = false;
             this.geoParam.Text = "Frequency limits";
@@ -173,7 +173,7 @@ namespace XICSM.MiscTools
             this.freqParams.Controls.Add(this.coverMode);
             this.freqParams.Location = new System.Drawing.Point(8, 6);
             this.freqParams.Name = "freqParams";
-            this.freqParams.Size = new System.Drawing.Size(139, 73);
+            this.freqParams.Size = new System.Drawing.Size(173, 73);
             this.freqParams.TabIndex = 3;
             this.freqParams.TabStop = false;
             this.freqParams.Text = "Computing mode";
@@ -201,9 +201,9 @@ namespace XICSM.MiscTools
             // importOnMap
             // 
             this.importOnMap.Enabled = false;
-            this.importOnMap.Location = new System.Drawing.Point(651, 282);
+            this.importOnMap.Location = new System.Drawing.Point(702, 288);
             this.importOnMap.Name = "importOnMap";
-            this.importOnMap.Size = new System.Drawing.Size(141, 23);
+            this.importOnMap.Size = new System.Drawing.Size(232, 23);
             this.importOnMap.TabIndex = 4;
             this.importOnMap.Text = "Export to HTZ map";
             this.importOnMap.Click += new System.EventHandler(this.importOnMap_Click);
@@ -220,7 +220,7 @@ namespace XICSM.MiscTools
             this.tabControl1.Location = new System.Drawing.Point(20, 60);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(800, 395);
+            this.tabControl1.Size = new System.Drawing.Size(976, 390);
             this.tabControl1.TabIndex = 5;
             // 
             // tabConfig
@@ -242,14 +242,14 @@ namespace XICSM.MiscTools
             this.tabConfig.Location = new System.Drawing.Point(4, 28);
             this.tabConfig.Name = "tabConfig";
             this.tabConfig.Padding = new System.Windows.Forms.Padding(3);
-            this.tabConfig.Size = new System.Drawing.Size(792, 363);
+            this.tabConfig.Size = new System.Drawing.Size(968, 358);
             this.tabConfig.TabIndex = 4;
             this.tabConfig.Text = "Configuration";
             this.tabConfig.VerticalScrollbarBarColor = true;
             // 
             // CopyEtoB
             // 
-            this.CopyEtoB.Location = new System.Drawing.Point(639, 60);
+            this.CopyEtoB.Location = new System.Drawing.Point(816, 61);
             this.CopyEtoB.Margin = new System.Windows.Forms.Padding(0);
             this.CopyEtoB.Name = "CopyEtoB";
             this.CopyEtoB.Size = new System.Drawing.Size(26, 26);
@@ -261,7 +261,7 @@ namespace XICSM.MiscTools
             // 
             // CopyBtoE
             // 
-            this.CopyBtoE.Location = new System.Drawing.Point(604, 60);
+            this.CopyBtoE.Location = new System.Drawing.Point(781, 61);
             this.CopyBtoE.Margin = new System.Windows.Forms.Padding(0);
             this.CopyBtoE.Name = "CopyBtoE";
             this.CopyBtoE.Size = new System.Drawing.Size(26, 26);
@@ -281,7 +281,7 @@ namespace XICSM.MiscTools
             this.StatusFilters.Controls.Add(this.panelMobStation);
             this.StatusFilters.Location = new System.Drawing.Point(8, 146);
             this.StatusFilters.Name = "StatusFilters";
-            this.StatusFilters.Size = new System.Drawing.Size(616, 196);
+            this.StatusFilters.Size = new System.Drawing.Size(668, 196);
             this.StatusFilters.TabIndex = 14;
             this.StatusFilters.TabStop = false;
             this.StatusFilters.Text = "Status Filtering options by tables";
@@ -604,7 +604,7 @@ namespace XICSM.MiscTools
             this.DefaultKtbfArea.Controls.Add(this.DefaultKtbf);
             this.DefaultKtbfArea.Location = new System.Drawing.Point(8, 86);
             this.DefaultKtbfArea.Name = "DefaultKtbfArea";
-            this.DefaultKtbfArea.Size = new System.Drawing.Size(139, 54);
+            this.DefaultKtbfArea.Size = new System.Drawing.Size(173, 54);
             this.DefaultKtbfArea.TabIndex = 13;
             this.DefaultKtbfArea.TabStop = false;
             this.DefaultKtbfArea.Text = "default ktbf";
@@ -615,7 +615,7 @@ namespace XICSM.MiscTools
             this.DefaultKtbf.Location = new System.Drawing.Point(10, 21);
             this.DefaultKtbf.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.DefaultKtbf.Name = "DefaultKtbf";
-            this.DefaultKtbf.Size = new System.Drawing.Size(122, 20);
+            this.DefaultKtbf.Size = new System.Drawing.Size(149, 20);
             this.DefaultKtbf.Subtype = "dBm";
             this.DefaultKtbf.TabIndex = 0;
             // 
@@ -624,9 +624,9 @@ namespace XICSM.MiscTools
             this.saveParam.Controls.Add(this.SaveName);
             this.saveParam.Controls.Add(this.labelSave);
             this.saveParam.Controls.Add(this.SaveBox);
-            this.saveParam.Location = new System.Drawing.Point(651, 159);
+            this.saveParam.Location = new System.Drawing.Point(682, 161);
             this.saveParam.Name = "saveParam";
-            this.saveParam.Size = new System.Drawing.Size(141, 85);
+            this.saveParam.Size = new System.Drawing.Size(275, 85);
             this.saveParam.TabIndex = 12;
             this.saveParam.TabStop = false;
             this.saveParam.Text = "Save result bags";
@@ -635,7 +635,7 @@ namespace XICSM.MiscTools
             // 
             this.SaveName.Location = new System.Drawing.Point(9, 45);
             this.SaveName.Name = "SaveName";
-            this.SaveName.Size = new System.Drawing.Size(122, 20);
+            this.SaveName.Size = new System.Drawing.Size(251, 20);
             this.SaveName.TabIndex = 2;
             this.SaveName.Visible = false;
             // 
@@ -663,9 +663,9 @@ namespace XICSM.MiscTools
             this.Tables.Controls.Add(this.inMicrowa);
             this.Tables.Controls.Add(this.inMobStation2);
             this.Tables.Controls.Add(this.inMobStation);
-            this.Tables.Location = new System.Drawing.Point(320, 6);
+            this.Tables.Location = new System.Drawing.Point(411, 7);
             this.Tables.Name = "Tables";
-            this.Tables.Size = new System.Drawing.Size(180, 134);
+            this.Tables.Size = new System.Drawing.Size(265, 134);
             this.Tables.TabIndex = 11;
             this.Tables.TabStop = false;
             this.Tables.Text = "Search in the following tables";
@@ -720,7 +720,7 @@ namespace XICSM.MiscTools
             this.EouseFilter.Controls.Add(this.EouseEnd);
             this.EouseFilter.Controls.Add(this.and2);
             this.EouseFilter.Controls.Add(this.EouseStart);
-            this.EouseFilter.Location = new System.Drawing.Point(506, 93);
+            this.EouseFilter.Location = new System.Drawing.Point(682, 94);
             this.EouseFilter.Name = "EouseFilter";
             this.EouseFilter.Size = new System.Drawing.Size(286, 47);
             this.EouseFilter.TabIndex = 10;
@@ -774,7 +774,7 @@ namespace XICSM.MiscTools
             this.BiuseFilter.Controls.Add(this.BiuseEnd);
             this.BiuseFilter.Controls.Add(this.and1);
             this.BiuseFilter.Controls.Add(this.BiuseStart);
-            this.BiuseFilter.Location = new System.Drawing.Point(506, 6);
+            this.BiuseFilter.Location = new System.Drawing.Point(682, 9);
             this.BiuseFilter.Name = "BiuseFilter";
             this.BiuseFilter.Size = new System.Drawing.Size(286, 47);
             this.BiuseFilter.TabIndex = 9;
@@ -825,18 +825,18 @@ namespace XICSM.MiscTools
             // toEWX
             // 
             this.toEWX.Enabled = false;
-            this.toEWX.Location = new System.Drawing.Point(651, 310);
+            this.toEWX.Location = new System.Drawing.Point(702, 316);
             this.toEWX.Name = "toEWX";
-            this.toEWX.Size = new System.Drawing.Size(141, 23);
+            this.toEWX.Size = new System.Drawing.Size(232, 23);
             this.toEWX.TabIndex = 8;
             this.toEWX.Text = "Export result as EWX file";
             this.toEWX.Click += new System.EventHandler(this.toEWX_Click);
             // 
             // RunSearch
             // 
-            this.RunSearch.Location = new System.Drawing.Point(651, 254);
+            this.RunSearch.Location = new System.Drawing.Point(702, 260);
             this.RunSearch.Name = "RunSearch";
-            this.RunSearch.Size = new System.Drawing.Size(141, 23);
+            this.RunSearch.Size = new System.Drawing.Size(232, 23);
             this.RunSearch.TabIndex = 7;
             this.RunSearch.Text = "Search";
             this.RunSearch.Click += new System.EventHandler(this.buildDatasets_Click);
@@ -1014,7 +1014,7 @@ namespace XICSM.MiscTools
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(840, 475);
+            this.ClientSize = new System.Drawing.Size(1016, 470);
             this.Controls.Add(this.cancelThread);
             this.Controls.Add(this.PendingSpinner);
             this.Controls.Add(this.tabControl1);

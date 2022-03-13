@@ -30,15 +30,18 @@ namespace XICSM.MiscTools
 
         //color settings for EXW & ICSTELECOM export
         private int ColorWanted = 1; private int ColorMicrowa = 9; private int ColorMs = 10; private int ColorMs2 = 8; private int ColorSfaf=6;
-        
+
         //Bags Unwanted
+        private IcsmBag BagUnWanted = new IcsmBag("ALL_TXRXFREQ");
+        private IcsmBag BagWanted = new IcsmBag("ALL_TXRXFREQ");
         private IcsmBag BagUWantedMobSta = new IcsmBag("MOB_STATION");
         private IcsmBag BagUWantedMobSta2 = new IcsmBag("MOB_STATION2");
         private IcsmBag BagUWantedMwa = new IcsmBag("MICROWA");
         private IcsmBag BagUWantedSfaf = new IcsmBag("SFAF");
-        private IcsmBag BagWanted = null;
+        //private IcsmBag BagWanted = null;
         //hashset
         private HashSet<int> WantedID = new HashSet<int>();
+        private HashSet<int> UnWantedID = new HashSet<int>();
         private HashSet<int> UWantedMsID = new HashSet<int>();
         private HashSet<int> UWantedMs2ID = new HashSet<int>();
         private HashSet<int> UWantedMwaID = new HashSet<int>();
@@ -150,7 +153,7 @@ namespace XICSM.MiscTools
         public static bool builder(IMQueryMenuNode.Context ct)
         {
             SearchInterf Me = new SearchInterf();
-            Me.isWarfare = (Me.edition == "WARFARE" || Me.edition == "WARFARE1" ? true : false);
+            Me.isWarfare = (Me.edition == "WARFARE" || Me.edition == "WARFARE1");
             Me.getAllWantedStations(ct);
             Me.ShowDialog();
             return false;
