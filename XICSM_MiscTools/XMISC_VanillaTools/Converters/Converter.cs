@@ -3,15 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 using ICSM;
 using OrmCs;
-using System.Windows.Forms;
 
-namespace XICSM.MiscTools
+namespace XICSM.VanillaTools
 {
     class Converter
     {
-
         public static bool ConvertMwToOt(IMQueryMenuNode.Context context)
         {
             YMicrowa Mwa = new YMicrowa();
@@ -249,7 +248,7 @@ namespace XICSM.MiscTools
                 recA.m_user = IM.ConnectedUser();
                 recA.m_fr_state = "";
                 recA.m_to_state = Mwa.m_status;
-                recA.m_event = "Migration PMR de la table FH en Autres Staitons de Terres (OTS)";
+                recA.m_event = $"Migration PMR de la table FH (MW_ID={Mwa.m_id}) en Autres Staitons de Terres (OTS) (MobSta_A={OTS_A.m_id}).";
 
                 recB.m_obj_tbid = OTS_B.m_id; recB.AllocID();
                 recB.m_obj_tbnm = "MOB_STATION";
@@ -257,7 +256,7 @@ namespace XICSM.MiscTools
                 recB.m_user = IM.ConnectedUser();
                 recB.m_fr_state = "";
                 recB.m_to_state = Mwa.m_status;
-                recB.m_event = "Migration PMR de la table FH en Autres Staitons de Terres (OTS)";
+                recB.m_event = $"Migration PMR de la table FH (MW_ID={Mwa.m_id}) en Autres Staitons de Terres (OTS) (MobSta_B={OTS_B.m_id}).";
 
                 recMw.m_obj_tbid = Mwa.m_id; recMw.AllocID();
                 recMw.m_obj_tbnm = "MICROWA";
@@ -265,7 +264,7 @@ namespace XICSM.MiscTools
                 recMw.m_user = IM.ConnectedUser();
                 recMw.m_fr_state = Mwa.m_status;
                 recMw.m_to_state = "S1";
-                recMw.m_event = "Migration PMR de la table FH vers Autres Staitons de Terres (OTS).";
+                recMw.m_event = $"Migration PMR de la table FH (MW_ID={Mwa.m_id}) vers Autres Staitons de Terres (OTS)(MW_ID={Mwa.m_id}).";
 
                 recA.Save(); recMw.Save(); recMw.Save();
 

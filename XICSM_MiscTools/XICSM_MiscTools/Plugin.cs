@@ -114,7 +114,7 @@ namespace XICSM.MiscTools
         public double SchemaVersion { get { return 20210917.1901; } }
         public void RegisterBoard(IMBoard b)
         {
-            b.RegisterQueryMenuBuilder("MICROWA", Contextual.onGetQueryMenu);
+            //b.RegisterQueryMenuBuilder("MICROWA", Contextual.onGetQueryMenu);
             b.RegisterQueryMenuBuilder("XMISC_QUERYSTORE", Contextual.onGetQueryMenu);
             b.RegisterQueryMenuBuilder("XMISC_TRANSLATIONS", Contextual.onGetQueryMenu);
         }
@@ -129,7 +129,7 @@ namespace XICSM.MiscTools
             mainMenu.SetInsertLocation("Tools\\Administrator", IMMainMenu.InsertLocation.After);
             mainMenu.InsertItem("Tools\\Translations\\" + L.Txt("Import SYS_LANG file in Translation table"), ImportLangFile, "XMISC_TRANSLATIONS");
             mainMenu.InsertItem("Tools\\Translations\\" + L.Txt("Export Translation records to SYS_LANG file"), ExportLangFile, "XMISC_TRANSLATIONS");
-            mainMenu.InsertItem("Tools\\Translations\\" + L.Txt("Consolidate importe translation with STRINGS file"), ImportSTRINGSFile, "XMISC_TRANSLATIONS");
+            mainMenu.InsertItem("Tools\\Translations\\" + L.Txt("Consolidate imported translations with STRINGS file"), ImportSTRINGSFile, "XMISC_TRANSLATIONS");
 
             mainMenu.SetInsertLocation("Help\\*", IMMainMenu.InsertLocation.Top);
             mainMenu.InsertItem("Help\\Translations\\" + $"{Description} " + L.TxT("Version"), VersionInfo, "XMISC_TRANSLATIONS");

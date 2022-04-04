@@ -44,10 +44,6 @@ namespace XICSM.MiscTools
                     lst.Add(new IMQueryMenuNode(L.Txt("Delete record(s)"), null, Translations.DeleteRecords, IMQueryMenuNode.ExecMode.SelectionOfRecords));
                 }
             }
-            if (tableName == "MICROWA" && nbSelMin == 1 && IM.SpecialRightsActivated())
-            {
-                lst.Add(new IMQueryMenuNode(L.Txt("Convert to Other Terrestrial Stations"), null, Converter.ConvertMwToOt, IMQueryMenuNode.ExecMode.FirstRecord));
-            }
 
             return lst;
         }

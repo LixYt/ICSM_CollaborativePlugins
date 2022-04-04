@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 
-namespace XICSM.MiscTools.Tools
+namespace XICSM.VanillaTools.Tools
 {
     public static class XTools
     {
@@ -54,7 +54,7 @@ namespace XICSM.MiscTools.Tools
         static public bool isReachableURL(this string url)
         {
             HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
-            request.Timeout = 15000;
+            request.Timeout = 5000;
             request.Method = "HEAD"; // As per Lasse's comment
             try
             {

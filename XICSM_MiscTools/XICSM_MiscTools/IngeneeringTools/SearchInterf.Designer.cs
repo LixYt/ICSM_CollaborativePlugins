@@ -849,7 +849,7 @@ namespace XICSM.MiscTools
             this.tabWanted.Location = new System.Drawing.Point(4, 28);
             this.tabWanted.Name = "tabWanted";
             this.tabWanted.Padding = new System.Windows.Forms.Padding(3);
-            this.tabWanted.Size = new System.Drawing.Size(792, 363);
+            this.tabWanted.Size = new System.Drawing.Size(968, 358);
             this.tabWanted.TabIndex = 3;
             this.tabWanted.Text = "wanted stations";
             this.tabWanted.VerticalScrollbarBarColor = true;
@@ -865,7 +865,7 @@ namespace XICSM.MiscTools
             this.DbListWanted.Name = "DbListWanted";
             this.DbListWanted.Param1 = 0;
             this.DbListWanted.Param2 = 0;
-            this.DbListWanted.Size = new System.Drawing.Size(786, 357);
+            this.DbListWanted.Size = new System.Drawing.Size(962, 352);
             this.DbListWanted.TabIndex = 3;
             this.DbListWanted.Table = null;
             this.DbListWanted.OnRequery += new System.EventHandler(this.DbListWanted_OnRequery);
@@ -880,7 +880,7 @@ namespace XICSM.MiscTools
             this.tabUW_MobStation.Location = new System.Drawing.Point(4, 28);
             this.tabUW_MobStation.Name = "tabUW_MobStation";
             this.tabUW_MobStation.Padding = new System.Windows.Forms.Padding(3);
-            this.tabUW_MobStation.Size = new System.Drawing.Size(792, 363);
+            this.tabUW_MobStation.Size = new System.Drawing.Size(968, 358);
             this.tabUW_MobStation.TabIndex = 0;
             this.tabUW_MobStation.Text = "Other Terrestrials Unwanted Stations";
             this.tabUW_MobStation.VerticalScrollbarBarColor = true;
@@ -896,7 +896,7 @@ namespace XICSM.MiscTools
             this.DbListMobStation.Name = "DbListMobStation";
             this.DbListMobStation.Param1 = 0;
             this.DbListMobStation.Param2 = 0;
-            this.DbListMobStation.Size = new System.Drawing.Size(786, 357);
+            this.DbListMobStation.Size = new System.Drawing.Size(962, 352);
             this.DbListMobStation.TabIndex = 0;
             this.DbListMobStation.Table = "MOB_STATION";
             this.DbListMobStation.OnDefColumns += new System.EventHandler(this.DbListMobStation_OnDefColumns);
@@ -910,7 +910,7 @@ namespace XICSM.MiscTools
             this.tabUW_MobStation2.Location = new System.Drawing.Point(4, 28);
             this.tabUW_MobStation2.Name = "tabUW_MobStation2";
             this.tabUW_MobStation2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabUW_MobStation2.Size = new System.Drawing.Size(792, 363);
+            this.tabUW_MobStation2.Size = new System.Drawing.Size(968, 358);
             this.tabUW_MobStation2.TabIndex = 5;
             this.tabUW_MobStation2.Text = "Yet Other Terrestrials Unwanted Stations";
             this.tabUW_MobStation2.VerticalScrollbarBarColor = true;
@@ -926,7 +926,7 @@ namespace XICSM.MiscTools
             this.DbListMobStation2.Name = "DbListMobStation2";
             this.DbListMobStation2.Param1 = 0;
             this.DbListMobStation2.Param2 = 0;
-            this.DbListMobStation2.Size = new System.Drawing.Size(786, 357);
+            this.DbListMobStation2.Size = new System.Drawing.Size(962, 352);
             this.DbListMobStation2.TabIndex = 1;
             this.DbListMobStation2.Table = "MOB_STATION2";
             this.DbListMobStation2.OnRequery += new System.EventHandler(this.DbListMobStation2_OnRequery);
@@ -938,7 +938,7 @@ namespace XICSM.MiscTools
             this.tabUW_Microwa.Location = new System.Drawing.Point(4, 28);
             this.tabUW_Microwa.Name = "tabUW_Microwa";
             this.tabUW_Microwa.Padding = new System.Windows.Forms.Padding(3);
-            this.tabUW_Microwa.Size = new System.Drawing.Size(792, 363);
+            this.tabUW_Microwa.Size = new System.Drawing.Size(968, 358);
             this.tabUW_Microwa.TabIndex = 1;
             this.tabUW_Microwa.Text = "Unwanted Microwave Stations";
             this.tabUW_Microwa.VerticalScrollbarBarColor = true;
@@ -954,7 +954,7 @@ namespace XICSM.MiscTools
             this.DbListMwa.Name = "DbListMwa";
             this.DbListMwa.Param1 = 0;
             this.DbListMwa.Param2 = 0;
-            this.DbListMwa.Size = new System.Drawing.Size(786, 357);
+            this.DbListMwa.Size = new System.Drawing.Size(962, 352);
             this.DbListMwa.TabIndex = 1;
             this.DbListMwa.Table = "MICROWA";
             this.DbListMwa.OnRequery += new System.EventHandler(this.DbListMwa_OnRequery);
@@ -966,7 +966,7 @@ namespace XICSM.MiscTools
             this.tabUW_Sfaf.Location = new System.Drawing.Point(4, 28);
             this.tabUW_Sfaf.Name = "tabUW_Sfaf";
             this.tabUW_Sfaf.Padding = new System.Windows.Forms.Padding(3);
-            this.tabUW_Sfaf.Size = new System.Drawing.Size(792, 363);
+            this.tabUW_Sfaf.Size = new System.Drawing.Size(968, 358);
             this.tabUW_Sfaf.TabIndex = 2;
             this.tabUW_Sfaf.Text = "Unwanted SFAF";
             this.tabUW_Sfaf.VerticalScrollbarBarColor = true;
@@ -982,7 +982,7 @@ namespace XICSM.MiscTools
             this.DbListSfaf.Name = "DbListSfaf";
             this.DbListSfaf.Param1 = 0;
             this.DbListSfaf.Param2 = 0;
-            this.DbListSfaf.Size = new System.Drawing.Size(786, 357);
+            this.DbListSfaf.Size = new System.Drawing.Size(962, 352);
             this.DbListSfaf.TabIndex = 1;
             this.DbListSfaf.Table = "SFAF";
             this.DbListSfaf.OnRequery += new System.EventHandler(this.DbListSfaf_OnRequery);

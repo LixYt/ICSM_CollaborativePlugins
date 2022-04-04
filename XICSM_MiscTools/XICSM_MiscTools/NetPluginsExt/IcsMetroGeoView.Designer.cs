@@ -31,7 +31,6 @@ namespace NetPlugins2Ext
         /// </summary>
         private void InitializeComponent()
         {
-            this.Map = new NetPlugins2Ext.IcsOpenlayers3();
             this.SelectPanel = new FormsCs.IcsMetroPanel();
             this.ForceRefresh = new FormsCs.IcsMetroButton();
             this.QueryPosition = new FormsCs.IcsMetroComboBox();
@@ -39,6 +38,8 @@ namespace NetPlugins2Ext
             this.QuerySelectorMode = new FormsCs.IcsMetroComboBox();
             this.ClearMap = new FormsCs.IcsMetroButton();
             this.ClearOrAdd = new FormsCs.IcsMetroToggle();
+            this.Links = new FormsCs.IcsMetroButton();
+            this.AllStations = new FormsCs.IcsMetroButton();
             this.All_Sites = new FormsCs.IcsMetroButton();
             this.QueryTab = new FormsCs.IcsMetroTabControl();
             this.QueryPageSites = new MetroFramework.Controls.MetroTabPage();
@@ -47,32 +48,13 @@ namespace NetPlugins2Ext
             this.DbListStations = new NetPlugins2.IcsDBList();
             this.QueryPageLinks = new MetroFramework.Controls.MetroTabPage();
             this.DbListLinks = new NetPlugins2.IcsDBList();
-            this.Links = new FormsCs.IcsMetroButton();
-            this.AllStations = new FormsCs.IcsMetroButton();
+            this.Map = new NetPlugins2.IcsOpenlayers3();
             this.SelectPanel.SuspendLayout();
             this.QueryTab.SuspendLayout();
             this.QueryPageSites.SuspendLayout();
             this.QueryPageStations.SuspendLayout();
             this.QueryPageLinks.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // Map
-            // 
-            this.Map.DisplayCsys = null;
-            this.Map.InputGeomPoints = null;
-            this.Map.InputGeomRadiusM = 0D;
-            this.Map.InputMode = null;
-            this.Map.InputType = null;
-            this.Map.KmlsMaxCached = 20;
-            this.Map.Location = new System.Drawing.Point(22, 91);
-            this.Map.Margin = new System.Windows.Forms.Padding(2);
-            this.Map.Name = "Map";
-            this.Map.Size = new System.Drawing.Size(353, 284);
-            this.Map.StartLati = 48.53D;
-            this.Map.StartLongi = 2.25D;
-            this.Map.StartZoom = 5;
-            this.Map.TabIndex = 1;
-            this.Map.OnMapClicked += new System.EventHandler<NetPlugins2Ext.MapClickedEventArgs>(this.Map_OnMapClicked);
             // 
             // SelectPanel
             // 
@@ -171,6 +153,24 @@ namespace NetPlugins2Ext
             this.ClearOrAdd.TabIndex = 5;
             this.ClearOrAdd.Text = "Clear map when loading new data";
             this.ClearOrAdd.UseCustomColors = false;
+            // 
+            // Links
+            // 
+            this.Links.Location = new System.Drawing.Point(222, 38);
+            this.Links.Name = "Links";
+            this.Links.Size = new System.Drawing.Size(103, 23);
+            this.Links.TabIndex = 4;
+            this.Links.Text = "Display Links";
+            this.Links.Click += new System.EventHandler(this.Links_Click);
+            // 
+            // AllStations
+            // 
+            this.AllStations.Location = new System.Drawing.Point(113, 38);
+            this.AllStations.Name = "AllStations";
+            this.AllStations.Size = new System.Drawing.Size(103, 23);
+            this.AllStations.TabIndex = 3;
+            this.AllStations.Text = "Display stations";
+            this.AllStations.Click += new System.EventHandler(this.AllStations_Click);
             // 
             // All_Sites
             // 
@@ -281,31 +281,29 @@ namespace NetPlugins2Ext
             this.DbListLinks.OnDefColumns += new System.EventHandler(this.DBList_OnDefColumns);
             this.DbListLinks.OnRequery += new System.EventHandler(this.DBList_OnRequery);
             // 
-            // Links
+            // Map
             // 
-            this.Links.Location = new System.Drawing.Point(222, 38);
-            this.Links.Name = "Links";
-            this.Links.Size = new System.Drawing.Size(103, 23);
-            this.Links.TabIndex = 4;
-            this.Links.Text = "Display Links";
-            this.Links.Click += new System.EventHandler(this.Links_Click);
-            // 
-            // AllStations
-            // 
-            this.AllStations.Location = new System.Drawing.Point(113, 38);
-            this.AllStations.Name = "AllStations";
-            this.AllStations.Size = new System.Drawing.Size(103, 23);
-            this.AllStations.TabIndex = 3;
-            this.AllStations.Text = "Display stations";
-            this.AllStations.Click += new System.EventHandler(this.AllStations_Click);
+            this.Map.DisplayCsys = null;
+            this.Map.InputGeomPoints = null;
+            this.Map.InputGeomRadiusM = 0D;
+            this.Map.InputMode = null;
+            this.Map.InputType = null;
+            this.Map.KmlsMaxCached = 20;
+            this.Map.Location = new System.Drawing.Point(15, 91);
+            this.Map.Margin = new System.Windows.Forms.Padding(2);
+            this.Map.Name = "Map";
+            this.Map.Size = new System.Drawing.Size(341, 343);
+            this.Map.StartLati = 40D;
+            this.Map.StartLongi = -4D;
+            this.Map.TabIndex = 4;
             // 
             // IcsMetroGeoView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BorderStyle = MetroFramework.Drawing.MetroBorderStyle.FixedSingle;
-            this.Controls.Add(this.QueryTab);
             this.Controls.Add(this.Map);
+            this.Controls.Add(this.QueryTab);
             this.Controls.Add(this.SelectPanel);
             this.Font = new System.Drawing.Font("Segoe UI Light", 14F, System.Drawing.FontStyle.Bold);
             this.MinimumSize = new System.Drawing.Size(800, 500);
@@ -327,7 +325,6 @@ namespace NetPlugins2Ext
         #endregion
 
         private IcsMetroPanel SelectPanel;
-        private IcsOpenlayers3 Map;
         private IcsMetroButton All_Sites;
         private IcsMetroToggle ClearOrAdd;
         private IcsMetroButton ClearMap;
@@ -344,5 +341,6 @@ namespace NetPlugins2Ext
         private IcsMetroButton ForceRefresh;
         private IcsMetroButton Links;
         private IcsMetroButton AllStations;
+        private NetPlugins2.IcsOpenlayers3 Map;
     }
 }
