@@ -15,19 +15,22 @@ namespace XICSM.VanillaTools
     {
         public string Description { get { return "Vanilla Tools (this plugin does not modify the database structure)"; } }
         public string Ident { get { return "VanillaTools"; } }
-        public string Version = "1.0.0.1";
+        public string Version = "1.0.0.3";
 
         public void RegisterSchema(IMSchema s)
         { /* Should never be used in this plugin */ }
         public double SchemaVersion { get { return 0; } }
         public void RegisterBoard(IMBoard b) 
         {
+            b.RegisterQueryMenuBuilder("DOCLINK", Contextual.onGetQueryMenu);
             b.RegisterQueryMenuBuilder("MICROWA", Contextual.onGetQueryMenu);
         }
         public void GetMainMenu(IMMainMenu mainMenu)
         {
             mainMenu.SetInsertLocation("Tools\\Administrator", IMMainMenu.InsertLocation.After);
             mainMenu.InsertItem("Tools\\Vanilla Tools\\" + L.Txt("Verify attached documents"), CheckDocLink, "DOCLINK");
+            mainMenu.InsertItem("Tools\\Vanilla Tools\\" + L.Txt("Archive REC_HISOTRY table"), RecHistoryBacklog, "REC_HISTORY");
+
             mainMenu.InsertItem("Tools\\Vanilla Tools\\" + L.Txt("Version/info"), VersionBox, "DOCLINK");
 
         }
@@ -55,7 +58,9 @@ namespace XICSM.VanillaTools
         }
         public void CheckDocLink()
         {
-            Checkers.AttachedDocuements();
+            Checkers c = new Checkers();
+            c.AttachedDocuements();
+        }
         }
         #endregion
     }

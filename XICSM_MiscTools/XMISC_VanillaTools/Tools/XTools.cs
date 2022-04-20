@@ -1,6 +1,7 @@
 ﻿using OrmCs;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Reflection;
@@ -68,7 +69,30 @@ namespace XICSM.VanillaTools.Tools
                 return false;
             }
         }
-
+        static public bool DocumentExists(this string Path)
+        {
+            string SharedDirPath = ICSMConfig.Item("SHDIR-DOC");
+            if (Path.StartsWith("http://") || Path.StartsWith("https://") || Path.StartsWith("ftp://")) //is URL
+            {
+                if (!Path.isReachableURL())
+                {
+                    return false;
+                }
+            }
+            else //is probably file or a directory so let's test if it exists
+            {
+                if (!File.Exists(Path) && !Directory.Exists($@"{Path}")
+                    && !File.Exists($@"{SharedDirPath}\{Path}")
+                    && !File.Exists($@"{SharedDirPath}{Path}")
+                    && !Directory.Exists($@"{SharedDirPath}{Path}")
+                    && !Directory.Exists($@"{SharedDirPath}\{Path}")
+                    )
+                {
+                    return false;
+                }
+            }
+            return true;
+        }
     }
 
     
