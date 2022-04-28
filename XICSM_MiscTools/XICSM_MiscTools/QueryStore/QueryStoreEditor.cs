@@ -11,6 +11,7 @@ using DatalayerCs;
 using OrmCs;
 using ICSM;
 using NetPlugins2;
+using XICSM.VanillaTools.Tools;
 
 namespace XICSM.MiscTools
 {
@@ -77,7 +78,7 @@ namespace XICSM.MiscTools
 
         public void Bindings()
         {
-            c_table.Items.AddRange(Tools.XTools.GetICSmTables().ToArray());
+            c_table.Items.AddRange(XTools.GetICSmTables().ToArray());
 
             c_type.DataBindings.Add(new Binding("Value", yQS, "m_type"));
             c_table.DataBindings.Add(new Binding("Text", yQS, "m_table_name"));

@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using OrmCs;
 using System.Diagnostics;
 using DatalayerCs;
+using XICSM.VanillaTools.Tools;
 
 namespace XICSM.MiscTools
 {
@@ -19,8 +20,8 @@ namespace XICSM.MiscTools
         {
             List<string> LangFiles = new List<string>();
 
-            Tools.MiscProgressBar bar = new Tools.MiscProgressBar(L.Txt("Importing STRINGS file"));
-            Tools.MiscProgressBar bar2 = new Tools.MiscProgressBar(L.Txt("Added STRINGS file to selected language translation"));
+            MiscProgressBar bar = new MiscProgressBar(L.Txt("Importing STRINGS file"));
+            MiscProgressBar bar2 = new MiscProgressBar(L.Txt("Added STRINGS file to selected language translation"));
 
             string path = Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().GetName().CodeBase);
             DirectoryInfo dir = new DirectoryInfo(new Uri(path).LocalPath);
@@ -98,9 +99,9 @@ namespace XICSM.MiscTools
                         bar.Dispose(); bar2.Dispose();
                     }
                     
-                    Tools.MiscProgressBar bar3 = new Tools.MiscProgressBar(L.Txt("Detecting OBSOLETE strings"));
+                    MiscProgressBar bar3 = new MiscProgressBar(L.Txt("Detecting OBSOLETE strings"));
                     bar3.Show();
-                    Tools.MiscProgressBar bar4 = new Tools.MiscProgressBar(L.Txt("Marked OBSOLETE translation"));
+                    MiscProgressBar bar4 = new MiscProgressBar(L.Txt("Marked OBSOLETE translation"));
                     bar4.Show();
                     bar4.Location = new System.Drawing.Point(bar3.Location.X + 100, bar3.Location.Y + 100);
 
@@ -147,7 +148,7 @@ namespace XICSM.MiscTools
             List<string> stringsItems = new List<string>();
             List<string> CustomDbNames = new List<string>() { "TXT","NBR","CHB","DAT" };
 
-            Tools.MiscProgressBar bar = new Tools.MiscProgressBar(L.Txt("Importing LANG file"));
+            MiscProgressBar bar = new MiscProgressBar(L.Txt("Importing LANG file"));
 
             string path = Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().GetName().CodeBase);
             DirectoryInfo dir = new DirectoryInfo(new Uri(path).LocalPath);
@@ -312,7 +313,7 @@ namespace XICSM.MiscTools
         {
             try
             {
-                Tools.MiscProgressBar bar = new Tools.MiscProgressBar(L.Txt("Exporting LANG file"));
+                MiscProgressBar bar = new MiscProgressBar(L.Txt("Exporting LANG file"));
                 bar.MaxValue = translations.Count();
 
                 SaveFileDialog saveFileDialog1 = new SaveFileDialog

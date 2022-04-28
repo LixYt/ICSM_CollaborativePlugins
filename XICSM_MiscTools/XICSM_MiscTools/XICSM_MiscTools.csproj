@@ -133,13 +133,6 @@
     <Compile Include="QueryStore\QueryStoreEditor.Designer.cs">
       <DependentUpon>QueryStoreEditor.cs</DependentUpon>
     </Compile>
-    <Compile Include="Tools\MiscProgressBar.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Tools\MiscProgressBar.Designer.cs">
-      <DependentUpon>MiscProgressBar.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Tools\XTools.cs" />
     <Compile Include="Translations\LangSelection.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -157,9 +150,6 @@
   <ItemGroup>
     <EmbeddedResource Include="QueryStore\QueryStoreEditor.resx">
       <DependentUpon>QueryStoreEditor.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Tools\MiscProgressBar.resx">
-      <DependentUpon>MiscProgressBar.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Translations\LangSelection.resx">
       <DependentUpon>LangSelection.cs</DependentUpon>
@@ -188,6 +178,12 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Controls\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\XMISC_VanillaTools\XMISC_VanillaTools.csproj">
+      <Project>{fc884b82-da26-473a-ad2a-3739458fc8b5}</Project>
+      <Name>XMISC_VanillaTools</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
