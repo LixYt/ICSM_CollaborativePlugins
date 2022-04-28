@@ -77,8 +77,10 @@ namespace XICSM.MiscTools
 
         public void Bindings()
         {
+            c_table.Items.AddRange(Tools.XTools.GetICSmTables().ToArray());
+
             c_type.DataBindings.Add(new Binding("Value", yQS, "m_type"));
-            c_table.DataBindings.Add(new Binding("Value", yQS, "m_table_name"));
+            c_table.DataBindings.Add(new Binding("Text", yQS, "m_table_name"));
 
             c_name.DataBindings.Add(new Binding("Text", yQS, "m_name"));
             c_desc.DataBindings.Add(new Binding("Text", yQS, "m_description"));

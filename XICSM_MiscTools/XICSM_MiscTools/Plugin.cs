@@ -4,11 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using ICSM;
-using NetPlugins2;
-using FormsCs;
 using OrmCs;
 using DatalayerCs;
-using Image2;
+using NetPlugins2;
 using System.Windows.Forms;
 
 namespace XICSM.MiscTools
@@ -17,7 +15,8 @@ namespace XICSM.MiscTools
     {
         public string Description { get { return "Miscellaneous Tools"; } }
         public string Ident { get { return "MiscTools"; } }
-        public string Version = "1.0.1.0";
+        public string MenuGroupName { get { return "Miscellaneous"; } }
+        public string Version = "1.1.0.0";
 
         public void RegisterSchema(IMSchema s) 
         {
@@ -115,18 +114,24 @@ namespace XICSM.MiscTools
         public double SchemaVersion { get { return 20210917.1901; } }
         public void RegisterBoard(IMBoard b)
         {
-            b.RegisterQueryMenuBuilder("MICROWA", Contextual.onGetQueryMenu);
+            //b.RegisterQueryMenuBuilder("MICROWA", Contextual.onGetQueryMenu);
             b.RegisterQueryMenuBuilder("XMISC_QUERYSTORE", Contextual.onGetQueryMenu);
             b.RegisterQueryMenuBuilder("XMISC_TRANSLATIONS", Contextual.onGetQueryMenu);
         }
         public void GetMainMenu(IMMainMenu mainMenu) 
         {
-           mainMenu.SetInsertLocation("Tools\\Administrator\\*", IMMainMenu.InsertLocation.After);
-           mainMenu.InsertItem("Tools\\Translations\\" + L.Txt("Import SYS_LANG file in Translation table"), ImportLangFile, "XMISC_TRANSLATIONS");
-           mainMenu.InsertItem("Tools\\Translations\\" + L.Txt("Export Translation records to SYS_LANG file"), ExportLangFile, "XMISC_TRANSLATIONS");
-           mainMenu.InsertItem("Tools\\Translations\\" + L.Txt("Consolidate importe translation with STRINGS file"), ImportSTRINGSFile, "XMISC_TRANSLATIONS");
-           mainMenu.InsertItem("Help\\Translations\\" + $"{Description}" + L.TxT("Version"), VersionInfo, "XMISC_TRANSLATIONS");
-           mainMenu.InsertItem("Help\\Translations\\" + $"{Description}" + L.TxT("Help and resources"), PluginResources, "XMISC_TRANSLATIONS");
+            /*mainMenu.SetInsertLocation("Tools", IMMainMenu.InsertLocation.After);
+            mainMenu.InsertItem("Demo\\" + L.Txt("3D map viewer"), Viewer3D, "XMISC_TRANSLATIONS");*/
+
+            string TranslationName = L.TxT("Translations");
+            mainMenu.SetInsertLocation("Tools\\Administrator", IMMainMenu.InsertLocation.After);
+            mainMenu.InsertItem("Tools\\"+ TranslationName + "\\" + L.Txt("Import SYS_LANG file in Translation table"), ImportLangFile, "XMISC_TRANSLATIONS");
+            mainMenu.InsertItem("Tools\\" + TranslationName + "\\" + L.Txt("Export Translation records to SYS_LANG file"), ExportLangFile, "XMISC_TRANSLATIONS");
+            mainMenu.InsertItem("Tools\\" + TranslationName + "\\" + L.Txt("Consolidate imported translations with STRINGS file"), ImportSTRINGSFile, "XMISC_TRANSLATIONS");
+
+            mainMenu.SetInsertLocation("Help\\*", IMMainMenu.InsertLocation.Top);
+            mainMenu.InsertItem("Help\\" + MenuGroupName + "\\" + L.TxT("Version"), VersionInfo, "XMISC_TRANSLATIONS");
+            mainMenu.InsertItem("Help\\" + MenuGroupName + "\\" + L.TxT("Help and resources"), PluginResources, "XMISC_TRANSLATIONS");
         }
         public bool OtherMessage(string message, object inParam, ref object outParam) 
         {
@@ -175,13 +180,23 @@ namespace XICSM.MiscTools
         }
         #endregion
 
-
+        public void Viewer3D()
+        {
+            using (Module3d.Viewer3d Window3D = new Module3d.Viewer3d())
+            {
+                Window3D.Run();
+            }
+        }
+        
         public void VersionInfo()
-        { MessageBox.Show(L.Txt("Plugin version is : " + Version) + L.Txt("\r\nPlugin schema version is : ") + 20210615.00) ; }
+        { 
+            MessageBox.Show(L.Txt("Plugin version is : " + Version) + L.Txt("\r\nPlugin schema version is : ") + 20210615.00) ;
+        }
         public void PluginResources()
         {
             MessageBox.Show("A github page will open in your default browser. Feel free to give feedback and hints on this tool.");
             System.Diagnostics.Process.Start("https://github.com/LixYt/ICSM_CollaborativePlugins"); }
         
+
     }
 }

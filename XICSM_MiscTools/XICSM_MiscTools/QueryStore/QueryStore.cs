@@ -7,6 +7,7 @@ using ICSM;
 using OrmCs;
 using FormsCs;
 using System.Windows.Forms;
+using NetPlugins2;
 
 namespace XICSM.MiscTools
 {

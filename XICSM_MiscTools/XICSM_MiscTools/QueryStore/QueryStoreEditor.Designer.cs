@@ -41,7 +41,7 @@
             this.c_item = new FormsCs.IcsMetroTextBox();
             this.l_type = new FormsCs.IcsMetroLabel();
             this.l_tablename = new FormsCs.IcsMetroLabel();
-            this.c_table = new NetPlugins2.IcsCombo();
+            this.c_table = new System.Windows.Forms.ComboBox();
             this.c_type = new NetPlugins2.IcsCombo();
             this.C_CreatedDate = new FormsCs.IcsMetroTextBox();
             this.C_ModifiedDate = new FormsCs.IcsMetroTextBox();
@@ -165,18 +165,11 @@
             // 
             // c_table
             // 
-            this.c_table.BackColor = System.Drawing.Color.Transparent;
-            this.c_table.Coded = true;
             this.c_table.Location = new System.Drawing.Point(110, 117);
             this.c_table.Margin = new System.Windows.Forms.Padding(0);
-            this.c_table.MaxLen = 50;
             this.c_table.Name = "c_table";
-            this.c_table.ReadOnly = false;
             this.c_table.Size = new System.Drawing.Size(441, 25);
-            this.c_table.Subtype = null;
             this.c_table.TabIndex = 12;
-            this.c_table.Upperc = false;
-            this.c_table.Value = "";
             // 
             // c_type
             // 
@@ -298,7 +291,7 @@
         private FormsCs.IcsMetroTextBox c_item;
         private FormsCs.IcsMetroLabel l_type;
         private FormsCs.IcsMetroLabel l_tablename;
-        private NetPlugins2.IcsCombo c_table;
+        private System.Windows.Forms.ComboBox c_table;
         private NetPlugins2.IcsCombo c_type;
         private FormsCs.IcsMetroTextBox C_CreatedDate;
         private FormsCs.IcsMetroTextBox C_ModifiedDate;
