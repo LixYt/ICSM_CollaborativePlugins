@@ -1,13 +1,17 @@
-﻿using OrmCs;
+﻿using DatalayerCs;
+using FormsCs;
+using ICSM;
+using OrmCs;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Net;
 using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
-
+using System.Windows.Forms;
 
 namespace XICSM.VanillaTools.Tools
 {
@@ -92,6 +96,66 @@ namespace XICSM.VanillaTools.Tools
                 }
             }
             return true;
+        }
+        static public double Max(this double d1, double d2)
+        {
+            return new List<double>() { d1, d2 }.Max();
+        }
+        static public string ToCsvString(this List<int> Li, bool FinalComa = false)
+        {
+            if (Li.Count() == 0) return "";
+            string str = "";
+            foreach(int i in Li) { str += $"{i},"; }
+            return FinalComa ? str : str.Remove(str.Length - 1, 1);
+        }
+    }
+
+    public class PolygonEtudeExt : NetPlugins2.PolygoneEtude
+    {
+        public List<Tuple<double, double>> PolygonExtent = new List<Tuple<double, double>>(); //X,Y
+
+        public void CompteHorizon(IMPosition pos, double PositionAGL, double PositionASL, string PositionName)
+        {
+            double[] Elevations = new double[72]; double[] Distances = new double[72];
+            bool computed = IM.ComputeHorizon(pos, (PositionAGL + PositionASL), 5, ref Elevations, ref Distances);
+            if (!computed)
+            {
+                IcsMetroMessageBox.Show(L.Txt("Radio horizon has not been computed for {0}".Fmt(PositionName)),
+                                    L.Txt("Missing DTM"),
+                                    MessageBoxButtons.OK,
+                                    MessageBoxIcon.Error
+                                );
+            }
+
+            double longNode = Null.D, latNode = Null.D;
+            for (int i = 71; i >= 0; i--)
+            {
+                IM.GeoJump(ref longNode, ref latNode, pos.Lon, pos.Lat, Distances[i] * 4 / 3, i * 5);
+                PolygonExtent.Add(new Tuple<double, double>(longNode, latNode));
+            }
+
+        }
+        public bool Intersects(PolygonEtudeExt p)
+        {
+            if (p.Extent.maxX == Null.D || p.Extent.maxY == Null.D || p.Extent.minX == Null.D || p.Extent.minY == Null.D) return false;
+
+            if (
+                (p.Extent.minX <= Extent.maxX && p.Extent.minX >= Extent.minX) || (p.Extent.maxX <= Extent.maxX && p.Extent.maxX >= Extent.minX)
+                &&
+                (p.Extent.minY <= Extent.maxY && p.Extent.minY >= Extent.minY) || (p.Extent.maxY <= Extent.maxY && p.Extent.maxY >= Extent.minY)
+                ) return true;
+            else return false;
+        }
+        public bool Intersects(NetPlugins2.PolygoneEtude p)
+        {
+            if (p.Extent.maxX == Null.D || p.Extent.maxY == Null.D || p.Extent.minX == Null.D || p.Extent.minY == Null.D) return false;
+
+            if (
+                (p.Extent.minX <= Extent.maxX && p.Extent.minX >= Extent.minX) || (p.Extent.maxX <= Extent.maxX && p.Extent.maxX >= Extent.minX)
+                &&
+                (p.Extent.minY <= Extent.maxY && p.Extent.minY >= Extent.minY) || (p.Extent.maxY <= Extent.maxY && p.Extent.maxY >= Extent.minY)
+                ) return true;
+            else return false;
         }
     }
 
