@@ -20,12 +20,6 @@ namespace XICSM.MiscTools
         private string title="";
 
         private string wantedStationsOQL;
-        private int bagWantedId;
-        private int bagunwantedIdMobStation;
-        private int bagunwantedIdMobStation2;
-        private int bagunwantedIdMicrowa;
-        private int bagunwantedIdSfaf;
-
         //declaration of thread for the computation
         Thread workerThread;
 
@@ -51,39 +45,25 @@ namespace XICSM.MiscTools
         void switchEwxButton() { toEWX.Enabled = canExportEwx; }
         void switchEwxButton(bool activate = false) { canExportEwx = activate; toEWX.Enabled = activate; }
 
-        private bool Spin = false; private int SpinH = 150; private int SpinW = 150;
-        void setSpinner(bool Status) { Spin = Status; setSpinner(); }
-        void setSpinner()
-        {
-            PendingSpinner.Visible = Spin; cancelThread.Visible = Spin;
-            if (Spin)
-            {
-                PendingSpinner.StartSpinning(2, 60);
-                int x = this.Size.Width / 2 - SpinW / 2; int y = this.Size.Height / 2 - SpinH / 2;
-                PendingSpinner.Location = new System.Drawing.Point(x, y);
-                PendingSpinner.Size = new System.Drawing.Size(SpinW, SpinH);
-                int xC = PendingSpinner.Location.X; int yC = PendingSpinner.Location.Y + PendingSpinner.Size.Height + 2;
-                cancelThread.Location = new System.Drawing.Point(xC, yC);
-                cancelThread.Size = new System.Drawing.Size(SpinW, 23);
-                cancelThread.Text = "Annuler";
-            }
-            else
-            {
-                PendingSpinner.StopSpinning();
-            }
-        }
-        void SetSpinner(bool Status) { Spin = Status; Invoke(new ExecDelegate(setSpinner)); }
-
         private bool canImportOnMap = false;
         void setImportOnMapButton() { importOnMap.Enabled = canImportOnMap; }
         void setImportOnMapButton(bool activate) { canImportOnMap = activate; setImportOnMapButton(); }
         void SetImportOnMapButton(bool activate) { canImportOnMap = activate; Invoke(new ExecDelegate(setImportOnMapButton)); }
 
-        string PositionName = "";
-        
+        private int MainCounter = 1;
+        void SetProgressBarMain(int i) { MainCounter = i; Invoke(new ExecDelegate(setProgressBarMain)); }
+        void setProgressBarMain() { ProgressBarMain.Maximum = MainCounter; ProgressBarMain.Value = 0; }
+        void StepProgressBarMain() { Invoke(new ExecDelegate(ProgressBarMain.PerformStep)); }
+
+        private int SubCounter = 1;
+        void SetProgressBarSub(int i) { MainCounter = i; Invoke(new ExecDelegate(setProgressBarSub)); }
+        void setProgressBarSub() { ProgressBarSub.Maximum = SubCounter; ProgressBarMain.Value = 0; }
+        void StepProgressBarSub() { Invoke(new ExecDelegate(ProgressBarSub.PerformStep)); }
+
 
         #region Initialization And Instanciation
-        public SearchInterf()        { InitializeComponent(); }
+        public SearchInterf()
+        { InitializeComponent(); }
         private void TextTranslation()
         {
             geoParam.Text = L.Txt("Frequency limits");
@@ -117,11 +97,17 @@ namespace XICSM.MiscTools
             Me.ShowDialog();
             return false;
         }
-
         public static bool builder(string OqlFilter, string Table)
         {
             SearchInterf Me = new SearchInterf();
             Me.getAllWantedStations(OqlFilter, Table);
+            Me.ShowDialog();
+            return false;
+        }
+        public static bool builder(string AllTxRxFreqOqlFilter)
+        {
+            SearchInterf Me = new SearchInterf();
+            Me.getAllWantedStations(AllTxRxFreqOqlFilter);
             Me.ShowDialog();
             return false;
         }
@@ -132,11 +118,8 @@ namespace XICSM.MiscTools
         {
             stop = true;
             SwitchEwxButton(false); SetImportOnMapButton(false);
-            PendingSpinner.StopSpinning();
-            PendingSpinner.StartSpinning(2, 60, true);
             cancelThread.Text = L.Txt("Annulation...");
         }
-
         private void DbListWanted_OnRequery(object sender, EventArgs e)
         {
             DbListWanted.MustBePresent("ID");
@@ -156,13 +139,16 @@ namespace XICSM.MiscTools
             DbListWantedExcluded.Init();
 
             TextTranslation();
+            SearchTabGrid.SelectedTab = tabConfig;
         }
-
         private void buildDatasets_Click(object sender, EventArgs e)
         {
             ANetDb db = null; string nameIndb = null;
             OrmSchema.Linker.GetTableMapping("LICENCE", ref db, ref nameIndb);
             string schemaPrefix = OrmSchema.Linker.GetSchemaPrefix("MOB_STATION");
+
+            ProgressBarMain.Visible = true;
+            ProgressBarSub.Visible = true;
 
             //saveName
             title = SaveBox.Checked ? SaveName.Text : "Search for potential interferer (" + IM.ConnectedUser() + ")";
@@ -170,26 +156,21 @@ namespace XICSM.MiscTools
             workerThread = new Thread(() => { this.DoWork(db, schemaPrefix); });
             workerThread.Start();
 
-            //if (BagUWantedMobSta.Bag != null || BagUWantedMobSta2.Bag != null || BagUWantedMwa.Bag != null || BagUWantedSfaf.Bag != null || BagWanted != null)
-            {
-                ClearBags(); // clear bags then reinit them
-                /*BagUWantedMobSta = new IcsmBag("MOB_STATION");
-                BagUWantedMobSta2 = new IcsmBag("MOB_STATION2");
-                BagUWantedMwa = new IcsmBag("MICROWA");
-                BagUWantedSfaf = new IcsmBag("SFAF");*/
-            }
-        }
+            ProgressBarMain.Visible = false;
+            ProgressBarSub.Visible = false;
 
+            DbListRxUnwanted.Requery();
+            DbListTxUnwanted.Requery();
+            DbListWantedExcluded.Requery();
+        }
         private void importOnMap_Click(object sender, EventArgs e)
         {
             exportDataset(true);
         }
-
         private void toEWX_Click(object sender, EventArgs e)
         {
             exportDataset(false);
         }
-
         private void BiuseBox_CheckedChanged(object sender, EventArgs e)
         {
             BiuseStart.Visible = BiuseBox.Checked;
@@ -198,7 +179,6 @@ namespace XICSM.MiscTools
 
             DisplayCopyDatesButtons();
         }
-
         private void EouseBox_CheckedChanged(object sender, EventArgs e)
         {
             EouseStart.Visible = EouseBox.Checked;
@@ -207,25 +187,21 @@ namespace XICSM.MiscTools
 
             DisplayCopyDatesButtons();
         }
-
         private void CopyEtoB_Click(object sender, EventArgs e)
         {
             BiuseStart.Value = EouseStart.Value;
             BiuseEnd.Value = EouseEnd.Value;
         }
-
         private void CopyBtoE_Click(object sender, EventArgs e)
         {
             EouseEnd.Value = BiuseEnd.Value;
             EouseStart.Value = BiuseStart.Value;
         }
-
         private void SaveBox_CheckedChanged(object sender, EventArgs e)
         {
             labelSave.Visible = SaveBox.Checked;
             SaveName.Visible = SaveBox.Checked;
         }
-
         private void SearchInterf_FormClosed(object sender, FormClosedEventArgs e)
         {
             if (!SaveBox.Checked)
@@ -234,25 +210,21 @@ namespace XICSM.MiscTools
             }
             stop = true;
         }
-
         private void LikeMsState_CheckedChanged(object sender, EventArgs e)
         {
             CheckBox box = (CheckBox)sender;
             if (box.Checked) { box.Text = "Like"; } else { box.Text = "Not Like"; }
         }
-
         private void BiuseStart_ValueChanged(object sender, EventArgs e)
         {
             IcsDateTime dt = (IcsDateTime)sender;
             //if (!DateTime.Compatible(dt.Value)) { MessageBox.Show(L.Txt("Date can only be between 1753-01-01 and 9999-12-31.")); }
             if (dt.Value <= DateTime.MaxValue && dt.Value >= DateTime.MinValue && dt.Value != null) { MessageBox.Show(L.Txt("Date can only be between 1753-01-01 and 9999-12-31.")); }
         }
-
         private void N2_Click(object sender, EventArgs e)
         {
             t.Show(L.Txt("Rec. ITU SM.329-7"), this, 3000);
         }
-
         private void N2_MouseHover(object sender, EventArgs e)
         {
             t.Show(L.Txt("Rec. ITU SM.329-7"), this, 3000);
@@ -275,190 +247,197 @@ namespace XICSM.MiscTools
         private void DoWork(ANetDb db, string schemaPrefix)
         {
             stop = false;
-            while (!stop)
+            SwitchBuildButton(false);
+            SetImportOnMapButton(false);
+            SwitchEwxButton(false);
+
+            //db connexion for specific thread
+            using (DbLinker dbl = new DbLinker(db.Duplicate(), schemaPrefix))//DbLinker dispose will close database
             {
-                SwitchBuildButton(false);
-                SetSpinner(true);
-                SetImportOnMapButton(false);
-                SwitchEwxButton(false);
+                // Ln : coef largeur de bande a étudier
+                int Ln = Bandwitdh();
+                string FormatAllTxRxFreq = "ALLSTA_ID,TX_FREQ,RX_FREQ,TX_BW,RX_BW,X,Y,CSYS,ASL,POINTS,RADIUS,AGL,PLAN_ID,Plan(LOWER_FREQ,UPPER_FREQ),BIUSE_DATE,EOUSE_DATE";
 
-                //db connexion for specific thread
-                using (DbLinker dbl = new DbLinker(db.Duplicate(), schemaPrefix))//DbLinker dispose will close database
+                YAllTxrxFreq UnwantedStations = new YAllTxrxFreq();
+                UnwantedStations.Format(FormatAllTxRxFreq);
+                List<int> UnwantedRxStationIds = new List<int>();
+                List<int> UnwantedTxStationIds = new List<int>();
+                List<int> FailedUnwantedStationIds = new List<int>();
+
+                //on cherche les stations unwanted en bouclant sur les wanted
+                YAllTxrxFreq WantedStations = new YAllTxrxFreq();
+                WantedStations.Format(FormatAllTxRxFreq);
+                WantedStations.Filter = DbListWanted.Filter;
+
+                int nbantedStations = WantedStations.Count();
+                SetProgressBarMain(2);
+                SetProgressBarSub(nbantedStations);
+
+                //Step 1: Get Potential Tx/Rx Unwanted station based on Freq Ops range
+                for (WantedStations.OpenRs(); !WantedStations.IsEOF() && !stop; WantedStations.MoveNext())
                 {
-                    // Ln : coef largeur de bande a étudier
-                    int Ln = Bandwitdh();
-                    string FormatAllTxRxFreq = "ALLSTA_ID,TX_FREQ,RX_FREQ,TX_BW,RX_BW,X,Y,CSYS,ASL,POINTS,RADIUS,AGL,Plan(LOWER_FREQ,UPPER_FREQ),BIUSE_DATE,EOUSE_DATE";
+                    double TxLowerLimit = WantedStations.m_tx_freq - WantedStations.m_tx_bw;
+                    double TxUpperLimit = WantedStations.m_tx_freq + WantedStations.m_tx_bw;
 
-                    YAllTxrxFreq UnwantedStations = new YAllTxrxFreq();
-                    UnwantedStations.Format(FormatAllTxRxFreq);
-                    List<int> UnwantedRxStationIds = new List<int>();
-                    List<int> UnwantedTxStationIds = new List<int>();
-                    List<int> FailedUnwantedStationIds = new List<int>();
+                    double RxLowerLimit = WantedStations.m_tx_freq - WantedStations.m_tx_bw;
+                    double RxUpperLimit = WantedStations.m_tx_freq + WantedStations.m_tx_bw;
 
-                    //Bag wanted
-                    IcsmBag BagWanted = new IcsmBag(DbListWanted.Table);
-                    IcsmBag BagUnwantedTx = new IcsmBag(DbListTxUnwanted.Table);
-                    IcsmBag BagUnwantedRx = new IcsmBag(DbListRxUnwanted.Table);
-                    IcsmBag BagWantedExcluded = new IcsmBag(DbListWantedExcluded.Table);
-
-                    //on cherche les stations unwanted en bouclant sur les wanted
-                    YAllTxrxFreq WantedStations = new YAllTxrxFreq();
-                    WantedStations.Format("ALLSTA_ID,TX_FREQ,EIRP,RX_FREQ,TX_BW,RX_BW,X,Y,ASL,POINTS,RADIUS,SITE_NAME,AGL,PLAN_ID,Plan(LOWER_FREQ,UPPER_FREQ),BIUSE_DATE,EOUSE_DATE");
-                    WantedStations.Filter = DbListWanted.Filter;
-
-                    //Step 1: Get Potential Tx/Rx Unwanted station based on Freq Ops range
-                    for (WantedStations.OpenRs(); !WantedStations.IsEOF(); WantedStations.MoveNext())
+                    if (WantedStations.m_tx_freq != Null.D && WantedStations.m_rx_freq != Null.D)
                     {
-                        double TxLowerLimit = WantedStations.m_tx_freq - WantedStations.m_tx_bw;
-                        double TxUpperLimit = WantedStations.m_tx_freq + WantedStations.m_tx_bw;
+                        //Search for potential Unwanted Rx stations based on Frequency limits
+                        YAllTxrxFreq Rx_PotentialUnwanted = new YAllTxrxFreq();
+                        Rx_PotentialUnwanted.Format(FormatAllTxRxFreq);
+                        Rx_PotentialUnwanted.Filter =
+                            $"(([RX_FREQ]/1000 - ([RX_BW] * {Ln} / 2) >= {TxLowerLimit.ToSql()} AND [RX_FREQ]/1000 - ([RX_BW] * {Ln} / 2) <= {TxUpperLimit.ToSql()})" +
+                            $"OR " +
+                            $"([RX_FREQ]/1000 + ([RX_BW] * {Ln} / 2) <= {TxUpperLimit.ToSql()} AND [RX_FREQ]/1000 + ([RX_BW] * {Ln} / 2) >= {TxLowerLimit.ToSql()}))";
 
-                        double RxLowerLimit = WantedStations.m_tx_freq - WantedStations.m_tx_bw;
-                        double RxUpperLimit = WantedStations.m_tx_freq + WantedStations.m_tx_bw;
-
-                        if (WantedStations.m_tx_freq != Null.D && WantedStations.m_rx_freq != Null.D)
+                        if (Rx_PotentialUnwanted.Count() > 0)
                         {
-                            //Search for potential Unwanted Rx stations based on Frequency limits
-                            YAllTxrxFreq Rx_PotentialUnwanted = new YAllTxrxFreq();
-                            Rx_PotentialUnwanted.Format(FormatAllTxRxFreq);
-                            Rx_PotentialUnwanted.Filter =
-                                $"(([RX_FREQ]/1000 - ([RX_BW] * {Ln} / 2) >= {TxLowerLimit} AND [RX_FREQ]/1000 - ([RX_BW] * {Ln} / 2) <= {TxUpperLimit})" +
-                                $"OR " +
-                                $"([RX_FREQ]/1000 + ([RX_BW] * {Ln} / 2) <= {TxUpperLimit} AND [RX_FREQ]/1000 + ([RX_BW] * {Ln} / 2) >= {TxLowerLimit}))";
-
-                            if (Rx_PotentialUnwanted.Count() > 0)
+                            for (Rx_PotentialUnwanted.OpenRs(); !Rx_PotentialUnwanted.IsEOF(); Rx_PotentialUnwanted.MoveNext())
                             {
-                                for (Rx_PotentialUnwanted.OpenRs(); !Rx_PotentialUnwanted.IsEOF(); Rx_PotentialUnwanted.MoveNext())
-                                {
-                                    UnwantedRxStationIds.Add(Rx_PotentialUnwanted.m_allsta_id);
-                                }
-                            }
-
-                            //Search for potential Unwanted Tx stations based on Frequency limits
-                            YAllTxrxFreq Tx_PotentialUnwanted = new YAllTxrxFreq();
-                            Tx_PotentialUnwanted.Format(FormatAllTxRxFreq);
-                            Tx_PotentialUnwanted.Filter =
-                                $"(([TX_FREQ]/1000 - ([TX_BW] * {Ln} / 2) >= {RxLowerLimit} AND [TX_FREQ]/1000 - ([TX_BW] * {Ln} / 2) <= {RxUpperLimit})" +
-                                $"OR " +
-                                $"([TX_FREQ]/1000 + ([TX_BW] * {Ln} / 2) <= {RxUpperLimit} AND [TX_FREQ]/1000 + ([TX_BW] * {Ln} / 2) >= {RxLowerLimit}))";
-
-                            if (Tx_PotentialUnwanted.Count() > 0)
-                            {
-                                for (Tx_PotentialUnwanted.OpenRs(); !Tx_PotentialUnwanted.IsEOF(); Tx_PotentialUnwanted.MoveNext())
-                                {
-                                    UnwantedTxStationIds.Add(Tx_PotentialUnwanted.m_allsta_id);
-                                }
+                                UnwantedRxStationIds.Add(Rx_PotentialUnwanted.m_allsta_id);
                             }
                         }
-                        else if (WantedStations.m_plan_id != Null.I) // no freq assigned but there is a Freq_Plan
+
+                        //Search for potential Unwanted Tx stations based on Frequency limits
+                        YAllTxrxFreq Tx_PotentialUnwanted = new YAllTxrxFreq();
+                        Tx_PotentialUnwanted.Format(FormatAllTxRxFreq);
+                        Tx_PotentialUnwanted.Filter =
+                            $"(([TX_FREQ]/1000 - ([TX_BW] * {Ln} / 2) >= {RxLowerLimit.ToSql()} AND [TX_FREQ]/1000 - ([TX_BW] * {Ln} / 2) <= {RxUpperLimit.ToSql()})" +
+                            $"OR " +
+                            $"([TX_FREQ]/1000 + ([TX_BW] * {Ln} / 2) <= {RxUpperLimit.ToSql()} AND [TX_FREQ]/1000 + ([TX_BW] * {Ln} / 2) >= {RxLowerLimit.ToSql()}))";
+
+                        if (Tx_PotentialUnwanted.Count() > 0)
                         {
-                            double PlanLowerLimit = WantedStations.m_Plan.m_lower_freq - (WantedStations.m_tx_bw.Max(WantedStations.m_rx_bw));
-                            double PlanUpperLimit = WantedStations.m_Plan.m_lower_freq + (WantedStations.m_tx_bw.Max(WantedStations.m_rx_bw));
-
-                            //Search for potential Unwanted Rx stations based on Frequency limits
-                            YAllTxrxFreq Rx_PotentialUnwanted = new YAllTxrxFreq();
-                            Rx_PotentialUnwanted.Format(FormatAllTxRxFreq);
-                            Rx_PotentialUnwanted.Filter =
-                                $"(([RX_FREQ]/1000 - ([RX_BW] * {Ln} / 2) >= {PlanLowerLimit} AND [RX_FREQ]/1000 - ([RX_BW] * {Ln} / 2) <= {PlanUpperLimit})" +
-                                $"OR " +
-                                $"([RX_FREQ]/1000 + ([RX_BW] * {Ln} / 2) <= {PlanUpperLimit} AND [RX_FREQ]/1000 + ([RX_BW] * {Ln} / 2) >= {PlanLowerLimit}))";
-
-                            if (Rx_PotentialUnwanted.Count() > 0)
+                            for (Tx_PotentialUnwanted.OpenRs(); !Tx_PotentialUnwanted.IsEOF(); Tx_PotentialUnwanted.MoveNext())
                             {
-                                for (Rx_PotentialUnwanted.OpenRs(); !Rx_PotentialUnwanted.IsEOF(); Rx_PotentialUnwanted.MoveNext())
-                                {
-                                    UnwantedRxStationIds.Add(Rx_PotentialUnwanted.m_allsta_id);
-                                }
+                                UnwantedTxStationIds.Add(Tx_PotentialUnwanted.m_allsta_id);
                             }
-
-                            //Search for potential Unwanted Tx stations based on Frequency limits
-                            YAllTxrxFreq Tx_PotentialUnwanted = new YAllTxrxFreq();
-                            Tx_PotentialUnwanted.Format(FormatAllTxRxFreq);
-                            Tx_PotentialUnwanted.Filter =
-                                $"(([TX_FREQ]/1000 - ([TX_BW] * {Ln} / 2) >= {PlanLowerLimit} AND [TX_FREQ]/1000 - ([TX_BW] * {Ln} / 2) <= {PlanUpperLimit})" +
-                                $"OR " +
-                                $"([TX_FREQ]/1000 + ([TX_BW] * {Ln} / 2) <= {PlanUpperLimit} AND [TX_FREQ]/1000 + ([TX_BW] * {Ln} / 2) >= {PlanLowerLimit}))";
-
-                            if (Tx_PotentialUnwanted.Count() > 0)
-                            {
-                                for (Tx_PotentialUnwanted.OpenRs(); !Tx_PotentialUnwanted.IsEOF(); Tx_PotentialUnwanted.MoveNext())
-                                {
-                                    UnwantedTxStationIds.Add(Tx_PotentialUnwanted.m_allsta_id);
-                                }
-                            }
-                        }
-                        else if (1 != 1) //TODO: this section will handle equipments if there is no plan nor frequencies
-                        { }
-                        else //no way to handle this station 
-                        { FailedUnwantedStationIds.Add(WantedStations.m_allsta_id); } 
-                    }
-
-                    //Step 2: Exlcude Unwanted Rx Stations and Unwanted Tx Stations based on geo filtering
-                    YAllTxrxFreq All_Tx_PotentialUnwanted = new YAllTxrxFreq();
-                    All_Tx_PotentialUnwanted.Format(FormatAllTxRxFreq);
-                    All_Tx_PotentialUnwanted.Filter = $"[ALLSTA_ID] IN ({UnwantedTxStationIds.ToCsvString()})";
-
-                    YAllTxrxFreq All_Rx_PotentialUnwanted = new YAllTxrxFreq();
-                    All_Rx_PotentialUnwanted.Format(FormatAllTxRxFreq);
-                    All_Rx_PotentialUnwanted.Filter = $"[ALLSTA_ID] IN ({UnwantedRxStationIds.ToCsvString()})";
-
-                    for (WantedStations.OpenRs(); !WantedStations.IsEOF(); WantedStations.MoveNext())
-                    {
-                        PolygonEtudeExt PolyWanted = new PolygonEtudeExt();
-                        ComputePolygonEtude(WantedStations, ref PolyWanted);
-
-                        for (All_Tx_PotentialUnwanted.OpenRs(); !All_Tx_PotentialUnwanted.IsEOF(); All_Tx_PotentialUnwanted.MoveNext())
-                        {
-                            PolygonEtudeExt PolyTxUnwanted = new PolygonEtudeExt();
-                            ComputePolygonEtude(All_Tx_PotentialUnwanted, ref PolyTxUnwanted);
-                            if (!PolyTxUnwanted.Intersects(PolyWanted)) UnwantedTxStationIds.Remove(All_Tx_PotentialUnwanted.m_allsta_id);
-                        }
-
-                        for (All_Rx_PotentialUnwanted.OpenRs(); !All_Rx_PotentialUnwanted.IsEOF(); All_Rx_PotentialUnwanted.MoveNext())
-                        {
-                            PolygonEtudeExt PolyRxUnwanted = new PolygonEtudeExt();
-                            ComputePolygonEtude(All_Rx_PotentialUnwanted, ref PolyRxUnwanted);
-                            if (!PolyRxUnwanted.Intersects(PolyWanted)) UnwantedTxStationIds.Remove(All_Rx_PotentialUnwanted.m_allsta_id);
                         }
                     }
+                    else if (WantedStations.m_plan_id != Null.I) // no freq assigned but there is a Freq_Plan
+                    {
+                        double PlanLowerLimit = WantedStations.m_Plan.m_lower_freq - (WantedStations.m_tx_bw.Max(WantedStations.m_rx_bw));
+                        double PlanUpperLimit = WantedStations.m_Plan.m_lower_freq + (WantedStations.m_tx_bw.Max(WantedStations.m_rx_bw));
 
-                    //Step 3: Return Results
+                        //Search for potential Unwanted Rx stations based on Frequency limits
+                        YAllTxrxFreq Rx_PotentialUnwanted = new YAllTxrxFreq();
+                        Rx_PotentialUnwanted.Format(FormatAllTxRxFreq);
+                        Rx_PotentialUnwanted.Filter =
+                            $"(([RX_FREQ]/1000 - ([RX_BW] * {Ln} / 2) >= {PlanLowerLimit.ToSql()} AND [RX_FREQ]/1000 - ([RX_BW] * {Ln} / 2) <= {PlanUpperLimit.ToSql()})" +
+                            $"OR " +
+                            $"([RX_FREQ]/1000 + ([RX_BW] * {Ln} / 2) <= {PlanUpperLimit.ToSql()} AND [RX_FREQ]/1000 + ([RX_BW] * {Ln} / 2) >= {PlanLowerLimit.ToSql()}))";
 
+                        if (Rx_PotentialUnwanted.Count() > 0)
+                        {
+                            for (Rx_PotentialUnwanted.OpenRs(); !Rx_PotentialUnwanted.IsEOF(); Rx_PotentialUnwanted.MoveNext())
+                            {
+                                UnwantedRxStationIds.Add(Rx_PotentialUnwanted.m_allsta_id);
+                            }
+                        }
 
+                        //Search for potential Unwanted Tx stations based on Frequency limits
+                        YAllTxrxFreq Tx_PotentialUnwanted = new YAllTxrxFreq();
+                        Tx_PotentialUnwanted.Format(FormatAllTxRxFreq);
+                        Tx_PotentialUnwanted.Filter =
+                            $"(([TX_FREQ]/1000 - ([TX_BW] * {Ln} / 2) >= {PlanLowerLimit.ToSql()} AND [TX_FREQ]/1000 - ([TX_BW] * {Ln} / 2) <= {PlanUpperLimit.ToSql()})" +
+                            $"OR " +
+                            $"([TX_FREQ]/1000 + ([TX_BW] * {Ln} / 2) <= {PlanUpperLimit.ToSql()} AND [TX_FREQ]/1000 + ([TX_BW] * {Ln} / 2) >= {PlanLowerLimit.ToSql()}))";
+
+                        if (Tx_PotentialUnwanted.Count() > 0)
+                        {
+                            for (Tx_PotentialUnwanted.OpenRs(); !Tx_PotentialUnwanted.IsEOF(); Tx_PotentialUnwanted.MoveNext())
+                            {
+                                UnwantedTxStationIds.Add(Tx_PotentialUnwanted.m_allsta_id);
+                            }
+                        }
+                    }
+                    else if (1 != 1) //TODO: this section will handle equipments if there is no plan nor frequencies
+                    { }
+                    else //no way to handle this station 
+                    { FailedUnwantedStationIds.Add(WantedStations.m_allsta_id); }
+
+                    StepProgressBarSub();
                 }
+
+
+                //Step 2: Exlcude Unwanted Rx Stations and Unwanted Tx Stations based on geo filtering
+
+                SetProgressBarSub(nbantedStations);
+                StepProgressBarMain();
+
+                YAllTxrxFreq All_Tx_PotentialUnwanted = new YAllTxrxFreq();
+                All_Tx_PotentialUnwanted.Format(FormatAllTxRxFreq);
+                All_Tx_PotentialUnwanted.Filter = $"[ALLSTA_ID] IN ({UnwantedTxStationIds.ToCsvString()})";
+
+                YAllTxrxFreq All_Rx_PotentialUnwanted = new YAllTxrxFreq();
+                All_Rx_PotentialUnwanted.Format(FormatAllTxRxFreq);
+                All_Rx_PotentialUnwanted.Filter = $"[ALLSTA_ID] IN ({UnwantedRxStationIds.ToCsvString()})";
+
+                for (WantedStations.OpenRs(); !WantedStations.IsEOF(); WantedStations.MoveNext())
+                {
+                    PolygonEtudeExt PolyWanted = new PolygonEtudeExt();
+                    ComputePolygonEtude(WantedStations, ref PolyWanted);
+
+                    for (All_Tx_PotentialUnwanted.OpenRs(); !All_Tx_PotentialUnwanted.IsEOF(); All_Tx_PotentialUnwanted.MoveNext())
+                    {
+                        PolygonEtudeExt PolyTxUnwanted = new PolygonEtudeExt();
+                        ComputePolygonEtude(All_Tx_PotentialUnwanted, ref PolyTxUnwanted);
+                        if (!PolyTxUnwanted.Intersects(PolyWanted)) UnwantedTxStationIds.Remove(All_Tx_PotentialUnwanted.m_allsta_id);
+                    }
+
+                    for (All_Rx_PotentialUnwanted.OpenRs(); !All_Rx_PotentialUnwanted.IsEOF(); All_Rx_PotentialUnwanted.MoveNext())
+                    {
+                        PolygonEtudeExt PolyRxUnwanted = new PolygonEtudeExt();
+                        ComputePolygonEtude(All_Rx_PotentialUnwanted, ref PolyRxUnwanted);
+                        if (!PolyRxUnwanted.Intersects(PolyWanted)) UnwantedTxStationIds.Remove(All_Rx_PotentialUnwanted.m_allsta_id);
+                    }
+                    StepProgressBarSub();
+                }
+
+                //Step 3: Send results to DbList
+                DbListRxUnwanted.Filter = $"[ID] IN {UnwantedRxStationIds.ToCsvString()}";
+                DbListTxUnwanted.Filter = $"[ID] IN {UnwantedTxStationIds.ToCsvString()}";
+                DbListWantedExcluded.Filter = $"[ID] IN {FailedUnwantedStationIds.ToCsvString()}";
+
             }
             
         }
-
         private void ComputePolygonEtude(YAllTxrxFreq Station, ref PolygonEtudeExt PolyEdtude)
         {
-            if (ComputingHorizon.Checked) //Radio Horizon
+            try 
             {
-                if (Station.m_points != "")
-                { PolyEdtude.CalculeVisibiliteRadioPolygone(Station.m_points, Station.m_csys, Station.m_agl); }
-                else if (Station.m_radius != Null.D)
-                { PolyEdtude.CalculeVisibiliteRadioCercle(Station.m_x, Station.m_y, Station.m_csys, Station.m_radius, Station.m_agl); }
-                else
-                { PolyEdtude.CalculeVisibiliteRadioPoint(Station.m_x, Station.m_y, Station.m_csys, Station.m_asl, Station.m_agl); }
-            }
-            else //Free Space Loss contouring
-            {
-                List<AzimAtten> pattern = AzimAtten.LoadPattern(Station.Table, Station.m_table_id);
-                double F = Station.m_rx_freq.Max(Station.m_tx_freq);
+                if (ComputingHorizon.Checked) //Radio Horizon
+                {
+                    if (Station.m_points != "")
+                    { PolyEdtude.CalculeVisibiliteRadioPolygone(Station.m_points, Station.m_csys, Station.m_agl); }
+                    else if (Station.m_radius != Null.D)
+                    { PolyEdtude.CalculeVisibiliteRadioCercle(Station.m_x, Station.m_y, Station.m_csys, Station.m_radius, Station.m_agl); }
+                    else
+                    { PolyEdtude.CalculeVisibiliteRadioPoint(Station.m_x, Station.m_y, Station.m_csys, Station.m_asl, Station.m_agl); }
+                }
+                else //Free Space Loss contouring
+                {
+                    List<AzimAtten> pattern = AzimAtten.LoadPattern(Station.Table, Station.m_table_id);
+                    double F = Station.m_rx_freq.Max(Station.m_tx_freq);
 
-                //double Seuil = Station.m_high_sensitivity < Null.D ? Station.m_high_sensitivity : Station.m_sensitivity;
-                double Seuil = Null.D; //while data is not yet in the YAllTxRxFreq Query
-                if (Seuil == Null.D) { Seuil = DefaultKtbf.Value; }
-                double range = (299.792 / F) / (4 * Math.PI) * Math.Pow(10, (Station.m_eirp - 30 - Seuil) / 20) / 1000;//en Km
+                    //double Seuil = Station.m_high_sensitivity < Null.D ? Station.m_high_sensitivity : Station.m_sensitivity;
+                    double Seuil = Null.D; //while data is not yet in the YAllTxRxFreq Query
+                    if (Seuil == Null.D) { Seuil = DefaultKtbf.Value; }
+                    double range = (299.792 / F) / (4 * Math.PI) * Math.Pow(10, (Station.m_eirp - 30 - Seuil) / 20) / 1000;//en Km
 
-                if (Station.m_points != "")
-                { PolyEdtude.CalculeCouverturePolygone(Station.m_points, Station.m_csys, pattern, range); }
-                else if (Station.m_radius != Null.D)
-                { PolyEdtude.CalculeCouvertureCercle(Station.m_x, Station.m_y, Station.m_csys, Station.m_radius, pattern, range); }
-                else
-                { PolyEdtude.CalculeCouverturePoint(Station.m_x, Station.m_y, Station.m_csys, pattern, range); }
+                    if (Station.m_points != "")
+                    { PolyEdtude.CalculeCouverturePolygone(Station.m_points, Station.m_csys, pattern, range); }
+                    else if (Station.m_radius != Null.D)
+                    { PolyEdtude.CalculeCouvertureCercle(Station.m_x, Station.m_y, Station.m_csys, Station.m_radius, pattern, range); }
+                    else
+                    { PolyEdtude.CalculeCouverturePoint(Station.m_x, Station.m_y, Station.m_csys, pattern, range); }
+                }
             }
+            catch(Exception ex) { IcsMetroMessageBox.Show(ex.Message); }
+            
         }
-
         private void DisplayCopyDatesButtons()
         {
             if (BiuseBox.Checked && EouseBox.Checked)
@@ -475,18 +454,13 @@ namespace XICSM.MiscTools
 
         #endregion
 
-        private void getAllWantedStations(string OqlFilter, string Table)
+        private void getAllWantedStations(string OqlFilter, string Table="ALL_TXRX_FREQ")
         {
             //saveName
             string title = SaveBox.Checked ? SaveName.Text : "Search for potential interferer (" + IM.ConnectedUser() + ")";
 
-            //Get(WantedStation) depending TableName
-            IcsmBag BagWanted = new IcsmBag(Table);
-            BagWanted.Create(title, "Wanted Mob_Station");
-
             if (Table == "MOB_STATION") //select table <=> Yclass : YTable représente les stations Wanted (candidate)
             {
-
                 YMobStationT YTable = new YMobStationT();
                 YTable.Table = Table;
                 YTable.Format("ID");
@@ -516,37 +490,38 @@ namespace XICSM.MiscTools
                 DbListWanted.Table = "MICROWS";
                 wantedStationsOQL = OqlFilter.Replace("[", "[Microwave.");
             }
+            else if (Table == "ALL_TXRX_FREQ")
+            {
+                DbListWanted.Filter = OqlFilter;
+                wantedStationsOQL = OqlFilter;
+                DbListWanted.Requery();
+            }
             else
             { //should never happens but just in case...
                 MessageBox.Show(L.Txt("This table is not compatible with this tool for now."));
             }
             DbListWanted.Filter = wantedStationsOQL;
             DbListWanted.SetFilter(wantedStationsOQL);
-            bagWantedId = BagWanted.Bag.m_id;
             DbListWanted.Requery();
         }
-
         private void getAllWantedStations(IMQueryMenuNode.Context ct)
         {
             //saveName
             string title = SaveBox.Checked ? SaveName.Text : "Search for potential interferer (" + IM.ConnectedUser() + ")";
 
-            //Get(WantedStation) depending TableName
-            IcsmBag BagWanted = new IcsmBag("ALL_TXRX_FREQ");
-            BagWanted.Create(title, "Wanted Mob_Station");
-
-            List<int> ListID = new List<int>();
-            Yyy YTable = new Yyy(); YTable.Table = ct.TableName;
-            YTable.Filter = ct.DataList.GetOQLFilter(true);
-            for (YTable.OpenRs(); !YTable.IsEOF(); YTable.MoveNext())
+            if (ct.TableName == "ALL_TXRX_FREQ") { getAllWantedStations(ct.DataList.GetOQLFilter(true)); }
+            else
             {
-                ListID.Add(YTable.Get("ID").ToString().ParseInt());
+                List<int> ListID = new List<int>();
+                Yyy YTable = new Yyy(); YTable.Table = ct.TableName;
+                YTable.Filter = ct.DataList.GetOQLFilter(true);
+                for (YTable.OpenRs(); !YTable.IsEOF(); YTable.MoveNext())
+                {
+                    ListID.Add(YTable.Get("ID").ToString().ParseInt());
+                }
+                DbListWanted.Filter = $"[ID] IN ({ListID.ToCsvString()})";
+                DbListWanted.Requery();
             }
-
-                
-            DbListWanted.Filter = $"[ID] IN ({ListID.ToCsvString()})";
-            bagWantedId = BagWanted.Bag.m_id;
-            DbListWanted.Requery();
         }
         private void exportDataset(bool toHTZ)
         {

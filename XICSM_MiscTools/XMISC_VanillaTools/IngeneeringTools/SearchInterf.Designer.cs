@@ -75,7 +75,8 @@ namespace XICSM.MiscTools
             this.tabExcludedUnwanted = new MetroFramework.Controls.MetroTabPage();
             this.DbListWantedExcluded = new NetPlugins2.IcsDBList();
             this.cancelThread = new FormsCs.IcsMetroTile();
-            this.PendingSpinner = new FormsCs.IcsMetroProgressSpinner();
+            this.ProgressBarMain = new FormsCs.IcsMetroProgressBar();
+            this.ProgressBarSub = new FormsCs.IcsMetroProgressBar();
             this.geoParam.SuspendLayout();
             this.freqParams.SuspendLayout();
             this.SearchTabGrid.SuspendLayout();
@@ -179,14 +180,14 @@ namespace XICSM.MiscTools
             // SearchTabGrid
             // 
             this.SearchTabGrid.Controls.Add(this.tabConfig);
+            this.SearchTabGrid.Controls.Add(this.tabExcludedUnwanted);
             this.SearchTabGrid.Controls.Add(this.tabWanted);
             this.SearchTabGrid.Controls.Add(this.tabUnwantedRx);
             this.SearchTabGrid.Controls.Add(this.tabUnwantedTx);
-            this.SearchTabGrid.Controls.Add(this.tabExcludedUnwanted);
             this.SearchTabGrid.Dock = System.Windows.Forms.DockStyle.Fill;
             this.SearchTabGrid.Location = new System.Drawing.Point(20, 60);
             this.SearchTabGrid.Name = "SearchTabGrid";
-            this.SearchTabGrid.SelectedIndex = 0;
+            this.SearchTabGrid.SelectedIndex = 4;
             this.SearchTabGrid.Size = new System.Drawing.Size(976, 390);
             this.SearchTabGrid.TabIndex = 5;
             // 
@@ -220,6 +221,7 @@ namespace XICSM.MiscTools
             this.groupBox1.TabIndex = 120;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Exclude unwanted stations by Familly Status";
+            this.groupBox1.Visible = false;
             // 
             // LikeMsState
             // 
@@ -261,6 +263,7 @@ namespace XICSM.MiscTools
             this.OtherFilters.TabIndex = 14;
             this.OtherFilters.TabStop = false;
             this.OtherFilters.Text = "Use date";
+            this.OtherFilters.Visible = false;
             // 
             // label2
             // 
@@ -508,7 +511,7 @@ namespace XICSM.MiscTools
             this.DbListWanted.Param2 = 0;
             this.DbListWanted.Size = new System.Drawing.Size(962, 352);
             this.DbListWanted.TabIndex = 3;
-            this.DbListWanted.Table = null;
+            this.DbListWanted.Table = "ALL_TXRX_FREQ";
             this.DbListWanted.OnRequery += new System.EventHandler(this.DbListWanted_OnRequery);
             // 
             // tabUnwantedRx
@@ -591,38 +594,47 @@ namespace XICSM.MiscTools
             this.DbListWantedExcluded.Param2 = 0;
             this.DbListWantedExcluded.Size = new System.Drawing.Size(964, 354);
             this.DbListWantedExcluded.TabIndex = 5;
-            this.DbListWantedExcluded.Table = null;
+            this.DbListWantedExcluded.Table = "ALL_TXRX_FREQ";
             // 
             // cancelThread
             // 
-            this.cancelThread.Location = new System.Drawing.Point(561, 22);
+            this.cancelThread.Location = new System.Drawing.Point(754, 31);
             this.cancelThread.Name = "cancelThread";
-            this.cancelThread.Size = new System.Drawing.Size(23, 23);
+            this.cancelThread.Size = new System.Drawing.Size(80, 23);
             this.cancelThread.TabIndex = 12;
             this.cancelThread.Text = "Annuler";
             this.cancelThread.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.cancelThread.Visible = false;
             this.cancelThread.Click += new System.EventHandler(this.cancelThread_Click);
             // 
-            // PendingSpinner
+            // ProgressBarMain
             // 
-            this.PendingSpinner.BackColor = System.Drawing.Color.Transparent;
-            this.PendingSpinner.Location = new System.Drawing.Point(590, 19);
-            this.PendingSpinner.Maximum = 100;
-            this.PendingSpinner.Name = "PendingSpinner";
-            this.PendingSpinner.Size = new System.Drawing.Size(35, 35);
-            this.PendingSpinner.Speed = 2F;
-            this.PendingSpinner.Spinning = false;
-            this.PendingSpinner.TabIndex = 11;
-            this.PendingSpinner.Visible = false;
+            this.ProgressBarMain.HideProgressText = false;
+            this.ProgressBarMain.Location = new System.Drawing.Point(485, 8);
+            this.ProgressBarMain.MarqueeAnimating = true;
+            this.ProgressBarMain.Name = "ProgressBarMain";
+            this.ProgressBarMain.Size = new System.Drawing.Size(263, 23);
+            this.ProgressBarMain.TabIndex = 13;
+            this.ProgressBarMain.Visible = false;
+            // 
+            // ProgressBarSub
+            // 
+            this.ProgressBarSub.HideProgressText = false;
+            this.ProgressBarSub.Location = new System.Drawing.Point(485, 35);
+            this.ProgressBarSub.MarqueeAnimating = true;
+            this.ProgressBarSub.Name = "ProgressBarSub";
+            this.ProgressBarSub.Size = new System.Drawing.Size(263, 23);
+            this.ProgressBarSub.TabIndex = 14;
+            this.ProgressBarSub.Visible = false;
             // 
             // SearchInterf
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1016, 470);
+            this.Controls.Add(this.ProgressBarSub);
+            this.Controls.Add(this.ProgressBarMain);
             this.Controls.Add(this.cancelThread);
-            this.Controls.Add(this.PendingSpinner);
             this.Controls.Add(this.SearchTabGrid);
             this.Font = new System.Drawing.Font("Segoe UI Light", 14F, System.Drawing.FontStyle.Bold);
             this.Name = "SearchInterf";
@@ -695,7 +707,6 @@ namespace XICSM.MiscTools
         private System.Windows.Forms.CheckBox LikeMsState;
         private IcsComboMetro MobStation_State;
         private IcsMetroTile cancelThread;
-        private IcsMetroProgressSpinner PendingSpinner;
         private MetroFramework.Controls.MetroTabPage tabUnwantedRx;
         private IcsDBList DbListRxUnwanted;
         private MetroFramework.Controls.MetroTabPage tabUnwantedTx;
@@ -703,5 +714,7 @@ namespace XICSM.MiscTools
         private MetroFramework.Controls.MetroTabPage tabExcludedUnwanted;
         private IcsDBList DbListWantedExcluded;
         private System.Windows.Forms.GroupBox groupBox1;
+        private IcsMetroProgressBar ProgressBarMain;
+        private IcsMetroProgressBar ProgressBarSub;
     }
 }

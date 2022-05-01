@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using XICSM.MiscTools;
 
 namespace XICSM.VanillaTools
 {
@@ -13,6 +14,10 @@ namespace XICSM.VanillaTools
         public static List<IMQueryMenuNode> onGetQueryMenu(string tableName, int nbSelMin)
         {
             List<IMQueryMenuNode> lst = new List<IMQueryMenuNode>();
+            if (tableName == "ALL_TXRX_FREQ" && nbSelMin >= 1)
+            {
+                lst.Add(new IMQueryMenuNode(L.Txt("Search for potential interferer"), null, SearchInterf.builder, IMQueryMenuNode.ExecMode.FirstRecord));
+            }
             if (tableName == "MICROWA" && nbSelMin == 1 && IM.SpecialRightsActivated())
             {
                 lst.Add(new IMQueryMenuNode(L.Txt("Convert to Other Terrestrial Stations"), null, Converter.ConvertMwToOt, IMQueryMenuNode.ExecMode.FirstRecord));

@@ -24,6 +24,7 @@ namespace XICSM.VanillaTools
         public double SchemaVersion { get { return 0; } }
         public void RegisterBoard(IMBoard b) 
         {
+            b.RegisterQueryMenuBuilder("ALL_TXRX_FREQ", Contextual.onGetQueryMenu);
             b.RegisterQueryMenuBuilder("DOCLINK", Contextual.onGetQueryMenu);
             b.RegisterQueryMenuBuilder("MICROWA", Contextual.onGetQueryMenu);
         }

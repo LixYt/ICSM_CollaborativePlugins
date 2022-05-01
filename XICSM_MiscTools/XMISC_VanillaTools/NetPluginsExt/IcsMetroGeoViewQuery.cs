@@ -99,6 +99,7 @@ namespace NetPlugins2Ext
             #endregion
             //refresh 
             DisplayManager();
+            
         }
         private void IcsMetroGeoView_Resize(object sender, EventArgs e)
         {
@@ -244,20 +245,14 @@ namespace NetPlugins2Ext
         {
             MenuItem mi = (MenuItem)sender;
             string key = mi.Name.Split('-')[1];
-            if (key.Split('.')[0] == "MICROWS")
-            {
-                YMicrows sta = new YMicrows(); sta.Fetch(int.Parse(key.Split('.')[1]));
-                SearchInterf.builder("[ID]={0}".Fmt(sta.m_mw_id), "MICROWA");
-            }
-            else { SearchInterf.builder("[ID]=" + key.Split('.')[1], key.Split('.')[0]); }
-            
+            SearchInterf.builder($"[STA_TBID] = {key.Split('.')[1]} AND [STA_TBNM] = '{key.Split('.')[0]}'");            
         }
         private void ReactivateItem(object sender, EventArgs e)
         {
             MenuItem mi = (MenuItem)sender;
             string key = mi.Name.Split('-')[1];
             ReactivateObject(key);
-        }
+        }              
         private void DisplayCoverage(object sender, EventArgs e)
         {
             MenuItem mi = (MenuItem)sender;
@@ -408,7 +403,7 @@ namespace NetPlugins2Ext
             Yyy y = Yyy.CreateObject(Table); y.LoadWithComponents2(ID);
             string dataId = y.Get("ID").ToString(); string dataTable = y.Table;
             YIcstData c = new YIcstData(); c.format2("*");
-            c.Fetch("[OBJ_TBID]={0} AND [OBJ_TBNM]='{1}'".Fmt(dataId, dataTable));
+            c.Fetch("[STA_TBID]={0} AND [OBJ_TBNM]='{1}'".Fmt(dataId, dataTable));
             int count = c.Count();
             if (count == 0)
             {
