@@ -1,17 +1,18 @@
 ﻿using DatalayerCs;
 using FormsCs;
 using ICSM;
+using Newtonsoft.Json;
 using OrmCs;
 using System;
 using System.Collections.Generic;
-using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Net;
 using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
+using System.Web.Script.Serialization;
 using System.Windows.Forms;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace XICSM.VanillaTools.Tools
 {
@@ -107,6 +108,15 @@ namespace XICSM.VanillaTools.Tools
             string str = "";
             foreach(int i in Li) { str += $"{i},"; }
             return FinalComa ? str : str.Remove(str.Length - 1, 1);
+        }
+        static public string ToJson(this Yyy y)
+        {
+            XElement x = y.AsXml(); 
+            XmlDocument doc = new XmlDocument();
+            doc.LoadXml(x.ToString());
+            string json = JsonConvert.SerializeXmlNode(doc);
+
+            return json;
         }
     }
 
