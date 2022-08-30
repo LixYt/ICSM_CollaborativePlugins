@@ -24,7 +24,7 @@ namespace XICSM.VanillaTools
             }
             if (tableName == "ALL_TXRX_FREQ" && nbSelMin >= 1)
             {
-                lst.Add(new IMQueryMenuNode(L.Txt("Search for potential interferer"), null, SearchInterf.builder, IMQueryMenuNode.ExecMode.FirstRecord));
+                //lst.Add(new IMQueryMenuNode(L.Txt("Search for potential interferer"), null, SearchInterf.builder, IMQueryMenuNode.ExecMode.SelectionOfRecords));
             }
             if (tableName == "MICROWA" && nbSelMin == 1 && IM.SpecialRightsActivated())
             {
@@ -35,6 +35,10 @@ namespace XICSM.VanillaTools
                 lst.Add(new IMQueryMenuNode(L.Txt("Does this document exist ?"), null, TableTools.DocLinkTools.CheckDoc, IMQueryMenuNode.ExecMode.FirstRecord));
                 lst.Add(new IMQueryMenuNode(L.Txt("Open Document"), null, TableTools.DocLinkTools.OpenDoc, IMQueryMenuNode.ExecMode.FirstRecord));
                 lst.Add(new IMQueryMenuNode(L.Txt("Open related Directory"), null, TableTools.DocLinkTools.OpenRelatedDir, IMQueryMenuNode.ExecMode.FirstRecord));
+            }
+            if (tableName == "RR_NOTE" && nbSelMin == 1)
+            {
+                lst.Add(new IMQueryMenuNode(L.Txt("Compare to previous version"), null, TableTools.AllocationsTools.CheckNote, IMQueryMenuNode.ExecMode.FirstRecord));
             }
             return lst;
         }
@@ -47,7 +51,7 @@ namespace XICSM.VanillaTools
             SaveFileDialog saveFileDialog1 = new SaveFileDialog
             {
                 DefaultExt = "*.json",
-                Filter = "json files (*.json)|*.txt|All files (*.*)|*.*",
+                Filter = "json files (*.json)|*.json",
                 FilterIndex = 2,
                 RestoreDirectory = true,
             };

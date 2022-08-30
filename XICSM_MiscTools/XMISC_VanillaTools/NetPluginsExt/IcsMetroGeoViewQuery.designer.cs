@@ -37,8 +37,9 @@ namespace NetPlugins2Ext
             this.ToMap = new FormsCs.IcsMetroButton();
             this.ClearMap = new FormsCs.IcsMetroButton();
             this.SplitGeoQueryBrowser = new System.Windows.Forms.SplitContainer();
-            this.DbListTable = new NetPlugins2.IcsDBList();
             this.Map = new NetPlugins2Ext.IcsOpenlayers3();
+            this.DbListTable = new NetPlugins2.IcsDBList();
+            this.icsOpenlayers61 = new NetPlugins2.IcsOpenlayers6();
             this.SelectPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.SplitGeoQueryBrowser)).BeginInit();
             this.SplitGeoQueryBrowser.Panel1.SuspendLayout();
@@ -113,6 +114,7 @@ namespace NetPlugins2Ext
             // 
             // SplitGeoQueryBrowser.Panel1
             // 
+            this.SplitGeoQueryBrowser.Panel1.Controls.Add(this.icsOpenlayers61);
             this.SplitGeoQueryBrowser.Panel1.Controls.Add(this.Map);
             // 
             // SplitGeoQueryBrowser.Panel2
@@ -121,6 +123,25 @@ namespace NetPlugins2Ext
             this.SplitGeoQueryBrowser.Size = new System.Drawing.Size(800, 462);
             this.SplitGeoQueryBrowser.SplitterDistance = 402;
             this.SplitGeoQueryBrowser.TabIndex = 4;
+            // 
+            // Map
+            // 
+            this.Map.DisplayCsys = null;
+            this.Map.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.Map.InputGeomPoints = null;
+            this.Map.InputGeomRadiusM = 0D;
+            this.Map.InputMode = null;
+            this.Map.InputType = null;
+            this.Map.KmlsMaxCached = 20;
+            this.Map.Location = new System.Drawing.Point(0, 301);
+            this.Map.Margin = new System.Windows.Forms.Padding(2);
+            this.Map.Name = "Map";
+            this.Map.Size = new System.Drawing.Size(402, 161);
+            this.Map.StartLati = 48.53D;
+            this.Map.StartLongi = 2.25D;
+            this.Map.StartZoom = 5;
+            this.Map.TabIndex = 2;
+            this.Map.OnMapClicked += new System.EventHandler<NetPlugins2Ext.MapClickedEventArgs>(this.Map_OnMapClicked);
             // 
             // DbListTable
             // 
@@ -139,24 +160,21 @@ namespace NetPlugins2Ext
             this.DbListTable.OnDefColumns += new System.EventHandler(this.DBList_OnDefColumns);
             this.DbListTable.OnRequery += new System.EventHandler(this.DBList_OnRequery);
             // 
-            // Map
+            // icsOpenlayers61
             // 
-            this.Map.DisplayCsys = null;
-            this.Map.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.Map.InputGeomPoints = null;
-            this.Map.InputGeomRadiusM = 0D;
-            this.Map.InputMode = null;
-            this.Map.InputType = null;
-            this.Map.KmlsMaxCached = 20;
-            this.Map.Location = new System.Drawing.Point(0, 0);
-            this.Map.Margin = new System.Windows.Forms.Padding(2);
-            this.Map.Name = "Map";
-            this.Map.Size = new System.Drawing.Size(402, 462);
-            this.Map.StartLati = 48.53D;
-            this.Map.StartLongi = 2.25D;
-            this.Map.StartZoom = 5;
-            this.Map.TabIndex = 2;
-            this.Map.OnMapClicked += new System.EventHandler<NetPlugins2Ext.MapClickedEventArgs>(this.Map_OnMapClicked);
+            this.icsOpenlayers61.DisplayCsys = null;
+            this.icsOpenlayers61.Dock = System.Windows.Forms.DockStyle.Top;
+            this.icsOpenlayers61.InputGeomPoints = null;
+            this.icsOpenlayers61.InputMode = null;
+            this.icsOpenlayers61.InputType = null;
+            this.icsOpenlayers61.KmlsMaxCached = 20;
+            this.icsOpenlayers61.Location = new System.Drawing.Point(0, 0);
+            this.icsOpenlayers61.Margin = new System.Windows.Forms.Padding(2);
+            this.icsOpenlayers61.Name = "icsOpenlayers61";
+            this.icsOpenlayers61.Size = new System.Drawing.Size(402, 253);
+            this.icsOpenlayers61.StartLati = 40D;
+            this.icsOpenlayers61.StartLongi = -4D;
+            this.icsOpenlayers61.TabIndex = 11;
             // 
             // IcsMetroGeoViewQuery
             // 
@@ -191,5 +209,6 @@ namespace NetPlugins2Ext
         private System.Windows.Forms.SplitContainer SplitGeoQueryBrowser;
         private IcsOpenlayers3 Map;
         private IcsDBList DbListTable;
+        private IcsOpenlayers6 icsOpenlayers61;
     }
 }

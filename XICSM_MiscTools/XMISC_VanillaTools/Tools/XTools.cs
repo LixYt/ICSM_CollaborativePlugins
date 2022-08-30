@@ -124,17 +124,16 @@ namespace XICSM.VanillaTools.Tools
     {
         public List<Tuple<double, double>> PolygonExtent = new List<Tuple<double, double>>(); //X,Y
 
-        public void CompteHorizon(IMPosition pos, double PositionAGL, double PositionASL, string PositionName)
+        public void CompteHorizon(IMPosition pos, double PositionAGL, double PositionASL, string PositionName, bool silent = true)
         {
             double[] Elevations = new double[72]; double[] Distances = new double[72];
             bool computed = IM.ComputeHorizon(pos, (PositionAGL + PositionASL), 5, ref Elevations, ref Distances);
-            if (!computed)
+            if (!computed && !silent)
             {
                 IcsMetroMessageBox.Show(L.Txt("Radio horizon has not been computed for {0}".Fmt(PositionName)),
                                     L.Txt("Missing DTM"),
                                     MessageBoxButtons.OK,
-                                    MessageBoxIcon.Error
-                                );
+                                    MessageBoxIcon.Error);
             }
 
             double longNode = Null.D, latNode = Null.D;
@@ -148,6 +147,7 @@ namespace XICSM.VanillaTools.Tools
         public bool Intersects(PolygonEtudeExt p)
         {
             if (p.Extent.maxX == Null.D || p.Extent.maxY == Null.D || p.Extent.minX == Null.D || p.Extent.minY == Null.D) return false;
+            if (Extent == null) return false;
 
             if (
                 (p.Extent.minX <= Extent.maxX && p.Extent.minX >= Extent.minX) || (p.Extent.maxX <= Extent.maxX && p.Extent.maxX >= Extent.minX)
@@ -159,6 +159,7 @@ namespace XICSM.VanillaTools.Tools
         public bool Intersects(NetPlugins2.PolygoneEtude p)
         {
             if (p.Extent.maxX == Null.D || p.Extent.maxY == Null.D || p.Extent.minX == Null.D || p.Extent.minY == Null.D) return false;
+            if (Extent == null) return false;
 
             if (
                 (p.Extent.minX <= Extent.maxX && p.Extent.minX >= Extent.minX) || (p.Extent.maxX <= Extent.maxX && p.Extent.maxX >= Extent.minX)
@@ -168,6 +169,8 @@ namespace XICSM.VanillaTools.Tools
             else return false;
         }
     }
+
+
 
     
 }

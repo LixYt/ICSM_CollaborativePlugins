@@ -37,6 +37,9 @@
     <Reference Include="DatalayerCs">
       <HintPath>..\..\..\..\ATDI\ICSM\DatalayerCs.dll</HintPath>
     </Reference>
+    <Reference Include="DifferenceEngine">
+      <HintPath>.\DifferenceEngine.dll</HintPath>
+    </Reference>
     <Reference Include="FormsCs">
       <HintPath>..\..\..\..\ATDI\ICSM\FormsCs.dll</HintPath>
     </Reference>
@@ -124,7 +127,11 @@
     </Compile>
     <Compile Include="Plugin.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="TableTools\TableTools.cs" />
+    <Compile Include="TableTools\AllocationsTools.cs" />
+    <Compile Include="TableTools\DocLinkTools.cs" />
+    <Compile Include="Tools\StringResults.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Tools\MiscProgressBar.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -157,6 +164,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="NetPluginsExt\Openlayers3Kml.resx">
       <DependentUpon>Openlayers3Kml.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Tools\StringResults.resx">
+      <DependentUpon>StringResults.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Tools\MiscProgressBar.resx">
       <DependentUpon>MiscProgressBar.cs</DependentUpon>
