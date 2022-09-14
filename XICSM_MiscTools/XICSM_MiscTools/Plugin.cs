@@ -21,8 +21,8 @@ namespace XICSM.MiscTools
         public void RegisterSchema(IMSchema s) 
         {
             #region QUERYSTORE
-            s.DeclareTable("XMISC_QUERYSTORE|SOURCER", "Configuration store", "PLUGIN_4,100");
-            s.DeclareShortDesc("Configuration store");
+            s.DeclareTable("XMISC_QUERYSTORE|SOURCER", L.Txt("Queries and customizations"), "PLUGIN_4,100");
+            s.DeclareShortDesc(L.Txt("Query and query customization sharing table"));
             s.DeclareFullDesc(
                  "Query = [ITEMSTORE]\r\n"
                 + "Table = [TABLE_NAME], Type = [TYPE]\r\n"
@@ -41,8 +41,8 @@ namespace XICSM.MiscTools
             #endregion
 
             #region TRANSLATIONS
-            s.DeclareTable("XMISC_TRANSLATIONS|SOURCER", "Translation tool", "PLUGIN_4,100");
-            s.DeclareShortDesc("Table to import, edit and update translation files.");
+            s.DeclareTable("XMISC_TRANSLATIONS|SOURCER", L.Txt("Translations tool"), "PLUGIN_4,100");
+            s.DeclareShortDesc(L.Txt("Table to import, edit and update translation files."));
             s.DeclareFullDesc(
                  "Source file = \r\n"
                 + "Language = [LANG]");
@@ -105,24 +105,17 @@ namespace XICSM.MiscTools
             s.DeclareField("MODIFIED_BY", "VARCHAR(30)", null, null, null); s.Info("Modified by");*/
             #endregion
 
-
             string appFolder = System.IO.Path.GetDirectoryName(Application.ExecutablePath);
             if (!OrmCs.OrmSchema.ParseSchema(appFolder, "MiscTools", "XICSM_MiscTools", out string err)) MessageBox.Show("Unable to load 'MiscTools.Schema' :" + err);
-
-
         }
         public double SchemaVersion { get { return 20210917.1901; } }
         public void RegisterBoard(IMBoard b)
         {
-            //b.RegisterQueryMenuBuilder("MICROWA", Contextual.onGetQueryMenu);
             b.RegisterQueryMenuBuilder("XMISC_QUERYSTORE", Contextual.onGetQueryMenu);
             b.RegisterQueryMenuBuilder("XMISC_TRANSLATIONS", Contextual.onGetQueryMenu);
         }
         public void GetMainMenu(IMMainMenu mainMenu) 
         {
-            /*mainMenu.SetInsertLocation("Tools", IMMainMenu.InsertLocation.After);
-            mainMenu.InsertItem("Demo\\" + L.Txt("3D map viewer"), Viewer3D, "XMISC_TRANSLATIONS");*/
-
             string TranslationName = L.TxT("Translations");
             mainMenu.SetInsertLocation("Tools\\Administrator", IMMainMenu.InsertLocation.After);
             mainMenu.InsertItem("Tools\\"+ TranslationName + "\\" + L.Txt("Import SYS_LANG file in Translation table"), ImportLangFile, "XMISC_TRANSLATIONS");
@@ -180,14 +173,7 @@ namespace XICSM.MiscTools
         }
         #endregion
 
-        public void Viewer3D()
-        {
-            using (Module3d.Viewer3d Window3D = new Module3d.Viewer3d())
-            {
-                Window3D.Run();
-            }
-        }
-        
+       
         public void VersionInfo()
         { 
             MessageBox.Show(L.Txt("Plugin version is : " + Version) + L.Txt("\r\nPlugin schema version is : ") + 20210615.00) ;
