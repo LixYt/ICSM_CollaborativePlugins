@@ -55,6 +55,7 @@ namespace XICSM.MiscTools
             l_name.Text = L.Txt("Name");
             l_type.Text = L.Txt("Type");
             l_tablename.Text = L.Txt("Table name");
+            l_dbEngines.Text = L.Txt("Database engine compatibility");
             l_item.Text = L.Txt("Item stored");
             c_paste.Text = L.Txt("query config from clipboard");
             Save.Text = L.Txt("Save");
@@ -81,6 +82,7 @@ namespace XICSM.MiscTools
             c_table.Items.AddRange(XTools.GetICSmTables().ToArray());
 
             c_type.DataBindings.Add(new Binding("Value", yQS, "m_type"));
+            c_Engines.DataBindings.Add(new Binding("Value", yQS, "m_engine"));
             c_table.DataBindings.Add(new Binding("Text", yQS, "m_table_name"));
 
             c_name.DataBindings.Add(new Binding("Text", yQS, "m_name"));
@@ -103,7 +105,8 @@ namespace XICSM.MiscTools
 
         private void Save_Click(object sender, EventArgs e)
         {
-            SaveY();
+            if (yQS.m_name != "" && yQS.m_engine != "" && yQS.m_table_name != "") { SaveY(); }
+            else { MessageBox.Show(L.Txt("Please define a name and set the table name and database engines compatibility")); }
             //DialogResult = DialogResult.OK;
         }
 
@@ -123,11 +126,25 @@ namespace XICSM.MiscTools
         private void c_paste_Click(object sender, EventArgs e)
         {
             c_item.Text = Clipboard.GetText();
+            c_table.Text = FindTableName(c_item.Text);
         }
 
         private void QueryStoreEditor_FormClosing(object sender, FormClosingEventArgs e)
         {
             
+        }
+
+        private string FindTableName(string query)
+        {
+            foreach(string line in query.Split(new string[] { Environment.NewLine, "\n", "\r\n", "\r"}, 
+                StringSplitOptions.RemoveEmptyEntries))
+            {
+                if (line.Contains("Table="))
+                {
+                    return line.Split('=')[1].Trim();
+                }
+            }
+            return "";
         }
     }
 }

@@ -159,6 +159,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
+    <None Include="Enums\DbEngines.eri">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="Enums\QueryStoreType.eri">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>

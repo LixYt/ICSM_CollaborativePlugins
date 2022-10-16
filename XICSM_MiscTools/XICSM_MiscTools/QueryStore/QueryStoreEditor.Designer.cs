@@ -49,12 +49,14 @@
             this.C_ModifiedBy = new FormsCs.IcsMetroTextBox();
             this.l_created = new FormsCs.IcsMetroLabel();
             this.l_modified = new FormsCs.IcsMetroLabel();
+            this.l_dbEngines = new FormsCs.IcsMetroLabel();
+            this.c_Engines = new NetPlugins2.IcsControls.IcsComboList();
             this.SuspendLayout();
             // 
             // CancelExit
             // 
             this.CancelExit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.CancelExit.Location = new System.Drawing.Point(385, 395);
+            this.CancelExit.Location = new System.Drawing.Point(350, 427);
             this.CancelExit.Name = "CancelExit";
             this.CancelExit.Size = new System.Drawing.Size(96, 23);
             this.CancelExit.TabIndex = 0;
@@ -64,7 +66,7 @@
             // Save
             // 
             this.Save.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.Save.Location = new System.Drawing.Point(304, 395);
+            this.Save.Location = new System.Drawing.Point(269, 427);
             this.Save.Name = "Save";
             this.Save.Size = new System.Drawing.Size(75, 23);
             this.Save.TabIndex = 1;
@@ -74,7 +76,7 @@
             // SaveExit
             // 
             this.SaveExit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.SaveExit.Location = new System.Drawing.Point(487, 395);
+            this.SaveExit.Location = new System.Drawing.Point(452, 427);
             this.SaveExit.Name = "SaveExit";
             this.SaveExit.Size = new System.Drawing.Size(98, 23);
             this.SaveExit.TabIndex = 2;
@@ -95,7 +97,7 @@
             // 
             this.l_desc.AutoSize = true;
             this.l_desc.BackColor = System.Drawing.Color.Transparent;
-            this.l_desc.Location = new System.Drawing.Point(23, 151);
+            this.l_desc.Location = new System.Drawing.Point(23, 186);
             this.l_desc.Name = "l_desc";
             this.l_desc.Size = new System.Drawing.Size(74, 19);
             this.l_desc.TabIndex = 4;
@@ -105,7 +107,7 @@
             // 
             this.l_item.AutoSize = true;
             this.l_item.BackColor = System.Drawing.Color.Transparent;
-            this.l_item.Location = new System.Drawing.Point(23, 207);
+            this.l_item.Location = new System.Drawing.Point(23, 242);
             this.l_item.Name = "l_item";
             this.l_item.Size = new System.Drawing.Size(76, 19);
             this.l_item.TabIndex = 5;
@@ -113,7 +115,7 @@
             // 
             // c_paste
             // 
-            this.c_paste.Location = new System.Drawing.Point(22, 267);
+            this.c_paste.Location = new System.Drawing.Point(22, 302);
             this.c_paste.Name = "c_paste";
             this.c_paste.Size = new System.Drawing.Size(82, 54);
             this.c_paste.TabIndex = 6;
@@ -129,7 +131,7 @@
             // 
             // c_desc
             // 
-            this.c_desc.Location = new System.Drawing.Point(110, 148);
+            this.c_desc.Location = new System.Drawing.Point(110, 183);
             this.c_desc.Multiline = true;
             this.c_desc.Name = "c_desc";
             this.c_desc.Size = new System.Drawing.Size(441, 50);
@@ -137,7 +139,7 @@
             // 
             // c_item
             // 
-            this.c_item.Location = new System.Drawing.Point(110, 204);
+            this.c_item.Location = new System.Drawing.Point(110, 239);
             this.c_item.Multiline = true;
             this.c_item.Name = "c_item";
             this.c_item.Size = new System.Drawing.Size(441, 117);
@@ -157,7 +159,7 @@
             // 
             this.l_tablename.AutoSize = true;
             this.l_tablename.BackColor = System.Drawing.Color.Transparent;
-            this.l_tablename.Location = new System.Drawing.Point(23, 120);
+            this.l_tablename.Location = new System.Drawing.Point(23, 155);
             this.l_tablename.Name = "l_tablename";
             this.l_tablename.Size = new System.Drawing.Size(76, 19);
             this.l_tablename.TabIndex = 11;
@@ -165,10 +167,10 @@
             // 
             // c_table
             // 
-            this.c_table.Location = new System.Drawing.Point(110, 117);
+            this.c_table.Location = new System.Drawing.Point(110, 152);
             this.c_table.Margin = new System.Windows.Forms.Padding(0);
             this.c_table.Name = "c_table";
-            this.c_table.Size = new System.Drawing.Size(441, 25);
+            this.c_table.Size = new System.Drawing.Size(441, 21);
             this.c_table.TabIndex = 12;
             // 
             // c_type
@@ -180,7 +182,7 @@
             this.c_type.MaxLen = 50;
             this.c_type.Name = "c_type";
             this.c_type.ReadOnly = false;
-            this.c_type.Size = new System.Drawing.Size(441, 31);
+            this.c_type.Size = new System.Drawing.Size(441, 25);
             this.c_type.Subtype = "eri_QueryStoreType";
             this.c_type.TabIndex = 13;
             this.c_type.Upperc = false;
@@ -189,7 +191,7 @@
             // C_CreatedDate
             // 
             this.C_CreatedDate.BackColor = System.Drawing.SystemColors.Info;
-            this.C_CreatedDate.Location = new System.Drawing.Point(399, 327);
+            this.C_CreatedDate.Location = new System.Drawing.Point(399, 362);
             this.C_CreatedDate.Name = "C_CreatedDate";
             this.C_CreatedDate.ReadOnly = true;
             this.C_CreatedDate.Size = new System.Drawing.Size(152, 20);
@@ -198,7 +200,7 @@
             // C_ModifiedDate
             // 
             this.C_ModifiedDate.BackColor = System.Drawing.SystemColors.Info;
-            this.C_ModifiedDate.Location = new System.Drawing.Point(399, 358);
+            this.C_ModifiedDate.Location = new System.Drawing.Point(399, 393);
             this.C_ModifiedDate.Name = "C_ModifiedDate";
             this.C_ModifiedDate.ReadOnly = true;
             this.C_ModifiedDate.Size = new System.Drawing.Size(152, 20);
@@ -207,7 +209,7 @@
             // C_CreatedBy
             // 
             this.C_CreatedBy.BackColor = System.Drawing.SystemColors.Info;
-            this.C_CreatedBy.Location = new System.Drawing.Point(241, 327);
+            this.C_CreatedBy.Location = new System.Drawing.Point(241, 362);
             this.C_CreatedBy.Name = "C_CreatedBy";
             this.C_CreatedBy.ReadOnly = true;
             this.C_CreatedBy.Size = new System.Drawing.Size(152, 20);
@@ -216,7 +218,7 @@
             // C_ModifiedBy
             // 
             this.C_ModifiedBy.BackColor = System.Drawing.SystemColors.Info;
-            this.C_ModifiedBy.Location = new System.Drawing.Point(241, 358);
+            this.C_ModifiedBy.Location = new System.Drawing.Point(241, 393);
             this.C_ModifiedBy.Name = "C_ModifiedBy";
             this.C_ModifiedBy.ReadOnly = true;
             this.C_ModifiedBy.Size = new System.Drawing.Size(152, 20);
@@ -226,7 +228,7 @@
             // 
             this.l_created.AutoSize = true;
             this.l_created.BackColor = System.Drawing.Color.Transparent;
-            this.l_created.Location = new System.Drawing.Point(172, 330);
+            this.l_created.Location = new System.Drawing.Point(172, 365);
             this.l_created.Name = "l_created";
             this.l_created.Size = new System.Drawing.Size(56, 19);
             this.l_created.TabIndex = 5;
@@ -236,17 +238,41 @@
             // 
             this.l_modified.AutoSize = true;
             this.l_modified.BackColor = System.Drawing.Color.Transparent;
-            this.l_modified.Location = new System.Drawing.Point(172, 361);
+            this.l_modified.Location = new System.Drawing.Point(172, 396);
             this.l_modified.Name = "l_modified";
             this.l_modified.Size = new System.Drawing.Size(62, 19);
             this.l_modified.TabIndex = 5;
             this.l_modified.Text = "Modified";
             // 
+            // l_dbEngines
+            // 
+            this.l_dbEngines.AutoSize = true;
+            this.l_dbEngines.BackColor = System.Drawing.Color.Transparent;
+            this.l_dbEngines.Location = new System.Drawing.Point(23, 117);
+            this.l_dbEngines.Name = "l_dbEngines";
+            this.l_dbEngines.Size = new System.Drawing.Size(185, 19);
+            this.l_dbEngines.TabIndex = 18;
+            this.l_dbEngines.Text = "Database engine compatibility";
+            // 
+            // c_Engines
+            // 
+            this.c_Engines.BackColor = System.Drawing.Color.Transparent;
+            this.c_Engines.EnclosingComma = true;
+            this.c_Engines.EriLovName = "eri_DbEngines";
+            this.c_Engines.Location = new System.Drawing.Point(213, 117);
+            this.c_Engines.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.c_Engines.Name = "c_Engines";
+            this.c_Engines.Size = new System.Drawing.Size(338, 22);
+            this.c_Engines.TabIndex = 19;
+            this.c_Engines.Value = "";
+            // 
             // QueryStoreEditor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(597, 430);
+            this.ClientSize = new System.Drawing.Size(573, 473);
+            this.Controls.Add(this.c_Engines);
+            this.Controls.Add(this.l_dbEngines);
             this.Controls.Add(this.C_ModifiedBy);
             this.Controls.Add(this.C_CreatedBy);
             this.Controls.Add(this.C_ModifiedDate);
@@ -299,5 +325,7 @@
         private FormsCs.IcsMetroTextBox C_ModifiedBy;
         private FormsCs.IcsMetroLabel l_created;
         private FormsCs.IcsMetroLabel l_modified;
+        private FormsCs.IcsMetroLabel l_dbEngines;
+        private NetPlugins2.IcsControls.IcsComboList c_Engines;
     }
 }

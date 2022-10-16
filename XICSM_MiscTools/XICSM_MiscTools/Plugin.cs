@@ -29,11 +29,12 @@ namespace XICSM.MiscTools
                 + "Description = [DESCRIPTION]");
             s.DeclareField("ID", "NUMBER(9,0)", null, "NOTNULL", null);
             s.DeclareIndex("PK_XMISC_QUERYSTORE", "PRIMARY", "ID");
-            s.DeclareField("NAME", "VARCHAR(250)", "Text", null, null); s.Info("Title of this query configuration");
+            s.DeclareField("NAME", "VARCHAR(250)", "Text", "NOTNULL", null); s.Info("Title of this query configuration");
             s.DeclareField("TYPE", "VARCHAR(250)", "eri_QueryStoreType", null, null); s.Info("Type of element");
-            s.DeclareField("TABLE_NAME", "VARCHAR(250)", null, null, null); s.Info("Source table of this configuration");
+            s.DeclareField("TABLE_NAME", "VARCHAR(250)", null, "NOTNULL", null); s.Info("Source table of this configuration");
             s.DeclareField("DESCRIPTION", "VARCHAR(5000)", "Text", null, null); s.Info("Short description of this configuration");
             s.DeclareField("ITEMSTORE", "VARCHAR(8000)", "Text", null, null); s.Info("Configuration or item stored");
+            s.DeclareField("ENGINE", "VARCHAR(1000)", "eri_DbEngines", "NOTNULL", null); s.Info("Database engine comaptibility");
             s.DeclareField("DATE_CREATED", "DATE", "Date", null, null); s.Info("Date/Time of creation");
             s.DeclareField("CREATED_BY", "VARCHAR(30)", null, null, null); s.Info("Author");
             s.DeclareField("DATE_MODIFIED", "DATE", "Date", null, null); s.Info("Date of modification");
@@ -108,7 +109,7 @@ namespace XICSM.MiscTools
             string appFolder = System.IO.Path.GetDirectoryName(Application.ExecutablePath);
             if (!OrmCs.OrmSchema.ParseSchema(appFolder, "MiscTools", "XICSM_MiscTools", out string err)) MessageBox.Show("Unable to load 'MiscTools.Schema' :" + err);
         }
-        public double SchemaVersion { get { return 20210917.1901; } }
+        public double SchemaVersion { get { return 20221015.1503; } }
         public void RegisterBoard(IMBoard b)
         {
             b.RegisterQueryMenuBuilder("XMISC_QUERYSTORE", Contextual.onGetQueryMenu);
@@ -153,8 +154,14 @@ namespace XICSM.MiscTools
             {
                 s.CreateTableFields("XMISC_TRANSLATIONS", "isFromStrings,isObsolete,isCustomF");
             }
+            if (dbCurVersion < 20221015.1503)
+            {
+                /*if (s.IsTableDeclared("XMISC_QUERYSTORE"))
+                { s.UpdateTableFields("XMISC_QUERYSTORE", "ENGINE"); }*/
+                s.CreateTables("XMISC_QUERYSTORE");                
+            }
 
-            s.SetDatabaseVersion(20210917.1901);
+            s.SetDatabaseVersion(20221015.1503);
             return true;
         }
         

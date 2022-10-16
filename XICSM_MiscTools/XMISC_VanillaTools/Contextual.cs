@@ -22,6 +22,10 @@ namespace XICSM.VanillaTools
             {
                 lst.Add(new IMQueryMenuNode(L.Txt("Export as Json"), null, ExportAsJson, IMQueryMenuNode.ExecMode.FirstRecord));
             }
+            else if (nbSelMin > 1)
+            {
+                lst.Add(new IMQueryMenuNode(L.Txt("Export as Json"), null, ExportAllAsJson, IMQueryMenuNode.ExecMode.EachRecord));
+            }
             if (tableName == "ALL_TXRX_FREQ" && nbSelMin >= 1)
             {
                 //lst.Add(new IMQueryMenuNode(L.Txt("Search for potential interferer"), null, SearchInterf.builder, IMQueryMenuNode.ExecMode.SelectionOfRecords));
@@ -29,6 +33,22 @@ namespace XICSM.VanillaTools
             if (tableName == "MICROWA" && nbSelMin == 1 && IM.SpecialRightsActivated())
             {
                 lst.Add(new IMQueryMenuNode(L.Txt("Convert to Other Terrestrial Stations"), null, Converter.ConvertMwToOt, IMQueryMenuNode.ExecMode.FirstRecord));
+            }
+            if (tableName.Contains("MOB_STATION") && nbSelMin == 1 && IM.SpecialRightsActivated())
+            {
+                List<IMQueryMenuNode> lst2 = new List<IMQueryMenuNode>();
+                if (nbSelMin == 1)
+                {
+                    lst2.Add(new IMQueryMenuNode(L.Txt("Swap Tx and Rx frequencies"), null, Converter.ReverseTxRx, IMQueryMenuNode.ExecMode.FirstRecord));
+                    lst2.Add(new IMQueryMenuNode(L.Txt("Set Tx/Rx frequencies from Simplex to Half-duplex"), null, Converter.SetFreqsSimplexToHalfDuplex, IMQueryMenuNode.ExecMode.FirstRecord));
+                }
+                else if (nbSelMin > 1)
+                {
+                    lst2.Add(new IMQueryMenuNode(L.Txt("Swap Tx and Rx frequencies"), null, Converter.AllReverseTxRx, IMQueryMenuNode.ExecMode.FirstRecord));
+                    lst2.Add(new IMQueryMenuNode(L.Txt("Set Tx/Rx frequencies from Simplex to Half-duplex"), null, Converter.AllSetFreqsSimplexToHalfDuplex, IMQueryMenuNode.ExecMode.FirstRecord));
+                }
+
+                lst.Add(new IMQueryMenuNode("Frequencies", lst2));
             }
             if (tableName == "DOCLINK" && nbSelMin == 1)
             {
@@ -59,6 +79,34 @@ namespace XICSM.VanillaTools
             if (saveFileDialog1.ShowDialog() == DialogResult.OK)
             {
                 File.WriteAllText(saveFileDialog1.FileName, y.ToJson());
+            }
+            return false;
+        }
+
+        public static bool ExportAllAsJson(IMQueryMenuNode.Context context)
+        {
+            string json = "";
+
+            Yyy y = Yyy.CreateObject(context.TableName);
+            string oql = context.DataList.GetOQLFilter(true);
+            y.Filter = context.DataList.GetOQLFilter(true);
+
+            for (y.OpenRs(); !y.IsEOF(); y.MoveNext())
+            {
+                json += y.ToJson()+"\r\n";
+            }
+
+            SaveFileDialog saveFileDialog1 = new SaveFileDialog
+            {
+                DefaultExt = "*.json",
+                Filter = "json files (*.json)|*.json",
+                FilterIndex = 2,
+                RestoreDirectory = true,
+            };
+
+            if (saveFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+                File.WriteAllText(saveFileDialog1.FileName, json);
             }
             return false;
         }

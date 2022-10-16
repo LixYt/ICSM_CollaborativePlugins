@@ -31,7 +31,7 @@ namespace XICSM.VanillaTools.Tools
             Assemblies.Add("OrmCs");
             foreach (string CurrentAssembly in Assemblies)
             {
-                System.Reflection.Assembly myAssembly = Assembly.Load(CurrentAssembly);
+                Assembly myAssembly = Assembly.Load(CurrentAssembly);
 
                 foreach (Type t in myAssembly.GetTypes())
                 {
@@ -40,6 +40,10 @@ namespace XICSM.VanillaTools.Tools
                     {
                         Yyy obj = (Yyy)Activator.CreateInstance(t);
                         Tables.Add(obj.Table);
+                        if (obj.Table.EndsWith("_T"))
+                        {
+                            Tables.Add(obj.Table.Replace("_T", ""));
+                        }
                     }
                     catch (Exception ex) { Errors.Add($"{t.Name} : {ex.Message}"); }
                 }

@@ -22,14 +22,16 @@ namespace OrmCs
 		public DatPtr z_description { get { return new DatPtr(this, 4); } }
 		public string m_itemstore { get { return getString(5); } set { setString(5, 8000, value); } }
 		public DatPtr z_itemstore { get { return new DatPtr(this, 5); } }
-		public DateTime m_date_created { get { return getDateTime(6); } set { setDateTime(6, value); } }
-		public DatPtr z_date_created { get { return new DatPtr(this, 6); } }
-		public string m_created_by { get { return getString(7); } set { setString(7, 30, value); } }
-		public DatPtr z_created_by { get { return new DatPtr(this, 7); } }
-		public DateTime m_date_modified { get { return getDateTime(8); } set { setDateTime(8, value); } }
-		public DatPtr z_date_modified { get { return new DatPtr(this, 8); } }
-		public string m_modified_by { get { return getString(9); } set { setString(9, 30, value); } }
-		public DatPtr z_modified_by { get { return new DatPtr(this, 9); } }
+		public string m_engine { get { return getString(6); } set { setString(6, 1000, value); } }
+		public DatPtr z_engine { get { return new DatPtr(this, 6); } }
+		public DateTime m_date_created { get { return getDateTime(7); } set { setDateTime(7, value); } }
+		public DatPtr z_date_created { get { return new DatPtr(this, 7); } }
+		public string m_created_by { get { return getString(8); } set { setString(8, 30, value); } }
+		public DatPtr z_created_by { get { return new DatPtr(this, 8); } }
+		public DateTime m_date_modified { get { return getDateTime(9); } set { setDateTime(9, value); } }
+		public DatPtr z_date_modified { get { return new DatPtr(this, 9); } }
+		public string m_modified_by { get { return getString(10); } set { setString(10, 30, value); } }
+		public DatPtr z_modified_by { get { return new DatPtr(this, 10); } }
 	}
 
 	public class YXmiscTranslations : Yyy

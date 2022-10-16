@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using DatalayerCs;
 using ICSM;
 using OrmCs;
 
@@ -20,13 +21,18 @@ namespace XICSM.VanillaTools
             {
                 //Define new stations equivalent to MWS A+B
                 YMobStationT OTS_A = new YMobStationT();
-                OTS_A.Table = "MOB_STATION"; OTS_A.AllocID();
+                OTS_A.Table = "MOB_STATION";
+                OTS_A.AllocID();
+                OTS_A.m_category = "P2PA";
                 YMobStationT OTS_B = new YMobStationT();
-                OTS_B.Table = "MOB_STATION"; OTS_B.AllocID();
+                OTS_B.Table = "MOB_STATION";
+                OTS_B.AllocID();
+                OTS_B.m_category = "P2PB";
 
                 //Station A Parameters
                 OTS_A.m_name = Mwa.m_StationA.m_cust_txt1;
-                
+
+                OTS_A.m_classification = Mwa.m_classification;
                 OTS_A.m_link_ident = Mwa.m_link_ident;
                 OTS_A.m_status = Mwa.m_status;
                 OTS_A.m_t_geo_type = "Z";
@@ -51,6 +57,7 @@ namespace XICSM.VanillaTools
                 OTS_A.m_t_pwr_xyz = Mwa.m_pwr_xyz;
                 OTS_A.m_pwr_ant = (Mwa.m_StationA.m_power == 0 ? 0 : Mwa.m_StationA.m_power - 30);
                 OTS_A.m_ant_type = "I";
+                OTS_A.m_t_gain_type= "I";
                 OTS_A.m_tx_addlosses = Mwa.m_StationA.m_tx_addlosses;
                 OTS_A.m_feeder_loss = Mwa.m_StationA.m_feeder_loss;
                 OTS_A.m_rx_losses = Mwa.m_StationA.m_rx_losses;
@@ -94,6 +101,7 @@ namespace XICSM.VanillaTools
                 //Station B Parameters
                 OTS_B.m_name = Mwa.m_StationB.m_cust_txt1;
 
+                OTS_B.m_classification = Mwa.m_classification;
                 OTS_B.m_link_ident = Mwa.m_link_ident;
                 OTS_B.m_status = Mwa.m_status;
                 OTS_B.m_t_geo_type = "Z";
@@ -107,7 +115,9 @@ namespace XICSM.VanillaTools
 
                 OTS_B.m_pos_id = Mwa.m_StationB.m_site_id;
                 OTS_B.m_ant_id = Mwa.m_StationB.m_ant_id;
-                OTS_B.m_equip_id = Mwa.m_eqpmw_id;
+                if (Mwa.m_eqpmwb_id != Null.I) { OTS_B.m_equip_id = Mwa.m_eqpmwb_id; }
+                else { OTS_B.m_equip_id = Mwa.m_eqpmw_id; }
+                
                 OTS_B.m_lic_id = Mwa.m_lic_id;
                 OTS_B.m_operator_id = Mwa.m_operator_id;
                 OTS_B.m_owner_id = Mwa.m_owner_id;
@@ -118,6 +128,7 @@ namespace XICSM.VanillaTools
                 OTS_B.m_t_pwr_xyz = Mwa.m_pwr_xyz;
                 OTS_B.m_pwr_ant = (Mwa.m_StationB.m_power == 0 ? 0 : Mwa.m_StationB.m_power - 30);
                 OTS_B.m_ant_type = "I";
+                OTS_B.m_t_gain_type = "I";
                 OTS_B.m_tx_addlosses = Mwa.m_StationB.m_tx_addlosses;
                 OTS_B.m_feeder_loss = Mwa.m_StationB.m_feeder_loss;
                 OTS_B.m_rx_losses = Mwa.m_StationB.m_rx_losses;
@@ -269,7 +280,19 @@ namespace XICSM.VanillaTools
                 recA.Save(); recMw.Save(); recMw.Save();
 
                 //passer l'original en S1
+                Mwa.m_cust_txt20 = $"Microwave type Radio tranféré dans OTS sous ID = {OTS_A.m_id} et {OTS_B.m_id}";
                 Mwa.m_status = "S1"; Mwa.SaveWithComponents();
+                OTS_A.m_cust_txt13 = $"Microwave type Radio tranféré depuis Microwa ID = {Mwa.m_id} vers OTS ID = {OTS_A.m_id} et {OTS_B.m_id}";
+                OTS_B.m_cust_txt13 = $"Microwave type Radio tranféré depuis Microwa ID = {Mwa.m_id} vers OTS ID = {OTS_A.m_id} et {OTS_B.m_id}";
+
+                OTS_A.CreatedByModifiedBy();
+                OTS_B.CreatedByModifiedBy();
+
+                OTS_A.Table = "MOB_STATION";
+                OTS_A.Save();
+                OTS_B.Table = "MOB_STATION";
+                OTS_B.Save();
+
 
                 MessageBox.Show("Migration terminée. Le Microwave original a été passé en S1.");
             }
@@ -280,5 +303,98 @@ namespace XICSM.VanillaTools
 
             return true;
         }
+    
+        public static bool ReverseTxRx(IMQueryMenuNode.Context context)
+        {
+            if (context.TableName.Contains("MOB_STATION"))
+            {
+                YMobStationT station = new YMobStationT();
+                station.Table = context.TableName;
+                station.Format("**,AssignedFrequencies(*)");
+                station.LoadWithComponents(context.TableId);
+
+                YMobstaFreqsT freqs = station.m_AssignedFrequencies;
+                for (freqs.OpenRs(); !freqs.IsEOF(); freqs.MoveNext())
+                {
+                    double t = freqs.m_tx_freq;
+                    freqs.m_tx_freq = freqs.m_rx_freq;
+                    freqs.m_rx_freq = t; 
+                    freqs.Save();
+                }
+            }
+            else MessageBox.Show(L.Txt("This feature can only be used on Other Terrestrial stations tables"));
+            return true;
+        }
+
+        public static bool SetFreqsSimplexToHalfDuplex(IMQueryMenuNode.Context context)
+        {
+            if (context.TableName.Contains("MOB_STATION"))
+            {
+                YMobStationT station = new YMobStationT();
+                station.Table = context.TableName;
+                station.Format("**,AssignedFrequencies(*)");
+                station.LoadWithComponents(context.TableId);
+
+                YMobstaFreqsT freqs = station.m_AssignedFrequencies;
+                for (freqs.OpenRs(); !freqs.IsEOF(); freqs.MoveNext())
+                {
+                    if (freqs.m_tx_freq != Null.D && freqs.m_rx_freq == Null.D) { freqs.m_rx_freq = freqs.m_tx_freq; freqs.Save(); }
+                    else if (freqs.m_tx_freq == Null.D && freqs.m_rx_freq != Null.D) { freqs.m_tx_freq = freqs.m_rx_freq; freqs.Save(); }
+                }
+
+            }
+            else MessageBox.Show(L.Txt("This feature can only be used on Other Terrestrial stations tables"));
+            return true;
+        }
+
+        public static bool AllReverseTxRx(IMQueryMenuNode.Context context)
+        {//ToDo
+            if (context.TableName.Contains("MOB_STATION"))
+            {
+                YMobStationT station = new YMobStationT();
+                station.Table = context.TableName;
+                station.Format("**,AssignedFrequencies(*)");
+                station.Filter = context.DataList.GetOQLFilter(true);
+                for (station.OpenRs(); !station.IsEOF(); station.MoveNext())
+                {
+                    YMobstaFreqsT freqs = station.m_AssignedFrequencies;
+
+                    for (freqs.OpenRs(); !freqs.IsEOF(); freqs.MoveNext())
+                    {
+                        double t = freqs.m_tx_freq;
+                        freqs.m_tx_freq = freqs.m_rx_freq;
+                        freqs.m_rx_freq = t;
+                        freqs.Save();
+                    }
+                }
+            }
+            else MessageBox.Show(L.Txt("This feature can only be used on Other Terrestrial stations tables"));
+            return true;
+        }
+
+        public static bool AllSetFreqsSimplexToHalfDuplex(IMQueryMenuNode.Context context)
+        {//ToDo
+            if (context.TableName.Contains("MOB_STATION"))
+            {
+                YMobStationT station = new YMobStationT();
+                station.Table = context.TableName;
+                station.Format("**,AssignedFrequencies(*)");
+                station.LoadWithComponents(context.TableId);
+                station.Filter = context.DataList.GetOQLFilter(true);
+                for (station.OpenRs(); !station.IsEOF(); station.MoveNext())
+                {
+                    YMobstaFreqsT freqs = station.m_AssignedFrequencies;
+
+                    for (freqs.OpenRs(); !freqs.IsEOF(); freqs.MoveNext())
+                    {
+                        if (freqs.m_tx_freq != Null.D && freqs.m_rx_freq == Null.D) { freqs.m_rx_freq = freqs.m_tx_freq; freqs.Save(); }
+                        else if (freqs.m_tx_freq == Null.D && freqs.m_rx_freq != Null.D) { freqs.m_tx_freq = freqs.m_rx_freq; freqs.Save(); }
+                    }
+                }
+            }
+            else MessageBox.Show(L.Txt("This feature can only be used on Other Terrestrial stations tables"));
+            return true;
+        }
+
     }
 }
