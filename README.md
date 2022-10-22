@@ -1,6 +1,6 @@
 # ICSM_Plugins
 
-##LICENCE
+## LICENCE
 check licence file before sharing or incorporate it. 
 Do not forget to credit source and binaries when using/importing it.
 
