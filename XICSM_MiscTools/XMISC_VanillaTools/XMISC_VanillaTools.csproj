@@ -72,8 +72,8 @@
       <HintPath>..\..\..\..\ATDI\ICSM\NetPlugins2.dll</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <HintPath>..\packages\Newtonsoft.Json.13.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.10.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="OrmCs">
       <HintPath>..\..\..\..\ATDI\ICSM\OrmCs.dll</HintPath>
@@ -138,6 +138,12 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TableTools\AllocationsTools.cs" />
     <Compile Include="TableTools\DocLinkTools.cs" />
+    <Compile Include="Tools\FieldSelector.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Tools\FieldSelector.Designer.cs">
+      <DependentUpon>FieldSelector.cs</DependentUpon>
+    </Compile>
     <Compile Include="Tools\StringResults.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -173,6 +179,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="NetPluginsExt\Openlayers3Kml.resx">
       <DependentUpon>Openlayers3Kml.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Tools\FieldSelector.resx">
+      <DependentUpon>FieldSelector.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Tools\StringResults.resx">
       <DependentUpon>StringResults.cs</DependentUpon>

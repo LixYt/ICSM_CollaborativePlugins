@@ -68,12 +68,12 @@ namespace XICSM.MiscTools
             this.RunSearch = new FormsCs.IcsMetroButton();
             this.tabWanted = new FormsCs.IcsMetroTabPage();
             this.DbListWanted = new NetPlugins2.IcsDBList();
-            this.tabUnwantedRx = new MetroFramework.Controls.MetroTabPage();
-            this.DbListRxUnwanted = new NetPlugins2.IcsDBList();
+            this.tabExcludedWanted = new MetroFramework.Controls.MetroTabPage();
+            this.DbListWantedExcluded = new NetPlugins2.IcsDBList();
             this.tabUnwantedTx = new MetroFramework.Controls.MetroTabPage();
             this.DbListTxUnwanted = new NetPlugins2.IcsDBList();
-            this.tabExcludedUnwanted = new MetroFramework.Controls.MetroTabPage();
-            this.DbListWantedExcluded = new NetPlugins2.IcsDBList();
+            this.tabUnwantedRx = new MetroFramework.Controls.MetroTabPage();
+            this.DbListRxUnwanted = new NetPlugins2.IcsDBList();
             this.cancelThread = new FormsCs.IcsMetroTile();
             this.ProgressBarMain = new FormsCs.IcsMetroProgressBar();
             this.ProgressBarSub = new FormsCs.IcsMetroProgressBar();
@@ -88,9 +88,9 @@ namespace XICSM.MiscTools
             this.DefaultKtbfArea.SuspendLayout();
             this.saveParam.SuspendLayout();
             this.tabWanted.SuspendLayout();
-            this.tabUnwantedRx.SuspendLayout();
+            this.tabExcludedWanted.SuspendLayout();
             this.tabUnwantedTx.SuspendLayout();
-            this.tabExcludedUnwanted.SuspendLayout();
+            this.tabUnwantedRx.SuspendLayout();
             this.SuspendLayout();
             // 
             // geoParam
@@ -98,9 +98,9 @@ namespace XICSM.MiscTools
             this.geoParam.Controls.Add(this.N0);
             this.geoParam.Controls.Add(this.N1);
             this.geoParam.Controls.Add(this.N2);
-            this.geoParam.Location = new System.Drawing.Point(187, 7);
+            this.geoParam.Location = new System.Drawing.Point(187, 6);
             this.geoParam.Name = "geoParam";
-            this.geoParam.Size = new System.Drawing.Size(268, 103);
+            this.geoParam.Size = new System.Drawing.Size(447, 91);
             this.geoParam.TabIndex = 1;
             this.geoParam.TabStop = false;
             this.geoParam.Text = "Frequency limits";
@@ -108,20 +108,20 @@ namespace XICSM.MiscTools
             // N0
             // 
             this.N0.AutoSize = true;
-            this.N0.Location = new System.Drawing.Point(7, 71);
+            this.N0.Location = new System.Drawing.Point(7, 62);
             this.N0.Name = "N0";
             this.N0.Size = new System.Drawing.Size(233, 15);
             this.N0.TabIndex = 2;
-            this.N0.Text = "very tight mode (sharing same channel)";
+            this.N0.Text = "Very tight mode (sharing same channel)";
             // 
             // N1
             // 
             this.N1.AutoSize = true;
-            this.N1.Location = new System.Drawing.Point(7, 47);
+            this.N1.Location = new System.Drawing.Point(7, 41);
             this.N1.Name = "N1";
-            this.N1.Size = new System.Drawing.Size(183, 15);
+            this.N1.Size = new System.Drawing.Size(185, 15);
             this.N1.TabIndex = 1;
-            this.N1.Text = "tight mode (adjacent channel)";
+            this.N1.Text = "Tight mode (adjacent channel)";
             // 
             // N2
             // 
@@ -169,8 +169,9 @@ namespace XICSM.MiscTools
             // 
             // importOnMap
             // 
+            this.importOnMap.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.importOnMap.Enabled = false;
-            this.importOnMap.Location = new System.Drawing.Point(730, 291);
+            this.importOnMap.Location = new System.Drawing.Point(714, 324);
             this.importOnMap.Name = "importOnMap";
             this.importOnMap.Size = new System.Drawing.Size(232, 23);
             this.importOnMap.TabIndex = 4;
@@ -180,15 +181,15 @@ namespace XICSM.MiscTools
             // SearchTabGrid
             // 
             this.SearchTabGrid.Controls.Add(this.tabConfig);
-            this.SearchTabGrid.Controls.Add(this.tabExcludedUnwanted);
             this.SearchTabGrid.Controls.Add(this.tabWanted);
-            this.SearchTabGrid.Controls.Add(this.tabUnwantedRx);
+            this.SearchTabGrid.Controls.Add(this.tabExcludedWanted);
             this.SearchTabGrid.Controls.Add(this.tabUnwantedTx);
+            this.SearchTabGrid.Controls.Add(this.tabUnwantedRx);
             this.SearchTabGrid.Dock = System.Windows.Forms.DockStyle.Fill;
             this.SearchTabGrid.Location = new System.Drawing.Point(20, 60);
             this.SearchTabGrid.Name = "SearchTabGrid";
-            this.SearchTabGrid.SelectedIndex = 4;
-            this.SearchTabGrid.Size = new System.Drawing.Size(976, 390);
+            this.SearchTabGrid.SelectedIndex = 0;
+            this.SearchTabGrid.Size = new System.Drawing.Size(960, 410);
             this.SearchTabGrid.TabIndex = 5;
             // 
             // tabConfig
@@ -206,7 +207,7 @@ namespace XICSM.MiscTools
             this.tabConfig.Location = new System.Drawing.Point(4, 28);
             this.tabConfig.Name = "tabConfig";
             this.tabConfig.Padding = new System.Windows.Forms.Padding(3);
-            this.tabConfig.Size = new System.Drawing.Size(968, 358);
+            this.tabConfig.Size = new System.Drawing.Size(952, 378);
             this.tabConfig.TabIndex = 4;
             this.tabConfig.Text = "Configuration";
             this.tabConfig.VerticalScrollbarBarColor = true;
@@ -215,9 +216,9 @@ namespace XICSM.MiscTools
             // 
             this.groupBox1.Controls.Add(this.LikeMsState);
             this.groupBox1.Controls.Add(this.MobStation_State);
-            this.groupBox1.Location = new System.Drawing.Point(187, 117);
+            this.groupBox1.Location = new System.Drawing.Point(8, 145);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(268, 72);
+            this.groupBox1.Size = new System.Drawing.Size(173, 90);
             this.groupBox1.TabIndex = 120;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Exclude unwanted stations by Familly Status";
@@ -228,7 +229,7 @@ namespace XICSM.MiscTools
             this.LikeMsState.Appearance = System.Windows.Forms.Appearance.Button;
             this.LikeMsState.Checked = true;
             this.LikeMsState.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.LikeMsState.Location = new System.Drawing.Point(12, 32);
+            this.LikeMsState.Location = new System.Drawing.Point(54, 32);
             this.LikeMsState.Name = "LikeMsState";
             this.LikeMsState.Size = new System.Drawing.Size(56, 21);
             this.LikeMsState.TabIndex = 119;
@@ -239,7 +240,7 @@ namespace XICSM.MiscTools
             // MobStation_State
             // 
             this.MobStation_State.Coded = true;
-            this.MobStation_State.Location = new System.Drawing.Point(76, 29);
+            this.MobStation_State.Location = new System.Drawing.Point(10, 56);
             this.MobStation_State.Margin = new System.Windows.Forms.Padding(0);
             this.MobStation_State.MaxLen = 50;
             this.MobStation_State.Name = "MobStation_State";
@@ -276,7 +277,7 @@ namespace XICSM.MiscTools
             // 
             // CopyEtoB
             // 
-            this.CopyEtoB.Location = new System.Drawing.Point(140, 85);
+            this.CopyEtoB.Location = new System.Drawing.Point(179, 84);
             this.CopyEtoB.Margin = new System.Windows.Forms.Padding(0);
             this.CopyEtoB.Name = "CopyEtoB";
             this.CopyEtoB.Size = new System.Drawing.Size(26, 26);
@@ -288,7 +289,7 @@ namespace XICSM.MiscTools
             // 
             // CopyBtoE
             // 
-            this.CopyBtoE.Location = new System.Drawing.Point(105, 84);
+            this.CopyBtoE.Location = new System.Drawing.Point(109, 84);
             this.CopyBtoE.Margin = new System.Windows.Forms.Padding(0);
             this.CopyBtoE.Name = "CopyBtoE";
             this.CopyBtoE.Size = new System.Drawing.Size(26, 26);
@@ -409,7 +410,7 @@ namespace XICSM.MiscTools
             // DefaultKtbfArea
             // 
             this.DefaultKtbfArea.Controls.Add(this.DefaultKtbf);
-            this.DefaultKtbfArea.Location = new System.Drawing.Point(461, 7);
+            this.DefaultKtbfArea.Location = new System.Drawing.Point(8, 85);
             this.DefaultKtbfArea.Name = "DefaultKtbfArea";
             this.DefaultKtbfArea.Size = new System.Drawing.Size(173, 54);
             this.DefaultKtbfArea.TabIndex = 13;
@@ -428,12 +429,13 @@ namespace XICSM.MiscTools
             // 
             // saveParam
             // 
+            this.saveParam.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.saveParam.Controls.Add(this.SaveName);
             this.saveParam.Controls.Add(this.labelSave);
             this.saveParam.Controls.Add(this.SaveBox);
-            this.saveParam.Location = new System.Drawing.Point(449, 257);
+            this.saveParam.Location = new System.Drawing.Point(714, 205);
             this.saveParam.Name = "saveParam";
-            this.saveParam.Size = new System.Drawing.Size(275, 85);
+            this.saveParam.Size = new System.Drawing.Size(232, 85);
             this.saveParam.TabIndex = 12;
             this.saveParam.TabStop = false;
             this.saveParam.Text = "Save result bags";
@@ -442,7 +444,7 @@ namespace XICSM.MiscTools
             // 
             this.SaveName.Location = new System.Drawing.Point(9, 45);
             this.SaveName.Name = "SaveName";
-            this.SaveName.Size = new System.Drawing.Size(251, 20);
+            this.SaveName.Size = new System.Drawing.Size(217, 20);
             this.SaveName.TabIndex = 2;
             this.SaveName.Visible = false;
             // 
@@ -468,8 +470,9 @@ namespace XICSM.MiscTools
             // 
             // toEWX
             // 
+            this.toEWX.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.toEWX.Enabled = false;
-            this.toEWX.Location = new System.Drawing.Point(730, 319);
+            this.toEWX.Location = new System.Drawing.Point(714, 352);
             this.toEWX.Name = "toEWX";
             this.toEWX.Size = new System.Drawing.Size(232, 23);
             this.toEWX.TabIndex = 8;
@@ -478,7 +481,8 @@ namespace XICSM.MiscTools
             // 
             // RunSearch
             // 
-            this.RunSearch.Location = new System.Drawing.Point(730, 263);
+            this.RunSearch.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.RunSearch.Location = new System.Drawing.Point(714, 296);
             this.RunSearch.Name = "RunSearch";
             this.RunSearch.Size = new System.Drawing.Size(232, 23);
             this.RunSearch.TabIndex = 7;
@@ -493,7 +497,7 @@ namespace XICSM.MiscTools
             this.tabWanted.Location = new System.Drawing.Point(4, 28);
             this.tabWanted.Name = "tabWanted";
             this.tabWanted.Padding = new System.Windows.Forms.Padding(3);
-            this.tabWanted.Size = new System.Drawing.Size(968, 358);
+            this.tabWanted.Size = new System.Drawing.Size(952, 378);
             this.tabWanted.TabIndex = 3;
             this.tabWanted.Text = "wanted stations";
             this.tabWanted.VerticalScrollbarBarColor = true;
@@ -501,46 +505,46 @@ namespace XICSM.MiscTools
             // DbListWanted
             // 
             this.DbListWanted.BackColor = System.Drawing.SystemColors.Control;
-            this.DbListWanted.ConfigName = "SI_wanted";
+            this.DbListWanted.ConfigName = "spi_wanted";
             this.DbListWanted.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.DbListWanted.Filter = "[ID]=-1";
+            this.DbListWanted.Filter = "[ALLSTA_ID]=0";
             this.DbListWanted.Location = new System.Drawing.Point(3, 3);
             this.DbListWanted.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.DbListWanted.Name = "DbListWanted";
             this.DbListWanted.Param1 = 0;
             this.DbListWanted.Param2 = 0;
-            this.DbListWanted.Size = new System.Drawing.Size(962, 352);
+            this.DbListWanted.Size = new System.Drawing.Size(946, 372);
             this.DbListWanted.TabIndex = 3;
             this.DbListWanted.Table = "ALL_TXRX_FREQ";
             this.DbListWanted.OnRequery += new System.EventHandler(this.DbListWanted_OnRequery);
             // 
-            // tabUnwantedRx
+            // tabExcludedWanted
             // 
-            this.tabUnwantedRx.Controls.Add(this.DbListRxUnwanted);
-            this.tabUnwantedRx.HorizontalScrollbarBarColor = true;
-            this.tabUnwantedRx.Location = new System.Drawing.Point(4, 28);
-            this.tabUnwantedRx.Name = "tabUnwantedRx";
-            this.tabUnwantedRx.Padding = new System.Windows.Forms.Padding(2);
-            this.tabUnwantedRx.Size = new System.Drawing.Size(968, 358);
-            this.tabUnwantedRx.TabIndex = 6;
-            this.tabUnwantedRx.Text = "Unwanted Rx Station / Wanted Tx";
-            this.tabUnwantedRx.VerticalScrollbarBarColor = true;
+            this.tabExcludedWanted.Controls.Add(this.DbListWantedExcluded);
+            this.tabExcludedWanted.HorizontalScrollbarBarColor = true;
+            this.tabExcludedWanted.Location = new System.Drawing.Point(4, 28);
+            this.tabExcludedWanted.Name = "tabExcludedWanted";
+            this.tabExcludedWanted.Padding = new System.Windows.Forms.Padding(2);
+            this.tabExcludedWanted.Size = new System.Drawing.Size(952, 378);
+            this.tabExcludedWanted.TabIndex = 8;
+            this.tabExcludedWanted.Text = "Excluded or failed wanted stations";
+            this.tabExcludedWanted.VerticalScrollbarBarColor = true;
             // 
-            // DbListRxUnwanted
+            // DbListWantedExcluded
             // 
-            this.DbListRxUnwanted.BackColor = System.Drawing.SystemColors.Control;
-            this.DbListRxUnwanted.ConfigName = "SI_UnwantedRx";
-            this.DbListRxUnwanted.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.DbListRxUnwanted.Filter = "[ID]=-1";
-            this.DbListRxUnwanted.Location = new System.Drawing.Point(2, 2);
-            this.DbListRxUnwanted.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.DbListRxUnwanted.Name = "DbListRxUnwanted";
-            this.DbListRxUnwanted.Param1 = 0;
-            this.DbListRxUnwanted.Param2 = 0;
-            this.DbListRxUnwanted.Size = new System.Drawing.Size(964, 354);
-            this.DbListRxUnwanted.TabIndex = 4;
-            this.DbListRxUnwanted.Table = "ALL_TXRX_FREQ";
-            this.DbListRxUnwanted.OnRequery += new System.EventHandler(this.DbListUnwanted_OnRequery);
+            this.DbListWantedExcluded.BackColor = System.Drawing.SystemColors.Control;
+            this.DbListWantedExcluded.ConfigName = "spi_ExcludedWanted";
+            this.DbListWantedExcluded.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.DbListWantedExcluded.Filter = "[ALLSTA_ID]=0";
+            this.DbListWantedExcluded.Location = new System.Drawing.Point(2, 2);
+            this.DbListWantedExcluded.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.DbListWantedExcluded.Name = "DbListWantedExcluded";
+            this.DbListWantedExcluded.Param1 = 0;
+            this.DbListWantedExcluded.Param2 = 0;
+            this.DbListWantedExcluded.Size = new System.Drawing.Size(948, 374);
+            this.DbListWantedExcluded.TabIndex = 5;
+            this.DbListWantedExcluded.Table = "ALL_TXRX_FREQ";
+            this.DbListWantedExcluded.OnRequery += new System.EventHandler(this.DbListWantedExcluded_OnRequery);
             // 
             // tabUnwantedTx
             // 
@@ -549,7 +553,7 @@ namespace XICSM.MiscTools
             this.tabUnwantedTx.Location = new System.Drawing.Point(4, 28);
             this.tabUnwantedTx.Name = "tabUnwantedTx";
             this.tabUnwantedTx.Padding = new System.Windows.Forms.Padding(2);
-            this.tabUnwantedTx.Size = new System.Drawing.Size(968, 358);
+            this.tabUnwantedTx.Size = new System.Drawing.Size(952, 378);
             this.tabUnwantedTx.TabIndex = 7;
             this.tabUnwantedTx.Text = "Unwanted Tx station / Wanted Rx";
             this.tabUnwantedTx.VerticalScrollbarBarColor = true;
@@ -557,48 +561,50 @@ namespace XICSM.MiscTools
             // DbListTxUnwanted
             // 
             this.DbListTxUnwanted.BackColor = System.Drawing.SystemColors.Control;
-            this.DbListTxUnwanted.ConfigName = "SI_UnwantedTx";
+            this.DbListTxUnwanted.ConfigName = "spi_UnwantedTx";
             this.DbListTxUnwanted.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.DbListTxUnwanted.Filter = "[ID]=-1";
+            this.DbListTxUnwanted.Filter = "[ALLSTA_ID]=0";
             this.DbListTxUnwanted.Location = new System.Drawing.Point(2, 2);
             this.DbListTxUnwanted.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.DbListTxUnwanted.Name = "DbListTxUnwanted";
             this.DbListTxUnwanted.Param1 = 0;
             this.DbListTxUnwanted.Param2 = 0;
-            this.DbListTxUnwanted.Size = new System.Drawing.Size(964, 354);
+            this.DbListTxUnwanted.Size = new System.Drawing.Size(948, 374);
             this.DbListTxUnwanted.TabIndex = 5;
             this.DbListTxUnwanted.Table = "ALL_TXRX_FREQ";
+            this.DbListTxUnwanted.OnRequery += new System.EventHandler(this.DbListTxUnwanted_OnRequery);
             // 
-            // tabExcludedUnwanted
+            // tabUnwantedRx
             // 
-            this.tabExcludedUnwanted.Controls.Add(this.DbListWantedExcluded);
-            this.tabExcludedUnwanted.HorizontalScrollbarBarColor = true;
-            this.tabExcludedUnwanted.Location = new System.Drawing.Point(4, 28);
-            this.tabExcludedUnwanted.Name = "tabExcludedUnwanted";
-            this.tabExcludedUnwanted.Padding = new System.Windows.Forms.Padding(2);
-            this.tabExcludedUnwanted.Size = new System.Drawing.Size(968, 358);
-            this.tabExcludedUnwanted.TabIndex = 8;
-            this.tabExcludedUnwanted.Text = "Excluded wanted stations";
-            this.tabExcludedUnwanted.VerticalScrollbarBarColor = true;
+            this.tabUnwantedRx.Controls.Add(this.DbListRxUnwanted);
+            this.tabUnwantedRx.HorizontalScrollbarBarColor = true;
+            this.tabUnwantedRx.Location = new System.Drawing.Point(4, 28);
+            this.tabUnwantedRx.Name = "tabUnwantedRx";
+            this.tabUnwantedRx.Padding = new System.Windows.Forms.Padding(2);
+            this.tabUnwantedRx.Size = new System.Drawing.Size(952, 378);
+            this.tabUnwantedRx.TabIndex = 6;
+            this.tabUnwantedRx.Text = "Unwanted Rx Station / Wanted Tx";
+            this.tabUnwantedRx.VerticalScrollbarBarColor = true;
             // 
-            // DbListWantedExcluded
+            // DbListRxUnwanted
             // 
-            this.DbListWantedExcluded.BackColor = System.Drawing.SystemColors.Control;
-            this.DbListWantedExcluded.ConfigName = "SI_ExcludedWanted";
-            this.DbListWantedExcluded.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.DbListWantedExcluded.Filter = "[ID]=-1";
-            this.DbListWantedExcluded.Location = new System.Drawing.Point(2, 2);
-            this.DbListWantedExcluded.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.DbListWantedExcluded.Name = "DbListWantedExcluded";
-            this.DbListWantedExcluded.Param1 = 0;
-            this.DbListWantedExcluded.Param2 = 0;
-            this.DbListWantedExcluded.Size = new System.Drawing.Size(964, 354);
-            this.DbListWantedExcluded.TabIndex = 5;
-            this.DbListWantedExcluded.Table = "ALL_TXRX_FREQ";
+            this.DbListRxUnwanted.BackColor = System.Drawing.SystemColors.Control;
+            this.DbListRxUnwanted.ConfigName = "spi_UnwantedRx";
+            this.DbListRxUnwanted.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.DbListRxUnwanted.Filter = "[ALLSTA_ID]=0";
+            this.DbListRxUnwanted.Location = new System.Drawing.Point(2, 2);
+            this.DbListRxUnwanted.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.DbListRxUnwanted.Name = "DbListRxUnwanted";
+            this.DbListRxUnwanted.Param1 = 0;
+            this.DbListRxUnwanted.Param2 = 0;
+            this.DbListRxUnwanted.Size = new System.Drawing.Size(948, 374);
+            this.DbListRxUnwanted.TabIndex = 4;
+            this.DbListRxUnwanted.Table = "ALL_TXRX_FREQ";
+            this.DbListRxUnwanted.OnRequery += new System.EventHandler(this.DbListRxUnwanted_OnRequery);
             // 
             // cancelThread
             // 
-            this.cancelThread.Location = new System.Drawing.Point(754, 31);
+            this.cancelThread.Location = new System.Drawing.Point(754, 35);
             this.cancelThread.Name = "cancelThread";
             this.cancelThread.Size = new System.Drawing.Size(80, 23);
             this.cancelThread.TabIndex = 12;
@@ -615,7 +621,6 @@ namespace XICSM.MiscTools
             this.ProgressBarMain.Name = "ProgressBarMain";
             this.ProgressBarMain.Size = new System.Drawing.Size(263, 23);
             this.ProgressBarMain.TabIndex = 13;
-            this.ProgressBarMain.Visible = false;
             // 
             // ProgressBarSub
             // 
@@ -625,18 +630,18 @@ namespace XICSM.MiscTools
             this.ProgressBarSub.Name = "ProgressBarSub";
             this.ProgressBarSub.Size = new System.Drawing.Size(263, 23);
             this.ProgressBarSub.TabIndex = 14;
-            this.ProgressBarSub.Visible = false;
             // 
             // SearchInterf
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1016, 470);
+            this.ClientSize = new System.Drawing.Size(1000, 490);
             this.Controls.Add(this.ProgressBarSub);
             this.Controls.Add(this.ProgressBarMain);
             this.Controls.Add(this.cancelThread);
             this.Controls.Add(this.SearchTabGrid);
             this.Font = new System.Drawing.Font("Segoe UI Light", 14F, System.Drawing.FontStyle.Bold);
+            this.MinimumSize = new System.Drawing.Size(1000, 490);
             this.Name = "SearchInterf";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Style = "Orange";
@@ -659,9 +664,9 @@ namespace XICSM.MiscTools
             this.DefaultKtbfArea.ResumeLayout(false);
             this.saveParam.ResumeLayout(false);
             this.tabWanted.ResumeLayout(false);
-            this.tabUnwantedRx.ResumeLayout(false);
+            this.tabExcludedWanted.ResumeLayout(false);
             this.tabUnwantedTx.ResumeLayout(false);
-            this.tabExcludedUnwanted.ResumeLayout(false);
+            this.tabUnwantedRx.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -711,7 +716,7 @@ namespace XICSM.MiscTools
         private IcsDBList DbListRxUnwanted;
         private MetroFramework.Controls.MetroTabPage tabUnwantedTx;
         private IcsDBList DbListTxUnwanted;
-        private MetroFramework.Controls.MetroTabPage tabExcludedUnwanted;
+        private MetroFramework.Controls.MetroTabPage tabExcludedWanted;
         private IcsDBList DbListWantedExcluded;
         private System.Windows.Forms.GroupBox groupBox1;
         private IcsMetroProgressBar ProgressBarMain;

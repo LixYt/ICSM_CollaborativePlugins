@@ -17,6 +17,7 @@ namespace XICSM.VanillaTools
             YMicrowa Mwa = new YMicrowa();
             Mwa.LoadWithComponents2(context.TableId);
 
+            //Should not have any relay and must be Radio and not Microwave type
             if (Mwa.m_passive == 0 && Mwa.m_standard == "R")
             {
                 //Define new stations equivalent to MWS A+B
@@ -310,85 +311,103 @@ namespace XICSM.VanillaTools
             {
                 YMobStationT station = new YMobStationT();
                 station.Table = context.TableName;
-                station.Format("**,AssignedFrequencies(*)");
-                station.LoadWithComponents(context.TableId);
+                station.LoadWithComponents2(context.TableId);
 
-                YMobstaFreqsT freqs = station.m_AssignedFrequencies;
-                for (freqs.OpenRs(); !freqs.IsEOF(); freqs.MoveNext())
+                if (station.m_Frequencies.Count() == 0) { return false; }
+                foreach (YMobstaFreqsT freqs in station.m_Frequencies)
                 {
                     double t = freqs.m_tx_freq;
                     freqs.m_tx_freq = freqs.m_rx_freq;
                     freqs.m_rx_freq = t; 
-                    freqs.Save();
                 }
+                station.CreatedByModifiedBy();
+                station.SaveWithComponentsWithTrace(L.TxT("Tx and Rx Frequencies have been swaped"), "", "");
             }
             else MessageBox.Show(L.Txt("This feature can only be used on Other Terrestrial stations tables"));
             return true;
         }
-
         public static bool SetFreqsSimplexToHalfDuplex(IMQueryMenuNode.Context context)
         {
             if (context.TableName.Contains("MOB_STATION"))
             {
                 YMobStationT station = new YMobStationT();
                 station.Table = context.TableName;
-                station.Format("**,AssignedFrequencies(*)");
                 station.LoadWithComponents(context.TableId);
 
-                YMobstaFreqsT freqs = station.m_AssignedFrequencies;
-                for (freqs.OpenRs(); !freqs.IsEOF(); freqs.MoveNext())
+                int changes = 0;
+                foreach (YMobstaFreqsT freqs in station.m_Frequencies)
                 {
-                    if (freqs.m_tx_freq != Null.D && freqs.m_rx_freq == Null.D) { freqs.m_rx_freq = freqs.m_tx_freq; freqs.Save(); }
-                    else if (freqs.m_tx_freq == Null.D && freqs.m_rx_freq != Null.D) { freqs.m_tx_freq = freqs.m_rx_freq; freqs.Save(); }
+                    if (freqs.m_tx_freq != Null.D && freqs.m_rx_freq == Null.D) { freqs.m_rx_freq = freqs.m_tx_freq; changes += 1; }
+                    else if (freqs.m_tx_freq == Null.D && freqs.m_rx_freq != Null.D) { freqs.m_tx_freq = freqs.m_rx_freq; changes += 1; }
+                }
+
+                if (changes > 0)
+                {
+                    station.CreatedByModifiedBy();
+                    station.SaveWithComponentsWithTrace(L.TxT("Tx or Rx frenquencies have been set accordingly as an Half-Duplex configuration"), "", "");
                 }
 
             }
             else MessageBox.Show(L.Txt("This feature can only be used on Other Terrestrial stations tables"));
             return true;
         }
-
         public static bool AllReverseTxRx(IMQueryMenuNode.Context context)
-        {//ToDo
+        {
             if (context.TableName.Contains("MOB_STATION"))
             {
                 YMobStationT station = new YMobStationT();
                 station.Table = context.TableName;
-                station.Format("**,AssignedFrequencies(*)");
+                station.Format("ID");
                 station.Filter = context.DataList.GetOQLFilter(true);
                 for (station.OpenRs(); !station.IsEOF(); station.MoveNext())
                 {
-                    YMobstaFreqsT freqs = station.m_AssignedFrequencies;
+                    YMobStationT stationF = new YMobStationT();
+                    stationF.Table = context.TableName;
+                    stationF.LoadWithComponents(station.m_id);
 
-                    for (freqs.OpenRs(); !freqs.IsEOF(); freqs.MoveNext())
+                    if (stationF.m_Frequencies.Count() == 0) continue;
+                    foreach (YMobstaFreqsT freqs in stationF.m_Frequencies)
                     {
                         double t = freqs.m_tx_freq;
                         freqs.m_tx_freq = freqs.m_rx_freq;
                         freqs.m_rx_freq = t;
-                        freqs.Save();
                     }
+                    stationF.CreatedByModifiedBy();
+                    stationF.SaveWithComponentsWithTrace(L.TxT("Tx and Rx Frequencies have been swaped"), "", "");
                 }
             }
             else MessageBox.Show(L.Txt("This feature can only be used on Other Terrestrial stations tables"));
             return true;
         }
-
         public static bool AllSetFreqsSimplexToHalfDuplex(IMQueryMenuNode.Context context)
-        {//ToDo
+        {
             if (context.TableName.Contains("MOB_STATION"))
             {
                 YMobStationT station = new YMobStationT();
                 station.Table = context.TableName;
-                station.Format("**,AssignedFrequencies(*)");
-                station.LoadWithComponents(context.TableId);
+                station.Format("ID");
                 station.Filter = context.DataList.GetOQLFilter(true);
+                
                 for (station.OpenRs(); !station.IsEOF(); station.MoveNext())
                 {
-                    YMobstaFreqsT freqs = station.m_AssignedFrequencies;
+                    YMobStationT stationF = new YMobStationT();
+                    stationF.Table = context.TableName;
+                    stationF.LoadWithComponents(station.m_id);
 
-                    for (freqs.OpenRs(); !freqs.IsEOF(); freqs.MoveNext())
+                    if (stationF.m_Frequencies.Count() == 0) continue;
+                    int changes = 0;
+                    foreach (YMobstaFreqsT freqs in stationF.m_Frequencies)
                     {
-                        if (freqs.m_tx_freq != Null.D && freqs.m_rx_freq == Null.D) { freqs.m_rx_freq = freqs.m_tx_freq; freqs.Save(); }
-                        else if (freqs.m_tx_freq == Null.D && freqs.m_rx_freq != Null.D) { freqs.m_tx_freq = freqs.m_rx_freq; freqs.Save(); }
+                        if (freqs.m_tx_freq != Null.D && freqs.m_rx_freq == Null.D) 
+                        { freqs.m_rx_freq = freqs.m_tx_freq; changes += 1; }
+                        else if (freqs.m_tx_freq == Null.D && freqs.m_rx_freq != Null.D) 
+                        { freqs.m_tx_freq = freqs.m_rx_freq; changes += 1; }
+                    }
+
+                    if (changes > 0)
+                    {
+                        stationF.CreatedByModifiedBy();
+                        stationF.SaveWithComponentsWithTrace(L.TxT("Tx or Rx frenquencies have been set accordingly as an Half-Duplex configuration"), "", "");
                     }
                 }
             }

@@ -16,8 +16,15 @@ namespace XICSM.VanillaTools
         public string Description { get { return L.TxT("Vanilla Tools (this plugin does not modify the database structure)"); } }
         public string Ident { get { return L.TxT("VanillaTools"); } }
         public string MenuGroupName { get { return L.TxT("Vanilla Tools"); } }
-        public string Version = "1.2.0.0";
+        public string Version = "1.3.0.0";
 
+        public Plugin()
+        {
+            //Reset pending Smart copy process
+            IM.SetWorkspaceString("SmartCopy_Fields", "");
+            IM.SetWorkspaceString("SmartCopy_Table", "");
+            IM.SetWorkspaceString("SmartCopy_SourceID", "");
+        }
         public void RegisterSchema(IMSchema s)
         { /* Should never be used in this plugin */ }
         public double SchemaVersion { get { return 0; } }
@@ -36,6 +43,7 @@ namespace XICSM.VanillaTools
             
             mainMenu.SetInsertLocation("Configuration\\User Preferences", IMMainMenu.InsertLocation.After);
             mainMenu.InsertItem("Configuration\\User Preferences" + "\\" + L.Txt("Show/Hide beta test and demo menu"), ToggleDemoMenu, "DOCLINK");
+            mainMenu.InsertItem("Configuration\\User Preferences" + "\\" + L.Txt("Toggle Vanilla tools"), ToggleVanillaTools, "DOCLINK");
 
             //Demo and Test of new features
             if (IM.GetWorkspaceString("TestAndDemo") == "Display")
@@ -69,9 +77,16 @@ namespace XICSM.VanillaTools
         #region MainMenu fonctions
         public void ToggleDemoMenu()
         {
-            IM.SetWorkspaceString("TestAndDemo", (IM.GetWorkspaceString("TestAndDemo") == "Display" ? "Hide" : "Display") );
+            IM.SetWorkspaceString("TestAndDemo", 
+                (IM.GetWorkspaceString("TestAndDemo") == "Display" ? "Hide" : "Display") );
             MessageBox.Show(L.TxT("Demo menu will appear or disappear after reopening your workspace."));
         }
+        public void ToggleVanillaTools()
+        {
+            IM.SetWorkspaceString("VanillaContextualTools", 
+                (IM.GetWorkspaceString("VanillaContextualTools") == "Display" ? "Hide" : "Display"));
+        }
+
         public void VersionBox()
         {
             MessageBox.Show($"Plugin name : {Ident}\r\n" +

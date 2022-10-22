@@ -113,6 +113,17 @@ namespace XICSM.VanillaTools.Tools
             foreach(int i in Li) { str += $"{i},"; }
             return FinalComa ? str : str.Remove(str.Length - 1, 1);
         }
+        static public string ToCsvString(this List<string> Li, bool FinalComa = false)
+        {
+            if (Li.Count() == 0) return "";
+            string str = "";
+            foreach (string i in Li) { str += $"{i},"; }
+            return FinalComa ? str : str.Remove(str.Length - 1, 1);
+        }
+        static public List<string> FromCsvString(this string s)
+        {
+            return s.Split(',').ToList();
+        }
         static public string ToJson(this Yyy y)
         {
             XElement x = y.AsXml(); 

@@ -56,7 +56,7 @@
             // CancelExit
             // 
             this.CancelExit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.CancelExit.Location = new System.Drawing.Point(350, 427);
+            this.CancelExit.Location = new System.Drawing.Point(482, 429);
             this.CancelExit.Name = "CancelExit";
             this.CancelExit.Size = new System.Drawing.Size(96, 23);
             this.CancelExit.TabIndex = 0;
@@ -66,7 +66,7 @@
             // Save
             // 
             this.Save.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.Save.Location = new System.Drawing.Point(269, 427);
+            this.Save.Location = new System.Drawing.Point(401, 429);
             this.Save.Name = "Save";
             this.Save.Size = new System.Drawing.Size(75, 23);
             this.Save.TabIndex = 1;
@@ -76,7 +76,7 @@
             // SaveExit
             // 
             this.SaveExit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.SaveExit.Location = new System.Drawing.Point(452, 427);
+            this.SaveExit.Location = new System.Drawing.Point(584, 429);
             this.SaveExit.Name = "SaveExit";
             this.SaveExit.Size = new System.Drawing.Size(98, 23);
             this.SaveExit.TabIndex = 2;
@@ -87,7 +87,7 @@
             // 
             this.l_name.AutoSize = true;
             this.l_name.BackColor = System.Drawing.Color.Transparent;
-            this.l_name.Location = new System.Drawing.Point(23, 60);
+            this.l_name.Location = new System.Drawing.Point(22, 70);
             this.l_name.Name = "l_name";
             this.l_name.Size = new System.Drawing.Size(42, 19);
             this.l_name.TabIndex = 3;
@@ -97,7 +97,7 @@
             // 
             this.l_desc.AutoSize = true;
             this.l_desc.BackColor = System.Drawing.Color.Transparent;
-            this.l_desc.Location = new System.Drawing.Point(23, 186);
+            this.l_desc.Location = new System.Drawing.Point(22, 196);
             this.l_desc.Name = "l_desc";
             this.l_desc.Size = new System.Drawing.Size(74, 19);
             this.l_desc.TabIndex = 4;
@@ -107,7 +107,7 @@
             // 
             this.l_item.AutoSize = true;
             this.l_item.BackColor = System.Drawing.Color.Transparent;
-            this.l_item.Location = new System.Drawing.Point(23, 242);
+            this.l_item.Location = new System.Drawing.Point(22, 252);
             this.l_item.Name = "l_item";
             this.l_item.Size = new System.Drawing.Size(76, 19);
             this.l_item.TabIndex = 5;
@@ -115,7 +115,7 @@
             // 
             // c_paste
             // 
-            this.c_paste.Location = new System.Drawing.Point(22, 302);
+            this.c_paste.Location = new System.Drawing.Point(21, 312);
             this.c_paste.Name = "c_paste";
             this.c_paste.Size = new System.Drawing.Size(82, 54);
             this.c_paste.TabIndex = 6;
@@ -124,32 +124,39 @@
             // 
             // c_name
             // 
-            this.c_name.Location = new System.Drawing.Point(110, 57);
+            this.c_name.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.c_name.Location = new System.Drawing.Point(109, 67);
             this.c_name.Name = "c_name";
-            this.c_name.Size = new System.Drawing.Size(441, 20);
+            this.c_name.Size = new System.Drawing.Size(573, 20);
             this.c_name.TabIndex = 7;
             // 
             // c_desc
             // 
-            this.c_desc.Location = new System.Drawing.Point(110, 183);
+            this.c_desc.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.c_desc.Location = new System.Drawing.Point(109, 193);
             this.c_desc.Multiline = true;
             this.c_desc.Name = "c_desc";
-            this.c_desc.Size = new System.Drawing.Size(441, 50);
+            this.c_desc.Size = new System.Drawing.Size(573, 50);
             this.c_desc.TabIndex = 8;
             // 
             // c_item
             // 
-            this.c_item.Location = new System.Drawing.Point(110, 239);
+            this.c_item.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.c_item.Location = new System.Drawing.Point(109, 249);
             this.c_item.Multiline = true;
             this.c_item.Name = "c_item";
-            this.c_item.Size = new System.Drawing.Size(441, 117);
+            this.c_item.Size = new System.Drawing.Size(573, 117);
             this.c_item.TabIndex = 9;
             // 
             // l_type
             // 
             this.l_type.AutoSize = true;
             this.l_type.BackColor = System.Drawing.Color.Transparent;
-            this.l_type.Location = new System.Drawing.Point(23, 86);
+            this.l_type.Location = new System.Drawing.Point(22, 96);
             this.l_type.Name = "l_type";
             this.l_type.Size = new System.Drawing.Size(34, 19);
             this.l_type.TabIndex = 3;
@@ -159,7 +166,7 @@
             // 
             this.l_tablename.AutoSize = true;
             this.l_tablename.BackColor = System.Drawing.Color.Transparent;
-            this.l_tablename.Location = new System.Drawing.Point(23, 155);
+            this.l_tablename.Location = new System.Drawing.Point(22, 165);
             this.l_tablename.Name = "l_tablename";
             this.l_tablename.Size = new System.Drawing.Size(76, 19);
             this.l_tablename.TabIndex = 11;
@@ -167,22 +174,26 @@
             // 
             // c_table
             // 
-            this.c_table.Location = new System.Drawing.Point(110, 152);
+            this.c_table.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.c_table.Location = new System.Drawing.Point(109, 162);
             this.c_table.Margin = new System.Windows.Forms.Padding(0);
             this.c_table.Name = "c_table";
-            this.c_table.Size = new System.Drawing.Size(441, 21);
+            this.c_table.Size = new System.Drawing.Size(573, 21);
             this.c_table.TabIndex = 12;
             // 
             // c_type
             // 
+            this.c_type.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.c_type.BackColor = System.Drawing.Color.Transparent;
             this.c_type.Coded = true;
-            this.c_type.Location = new System.Drawing.Point(110, 86);
+            this.c_type.Location = new System.Drawing.Point(109, 96);
             this.c_type.Margin = new System.Windows.Forms.Padding(0);
             this.c_type.MaxLen = 50;
             this.c_type.Name = "c_type";
             this.c_type.ReadOnly = false;
-            this.c_type.Size = new System.Drawing.Size(441, 25);
+            this.c_type.Size = new System.Drawing.Size(573, 25);
             this.c_type.Subtype = "eri_QueryStoreType";
             this.c_type.TabIndex = 13;
             this.c_type.Upperc = false;
@@ -190,8 +201,9 @@
             // 
             // C_CreatedDate
             // 
+            this.C_CreatedDate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.C_CreatedDate.BackColor = System.Drawing.SystemColors.Info;
-            this.C_CreatedDate.Location = new System.Drawing.Point(399, 362);
+            this.C_CreatedDate.Location = new System.Drawing.Point(530, 372);
             this.C_CreatedDate.Name = "C_CreatedDate";
             this.C_CreatedDate.ReadOnly = true;
             this.C_CreatedDate.Size = new System.Drawing.Size(152, 20);
@@ -199,8 +211,9 @@
             // 
             // C_ModifiedDate
             // 
+            this.C_ModifiedDate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.C_ModifiedDate.BackColor = System.Drawing.SystemColors.Info;
-            this.C_ModifiedDate.Location = new System.Drawing.Point(399, 393);
+            this.C_ModifiedDate.Location = new System.Drawing.Point(530, 403);
             this.C_ModifiedDate.Name = "C_ModifiedDate";
             this.C_ModifiedDate.ReadOnly = true;
             this.C_ModifiedDate.Size = new System.Drawing.Size(152, 20);
@@ -208,8 +221,9 @@
             // 
             // C_CreatedBy
             // 
+            this.C_CreatedBy.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.C_CreatedBy.BackColor = System.Drawing.SystemColors.Info;
-            this.C_CreatedBy.Location = new System.Drawing.Point(241, 362);
+            this.C_CreatedBy.Location = new System.Drawing.Point(372, 372);
             this.C_CreatedBy.Name = "C_CreatedBy";
             this.C_CreatedBy.ReadOnly = true;
             this.C_CreatedBy.Size = new System.Drawing.Size(152, 20);
@@ -217,8 +231,9 @@
             // 
             // C_ModifiedBy
             // 
+            this.C_ModifiedBy.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.C_ModifiedBy.BackColor = System.Drawing.SystemColors.Info;
-            this.C_ModifiedBy.Location = new System.Drawing.Point(241, 393);
+            this.C_ModifiedBy.Location = new System.Drawing.Point(372, 403);
             this.C_ModifiedBy.Name = "C_ModifiedBy";
             this.C_ModifiedBy.ReadOnly = true;
             this.C_ModifiedBy.Size = new System.Drawing.Size(152, 20);
@@ -226,9 +241,10 @@
             // 
             // l_created
             // 
+            this.l_created.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.l_created.AutoSize = true;
             this.l_created.BackColor = System.Drawing.Color.Transparent;
-            this.l_created.Location = new System.Drawing.Point(172, 365);
+            this.l_created.Location = new System.Drawing.Point(303, 375);
             this.l_created.Name = "l_created";
             this.l_created.Size = new System.Drawing.Size(56, 19);
             this.l_created.TabIndex = 5;
@@ -236,9 +252,10 @@
             // 
             // l_modified
             // 
+            this.l_modified.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.l_modified.AutoSize = true;
             this.l_modified.BackColor = System.Drawing.Color.Transparent;
-            this.l_modified.Location = new System.Drawing.Point(172, 396);
+            this.l_modified.Location = new System.Drawing.Point(303, 406);
             this.l_modified.Name = "l_modified";
             this.l_modified.Size = new System.Drawing.Size(62, 19);
             this.l_modified.TabIndex = 5;
@@ -248,7 +265,7 @@
             // 
             this.l_dbEngines.AutoSize = true;
             this.l_dbEngines.BackColor = System.Drawing.Color.Transparent;
-            this.l_dbEngines.Location = new System.Drawing.Point(23, 117);
+            this.l_dbEngines.Location = new System.Drawing.Point(22, 127);
             this.l_dbEngines.Name = "l_dbEngines";
             this.l_dbEngines.Size = new System.Drawing.Size(185, 19);
             this.l_dbEngines.TabIndex = 18;
@@ -256,13 +273,15 @@
             // 
             // c_Engines
             // 
+            this.c_Engines.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.c_Engines.BackColor = System.Drawing.Color.Transparent;
             this.c_Engines.EnclosingComma = true;
             this.c_Engines.EriLovName = "eri_DbEngines";
-            this.c_Engines.Location = new System.Drawing.Point(213, 117);
+            this.c_Engines.Location = new System.Drawing.Point(212, 127);
             this.c_Engines.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.c_Engines.Name = "c_Engines";
-            this.c_Engines.Size = new System.Drawing.Size(338, 22);
+            this.c_Engines.Size = new System.Drawing.Size(470, 22);
             this.c_Engines.TabIndex = 19;
             this.c_Engines.Value = "";
             // 
@@ -270,7 +289,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(573, 473);
+            this.ClientSize = new System.Drawing.Size(705, 475);
             this.Controls.Add(this.c_Engines);
             this.Controls.Add(this.l_dbEngines);
             this.Controls.Add(this.C_ModifiedBy);
@@ -294,6 +313,7 @@
             this.Controls.Add(this.Save);
             this.Controls.Add(this.CancelExit);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MinimumSize = new System.Drawing.Size(574, 475);
             this.Name = "QueryStoreEditor";
             this.Style = "Purple";
             this.Text = "Query configuration";

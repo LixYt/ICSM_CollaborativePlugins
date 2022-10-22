@@ -67,6 +67,7 @@ namespace XICSM.MiscTools
 
             yQS = new YXmiscQuerystore();
             yQS.m_itemstore = s;
+            yQS.m_table_name = FindTableName(s);
             Bindings();
         }
 

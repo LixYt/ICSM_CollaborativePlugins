@@ -127,6 +127,7 @@ namespace XICSM.MiscTools
             mainMenu.InsertItem("Help\\" + MenuGroupName + "\\" + L.TxT("Version"), VersionInfo, "XMISC_TRANSLATIONS");
             mainMenu.InsertItem("Help\\" + MenuGroupName + "\\" + L.TxT("Help and resources"), PluginResources, "XMISC_TRANSLATIONS");
         }
+
         public bool OtherMessage(string message, object inParam, ref object outParam) 
         {
             outParam = null;
