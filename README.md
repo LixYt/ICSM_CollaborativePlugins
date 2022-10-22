@@ -7,12 +7,12 @@ Do not forget to credit source and binaries when using/importing it.
 Thoses plugins are given "AS IS" and no warranty is provided. 
 However, help and advicement is provided.
 
-##Collaboration through ICS Manager community
+## Collaboration through ICS Manager community
 Feel free to contribute. Wiki, Readme.md, push request, bug report and feature request are welcomed.
 
-##Features
+## Features
 
-###Plugin Vanilla
+### Plugin Vanilla
 
 This plugin MUST NOT alter database structures. 
 You will find only tools that does not requires database alteration.
@@ -30,7 +30,7 @@ Nota : some feature needs to be activated using the menu User Configuration.
 Nota2 : Some stuff are not yet ready to be used or tested. 
 You can still activate them using the "Test and demo" option in User configuration menu.
 
-###Plugin MiscTools
+### Plugin MiscTools
 
 This plugin WILL alter database structures. 
 
