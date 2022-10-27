@@ -171,7 +171,7 @@ namespace XICSM.MiscTools
             // 
             this.importOnMap.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.importOnMap.Enabled = false;
-            this.importOnMap.Location = new System.Drawing.Point(714, 324);
+            this.importOnMap.Location = new System.Drawing.Point(714, 327);
             this.importOnMap.Name = "importOnMap";
             this.importOnMap.Size = new System.Drawing.Size(232, 23);
             this.importOnMap.TabIndex = 4;
@@ -433,7 +433,7 @@ namespace XICSM.MiscTools
             this.saveParam.Controls.Add(this.SaveName);
             this.saveParam.Controls.Add(this.labelSave);
             this.saveParam.Controls.Add(this.SaveBox);
-            this.saveParam.Location = new System.Drawing.Point(714, 205);
+            this.saveParam.Location = new System.Drawing.Point(714, 208);
             this.saveParam.Name = "saveParam";
             this.saveParam.Size = new System.Drawing.Size(232, 85);
             this.saveParam.TabIndex = 12;
@@ -472,7 +472,7 @@ namespace XICSM.MiscTools
             // 
             this.toEWX.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.toEWX.Enabled = false;
-            this.toEWX.Location = new System.Drawing.Point(714, 352);
+            this.toEWX.Location = new System.Drawing.Point(714, 355);
             this.toEWX.Name = "toEWX";
             this.toEWX.Size = new System.Drawing.Size(232, 23);
             this.toEWX.TabIndex = 8;
@@ -482,7 +482,7 @@ namespace XICSM.MiscTools
             // RunSearch
             // 
             this.RunSearch.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.RunSearch.Location = new System.Drawing.Point(714, 296);
+            this.RunSearch.Location = new System.Drawing.Point(714, 299);
             this.RunSearch.Name = "RunSearch";
             this.RunSearch.Size = new System.Drawing.Size(232, 23);
             this.RunSearch.TabIndex = 7;

@@ -16,6 +16,8 @@ namespace XICSM.VanillaTools
     class Contextual
     {
         public static List<IMQueryMenuNode> onGetQueryMenu(string tableName, int nbSelMin)
+
+
         {
             List<IMQueryMenuNode> lst = new List<IMQueryMenuNode>();
             List<IMQueryMenuNode> lst_DataCopy = new List<IMQueryMenuNode>();
@@ -175,9 +177,10 @@ namespace XICSM.VanillaTools
             yTarget.Format("*");
             yTarget.Filter = context.DataList.GetOQLFilter(true);
 
-            string changes = "";
+            
             for (yTarget.OpenRs(); !yTarget.IsEOF(); yTarget.MoveNext())
             {
+                string changes = "";
                 List<string> fields = IM.GetWorkspaceString("SmartCopy_Fields").FromCsvString();
                 foreach (string s in fields)
                 {

@@ -65,6 +65,7 @@ namespace XICSM.MiscTools
         public SearchInterf()
         { 
             InitializeComponent();
+            DefaultKtbf.Value = -129;
 
             DbListWanted.Init();
             DbListRxUnwanted.Init();

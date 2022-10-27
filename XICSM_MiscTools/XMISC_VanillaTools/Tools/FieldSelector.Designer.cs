@@ -29,6 +29,7 @@ namespace XICSM.VanillaTools.Tools
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FieldSelector));
             this.ListOfFields = new System.Windows.Forms.TreeView();
             this.c_ok = new System.Windows.Forms.Button();
             this.c_cancel = new System.Windows.Forms.Button();
@@ -75,8 +76,11 @@ namespace XICSM.VanillaTools.Tools
             this.Controls.Add(this.c_cancel);
             this.Controls.Add(this.c_ok);
             this.Controls.Add(this.ListOfFields);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MinimumSize = new System.Drawing.Size(739, 449);
             this.Name = "FieldSelector";
-            this.Text = "FieldSelector";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Field Selector";
             this.ResumeLayout(false);
 
         }
