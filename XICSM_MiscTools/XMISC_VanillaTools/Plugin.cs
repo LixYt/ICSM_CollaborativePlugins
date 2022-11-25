@@ -8,6 +8,7 @@ using DatalayerCs;
 using NetPlugins2Ext;
 using System.Windows.Forms;
 using System.Diagnostics;
+using System.IO;
 
 namespace XICSM.VanillaTools
 {
@@ -38,9 +39,11 @@ namespace XICSM.VanillaTools
         public void GetMainMenu(IMMainMenu mainMenu)
         {
             mainMenu.SetInsertLocation("Tools\\Administrator", IMMainMenu.InsertLocation.After);
+            mainMenu.InsertItem("Tools\\" + MenuGroupName + "\\" + L.Txt("Clean workspace directory"), CleanWorkspaceDir, "DOCLINK");
             mainMenu.InsertItem("Tools\\" + MenuGroupName + "\\" + L.Txt("Verify attached documents"), CheckDocLink, "DOCLINK");
             mainMenu.InsertItem("Tools\\" + MenuGroupName + "\\" + L.Txt("Version/info"), VersionBox, "DOCLINK");
-            
+
+
             mainMenu.SetInsertLocation("Configuration\\User Preferences", IMMainMenu.InsertLocation.After);
             mainMenu.InsertItem("Configuration\\User Preferences" + "\\" + L.Txt("Show/Hide beta test and demo menu"), ToggleDemoMenu, "DOCLINK");
             mainMenu.InsertItem("Configuration\\User Preferences" + "\\" + L.Txt("Toggle Vanilla tools"), ToggleVanillaTools, "DOCLINK");
@@ -85,6 +88,26 @@ namespace XICSM.VanillaTools
         {
             IM.SetWorkspaceString("VanillaContextualTools", 
                 (IM.GetWorkspaceString("VanillaContextualTools") == "Display" ? "Hide" : "Display"));
+        }
+
+        public void CleanWorkspaceDir()
+        {
+            string dir = IM.GetWorkspaceFolder();
+            string[] fileEntries = Directory.GetFiles(dir);
+
+            IMLogFile log = new IMLogFile();
+            log.Create("CleanUp.txt");
+
+            foreach (string fileName in fileEntries)
+            { 
+                if (fileName.EndsWith(".dmp", true, System.Globalization.CultureInfo.CurrentCulture) || 
+                    fileName.EndsWith(".tmp", true, System.Globalization.CultureInfo.CurrentCulture) ||
+                    fileName.EndsWith(".cgn", true, System.Globalization.CultureInfo.CurrentCulture) || 
+                    fileName.EndsWith(".gxt", true, System.Globalization.CultureInfo.CurrentCulture)
+                    )
+                { File.Delete(fileName); log.Info(L.Txt("Delete file : ") + fileName); }
+            }
+            log.Display(L.Txt("Deleted files after workspace clean up"));
         }
 
         public void VersionBox()
