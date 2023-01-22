@@ -248,14 +248,22 @@ namespace XICSM.MiscTools
             double LowerLimit = freq - bw*Ln/2000;
             double UpperLimit = freq + bw*Ln/2000;
 
+            string filter = "(";
+            if (StateFamX_P.Checked) filter += "[ST_FAMILLY] <> 'U'";
+            if (StateFamX_U.Checked) filter += (filter.Length > 2 ? " AND " : "") + "[ST_FAMILLY] <> 'U'";
+            if (StateFamX_Z.Checked) filter += (filter.Length > 2 ? " AND " : "") + "[ST_FAMILLY] <> 'U'";
+            if (StateFamX_X.Checked) filter += (filter.Length > 2 ? " AND " : "") + "[ST_FAMILLY] <> 'U'";
+            filter += ")";
+
             if (Mode != "TX" && Mode != "RX") { throw new Exception("Mode must be TX or RX"); }
 
-            return 
+            return "(" + filter + " AND " + 
                 $"(([{Mode}_FREQ] - ([{Mode}_BW] / 2000) >= {LowerLimit.ToSql()}" +
                 $" AND [{Mode}_FREQ] - ([{Mode}_BW] / 2000) <= {UpperLimit.ToSql()})" +
                 $" OR " +
                 $"([{Mode}_FREQ] + ([{Mode}_BW] / 2000) <= {UpperLimit.ToSql()}" +
-                $" AND [{Mode}_FREQ] + ([{Mode}_BW] / 2000) >= {LowerLimit.ToSql()}))";
+                $" AND [{Mode}_FREQ] + ([{Mode}_BW] / 2000) >= {LowerLimit.ToSql()}))"
+                + ")";
         }
         private void DoWork(ANetDb db, string schemaPrefix)
         {

@@ -42,8 +42,6 @@ namespace XICSM.MiscTools
             this.SearchTabGrid = new FormsCs.IcsMetroTabControl();
             this.tabConfig = new FormsCs.IcsMetroTabPage();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.LikeMsState = new System.Windows.Forms.CheckBox();
-            this.MobStation_State = new NetPlugins2.IcsComboMetro();
             this.OtherFilters = new System.Windows.Forms.GroupBox();
             this.label2 = new FormsCs.IcsMetroLabel();
             this.CopyEtoB = new FormsCs.IcsMetroTile();
@@ -77,6 +75,10 @@ namespace XICSM.MiscTools
             this.cancelThread = new FormsCs.IcsMetroTile();
             this.ProgressBarMain = new FormsCs.IcsMetroProgressBar();
             this.ProgressBarSub = new FormsCs.IcsMetroProgressBar();
+            this.StateFamX_P = new System.Windows.Forms.CheckBox();
+            this.StateFamX_U = new System.Windows.Forms.CheckBox();
+            this.StateFamX_X = new System.Windows.Forms.CheckBox();
+            this.StateFamX_Z = new System.Windows.Forms.CheckBox();
             this.geoParam.SuspendLayout();
             this.freqParams.SuspendLayout();
             this.SearchTabGrid.SuspendLayout();
@@ -171,7 +173,7 @@ namespace XICSM.MiscTools
             // 
             this.importOnMap.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.importOnMap.Enabled = false;
-            this.importOnMap.Location = new System.Drawing.Point(714, 327);
+            this.importOnMap.Location = new System.Drawing.Point(713, 321);
             this.importOnMap.Name = "importOnMap";
             this.importOnMap.Size = new System.Drawing.Size(232, 23);
             this.importOnMap.TabIndex = 4;
@@ -214,42 +216,17 @@ namespace XICSM.MiscTools
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.LikeMsState);
-            this.groupBox1.Controls.Add(this.MobStation_State);
+            this.groupBox1.Controls.Add(this.StateFamX_X);
+            this.groupBox1.Controls.Add(this.StateFamX_Z);
+            this.groupBox1.Controls.Add(this.StateFamX_U);
+            this.groupBox1.Controls.Add(this.StateFamX_P);
             this.groupBox1.Location = new System.Drawing.Point(8, 145);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(173, 90);
+            this.groupBox1.Size = new System.Drawing.Size(173, 145);
             this.groupBox1.TabIndex = 120;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Exclude unwanted stations by Familly Status";
+            this.groupBox1.Text = "Exclude unwanted stations by Familly Status (checked = excluded)";
             this.groupBox1.Visible = false;
-            // 
-            // LikeMsState
-            // 
-            this.LikeMsState.Appearance = System.Windows.Forms.Appearance.Button;
-            this.LikeMsState.Checked = true;
-            this.LikeMsState.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.LikeMsState.Location = new System.Drawing.Point(54, 32);
-            this.LikeMsState.Name = "LikeMsState";
-            this.LikeMsState.Size = new System.Drawing.Size(56, 21);
-            this.LikeMsState.TabIndex = 119;
-            this.LikeMsState.Text = "Like";
-            this.LikeMsState.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.LikeMsState.CheckedChanged += new System.EventHandler(this.LikeMsState_CheckedChanged);
-            // 
-            // MobStation_State
-            // 
-            this.MobStation_State.Coded = true;
-            this.MobStation_State.Location = new System.Drawing.Point(10, 56);
-            this.MobStation_State.Margin = new System.Windows.Forms.Padding(0);
-            this.MobStation_State.MaxLen = 50;
-            this.MobStation_State.Name = "MobStation_State";
-            this.MobStation_State.ReadOnly = false;
-            this.MobStation_State.Size = new System.Drawing.Size(152, 29);
-            this.MobStation_State.Subtype = "eri_StateFamilyX";
-            this.MobStation_State.TabIndex = 17;
-            this.MobStation_State.Upperc = false;
-            this.MobStation_State.Value = "";
             // 
             // OtherFilters
             // 
@@ -433,7 +410,7 @@ namespace XICSM.MiscTools
             this.saveParam.Controls.Add(this.SaveName);
             this.saveParam.Controls.Add(this.labelSave);
             this.saveParam.Controls.Add(this.SaveBox);
-            this.saveParam.Location = new System.Drawing.Point(714, 208);
+            this.saveParam.Location = new System.Drawing.Point(714, 195);
             this.saveParam.Name = "saveParam";
             this.saveParam.Size = new System.Drawing.Size(232, 85);
             this.saveParam.TabIndex = 12;
@@ -472,7 +449,7 @@ namespace XICSM.MiscTools
             // 
             this.toEWX.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.toEWX.Enabled = false;
-            this.toEWX.Location = new System.Drawing.Point(714, 355);
+            this.toEWX.Location = new System.Drawing.Point(713, 349);
             this.toEWX.Name = "toEWX";
             this.toEWX.Size = new System.Drawing.Size(232, 23);
             this.toEWX.TabIndex = 8;
@@ -482,7 +459,7 @@ namespace XICSM.MiscTools
             // RunSearch
             // 
             this.RunSearch.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.RunSearch.Location = new System.Drawing.Point(714, 299);
+            this.RunSearch.Location = new System.Drawing.Point(713, 293);
             this.RunSearch.Name = "RunSearch";
             this.RunSearch.Size = new System.Drawing.Size(232, 23);
             this.RunSearch.TabIndex = 7;
@@ -631,6 +608,46 @@ namespace XICSM.MiscTools
             this.ProgressBarSub.Size = new System.Drawing.Size(263, 23);
             this.ProgressBarSub.TabIndex = 14;
             // 
+            // StateFamX_P
+            // 
+            this.StateFamX_P.AutoSize = true;
+            this.StateFamX_P.Location = new System.Drawing.Point(10, 49);
+            this.StateFamX_P.Name = "StateFamX_P";
+            this.StateFamX_P.Size = new System.Drawing.Size(81, 17);
+            this.StateFamX_P.TabIndex = 0;
+            this.StateFamX_P.Text = "P - Planned";
+            this.StateFamX_P.UseVisualStyleBackColor = true;
+            // 
+            // StateFamX_U
+            // 
+            this.StateFamX_U.AutoSize = true;
+            this.StateFamX_U.Location = new System.Drawing.Point(10, 72);
+            this.StateFamX_U.Name = "StateFamX_U";
+            this.StateFamX_U.Size = new System.Drawing.Size(73, 17);
+            this.StateFamX_U.TabIndex = 1;
+            this.StateFamX_U.Text = "U - in Use";
+            this.StateFamX_U.UseVisualStyleBackColor = true;
+            // 
+            // StateFamX_X
+            // 
+            this.StateFamX_X.AutoSize = true;
+            this.StateFamX_X.Location = new System.Drawing.Point(10, 118);
+            this.StateFamX_X.Name = "StateFamX_X";
+            this.StateFamX_X.Size = new System.Drawing.Size(86, 17);
+            this.StateFamX_X.TabIndex = 3;
+            this.StateFamX_X.Text = "X - unknown";
+            this.StateFamX_X.UseVisualStyleBackColor = true;
+            // 
+            // StateFamX_Z
+            // 
+            this.StateFamX_Z.AutoSize = true;
+            this.StateFamX_Z.Location = new System.Drawing.Point(10, 95);
+            this.StateFamX_Z.Name = "StateFamX_Z";
+            this.StateFamX_Z.Size = new System.Drawing.Size(96, 17);
+            this.StateFamX_Z.TabIndex = 2;
+            this.StateFamX_Z.Text = "Z - suppressed";
+            this.StateFamX_Z.UseVisualStyleBackColor = true;
+            // 
             // SearchInterf
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -655,6 +672,7 @@ namespace XICSM.MiscTools
             this.SearchTabGrid.ResumeLayout(false);
             this.tabConfig.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.OtherFilters.ResumeLayout(false);
             this.OtherFilters.PerformLayout();
             this.BiuseFilter.ResumeLayout(false);
@@ -709,8 +727,6 @@ namespace XICSM.MiscTools
         private IcsMetroLabel label2;
         private IcsMetroTile CopyEtoB;
         private IcsMetroTile CopyBtoE;
-        private System.Windows.Forms.CheckBox LikeMsState;
-        private IcsComboMetro MobStation_State;
         private IcsMetroTile cancelThread;
         private MetroFramework.Controls.MetroTabPage tabUnwantedRx;
         private IcsDBList DbListRxUnwanted;
@@ -721,5 +737,9 @@ namespace XICSM.MiscTools
         private System.Windows.Forms.GroupBox groupBox1;
         private IcsMetroProgressBar ProgressBarMain;
         private IcsMetroProgressBar ProgressBarSub;
+        private System.Windows.Forms.CheckBox StateFamX_X;
+        private System.Windows.Forms.CheckBox StateFamX_Z;
+        private System.Windows.Forms.CheckBox StateFamX_U;
+        private System.Windows.Forms.CheckBox StateFamX_P;
     }
 }

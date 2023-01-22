@@ -21,6 +21,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x86</PlatformTarget>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -64,9 +65,9 @@
       <HintPath>..\..\..\..\ATDI\ICSM\MetroFramework.Fonts.dll</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="NetPlugins">
+    <Reference Include="NetPlugins, Version=0.0.0.0, Culture=neutral, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\..\ATDI\ICSM\NetPlugins.dll</HintPath>
-      <Private>False</Private>
     </Reference>
     <Reference Include="NetPlugins2">
       <HintPath>..\..\..\..\ATDI\ICSM\NetPlugins2.dll</HintPath>
@@ -95,7 +96,19 @@
   <ItemGroup>
     <Compile Include="Checkers\AttachedDocuments.cs" />
     <Compile Include="Contextual.cs" />
+    <Compile Include="Controls\ExtentableTextBox.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\ExtentableTextBox.Designer.cs">
+      <DependentUpon>ExtentableTextBox.cs</DependentUpon>
+    </Compile>
     <Compile Include="Converters\Converter.cs" />
+    <Compile Include="EntityForms\SFAF.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EntityForms\SFAF.Designer.cs">
+      <DependentUpon>SFAF.cs</DependentUpon>
+    </Compile>
     <Compile Include="IngeneeringTools\SearchInterf.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -162,6 +175,12 @@
     <Compile Include="Tools\XTools.cs" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Controls\ExtentableTextBox.resx">
+      <DependentUpon>ExtentableTextBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EntityForms\SFAF.resx">
+      <DependentUpon>SFAF.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="IngeneeringTools\SearchInterf.resx">
       <DependentUpon>SearchInterf.cs</DependentUpon>
     </EmbeddedResource>
