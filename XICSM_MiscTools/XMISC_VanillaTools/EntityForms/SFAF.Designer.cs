@@ -30,31 +30,37 @@
         {
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.Summary = new System.Windows.Forms.TabPage();
+            this.c_classification = new NetPlugins2.IcsComboEdt();
             this.c_Recievers = new NetPlugins2.IcsDBList();
             this.SummaryTransmitter = new System.Windows.Forms.GroupBox();
-            this.c_Country = new System.Windows.Forms.TextBox();
+            this.icsDouble2 = new NetPlugins2.IcsDouble();
+            this.c_Lat = new NetPlugins2.IcsDouble();
+            this.c_Long = new NetPlugins2.IcsDouble();
             this.c_Azimuth = new NetPlugins2.IcsDouble();
             this.label11 = new System.Windows.Forms.Label();
             this.c_Elev = new NetPlugins2.IcsDouble();
             this.label10 = new System.Windows.Forms.Label();
+            this.c_Country = new NetPlugins2.IcsControls.IcsComboList();
             this.c_AGL = new NetPlugins2.IcsDouble();
+            this.c_Callsign = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
+            this.c_Polar = new NetPlugins2.IcsControls.IcsComboList();
             this.c_Radius = new NetPlugins2.IcsDouble();
             this.label12 = new System.Windows.Forms.Label();
-            this.c_Lat = new System.Windows.Forms.TextBox();
             this.label17 = new System.Windows.Forms.Label();
-            this.c_Long = new System.Windows.Forms.TextBox();
             this.label16 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
             this.c_LocationName = new System.Windows.Forms.TextBox();
             this.label14 = new System.Windows.Forms.Label();
+            this.label19 = new System.Windows.Forms.Label();
+            this.label27 = new System.Windows.Forms.Label();
+            this.label18 = new System.Windows.Forms.Label();
+            this.c_ModifiedDate = new System.Windows.Forms.TextBox();
+            this.c_CreatedDate = new System.Windows.Forms.TextBox();
             this.c_ModifiedBy = new System.Windows.Forms.TextBox();
             this.c_CreatedBy = new System.Windows.Forms.TextBox();
-            this.c_Callsign = new System.Windows.Forms.TextBox();
-            this.c_Polar = new NetPlugins2.IcsControls.IcsComboList();
             this.c_ClassSta = new NetPlugins2.IcsControls.IcsComboList();
             this.c_MapDisplay = new NetPlugins2.IcsOpenlayers3();
-            this.c_State = new NetPlugins2.IcsStatus();
             this.c_Status = new NetPlugins2.IcsStatus();
             this.c_EOUSE = new NetPlugins2.IcsDateTime();
             this.c_BIUSE = new NetPlugins2.IcsDateTime();
@@ -67,8 +73,6 @@
             this.label25 = new System.Windows.Forms.Label();
             this.c_Bw = new NetPlugins2.IcsDouble();
             this.label24 = new System.Windows.Forms.Label();
-            this.label18 = new System.Windows.Forms.Label();
-            this.label19 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
@@ -81,7 +85,20 @@
             this.label22 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.MainSFAF_1 = new System.Windows.Forms.TabPage();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.Items1xx = new System.Windows.Forms.GroupBox();
+            this.Items0xx = new System.Windows.Forms.GroupBox();
+            this.MainSFAF_2 = new System.Windows.Forms.TabPage();
+            this.Items8xx = new System.Windows.Forms.GroupBox();
+            this.Items2xx = new System.Windows.Forms.GroupBox();
+            this.Items5xx = new System.Windows.Forms.GroupBox();
+            this.Items7xx = new System.Windows.Forms.GroupBox();
+            this.MainSFAF_3 = new System.Windows.Forms.TabPage();
+            this.Items9xx = new System.Windows.Forms.GroupBox();
+            this.SFAF_TX = new System.Windows.Forms.TabPage();
+            this.SFAF_RX = new System.Windows.Forms.TabPage();
+            this.label26 = new System.Windows.Forms.Label();
+            this.label23 = new System.Windows.Forms.Label();
+            this.icsDBList2 = new NetPlugins2.IcsDBList();
             this.extentableTextBox25 = new XICSM.VanillaTools.Controls.ExtentableTextBox();
             this.extentableTextBox22 = new XICSM.VanillaTools.Controls.ExtentableTextBox();
             this.extentableTextBox17 = new XICSM.VanillaTools.Controls.ExtentableTextBox();
@@ -109,7 +126,6 @@
             this.extentableTextBox30 = new XICSM.VanillaTools.Controls.ExtentableTextBox();
             this.extentableTextBox26 = new XICSM.VanillaTools.Controls.ExtentableTextBox();
             this.extentableTextBox13 = new XICSM.VanillaTools.Controls.ExtentableTextBox();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.extentableTextBox12 = new XICSM.VanillaTools.Controls.ExtentableTextBox();
             this.extentableTextBox6 = new XICSM.VanillaTools.Controls.ExtentableTextBox();
             this.extentableTextBox11 = new XICSM.VanillaTools.Controls.ExtentableTextBox();
@@ -122,15 +138,12 @@
             this.extentableTextBox2 = new XICSM.VanillaTools.Controls.ExtentableTextBox();
             this.extentableTextBox7 = new XICSM.VanillaTools.Controls.ExtentableTextBox();
             this.extentableTextBox1 = new XICSM.VanillaTools.Controls.ExtentableTextBox();
-            this.MainSFAF_2 = new System.Windows.Forms.TabPage();
-            this.groupBox6 = new System.Windows.Forms.GroupBox();
             this.extentableTextBox72 = new XICSM.VanillaTools.Controls.ExtentableTextBox();
             this.extentableTextBox73 = new XICSM.VanillaTools.Controls.ExtentableTextBox();
             this.extentableTextBox74 = new XICSM.VanillaTools.Controls.ExtentableTextBox();
             this.extentableTextBox75 = new XICSM.VanillaTools.Controls.ExtentableTextBox();
             this.extentableTextBox76 = new XICSM.VanillaTools.Controls.ExtentableTextBox();
             this.extentableTextBox77 = new XICSM.VanillaTools.Controls.ExtentableTextBox();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.extentableTextBox49 = new XICSM.VanillaTools.Controls.ExtentableTextBox();
             this.extentableTextBox48 = new XICSM.VanillaTools.Controls.ExtentableTextBox();
             this.extentableTextBox47 = new XICSM.VanillaTools.Controls.ExtentableTextBox();
@@ -141,7 +154,6 @@
             this.extentableTextBox44 = new XICSM.VanillaTools.Controls.ExtentableTextBox();
             this.extentableTextBox41 = new XICSM.VanillaTools.Controls.ExtentableTextBox();
             this.extentableTextBox42 = new XICSM.VanillaTools.Controls.ExtentableTextBox();
-            this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.extentableTextBox63 = new XICSM.VanillaTools.Controls.ExtentableTextBox();
             this.extentableTextBox61 = new XICSM.VanillaTools.Controls.ExtentableTextBox();
             this.extentableTextBox59 = new XICSM.VanillaTools.Controls.ExtentableTextBox();
@@ -156,7 +168,6 @@
             this.extentableTextBox52 = new XICSM.VanillaTools.Controls.ExtentableTextBox();
             this.extentableTextBox51 = new XICSM.VanillaTools.Controls.ExtentableTextBox();
             this.extentableTextBox50 = new XICSM.VanillaTools.Controls.ExtentableTextBox();
-            this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.extentableTextBox70 = new XICSM.VanillaTools.Controls.ExtentableTextBox();
             this.extentableTextBox71 = new XICSM.VanillaTools.Controls.ExtentableTextBox();
             this.extentableTextBox69 = new XICSM.VanillaTools.Controls.ExtentableTextBox();
@@ -165,8 +176,6 @@
             this.extentableTextBox68 = new XICSM.VanillaTools.Controls.ExtentableTextBox();
             this.extentableTextBox67 = new XICSM.VanillaTools.Controls.ExtentableTextBox();
             this.extentableTextBox65 = new XICSM.VanillaTools.Controls.ExtentableTextBox();
-            this.MainSFAF_3 = new System.Windows.Forms.TabPage();
-            this.groupBox7 = new System.Windows.Forms.GroupBox();
             this.extentableTextBox118 = new XICSM.VanillaTools.Controls.ExtentableTextBox();
             this.extentableTextBox117 = new XICSM.VanillaTools.Controls.ExtentableTextBox();
             this.extentableTextBox113 = new XICSM.VanillaTools.Controls.ExtentableTextBox();
@@ -208,7 +217,6 @@
             this.extentableTextBox93 = new XICSM.VanillaTools.Controls.ExtentableTextBox();
             this.extentableTextBox84 = new XICSM.VanillaTools.Controls.ExtentableTextBox();
             this.extentableTextBox85 = new XICSM.VanillaTools.Controls.ExtentableTextBox();
-            this.SFAF_TX = new System.Windows.Forms.TabPage();
             this.extentableTextBox122 = new XICSM.VanillaTools.Controls.ExtentableTextBox();
             this.extentableTextBox125 = new XICSM.VanillaTools.Controls.ExtentableTextBox();
             this.extentableTextBox126 = new XICSM.VanillaTools.Controls.ExtentableTextBox();
@@ -243,10 +251,6 @@
             this.extentableTextBox157 = new XICSM.VanillaTools.Controls.ExtentableTextBox();
             this.extentableTextBox158 = new XICSM.VanillaTools.Controls.ExtentableTextBox();
             this.extentableTextBox159 = new XICSM.VanillaTools.Controls.ExtentableTextBox();
-            this.SFAF_RX = new System.Windows.Forms.TabPage();
-            this.label26 = new System.Windows.Forms.Label();
-            this.label23 = new System.Windows.Forms.Label();
-            this.icsDBList2 = new NetPlugins2.IcsDBList();
             this.extentableTextBox119 = new XICSM.VanillaTools.Controls.ExtentableTextBox();
             this.extentableTextBox120 = new XICSM.VanillaTools.Controls.ExtentableTextBox();
             this.extentableTextBox121 = new XICSM.VanillaTools.Controls.ExtentableTextBox();
@@ -281,21 +285,19 @@
             this.extentableTextBox184 = new XICSM.VanillaTools.Controls.ExtentableTextBox();
             this.extentableTextBox185 = new XICSM.VanillaTools.Controls.ExtentableTextBox();
             this.extentableTextBox186 = new XICSM.VanillaTools.Controls.ExtentableTextBox();
-            this.c_CreatedDate = new System.Windows.Forms.TextBox();
-            this.c_ModifiedDate = new System.Windows.Forms.TextBox();
             this.tabControl1.SuspendLayout();
             this.Summary.SuspendLayout();
             this.SummaryTransmitter.SuspendLayout();
             this.MainSFAF_1.SuspendLayout();
-            this.groupBox2.SuspendLayout();
-            this.groupBox1.SuspendLayout();
+            this.Items1xx.SuspendLayout();
+            this.Items0xx.SuspendLayout();
             this.MainSFAF_2.SuspendLayout();
-            this.groupBox6.SuspendLayout();
-            this.groupBox3.SuspendLayout();
-            this.groupBox4.SuspendLayout();
-            this.groupBox5.SuspendLayout();
+            this.Items8xx.SuspendLayout();
+            this.Items2xx.SuspendLayout();
+            this.Items5xx.SuspendLayout();
+            this.Items7xx.SuspendLayout();
             this.MainSFAF_3.SuspendLayout();
-            this.groupBox7.SuspendLayout();
+            this.Items9xx.SuspendLayout();
             this.SFAF_TX.SuspendLayout();
             this.SFAF_RX.SuspendLayout();
             this.SuspendLayout();
@@ -317,17 +319,15 @@
             // 
             // Summary
             // 
+            this.Summary.Controls.Add(this.c_classification);
             this.Summary.Controls.Add(this.c_Recievers);
             this.Summary.Controls.Add(this.SummaryTransmitter);
             this.Summary.Controls.Add(this.c_ModifiedDate);
             this.Summary.Controls.Add(this.c_CreatedDate);
             this.Summary.Controls.Add(this.c_ModifiedBy);
             this.Summary.Controls.Add(this.c_CreatedBy);
-            this.Summary.Controls.Add(this.c_Callsign);
-            this.Summary.Controls.Add(this.c_Polar);
             this.Summary.Controls.Add(this.c_ClassSta);
             this.Summary.Controls.Add(this.c_MapDisplay);
-            this.Summary.Controls.Add(this.c_State);
             this.Summary.Controls.Add(this.c_Status);
             this.Summary.Controls.Add(this.c_EOUSE);
             this.Summary.Controls.Add(this.c_BIUSE);
@@ -340,8 +340,6 @@
             this.Summary.Controls.Add(this.label25);
             this.Summary.Controls.Add(this.c_Bw);
             this.Summary.Controls.Add(this.label24);
-            this.Summary.Controls.Add(this.label18);
-            this.Summary.Controls.Add(this.label19);
             this.Summary.Controls.Add(this.label2);
             this.Summary.Controls.Add(this.label9);
             this.Summary.Controls.Add(this.label7);
@@ -361,6 +359,20 @@
             this.Summary.Text = "Synthèse de l\'assignation";
             this.Summary.UseVisualStyleBackColor = true;
             // 
+            // c_classification
+            // 
+            this.c_classification.Coded = true;
+            this.c_classification.Location = new System.Drawing.Point(142, 61);
+            this.c_classification.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.c_classification.MaxLen = 17;
+            this.c_classification.Name = "c_classification";
+            this.c_classification.ReadOnly = true;
+            this.c_classification.Size = new System.Drawing.Size(144, 27);
+            this.c_classification.Subtype = "lov_SfafClassification";
+            this.c_classification.TabIndex = 33;
+            this.c_classification.Upperc = false;
+            this.c_classification.Value = "";
+            // 
             // c_Recievers
             // 
             this.c_Recievers.AllowFilter = false;
@@ -368,63 +380,91 @@
             this.c_Recievers.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.c_Recievers.ConfigName = "SFAF_Rx_Sumary";
             this.c_Recievers.Filter = null;
-            this.c_Recievers.Location = new System.Drawing.Point(399, 260);
+            this.c_Recievers.Location = new System.Drawing.Point(296, 438);
             this.c_Recievers.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.c_Recievers.Name = "c_Recievers";
             this.c_Recievers.Param1 = 0;
             this.c_Recievers.Param2 = 0;
-            this.c_Recievers.Size = new System.Drawing.Size(736, 244);
+            this.c_Recievers.Size = new System.Drawing.Size(828, 148);
             this.c_Recievers.TabIndex = 32;
             this.c_Recievers.Table = "SFAF_RX";
             // 
             // SummaryTransmitter
             // 
-            this.SummaryTransmitter.Controls.Add(this.c_Country);
+            this.SummaryTransmitter.Controls.Add(this.icsDouble2);
+            this.SummaryTransmitter.Controls.Add(this.c_Lat);
+            this.SummaryTransmitter.Controls.Add(this.c_Long);
             this.SummaryTransmitter.Controls.Add(this.c_Azimuth);
             this.SummaryTransmitter.Controls.Add(this.label11);
             this.SummaryTransmitter.Controls.Add(this.c_Elev);
             this.SummaryTransmitter.Controls.Add(this.label10);
+            this.SummaryTransmitter.Controls.Add(this.c_Country);
             this.SummaryTransmitter.Controls.Add(this.c_AGL);
+            this.SummaryTransmitter.Controls.Add(this.c_Callsign);
             this.SummaryTransmitter.Controls.Add(this.label13);
+            this.SummaryTransmitter.Controls.Add(this.c_Polar);
             this.SummaryTransmitter.Controls.Add(this.c_Radius);
             this.SummaryTransmitter.Controls.Add(this.label12);
-            this.SummaryTransmitter.Controls.Add(this.c_Lat);
             this.SummaryTransmitter.Controls.Add(this.label17);
-            this.SummaryTransmitter.Controls.Add(this.c_Long);
             this.SummaryTransmitter.Controls.Add(this.label16);
             this.SummaryTransmitter.Controls.Add(this.label15);
             this.SummaryTransmitter.Controls.Add(this.c_LocationName);
             this.SummaryTransmitter.Controls.Add(this.label14);
+            this.SummaryTransmitter.Controls.Add(this.label19);
+            this.SummaryTransmitter.Controls.Add(this.label27);
+            this.SummaryTransmitter.Controls.Add(this.label18);
             this.SummaryTransmitter.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SummaryTransmitter.Location = new System.Drawing.Point(18, 233);
+            this.SummaryTransmitter.Location = new System.Drawing.Point(296, 7);
             this.SummaryTransmitter.Name = "SummaryTransmitter";
-            this.SummaryTransmitter.Size = new System.Drawing.Size(355, 271);
+            this.SummaryTransmitter.Size = new System.Drawing.Size(298, 355);
             this.SummaryTransmitter.TabIndex = 31;
             this.SummaryTransmitter.TabStop = false;
             this.SummaryTransmitter.Text = "Transmitter";
             // 
-            // c_Country
+            // icsDouble2
             // 
-            this.c_Country.Location = new System.Drawing.Point(138, 27);
-            this.c_Country.Name = "c_Country";
-            this.c_Country.ReadOnly = true;
-            this.c_Country.Size = new System.Drawing.Size(206, 20);
-            this.c_Country.TabIndex = 29;
+            this.icsDouble2.Location = new System.Drawing.Point(137, 323);
+            this.icsDouble2.Margin = new System.Windows.Forms.Padding(0);
+            this.icsDouble2.Name = "icsDouble2";
+            this.icsDouble2.ReadOnly = true;
+            this.icsDouble2.Size = new System.Drawing.Size(139, 20);
+            this.icsDouble2.Subtype = "dB";
+            this.icsDouble2.TabIndex = 36;
+            // 
+            // c_Lat
+            // 
+            this.c_Lat.Location = new System.Drawing.Point(137, 111);
+            this.c_Lat.Margin = new System.Windows.Forms.Padding(0);
+            this.c_Lat.Name = "c_Lat";
+            this.c_Lat.ReadOnly = true;
+            this.c_Lat.Size = new System.Drawing.Size(145, 20);
+            this.c_Lat.Subtype = "Latitude";
+            this.c_Lat.TabIndex = 35;
+            // 
+            // c_Long
+            // 
+            this.c_Long.Location = new System.Drawing.Point(137, 80);
+            this.c_Long.Margin = new System.Windows.Forms.Padding(0);
+            this.c_Long.Name = "c_Long";
+            this.c_Long.ReadOnly = true;
+            this.c_Long.Size = new System.Drawing.Size(145, 20);
+            this.c_Long.Subtype = "Longitude";
+            this.c_Long.TabIndex = 34;
             // 
             // c_Azimuth
             // 
-            this.c_Azimuth.Location = new System.Drawing.Point(138, 237);
+            this.c_Azimuth.Location = new System.Drawing.Point(137, 229);
             this.c_Azimuth.Margin = new System.Windows.Forms.Padding(0);
             this.c_Azimuth.Name = "c_Azimuth";
             this.c_Azimuth.ReadOnly = true;
-            this.c_Azimuth.Size = new System.Drawing.Size(206, 20);
-            this.c_Azimuth.Subtype = null;
+            this.c_Azimuth.Size = new System.Drawing.Size(145, 20);
+            this.c_Azimuth.Subtype = "deg";
             this.c_Azimuth.TabIndex = 30;
             // 
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(17, 30);
+            this.label11.Location = new System.Drawing.Point(16, 23);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(43, 13);
             this.label11.TabIndex = 12;
@@ -432,90 +472,104 @@
             // 
             // c_Elev
             // 
-            this.c_Elev.Location = new System.Drawing.Point(138, 206);
+            this.c_Elev.Location = new System.Drawing.Point(137, 198);
             this.c_Elev.Margin = new System.Windows.Forms.Padding(0);
             this.c_Elev.Name = "c_Elev";
             this.c_Elev.ReadOnly = true;
-            this.c_Elev.Size = new System.Drawing.Size(206, 20);
-            this.c_Elev.Subtype = null;
+            this.c_Elev.Size = new System.Drawing.Size(145, 20);
+            this.c_Elev.Subtype = "deg";
             this.c_Elev.TabIndex = 30;
             // 
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(17, 60);
+            this.label10.Location = new System.Drawing.Point(16, 53);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(77, 13);
             this.label10.TabIndex = 13;
             this.label10.Text = "Location name";
             // 
+            // c_Country
+            // 
+            this.c_Country.EnclosingComma = false;
+            this.c_Country.EriLovName = "eri_COUNTRY";
+            this.c_Country.Location = new System.Drawing.Point(139, 16);
+            this.c_Country.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.c_Country.Name = "c_Country";
+            this.c_Country.Size = new System.Drawing.Size(139, 20);
+            this.c_Country.TabIndex = 28;
+            this.c_Country.Value = "";
+            // 
             // c_AGL
             // 
-            this.c_AGL.Location = new System.Drawing.Point(138, 176);
+            this.c_AGL.Location = new System.Drawing.Point(137, 168);
             this.c_AGL.Margin = new System.Windows.Forms.Padding(0);
             this.c_AGL.Name = "c_AGL";
             this.c_AGL.ReadOnly = true;
-            this.c_AGL.Size = new System.Drawing.Size(206, 20);
-            this.c_AGL.Subtype = "m";
+            this.c_AGL.Size = new System.Drawing.Size(145, 20);
+            this.c_AGL.Subtype = "AGL";
             this.c_AGL.TabIndex = 30;
+            // 
+            // c_Callsign
+            // 
+            this.c_Callsign.Location = new System.Drawing.Point(137, 291);
+            this.c_Callsign.Name = "c_Callsign";
+            this.c_Callsign.ReadOnly = true;
+            this.c_Callsign.Size = new System.Drawing.Size(139, 20);
+            this.c_Callsign.TabIndex = 29;
             // 
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(17, 97);
+            this.label13.Location = new System.Drawing.Point(16, 83);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(54, 13);
             this.label13.TabIndex = 14;
             this.label13.Text = "Longitude";
             // 
+            // c_Polar
+            // 
+            this.c_Polar.EnclosingComma = false;
+            this.c_Polar.EriLovName = "eri_ANT_POLAR";
+            this.c_Polar.Location = new System.Drawing.Point(139, 262);
+            this.c_Polar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.c_Polar.Name = "c_Polar";
+            this.c_Polar.Size = new System.Drawing.Size(139, 20);
+            this.c_Polar.TabIndex = 28;
+            this.c_Polar.Value = "";
+            // 
             // c_Radius
             // 
-            this.c_Radius.Location = new System.Drawing.Point(138, 147);
+            this.c_Radius.Location = new System.Drawing.Point(137, 140);
             this.c_Radius.Margin = new System.Windows.Forms.Padding(0);
             this.c_Radius.Name = "c_Radius";
             this.c_Radius.ReadOnly = true;
-            this.c_Radius.Size = new System.Drawing.Size(206, 20);
-            this.c_Radius.Subtype = null;
+            this.c_Radius.Size = new System.Drawing.Size(145, 20);
+            this.c_Radius.Subtype = "Dist";
             this.c_Radius.TabIndex = 30;
             // 
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(17, 127);
+            this.label12.Location = new System.Drawing.Point(16, 113);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(45, 13);
             this.label12.TabIndex = 15;
             this.label12.Text = "Latitude";
             // 
-            // c_Lat
-            // 
-            this.c_Lat.Location = new System.Drawing.Point(138, 117);
-            this.c_Lat.Name = "c_Lat";
-            this.c_Lat.ReadOnly = true;
-            this.c_Lat.Size = new System.Drawing.Size(206, 20);
-            this.c_Lat.TabIndex = 29;
-            // 
             // label17
             // 
             this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(17, 154);
+            this.label17.Location = new System.Drawing.Point(16, 143);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(40, 13);
             this.label17.TabIndex = 16;
             this.label17.Text = "Radius";
             // 
-            // c_Long
-            // 
-            this.c_Long.Location = new System.Drawing.Point(138, 87);
-            this.c_Long.Name = "c_Long";
-            this.c_Long.ReadOnly = true;
-            this.c_Long.Size = new System.Drawing.Size(206, 20);
-            this.c_Long.TabIndex = 29;
-            // 
             // label16
             // 
             this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(17, 184);
+            this.label16.Location = new System.Drawing.Point(16, 173);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(28, 13);
             this.label16.TabIndex = 17;
@@ -524,7 +578,7 @@
             // label15
             // 
             this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(17, 213);
+            this.label15.Location = new System.Drawing.Point(16, 203);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(92, 13);
             this.label15.TabIndex = 18;
@@ -532,64 +586,88 @@
             // 
             // c_LocationName
             // 
-            this.c_LocationName.Location = new System.Drawing.Point(138, 57);
+            this.c_LocationName.Location = new System.Drawing.Point(137, 50);
             this.c_LocationName.Name = "c_LocationName";
             this.c_LocationName.ReadOnly = true;
-            this.c_LocationName.Size = new System.Drawing.Size(206, 20);
+            this.c_LocationName.Size = new System.Drawing.Size(145, 20);
             this.c_LocationName.TabIndex = 29;
             // 
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(17, 243);
+            this.label14.Location = new System.Drawing.Point(16, 233);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(44, 13);
             this.label14.TabIndex = 19;
             this.label14.Text = "Azimuth";
             // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Location = new System.Drawing.Point(16, 263);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(61, 13);
+            this.label19.TabIndex = 20;
+            this.label19.Text = "Polarization";
+            // 
+            // label27
+            // 
+            this.label27.AutoSize = true;
+            this.label27.Location = new System.Drawing.Point(16, 323);
+            this.label27.Name = "label27";
+            this.label27.Size = new System.Drawing.Size(29, 13);
+            this.label27.TabIndex = 21;
+            this.label27.Text = "Gain";
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Location = new System.Drawing.Point(16, 293);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(46, 13);
+            this.label18.TabIndex = 21;
+            this.label18.Text = "Call sign";
+            // 
+            // c_ModifiedDate
+            // 
+            this.c_ModifiedDate.Location = new System.Drawing.Point(83, 566);
+            this.c_ModifiedDate.Name = "c_ModifiedDate";
+            this.c_ModifiedDate.ReadOnly = true;
+            this.c_ModifiedDate.Size = new System.Drawing.Size(203, 20);
+            this.c_ModifiedDate.TabIndex = 29;
+            // 
+            // c_CreatedDate
+            // 
+            this.c_CreatedDate.Location = new System.Drawing.Point(83, 514);
+            this.c_CreatedDate.Name = "c_CreatedDate";
+            this.c_CreatedDate.ReadOnly = true;
+            this.c_CreatedDate.Size = new System.Drawing.Size(203, 20);
+            this.c_CreatedDate.TabIndex = 29;
+            // 
             // c_ModifiedBy
             // 
-            this.c_ModifiedBy.Location = new System.Drawing.Point(793, 191);
+            this.c_ModifiedBy.Location = new System.Drawing.Point(83, 540);
             this.c_ModifiedBy.Name = "c_ModifiedBy";
             this.c_ModifiedBy.ReadOnly = true;
-            this.c_ModifiedBy.Size = new System.Drawing.Size(200, 20);
+            this.c_ModifiedBy.Size = new System.Drawing.Size(203, 20);
             this.c_ModifiedBy.TabIndex = 29;
             // 
             // c_CreatedBy
             // 
-            this.c_CreatedBy.Location = new System.Drawing.Point(519, 191);
+            this.c_CreatedBy.Location = new System.Drawing.Point(83, 486);
             this.c_CreatedBy.Name = "c_CreatedBy";
             this.c_CreatedBy.ReadOnly = true;
-            this.c_CreatedBy.Size = new System.Drawing.Size(200, 20);
+            this.c_CreatedBy.Size = new System.Drawing.Size(203, 20);
             this.c_CreatedBy.TabIndex = 29;
-            // 
-            // c_Callsign
-            // 
-            this.c_Callsign.Location = new System.Drawing.Point(519, 143);
-            this.c_Callsign.Name = "c_Callsign";
-            this.c_Callsign.ReadOnly = true;
-            this.c_Callsign.Size = new System.Drawing.Size(200, 20);
-            this.c_Callsign.TabIndex = 29;
-            // 
-            // c_Polar
-            // 
-            this.c_Polar.EnclosingComma = false;
-            this.c_Polar.EriLovName = null;
-            this.c_Polar.Location = new System.Drawing.Point(519, 114);
-            this.c_Polar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.c_Polar.Name = "c_Polar";
-            this.c_Polar.Size = new System.Drawing.Size(200, 20);
-            this.c_Polar.TabIndex = 28;
-            this.c_Polar.Value = "";
             // 
             // c_ClassSta
             // 
             this.c_ClassSta.EnclosingComma = false;
             this.c_ClassSta.EriLovName = null;
-            this.c_ClassSta.Location = new System.Drawing.Point(157, 105);
+            this.c_ClassSta.Location = new System.Drawing.Point(142, 90);
             this.c_ClassSta.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.c_ClassSta.Name = "c_ClassSta";
-            this.c_ClassSta.Size = new System.Drawing.Size(200, 20);
+            this.c_ClassSta.Size = new System.Drawing.Size(144, 20);
             this.c_ClassSta.TabIndex = 28;
             this.c_ClassSta.Value = "";
             // 
@@ -603,112 +681,100 @@
             this.c_MapDisplay.InputMode = null;
             this.c_MapDisplay.InputType = null;
             this.c_MapDisplay.KmlsMaxCached = 20;
-            this.c_MapDisplay.Location = new System.Drawing.Point(743, 15);
+            this.c_MapDisplay.Location = new System.Drawing.Point(599, 5);
             this.c_MapDisplay.Margin = new System.Windows.Forms.Padding(2);
             this.c_MapDisplay.Name = "c_MapDisplay";
-            this.c_MapDisplay.Size = new System.Drawing.Size(392, 171);
+            this.c_MapDisplay.Size = new System.Drawing.Size(525, 415);
             this.c_MapDisplay.StartLati = 40D;
             this.c_MapDisplay.StartLongi = -4D;
             this.c_MapDisplay.TabIndex = 27;
             // 
-            // c_State
-            // 
-            this.c_State.Location = new System.Drawing.Point(157, 75);
-            this.c_State.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.c_State.MaxLen = 50;
-            this.c_State.Name = "c_State";
-            this.c_State.ReadOnly = true;
-            this.c_State.Size = new System.Drawing.Size(200, 20);
-            this.c_State.Subtype = null;
-            this.c_State.TabIndex = 26;
-            this.c_State.Value = "";
-            // 
             // c_Status
             // 
-            this.c_Status.Location = new System.Drawing.Point(157, 45);
+            this.c_Status.Location = new System.Drawing.Point(142, 33);
             this.c_Status.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.c_Status.MaxLen = 50;
             this.c_Status.Name = "c_Status";
             this.c_Status.ReadOnly = true;
-            this.c_Status.Size = new System.Drawing.Size(200, 20);
-            this.c_Status.Subtype = null;
+            this.c_Status.Size = new System.Drawing.Size(144, 20);
+            this.c_Status.Subtype = "eri_SfafAdminDataTypeAction";
             this.c_Status.TabIndex = 26;
             this.c_Status.Value = "";
             // 
             // c_EOUSE
             // 
-            this.c_EOUSE.Location = new System.Drawing.Point(519, 90);
+            this.c_EOUSE.Location = new System.Drawing.Point(134, 330);
             this.c_EOUSE.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.c_EOUSE.Name = "c_EOUSE";
             this.c_EOUSE.ReadOnly = true;
-            this.c_EOUSE.Size = new System.Drawing.Size(200, 20);
+            this.c_EOUSE.Size = new System.Drawing.Size(152, 20);
             this.c_EOUSE.TabIndex = 25;
             this.c_EOUSE.Value = new System.DateTime(((long)(0)));
             // 
             // c_BIUSE
             // 
-            this.c_BIUSE.Location = new System.Drawing.Point(519, 66);
+            this.c_BIUSE.Location = new System.Drawing.Point(134, 302);
             this.c_BIUSE.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.c_BIUSE.Name = "c_BIUSE";
             this.c_BIUSE.ReadOnly = true;
-            this.c_BIUSE.Size = new System.Drawing.Size(200, 20);
+            this.c_BIUSE.Size = new System.Drawing.Size(152, 20);
             this.c_BIUSE.TabIndex = 25;
             this.c_BIUSE.Value = new System.DateTime(((long)(0)));
             // 
             // c_DesignEm
             // 
-            this.c_DesignEm.Location = new System.Drawing.Point(157, 135);
+            this.c_DesignEm.Location = new System.Drawing.Point(142, 118);
             this.c_DesignEm.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.c_DesignEm.Name = "c_DesignEm";
-            this.c_DesignEm.Size = new System.Drawing.Size(200, 20);
+            this.c_DesignEm.Size = new System.Drawing.Size(144, 20);
             this.c_DesignEm.TabIndex = 24;
             this.c_DesignEm.Value = null;
             // 
             // e_EIRPmin
             // 
             this.e_EIRPmin.ConfigName = null;
-            this.e_EIRPmin.Location = new System.Drawing.Point(519, 41);
+            this.e_EIRPmin.Location = new System.Drawing.Point(134, 236);
             this.e_EIRPmin.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.e_EIRPmin.Name = "e_EIRPmin";
             this.e_EIRPmin.ReadOnly = true;
-            this.e_EIRPmin.Size = new System.Drawing.Size(200, 20);
+            this.e_EIRPmin.Size = new System.Drawing.Size(152, 20);
             this.e_EIRPmin.Subtype = null;
             this.e_EIRPmin.TabIndex = 23;
             // 
             // c_EIRP
             // 
             this.c_EIRP.ConfigName = null;
-            this.c_EIRP.Location = new System.Drawing.Point(519, 15);
+            this.c_EIRP.Location = new System.Drawing.Point(134, 208);
             this.c_EIRP.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.c_EIRP.Name = "c_EIRP";
             this.c_EIRP.ReadOnly = true;
-            this.c_EIRP.Size = new System.Drawing.Size(200, 20);
+            this.c_EIRP.Size = new System.Drawing.Size(152, 20);
             this.c_EIRP.Subtype = null;
             this.c_EIRP.TabIndex = 23;
             // 
             // c_BwMin
             // 
-            this.c_BwMin.Location = new System.Drawing.Point(157, 195);
+            this.c_BwMin.Location = new System.Drawing.Point(142, 180);
             this.c_BwMin.Margin = new System.Windows.Forms.Padding(0);
             this.c_BwMin.Name = "c_BwMin";
             this.c_BwMin.ReadOnly = true;
-            this.c_BwMin.Size = new System.Drawing.Size(200, 20);
+            this.c_BwMin.Size = new System.Drawing.Size(144, 20);
             this.c_BwMin.Subtype = "F/kHz";
             this.c_BwMin.TabIndex = 22;
             // 
             // label21
             // 
             this.label21.AutoSize = true;
-            this.label21.Location = new System.Drawing.Point(34, 82);
+            this.label21.Location = new System.Drawing.Point(19, 63);
             this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(32, 13);
+            this.label21.Size = new System.Drawing.Size(68, 13);
             this.label21.TabIndex = 21;
-            this.label21.Text = "State";
+            this.label21.Text = "Classification";
             // 
             // label20
             // 
             this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(34, 54);
+            this.label20.Location = new System.Drawing.Point(19, 34);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(37, 13);
             this.label20.TabIndex = 21;
@@ -717,7 +783,7 @@
             // label25
             // 
             this.label25.AutoSize = true;
-            this.label25.Location = new System.Drawing.Point(740, 195);
+            this.label25.Location = new System.Drawing.Point(15, 545);
             this.label25.Name = "label25";
             this.label25.Size = new System.Drawing.Size(47, 13);
             this.label25.TabIndex = 21;
@@ -725,45 +791,27 @@
             // 
             // c_Bw
             // 
-            this.c_Bw.Location = new System.Drawing.Point(157, 165);
+            this.c_Bw.Location = new System.Drawing.Point(149, 147);
             this.c_Bw.Margin = new System.Windows.Forms.Padding(0);
             this.c_Bw.Name = "c_Bw";
             this.c_Bw.ReadOnly = true;
-            this.c_Bw.Size = new System.Drawing.Size(200, 20);
+            this.c_Bw.Size = new System.Drawing.Size(144, 20);
             this.c_Bw.Subtype = "F/kHz";
             this.c_Bw.TabIndex = 22;
             // 
             // label24
             // 
             this.label24.AutoSize = true;
-            this.label24.Location = new System.Drawing.Point(397, 195);
+            this.label24.Location = new System.Drawing.Point(15, 490);
             this.label24.Name = "label24";
             this.label24.Size = new System.Drawing.Size(44, 13);
             this.label24.TabIndex = 21;
             this.label24.Text = "Created";
             // 
-            // label18
-            // 
-            this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(397, 150);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(46, 13);
-            this.label18.TabIndex = 21;
-            this.label18.Text = "Call sign";
-            // 
-            // label19
-            // 
-            this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(397, 121);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(61, 13);
-            this.label19.TabIndex = 20;
-            this.label19.Text = "Polarization";
-            // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(397, 97);
+            this.label2.Location = new System.Drawing.Point(15, 333);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(58, 13);
             this.label2.TabIndex = 11;
@@ -772,7 +820,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(397, 75);
+            this.label9.Location = new System.Drawing.Point(15, 304);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(62, 13);
             this.label9.TabIndex = 10;
@@ -781,7 +829,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(397, 48);
+            this.label7.Location = new System.Drawing.Point(19, 236);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(69, 13);
             this.label7.TabIndex = 9;
@@ -790,7 +838,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(397, 22);
+            this.label8.Location = new System.Drawing.Point(19, 210);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(32, 13);
             this.label8.TabIndex = 8;
@@ -799,7 +847,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(34, 203);
+            this.label5.Location = new System.Drawing.Point(19, 180);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(107, 13);
             this.label5.TabIndex = 6;
@@ -808,7 +856,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(34, 172);
+            this.label6.Location = new System.Drawing.Point(19, 150);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(57, 13);
             this.label6.TabIndex = 7;
@@ -817,7 +865,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(34, 142);
+            this.label4.Location = new System.Drawing.Point(19, 121);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(118, 13);
             this.label4.TabIndex = 5;
@@ -826,7 +874,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(34, 112);
+            this.label3.Location = new System.Drawing.Point(19, 92);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(89, 13);
             this.label3.TabIndex = 5;
@@ -834,11 +882,11 @@
             // 
             // c_Freq
             // 
-            this.c_Freq.Location = new System.Drawing.Point(157, 15);
+            this.c_Freq.Location = new System.Drawing.Point(142, 5);
             this.c_Freq.Margin = new System.Windows.Forms.Padding(0);
             this.c_Freq.Name = "c_Freq";
             this.c_Freq.ReadOnly = true;
-            this.c_Freq.Size = new System.Drawing.Size(200, 20);
+            this.c_Freq.Size = new System.Drawing.Size(144, 20);
             this.c_Freq.Subtype = "F/MHz";
             this.c_Freq.TabIndex = 2;
             // 
@@ -846,7 +894,7 @@
             // 
             this.label22.AutoSize = true;
             this.label22.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label22.Location = new System.Drawing.Point(397, 233);
+            this.label22.Location = new System.Drawing.Point(300, 423);
             this.label22.Name = "label22";
             this.label22.Size = new System.Drawing.Size(55, 13);
             this.label22.TabIndex = 1;
@@ -855,7 +903,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(34, 15);
+            this.label1.Location = new System.Drawing.Point(19, 5);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(57, 13);
             this.label1.TabIndex = 1;
@@ -863,8 +911,8 @@
             // 
             // MainSFAF_1
             // 
-            this.MainSFAF_1.Controls.Add(this.groupBox2);
-            this.MainSFAF_1.Controls.Add(this.groupBox1);
+            this.MainSFAF_1.Controls.Add(this.Items1xx);
+            this.MainSFAF_1.Controls.Add(this.Items0xx);
             this.MainSFAF_1.Location = new System.Drawing.Point(4, 22);
             this.MainSFAF_1.Name = "MainSFAF_1";
             this.MainSFAF_1.Padding = new System.Windows.Forms.Padding(3);
@@ -873,41 +921,335 @@
             this.MainSFAF_1.Text = " SFAF 1/3";
             this.MainSFAF_1.UseVisualStyleBackColor = true;
             // 
-            // groupBox2
+            // Items1xx
             // 
-            this.groupBox2.Controls.Add(this.extentableTextBox25);
-            this.groupBox2.Controls.Add(this.extentableTextBox22);
-            this.groupBox2.Controls.Add(this.extentableTextBox17);
-            this.groupBox2.Controls.Add(this.extentableTextBox24);
-            this.groupBox2.Controls.Add(this.extentableTextBox21);
-            this.groupBox2.Controls.Add(this.extentableTextBox39);
-            this.groupBox2.Controls.Add(this.extentableTextBox37);
-            this.groupBox2.Controls.Add(this.extentableTextBox38);
-            this.groupBox2.Controls.Add(this.extentableTextBox36);
-            this.groupBox2.Controls.Add(this.extentableTextBox33);
-            this.groupBox2.Controls.Add(this.extentableTextBox29);
-            this.groupBox2.Controls.Add(this.extentableTextBox16);
-            this.groupBox2.Controls.Add(this.extentableTextBox23);
-            this.groupBox2.Controls.Add(this.extentableTextBox20);
-            this.groupBox2.Controls.Add(this.extentableTextBox35);
-            this.groupBox2.Controls.Add(this.extentableTextBox32);
-            this.groupBox2.Controls.Add(this.extentableTextBox28);
-            this.groupBox2.Controls.Add(this.extentableTextBox15);
-            this.groupBox2.Controls.Add(this.extentableTextBox19);
-            this.groupBox2.Controls.Add(this.extentableTextBox34);
-            this.groupBox2.Controls.Add(this.extentableTextBox31);
-            this.groupBox2.Controls.Add(this.extentableTextBox27);
-            this.groupBox2.Controls.Add(this.extentableTextBox14);
-            this.groupBox2.Controls.Add(this.extentableTextBox18);
-            this.groupBox2.Controls.Add(this.extentableTextBox30);
-            this.groupBox2.Controls.Add(this.extentableTextBox26);
-            this.groupBox2.Controls.Add(this.extentableTextBox13);
-            this.groupBox2.Location = new System.Drawing.Point(356, 6);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(732, 413);
-            this.groupBox2.TabIndex = 2;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Items 1xx";
+            this.Items1xx.Controls.Add(this.extentableTextBox25);
+            this.Items1xx.Controls.Add(this.extentableTextBox22);
+            this.Items1xx.Controls.Add(this.extentableTextBox17);
+            this.Items1xx.Controls.Add(this.extentableTextBox24);
+            this.Items1xx.Controls.Add(this.extentableTextBox21);
+            this.Items1xx.Controls.Add(this.extentableTextBox39);
+            this.Items1xx.Controls.Add(this.extentableTextBox37);
+            this.Items1xx.Controls.Add(this.extentableTextBox38);
+            this.Items1xx.Controls.Add(this.extentableTextBox36);
+            this.Items1xx.Controls.Add(this.extentableTextBox33);
+            this.Items1xx.Controls.Add(this.extentableTextBox29);
+            this.Items1xx.Controls.Add(this.extentableTextBox16);
+            this.Items1xx.Controls.Add(this.extentableTextBox23);
+            this.Items1xx.Controls.Add(this.extentableTextBox20);
+            this.Items1xx.Controls.Add(this.extentableTextBox35);
+            this.Items1xx.Controls.Add(this.extentableTextBox32);
+            this.Items1xx.Controls.Add(this.extentableTextBox28);
+            this.Items1xx.Controls.Add(this.extentableTextBox15);
+            this.Items1xx.Controls.Add(this.extentableTextBox19);
+            this.Items1xx.Controls.Add(this.extentableTextBox34);
+            this.Items1xx.Controls.Add(this.extentableTextBox31);
+            this.Items1xx.Controls.Add(this.extentableTextBox27);
+            this.Items1xx.Controls.Add(this.extentableTextBox14);
+            this.Items1xx.Controls.Add(this.extentableTextBox18);
+            this.Items1xx.Controls.Add(this.extentableTextBox30);
+            this.Items1xx.Controls.Add(this.extentableTextBox26);
+            this.Items1xx.Controls.Add(this.extentableTextBox13);
+            this.Items1xx.Location = new System.Drawing.Point(356, 6);
+            this.Items1xx.Name = "Items1xx";
+            this.Items1xx.Size = new System.Drawing.Size(732, 413);
+            this.Items1xx.TabIndex = 2;
+            this.Items1xx.TabStop = false;
+            this.Items1xx.Text = "Items 1xx";
+            // 
+            // Items0xx
+            // 
+            this.Items0xx.Controls.Add(this.extentableTextBox12);
+            this.Items0xx.Controls.Add(this.extentableTextBox6);
+            this.Items0xx.Controls.Add(this.extentableTextBox11);
+            this.Items0xx.Controls.Add(this.extentableTextBox3);
+            this.Items0xx.Controls.Add(this.extentableTextBox10);
+            this.Items0xx.Controls.Add(this.extentableTextBox5);
+            this.Items0xx.Controls.Add(this.extentableTextBox9);
+            this.Items0xx.Controls.Add(this.extentableTextBox4);
+            this.Items0xx.Controls.Add(this.extentableTextBox8);
+            this.Items0xx.Controls.Add(this.extentableTextBox2);
+            this.Items0xx.Controls.Add(this.extentableTextBox7);
+            this.Items0xx.Controls.Add(this.extentableTextBox1);
+            this.Items0xx.Location = new System.Drawing.Point(8, 6);
+            this.Items0xx.Name = "Items0xx";
+            this.Items0xx.Size = new System.Drawing.Size(342, 356);
+            this.Items0xx.TabIndex = 2;
+            this.Items0xx.TabStop = false;
+            this.Items0xx.Text = "Items 0xx";
+            // 
+            // MainSFAF_2
+            // 
+            this.MainSFAF_2.Controls.Add(this.Items8xx);
+            this.MainSFAF_2.Controls.Add(this.Items2xx);
+            this.MainSFAF_2.Controls.Add(this.Items5xx);
+            this.MainSFAF_2.Controls.Add(this.Items7xx);
+            this.MainSFAF_2.Location = new System.Drawing.Point(4, 22);
+            this.MainSFAF_2.Name = "MainSFAF_2";
+            this.MainSFAF_2.Padding = new System.Windows.Forms.Padding(3);
+            this.MainSFAF_2.Size = new System.Drawing.Size(1142, 606);
+            this.MainSFAF_2.TabIndex = 4;
+            this.MainSFAF_2.Text = "SFAF 2/3";
+            this.MainSFAF_2.UseVisualStyleBackColor = true;
+            // 
+            // Items8xx
+            // 
+            this.Items8xx.Controls.Add(this.extentableTextBox72);
+            this.Items8xx.Controls.Add(this.extentableTextBox73);
+            this.Items8xx.Controls.Add(this.extentableTextBox74);
+            this.Items8xx.Controls.Add(this.extentableTextBox75);
+            this.Items8xx.Controls.Add(this.extentableTextBox76);
+            this.Items8xx.Controls.Add(this.extentableTextBox77);
+            this.Items8xx.Location = new System.Drawing.Point(690, 260);
+            this.Items8xx.Name = "Items8xx";
+            this.Items8xx.Size = new System.Drawing.Size(328, 198);
+            this.Items8xx.TabIndex = 8;
+            this.Items8xx.TabStop = false;
+            this.Items8xx.Text = "Items 8xx";
+            // 
+            // Items2xx
+            // 
+            this.Items2xx.Controls.Add(this.extentableTextBox49);
+            this.Items2xx.Controls.Add(this.extentableTextBox48);
+            this.Items2xx.Controls.Add(this.extentableTextBox47);
+            this.Items2xx.Controls.Add(this.extentableTextBox43);
+            this.Items2xx.Controls.Add(this.extentableTextBox46);
+            this.Items2xx.Controls.Add(this.extentableTextBox45);
+            this.Items2xx.Controls.Add(this.extentableTextBox40);
+            this.Items2xx.Controls.Add(this.extentableTextBox44);
+            this.Items2xx.Controls.Add(this.extentableTextBox41);
+            this.Items2xx.Controls.Add(this.extentableTextBox42);
+            this.Items2xx.Location = new System.Drawing.Point(8, 6);
+            this.Items2xx.Name = "Items2xx";
+            this.Items2xx.Size = new System.Drawing.Size(342, 305);
+            this.Items2xx.TabIndex = 7;
+            this.Items2xx.TabStop = false;
+            this.Items2xx.Text = "Items 2xx";
+            // 
+            // Items5xx
+            // 
+            this.Items5xx.Controls.Add(this.extentableTextBox63);
+            this.Items5xx.Controls.Add(this.extentableTextBox61);
+            this.Items5xx.Controls.Add(this.extentableTextBox59);
+            this.Items5xx.Controls.Add(this.extentableTextBox57);
+            this.Items5xx.Controls.Add(this.extentableTextBox55);
+            this.Items5xx.Controls.Add(this.extentableTextBox62);
+            this.Items5xx.Controls.Add(this.extentableTextBox54);
+            this.Items5xx.Controls.Add(this.extentableTextBox60);
+            this.Items5xx.Controls.Add(this.extentableTextBox58);
+            this.Items5xx.Controls.Add(this.extentableTextBox56);
+            this.Items5xx.Controls.Add(this.extentableTextBox53);
+            this.Items5xx.Controls.Add(this.extentableTextBox52);
+            this.Items5xx.Controls.Add(this.extentableTextBox51);
+            this.Items5xx.Controls.Add(this.extentableTextBox50);
+            this.Items5xx.Location = new System.Drawing.Point(356, 6);
+            this.Items5xx.Name = "Items5xx";
+            this.Items5xx.Size = new System.Drawing.Size(732, 248);
+            this.Items5xx.TabIndex = 6;
+            this.Items5xx.TabStop = false;
+            this.Items5xx.Text = "Items 5xx";
+            // 
+            // Items7xx
+            // 
+            this.Items7xx.Controls.Add(this.extentableTextBox70);
+            this.Items7xx.Controls.Add(this.extentableTextBox71);
+            this.Items7xx.Controls.Add(this.extentableTextBox69);
+            this.Items7xx.Controls.Add(this.extentableTextBox66);
+            this.Items7xx.Controls.Add(this.extentableTextBox64);
+            this.Items7xx.Controls.Add(this.extentableTextBox68);
+            this.Items7xx.Controls.Add(this.extentableTextBox67);
+            this.Items7xx.Controls.Add(this.extentableTextBox65);
+            this.Items7xx.Location = new System.Drawing.Point(356, 260);
+            this.Items7xx.Name = "Items7xx";
+            this.Items7xx.Size = new System.Drawing.Size(328, 242);
+            this.Items7xx.TabIndex = 5;
+            this.Items7xx.TabStop = false;
+            this.Items7xx.Text = "Items 7xx";
+            // 
+            // MainSFAF_3
+            // 
+            this.MainSFAF_3.Controls.Add(this.Items9xx);
+            this.MainSFAF_3.Location = new System.Drawing.Point(4, 22);
+            this.MainSFAF_3.Name = "MainSFAF_3";
+            this.MainSFAF_3.Size = new System.Drawing.Size(1142, 606);
+            this.MainSFAF_3.TabIndex = 5;
+            this.MainSFAF_3.Text = "SFAF 3/3";
+            this.MainSFAF_3.UseVisualStyleBackColor = true;
+            // 
+            // Items9xx
+            // 
+            this.Items9xx.Controls.Add(this.extentableTextBox118);
+            this.Items9xx.Controls.Add(this.extentableTextBox117);
+            this.Items9xx.Controls.Add(this.extentableTextBox113);
+            this.Items9xx.Controls.Add(this.extentableTextBox107);
+            this.Items9xx.Controls.Add(this.extentableTextBox116);
+            this.Items9xx.Controls.Add(this.extentableTextBox112);
+            this.Items9xx.Controls.Add(this.extentableTextBox86);
+            this.Items9xx.Controls.Add(this.extentableTextBox106);
+            this.Items9xx.Controls.Add(this.extentableTextBox115);
+            this.Items9xx.Controls.Add(this.extentableTextBox111);
+            this.Items9xx.Controls.Add(this.extentableTextBox87);
+            this.Items9xx.Controls.Add(this.extentableTextBox105);
+            this.Items9xx.Controls.Add(this.extentableTextBox110);
+            this.Items9xx.Controls.Add(this.extentableTextBox88);
+            this.Items9xx.Controls.Add(this.extentableTextBox104);
+            this.Items9xx.Controls.Add(this.extentableTextBox109);
+            this.Items9xx.Controls.Add(this.extentableTextBox89);
+            this.Items9xx.Controls.Add(this.extentableTextBox103);
+            this.Items9xx.Controls.Add(this.extentableTextBox90);
+            this.Items9xx.Controls.Add(this.extentableTextBox102);
+            this.Items9xx.Controls.Add(this.extentableTextBox114);
+            this.Items9xx.Controls.Add(this.extentableTextBox108);
+            this.Items9xx.Controls.Add(this.extentableTextBox91);
+            this.Items9xx.Controls.Add(this.extentableTextBox101);
+            this.Items9xx.Controls.Add(this.extentableTextBox92);
+            this.Items9xx.Controls.Add(this.extentableTextBox100);
+            this.Items9xx.Controls.Add(this.extentableTextBox78);
+            this.Items9xx.Controls.Add(this.extentableTextBox99);
+            this.Items9xx.Controls.Add(this.extentableTextBox98);
+            this.Items9xx.Controls.Add(this.extentableTextBox79);
+            this.Items9xx.Controls.Add(this.extentableTextBox97);
+            this.Items9xx.Controls.Add(this.extentableTextBox80);
+            this.Items9xx.Controls.Add(this.extentableTextBox96);
+            this.Items9xx.Controls.Add(this.extentableTextBox81);
+            this.Items9xx.Controls.Add(this.extentableTextBox95);
+            this.Items9xx.Controls.Add(this.extentableTextBox82);
+            this.Items9xx.Controls.Add(this.extentableTextBox94);
+            this.Items9xx.Controls.Add(this.extentableTextBox83);
+            this.Items9xx.Controls.Add(this.extentableTextBox93);
+            this.Items9xx.Controls.Add(this.extentableTextBox84);
+            this.Items9xx.Controls.Add(this.extentableTextBox85);
+            this.Items9xx.Location = new System.Drawing.Point(8, 3);
+            this.Items9xx.Name = "Items9xx";
+            this.Items9xx.Size = new System.Drawing.Size(1071, 426);
+            this.Items9xx.TabIndex = 4;
+            this.Items9xx.TabStop = false;
+            this.Items9xx.Text = "Items 9xx";
+            // 
+            // SFAF_TX
+            // 
+            this.SFAF_TX.Controls.Add(this.extentableTextBox122);
+            this.SFAF_TX.Controls.Add(this.extentableTextBox125);
+            this.SFAF_TX.Controls.Add(this.extentableTextBox126);
+            this.SFAF_TX.Controls.Add(this.extentableTextBox128);
+            this.SFAF_TX.Controls.Add(this.extentableTextBox129);
+            this.SFAF_TX.Controls.Add(this.extentableTextBox130);
+            this.SFAF_TX.Controls.Add(this.extentableTextBox131);
+            this.SFAF_TX.Controls.Add(this.extentableTextBox132);
+            this.SFAF_TX.Controls.Add(this.extentableTextBox133);
+            this.SFAF_TX.Controls.Add(this.extentableTextBox134);
+            this.SFAF_TX.Controls.Add(this.extentableTextBox135);
+            this.SFAF_TX.Controls.Add(this.extentableTextBox136);
+            this.SFAF_TX.Controls.Add(this.extentableTextBox137);
+            this.SFAF_TX.Controls.Add(this.extentableTextBox138);
+            this.SFAF_TX.Controls.Add(this.extentableTextBox140);
+            this.SFAF_TX.Controls.Add(this.extentableTextBox141);
+            this.SFAF_TX.Controls.Add(this.extentableTextBox142);
+            this.SFAF_TX.Controls.Add(this.extentableTextBox143);
+            this.SFAF_TX.Controls.Add(this.extentableTextBox144);
+            this.SFAF_TX.Controls.Add(this.extentableTextBox145);
+            this.SFAF_TX.Controls.Add(this.extentableTextBox146);
+            this.SFAF_TX.Controls.Add(this.extentableTextBox147);
+            this.SFAF_TX.Controls.Add(this.extentableTextBox148);
+            this.SFAF_TX.Controls.Add(this.extentableTextBox149);
+            this.SFAF_TX.Controls.Add(this.extentableTextBox150);
+            this.SFAF_TX.Controls.Add(this.extentableTextBox151);
+            this.SFAF_TX.Controls.Add(this.extentableTextBox152);
+            this.SFAF_TX.Controls.Add(this.extentableTextBox153);
+            this.SFAF_TX.Controls.Add(this.extentableTextBox154);
+            this.SFAF_TX.Controls.Add(this.extentableTextBox155);
+            this.SFAF_TX.Controls.Add(this.extentableTextBox156);
+            this.SFAF_TX.Controls.Add(this.extentableTextBox157);
+            this.SFAF_TX.Controls.Add(this.extentableTextBox158);
+            this.SFAF_TX.Controls.Add(this.extentableTextBox159);
+            this.SFAF_TX.Location = new System.Drawing.Point(4, 22);
+            this.SFAF_TX.Name = "SFAF_TX";
+            this.SFAF_TX.Padding = new System.Windows.Forms.Padding(3);
+            this.SFAF_TX.Size = new System.Drawing.Size(1142, 606);
+            this.SFAF_TX.TabIndex = 2;
+            this.SFAF_TX.Text = "Transmitter";
+            this.SFAF_TX.UseVisualStyleBackColor = true;
+            // 
+            // SFAF_RX
+            // 
+            this.SFAF_RX.Controls.Add(this.label26);
+            this.SFAF_RX.Controls.Add(this.label23);
+            this.SFAF_RX.Controls.Add(this.icsDBList2);
+            this.SFAF_RX.Controls.Add(this.extentableTextBox119);
+            this.SFAF_RX.Controls.Add(this.extentableTextBox120);
+            this.SFAF_RX.Controls.Add(this.extentableTextBox121);
+            this.SFAF_RX.Controls.Add(this.extentableTextBox123);
+            this.SFAF_RX.Controls.Add(this.extentableTextBox124);
+            this.SFAF_RX.Controls.Add(this.extentableTextBox127);
+            this.SFAF_RX.Controls.Add(this.extentableTextBox139);
+            this.SFAF_RX.Controls.Add(this.extentableTextBox160);
+            this.SFAF_RX.Controls.Add(this.extentableTextBox161);
+            this.SFAF_RX.Controls.Add(this.extentableTextBox162);
+            this.SFAF_RX.Controls.Add(this.extentableTextBox163);
+            this.SFAF_RX.Controls.Add(this.extentableTextBox164);
+            this.SFAF_RX.Controls.Add(this.extentableTextBox165);
+            this.SFAF_RX.Controls.Add(this.extentableTextBox166);
+            this.SFAF_RX.Controls.Add(this.extentableTextBox167);
+            this.SFAF_RX.Controls.Add(this.extentableTextBox168);
+            this.SFAF_RX.Controls.Add(this.extentableTextBox169);
+            this.SFAF_RX.Controls.Add(this.extentableTextBox170);
+            this.SFAF_RX.Controls.Add(this.extentableTextBox171);
+            this.SFAF_RX.Controls.Add(this.extentableTextBox172);
+            this.SFAF_RX.Controls.Add(this.extentableTextBox173);
+            this.SFAF_RX.Controls.Add(this.extentableTextBox174);
+            this.SFAF_RX.Controls.Add(this.extentableTextBox175);
+            this.SFAF_RX.Controls.Add(this.extentableTextBox176);
+            this.SFAF_RX.Controls.Add(this.extentableTextBox177);
+            this.SFAF_RX.Controls.Add(this.extentableTextBox178);
+            this.SFAF_RX.Controls.Add(this.extentableTextBox179);
+            this.SFAF_RX.Controls.Add(this.extentableTextBox180);
+            this.SFAF_RX.Controls.Add(this.extentableTextBox181);
+            this.SFAF_RX.Controls.Add(this.extentableTextBox182);
+            this.SFAF_RX.Controls.Add(this.extentableTextBox183);
+            this.SFAF_RX.Controls.Add(this.extentableTextBox184);
+            this.SFAF_RX.Controls.Add(this.extentableTextBox185);
+            this.SFAF_RX.Controls.Add(this.extentableTextBox186);
+            this.SFAF_RX.Location = new System.Drawing.Point(4, 22);
+            this.SFAF_RX.Name = "SFAF_RX";
+            this.SFAF_RX.Size = new System.Drawing.Size(1142, 606);
+            this.SFAF_RX.TabIndex = 3;
+            this.SFAF_RX.Text = "Recievers";
+            this.SFAF_RX.UseVisualStyleBackColor = true;
+            // 
+            // label26
+            // 
+            this.label26.AutoSize = true;
+            this.label26.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label26.Location = new System.Drawing.Point(8, 220);
+            this.label26.Name = "label26";
+            this.label26.Size = new System.Drawing.Size(148, 13);
+            this.label26.TabIndex = 134;
+            this.label26.Text = "Selected station informations :";
+            // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label23.Location = new System.Drawing.Point(7, 13);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(194, 13);
+            this.label23.TabIndex = 134;
+            this.label23.Text = "Recievers attached to this SFAF station";
+            // 
+            // icsDBList2
+            // 
+            this.icsDBList2.BackColor = System.Drawing.SystemColors.Control;
+            this.icsDBList2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.icsDBList2.ConfigName = null;
+            this.icsDBList2.Filter = null;
+            this.icsDBList2.Location = new System.Drawing.Point(7, 31);
+            this.icsDBList2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.icsDBList2.Name = "icsDBList2";
+            this.icsDBList2.Param1 = 0;
+            this.icsDBList2.Param2 = 0;
+            this.icsDBList2.Size = new System.Drawing.Size(1128, 177);
+            this.icsDBList2.TabIndex = 133;
+            this.icsDBList2.Table = null;
             // 
             // extentableTextBox25
             // 
@@ -1341,27 +1683,6 @@
             this.extentableTextBox13.TextBoxColor = System.Drawing.SystemColors.WindowText;
             this.extentableTextBox13.TextValue = "";
             // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.extentableTextBox12);
-            this.groupBox1.Controls.Add(this.extentableTextBox6);
-            this.groupBox1.Controls.Add(this.extentableTextBox11);
-            this.groupBox1.Controls.Add(this.extentableTextBox3);
-            this.groupBox1.Controls.Add(this.extentableTextBox10);
-            this.groupBox1.Controls.Add(this.extentableTextBox5);
-            this.groupBox1.Controls.Add(this.extentableTextBox9);
-            this.groupBox1.Controls.Add(this.extentableTextBox4);
-            this.groupBox1.Controls.Add(this.extentableTextBox8);
-            this.groupBox1.Controls.Add(this.extentableTextBox2);
-            this.groupBox1.Controls.Add(this.extentableTextBox7);
-            this.groupBox1.Controls.Add(this.extentableTextBox1);
-            this.groupBox1.Location = new System.Drawing.Point(8, 6);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(342, 356);
-            this.groupBox1.TabIndex = 2;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Items 0xx";
-            // 
             // extentableTextBox12
             // 
             this.extentableTextBox12.BackColor = System.Drawing.Color.Transparent;
@@ -1554,35 +1875,6 @@
             this.extentableTextBox1.TextBoxColor = System.Drawing.SystemColors.WindowText;
             this.extentableTextBox1.TextValue = "";
             // 
-            // MainSFAF_2
-            // 
-            this.MainSFAF_2.Controls.Add(this.groupBox6);
-            this.MainSFAF_2.Controls.Add(this.groupBox3);
-            this.MainSFAF_2.Controls.Add(this.groupBox4);
-            this.MainSFAF_2.Controls.Add(this.groupBox5);
-            this.MainSFAF_2.Location = new System.Drawing.Point(4, 22);
-            this.MainSFAF_2.Name = "MainSFAF_2";
-            this.MainSFAF_2.Padding = new System.Windows.Forms.Padding(3);
-            this.MainSFAF_2.Size = new System.Drawing.Size(1142, 606);
-            this.MainSFAF_2.TabIndex = 4;
-            this.MainSFAF_2.Text = "SFAF 2/3";
-            this.MainSFAF_2.UseVisualStyleBackColor = true;
-            // 
-            // groupBox6
-            // 
-            this.groupBox6.Controls.Add(this.extentableTextBox72);
-            this.groupBox6.Controls.Add(this.extentableTextBox73);
-            this.groupBox6.Controls.Add(this.extentableTextBox74);
-            this.groupBox6.Controls.Add(this.extentableTextBox75);
-            this.groupBox6.Controls.Add(this.extentableTextBox76);
-            this.groupBox6.Controls.Add(this.extentableTextBox77);
-            this.groupBox6.Location = new System.Drawing.Point(690, 260);
-            this.groupBox6.Name = "groupBox6";
-            this.groupBox6.Size = new System.Drawing.Size(328, 198);
-            this.groupBox6.TabIndex = 8;
-            this.groupBox6.TabStop = false;
-            this.groupBox6.Text = "Items 8xx";
-            // 
             // extentableTextBox72
             // 
             this.extentableTextBox72.BackColor = System.Drawing.Color.Transparent;
@@ -1678,25 +1970,6 @@
             this.extentableTextBox77.TextBoxBackColor = System.Drawing.SystemColors.Window;
             this.extentableTextBox77.TextBoxColor = System.Drawing.SystemColors.WindowText;
             this.extentableTextBox77.TextValue = "";
-            // 
-            // groupBox3
-            // 
-            this.groupBox3.Controls.Add(this.extentableTextBox49);
-            this.groupBox3.Controls.Add(this.extentableTextBox48);
-            this.groupBox3.Controls.Add(this.extentableTextBox47);
-            this.groupBox3.Controls.Add(this.extentableTextBox43);
-            this.groupBox3.Controls.Add(this.extentableTextBox46);
-            this.groupBox3.Controls.Add(this.extentableTextBox45);
-            this.groupBox3.Controls.Add(this.extentableTextBox40);
-            this.groupBox3.Controls.Add(this.extentableTextBox44);
-            this.groupBox3.Controls.Add(this.extentableTextBox41);
-            this.groupBox3.Controls.Add(this.extentableTextBox42);
-            this.groupBox3.Location = new System.Drawing.Point(8, 6);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(342, 305);
-            this.groupBox3.TabIndex = 7;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Items 2xx";
             // 
             // extentableTextBox49
             // 
@@ -1857,29 +2130,6 @@
             this.extentableTextBox42.TextBoxBackColor = System.Drawing.SystemColors.Window;
             this.extentableTextBox42.TextBoxColor = System.Drawing.SystemColors.WindowText;
             this.extentableTextBox42.TextValue = "";
-            // 
-            // groupBox4
-            // 
-            this.groupBox4.Controls.Add(this.extentableTextBox63);
-            this.groupBox4.Controls.Add(this.extentableTextBox61);
-            this.groupBox4.Controls.Add(this.extentableTextBox59);
-            this.groupBox4.Controls.Add(this.extentableTextBox57);
-            this.groupBox4.Controls.Add(this.extentableTextBox55);
-            this.groupBox4.Controls.Add(this.extentableTextBox62);
-            this.groupBox4.Controls.Add(this.extentableTextBox54);
-            this.groupBox4.Controls.Add(this.extentableTextBox60);
-            this.groupBox4.Controls.Add(this.extentableTextBox58);
-            this.groupBox4.Controls.Add(this.extentableTextBox56);
-            this.groupBox4.Controls.Add(this.extentableTextBox53);
-            this.groupBox4.Controls.Add(this.extentableTextBox52);
-            this.groupBox4.Controls.Add(this.extentableTextBox51);
-            this.groupBox4.Controls.Add(this.extentableTextBox50);
-            this.groupBox4.Location = new System.Drawing.Point(356, 6);
-            this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(732, 248);
-            this.groupBox4.TabIndex = 6;
-            this.groupBox4.TabStop = false;
-            this.groupBox4.Text = "Items 5xx";
             // 
             // extentableTextBox63
             // 
@@ -2105,23 +2355,6 @@
             this.extentableTextBox50.TextBoxColor = System.Drawing.SystemColors.WindowText;
             this.extentableTextBox50.TextValue = "";
             // 
-            // groupBox5
-            // 
-            this.groupBox5.Controls.Add(this.extentableTextBox70);
-            this.groupBox5.Controls.Add(this.extentableTextBox71);
-            this.groupBox5.Controls.Add(this.extentableTextBox69);
-            this.groupBox5.Controls.Add(this.extentableTextBox66);
-            this.groupBox5.Controls.Add(this.extentableTextBox64);
-            this.groupBox5.Controls.Add(this.extentableTextBox68);
-            this.groupBox5.Controls.Add(this.extentableTextBox67);
-            this.groupBox5.Controls.Add(this.extentableTextBox65);
-            this.groupBox5.Location = new System.Drawing.Point(356, 260);
-            this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(328, 242);
-            this.groupBox5.TabIndex = 5;
-            this.groupBox5.TabStop = false;
-            this.groupBox5.Text = "Items 7xx";
-            // 
             // extentableTextBox70
             // 
             this.extentableTextBox70.BackColor = System.Drawing.Color.Transparent;
@@ -2249,66 +2482,6 @@
             this.extentableTextBox65.TextBoxBackColor = System.Drawing.SystemColors.Window;
             this.extentableTextBox65.TextBoxColor = System.Drawing.SystemColors.WindowText;
             this.extentableTextBox65.TextValue = "";
-            // 
-            // MainSFAF_3
-            // 
-            this.MainSFAF_3.Controls.Add(this.groupBox7);
-            this.MainSFAF_3.Location = new System.Drawing.Point(4, 22);
-            this.MainSFAF_3.Name = "MainSFAF_3";
-            this.MainSFAF_3.Size = new System.Drawing.Size(1142, 606);
-            this.MainSFAF_3.TabIndex = 5;
-            this.MainSFAF_3.Text = "SFAF 3/3";
-            this.MainSFAF_3.UseVisualStyleBackColor = true;
-            // 
-            // groupBox7
-            // 
-            this.groupBox7.Controls.Add(this.extentableTextBox118);
-            this.groupBox7.Controls.Add(this.extentableTextBox117);
-            this.groupBox7.Controls.Add(this.extentableTextBox113);
-            this.groupBox7.Controls.Add(this.extentableTextBox107);
-            this.groupBox7.Controls.Add(this.extentableTextBox116);
-            this.groupBox7.Controls.Add(this.extentableTextBox112);
-            this.groupBox7.Controls.Add(this.extentableTextBox86);
-            this.groupBox7.Controls.Add(this.extentableTextBox106);
-            this.groupBox7.Controls.Add(this.extentableTextBox115);
-            this.groupBox7.Controls.Add(this.extentableTextBox111);
-            this.groupBox7.Controls.Add(this.extentableTextBox87);
-            this.groupBox7.Controls.Add(this.extentableTextBox105);
-            this.groupBox7.Controls.Add(this.extentableTextBox110);
-            this.groupBox7.Controls.Add(this.extentableTextBox88);
-            this.groupBox7.Controls.Add(this.extentableTextBox104);
-            this.groupBox7.Controls.Add(this.extentableTextBox109);
-            this.groupBox7.Controls.Add(this.extentableTextBox89);
-            this.groupBox7.Controls.Add(this.extentableTextBox103);
-            this.groupBox7.Controls.Add(this.extentableTextBox90);
-            this.groupBox7.Controls.Add(this.extentableTextBox102);
-            this.groupBox7.Controls.Add(this.extentableTextBox114);
-            this.groupBox7.Controls.Add(this.extentableTextBox108);
-            this.groupBox7.Controls.Add(this.extentableTextBox91);
-            this.groupBox7.Controls.Add(this.extentableTextBox101);
-            this.groupBox7.Controls.Add(this.extentableTextBox92);
-            this.groupBox7.Controls.Add(this.extentableTextBox100);
-            this.groupBox7.Controls.Add(this.extentableTextBox78);
-            this.groupBox7.Controls.Add(this.extentableTextBox99);
-            this.groupBox7.Controls.Add(this.extentableTextBox98);
-            this.groupBox7.Controls.Add(this.extentableTextBox79);
-            this.groupBox7.Controls.Add(this.extentableTextBox97);
-            this.groupBox7.Controls.Add(this.extentableTextBox80);
-            this.groupBox7.Controls.Add(this.extentableTextBox96);
-            this.groupBox7.Controls.Add(this.extentableTextBox81);
-            this.groupBox7.Controls.Add(this.extentableTextBox95);
-            this.groupBox7.Controls.Add(this.extentableTextBox82);
-            this.groupBox7.Controls.Add(this.extentableTextBox94);
-            this.groupBox7.Controls.Add(this.extentableTextBox83);
-            this.groupBox7.Controls.Add(this.extentableTextBox93);
-            this.groupBox7.Controls.Add(this.extentableTextBox84);
-            this.groupBox7.Controls.Add(this.extentableTextBox85);
-            this.groupBox7.Location = new System.Drawing.Point(8, 3);
-            this.groupBox7.Name = "groupBox7";
-            this.groupBox7.Size = new System.Drawing.Size(1071, 426);
-            this.groupBox7.TabIndex = 4;
-            this.groupBox7.TabStop = false;
-            this.groupBox7.Text = "Items 9xx";
             // 
             // extentableTextBox118
             // 
@@ -2966,50 +3139,6 @@
             this.extentableTextBox85.TextBoxColor = System.Drawing.SystemColors.WindowText;
             this.extentableTextBox85.TextValue = "";
             // 
-            // SFAF_TX
-            // 
-            this.SFAF_TX.Controls.Add(this.extentableTextBox122);
-            this.SFAF_TX.Controls.Add(this.extentableTextBox125);
-            this.SFAF_TX.Controls.Add(this.extentableTextBox126);
-            this.SFAF_TX.Controls.Add(this.extentableTextBox128);
-            this.SFAF_TX.Controls.Add(this.extentableTextBox129);
-            this.SFAF_TX.Controls.Add(this.extentableTextBox130);
-            this.SFAF_TX.Controls.Add(this.extentableTextBox131);
-            this.SFAF_TX.Controls.Add(this.extentableTextBox132);
-            this.SFAF_TX.Controls.Add(this.extentableTextBox133);
-            this.SFAF_TX.Controls.Add(this.extentableTextBox134);
-            this.SFAF_TX.Controls.Add(this.extentableTextBox135);
-            this.SFAF_TX.Controls.Add(this.extentableTextBox136);
-            this.SFAF_TX.Controls.Add(this.extentableTextBox137);
-            this.SFAF_TX.Controls.Add(this.extentableTextBox138);
-            this.SFAF_TX.Controls.Add(this.extentableTextBox140);
-            this.SFAF_TX.Controls.Add(this.extentableTextBox141);
-            this.SFAF_TX.Controls.Add(this.extentableTextBox142);
-            this.SFAF_TX.Controls.Add(this.extentableTextBox143);
-            this.SFAF_TX.Controls.Add(this.extentableTextBox144);
-            this.SFAF_TX.Controls.Add(this.extentableTextBox145);
-            this.SFAF_TX.Controls.Add(this.extentableTextBox146);
-            this.SFAF_TX.Controls.Add(this.extentableTextBox147);
-            this.SFAF_TX.Controls.Add(this.extentableTextBox148);
-            this.SFAF_TX.Controls.Add(this.extentableTextBox149);
-            this.SFAF_TX.Controls.Add(this.extentableTextBox150);
-            this.SFAF_TX.Controls.Add(this.extentableTextBox151);
-            this.SFAF_TX.Controls.Add(this.extentableTextBox152);
-            this.SFAF_TX.Controls.Add(this.extentableTextBox153);
-            this.SFAF_TX.Controls.Add(this.extentableTextBox154);
-            this.SFAF_TX.Controls.Add(this.extentableTextBox155);
-            this.SFAF_TX.Controls.Add(this.extentableTextBox156);
-            this.SFAF_TX.Controls.Add(this.extentableTextBox157);
-            this.SFAF_TX.Controls.Add(this.extentableTextBox158);
-            this.SFAF_TX.Controls.Add(this.extentableTextBox159);
-            this.SFAF_TX.Location = new System.Drawing.Point(4, 22);
-            this.SFAF_TX.Name = "SFAF_TX";
-            this.SFAF_TX.Padding = new System.Windows.Forms.Padding(3);
-            this.SFAF_TX.Size = new System.Drawing.Size(1142, 606);
-            this.SFAF_TX.TabIndex = 2;
-            this.SFAF_TX.Text = "Transmitter";
-            this.SFAF_TX.UseVisualStyleBackColor = true;
-            // 
             // extentableTextBox122
             // 
             this.extentableTextBox122.BackColor = System.Drawing.Color.Transparent;
@@ -3553,87 +3682,6 @@
             this.extentableTextBox159.TextBoxBackColor = System.Drawing.SystemColors.Window;
             this.extentableTextBox159.TextBoxColor = System.Drawing.SystemColors.WindowText;
             this.extentableTextBox159.TextValue = "";
-            // 
-            // SFAF_RX
-            // 
-            this.SFAF_RX.Controls.Add(this.label26);
-            this.SFAF_RX.Controls.Add(this.label23);
-            this.SFAF_RX.Controls.Add(this.icsDBList2);
-            this.SFAF_RX.Controls.Add(this.extentableTextBox119);
-            this.SFAF_RX.Controls.Add(this.extentableTextBox120);
-            this.SFAF_RX.Controls.Add(this.extentableTextBox121);
-            this.SFAF_RX.Controls.Add(this.extentableTextBox123);
-            this.SFAF_RX.Controls.Add(this.extentableTextBox124);
-            this.SFAF_RX.Controls.Add(this.extentableTextBox127);
-            this.SFAF_RX.Controls.Add(this.extentableTextBox139);
-            this.SFAF_RX.Controls.Add(this.extentableTextBox160);
-            this.SFAF_RX.Controls.Add(this.extentableTextBox161);
-            this.SFAF_RX.Controls.Add(this.extentableTextBox162);
-            this.SFAF_RX.Controls.Add(this.extentableTextBox163);
-            this.SFAF_RX.Controls.Add(this.extentableTextBox164);
-            this.SFAF_RX.Controls.Add(this.extentableTextBox165);
-            this.SFAF_RX.Controls.Add(this.extentableTextBox166);
-            this.SFAF_RX.Controls.Add(this.extentableTextBox167);
-            this.SFAF_RX.Controls.Add(this.extentableTextBox168);
-            this.SFAF_RX.Controls.Add(this.extentableTextBox169);
-            this.SFAF_RX.Controls.Add(this.extentableTextBox170);
-            this.SFAF_RX.Controls.Add(this.extentableTextBox171);
-            this.SFAF_RX.Controls.Add(this.extentableTextBox172);
-            this.SFAF_RX.Controls.Add(this.extentableTextBox173);
-            this.SFAF_RX.Controls.Add(this.extentableTextBox174);
-            this.SFAF_RX.Controls.Add(this.extentableTextBox175);
-            this.SFAF_RX.Controls.Add(this.extentableTextBox176);
-            this.SFAF_RX.Controls.Add(this.extentableTextBox177);
-            this.SFAF_RX.Controls.Add(this.extentableTextBox178);
-            this.SFAF_RX.Controls.Add(this.extentableTextBox179);
-            this.SFAF_RX.Controls.Add(this.extentableTextBox180);
-            this.SFAF_RX.Controls.Add(this.extentableTextBox181);
-            this.SFAF_RX.Controls.Add(this.extentableTextBox182);
-            this.SFAF_RX.Controls.Add(this.extentableTextBox183);
-            this.SFAF_RX.Controls.Add(this.extentableTextBox184);
-            this.SFAF_RX.Controls.Add(this.extentableTextBox185);
-            this.SFAF_RX.Controls.Add(this.extentableTextBox186);
-            this.SFAF_RX.Location = new System.Drawing.Point(4, 22);
-            this.SFAF_RX.Name = "SFAF_RX";
-            this.SFAF_RX.Size = new System.Drawing.Size(1142, 606);
-            this.SFAF_RX.TabIndex = 3;
-            this.SFAF_RX.Text = "Recievers";
-            this.SFAF_RX.UseVisualStyleBackColor = true;
-            // 
-            // label26
-            // 
-            this.label26.AutoSize = true;
-            this.label26.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label26.Location = new System.Drawing.Point(8, 220);
-            this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(148, 13);
-            this.label26.TabIndex = 134;
-            this.label26.Text = "Selected station informations :";
-            // 
-            // label23
-            // 
-            this.label23.AutoSize = true;
-            this.label23.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label23.Location = new System.Drawing.Point(7, 13);
-            this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(194, 13);
-            this.label23.TabIndex = 134;
-            this.label23.Text = "Recievers attached to this SFAF station";
-            // 
-            // icsDBList2
-            // 
-            this.icsDBList2.BackColor = System.Drawing.SystemColors.Control;
-            this.icsDBList2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.icsDBList2.ConfigName = null;
-            this.icsDBList2.Filter = null;
-            this.icsDBList2.Location = new System.Drawing.Point(7, 31);
-            this.icsDBList2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.icsDBList2.Name = "icsDBList2";
-            this.icsDBList2.Param1 = 0;
-            this.icsDBList2.Param2 = 0;
-            this.icsDBList2.Size = new System.Drawing.Size(1128, 177);
-            this.icsDBList2.TabIndex = 133;
-            this.icsDBList2.Table = null;
             // 
             // extentableTextBox119
             // 
@@ -4179,22 +4227,6 @@
             this.extentableTextBox186.TextBoxColor = System.Drawing.SystemColors.WindowText;
             this.extentableTextBox186.TextValue = "";
             // 
-            // c_CreatedDate
-            // 
-            this.c_CreatedDate.Location = new System.Drawing.Point(519, 214);
-            this.c_CreatedDate.Name = "c_CreatedDate";
-            this.c_CreatedDate.ReadOnly = true;
-            this.c_CreatedDate.Size = new System.Drawing.Size(200, 20);
-            this.c_CreatedDate.TabIndex = 29;
-            // 
-            // c_ModifiedDate
-            // 
-            this.c_ModifiedDate.Location = new System.Drawing.Point(793, 214);
-            this.c_ModifiedDate.Name = "c_ModifiedDate";
-            this.c_ModifiedDate.ReadOnly = true;
-            this.c_ModifiedDate.Size = new System.Drawing.Size(200, 20);
-            this.c_ModifiedDate.TabIndex = 29;
-            // 
             // SFAF
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -4209,15 +4241,15 @@
             this.SummaryTransmitter.ResumeLayout(false);
             this.SummaryTransmitter.PerformLayout();
             this.MainSFAF_1.ResumeLayout(false);
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox1.ResumeLayout(false);
+            this.Items1xx.ResumeLayout(false);
+            this.Items0xx.ResumeLayout(false);
             this.MainSFAF_2.ResumeLayout(false);
-            this.groupBox6.ResumeLayout(false);
-            this.groupBox3.ResumeLayout(false);
-            this.groupBox4.ResumeLayout(false);
-            this.groupBox5.ResumeLayout(false);
+            this.Items8xx.ResumeLayout(false);
+            this.Items2xx.ResumeLayout(false);
+            this.Items5xx.ResumeLayout(false);
+            this.Items7xx.ResumeLayout(false);
             this.MainSFAF_3.ResumeLayout(false);
-            this.groupBox7.ResumeLayout(false);
+            this.Items9xx.ResumeLayout(false);
             this.SFAF_TX.ResumeLayout(false);
             this.SFAF_RX.ResumeLayout(false);
             this.SFAF_RX.PerformLayout();
@@ -4235,7 +4267,6 @@
         private NetPlugins2.IcsControls.IcsComboList c_Polar;
         private NetPlugins2.IcsControls.IcsComboList c_ClassSta;
         private NetPlugins2.IcsOpenlayers3 c_MapDisplay;
-        private NetPlugins2.IcsStatus c_State;
         private NetPlugins2.IcsStatus c_Status;
         private NetPlugins2.IcsDateTime c_EOUSE;
         private NetPlugins2.IcsDateTime c_BIUSE;
@@ -4259,7 +4290,6 @@
         private NetPlugins2.IcsDouble c_Freq;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.GroupBox SummaryTransmitter;
-        private System.Windows.Forms.TextBox c_Country;
         private NetPlugins2.IcsDouble c_Azimuth;
         private System.Windows.Forms.Label label11;
         private NetPlugins2.IcsDouble c_Elev;
@@ -4268,9 +4298,7 @@
         private System.Windows.Forms.Label label13;
         private NetPlugins2.IcsDouble c_Radius;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.TextBox c_Lat;
         private System.Windows.Forms.Label label17;
-        private System.Windows.Forms.TextBox c_Long;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.TextBox c_LocationName;
@@ -4281,8 +4309,8 @@
         private System.Windows.Forms.Label label25;
         private System.Windows.Forms.Label label24;
         private System.Windows.Forms.Label label22;
-        private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox Items1xx;
+        private System.Windows.Forms.GroupBox Items0xx;
         private System.Windows.Forms.TabPage MainSFAF_2;
         private Controls.ExtentableTextBox extentableTextBox25;
         private Controls.ExtentableTextBox extentableTextBox22;
@@ -4394,14 +4422,14 @@
         private Controls.ExtentableTextBox extentableTextBox185;
         private Controls.ExtentableTextBox extentableTextBox186;
         private System.Windows.Forms.Label label26;
-        private System.Windows.Forms.GroupBox groupBox6;
+        private System.Windows.Forms.GroupBox Items8xx;
         private Controls.ExtentableTextBox extentableTextBox72;
         private Controls.ExtentableTextBox extentableTextBox73;
         private Controls.ExtentableTextBox extentableTextBox74;
         private Controls.ExtentableTextBox extentableTextBox75;
         private Controls.ExtentableTextBox extentableTextBox76;
         private Controls.ExtentableTextBox extentableTextBox77;
-        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.GroupBox Items2xx;
         private Controls.ExtentableTextBox extentableTextBox49;
         private Controls.ExtentableTextBox extentableTextBox48;
         private Controls.ExtentableTextBox extentableTextBox47;
@@ -4412,7 +4440,7 @@
         private Controls.ExtentableTextBox extentableTextBox44;
         private Controls.ExtentableTextBox extentableTextBox41;
         private Controls.ExtentableTextBox extentableTextBox42;
-        private System.Windows.Forms.GroupBox groupBox4;
+        private System.Windows.Forms.GroupBox Items5xx;
         private Controls.ExtentableTextBox extentableTextBox63;
         private Controls.ExtentableTextBox extentableTextBox61;
         private Controls.ExtentableTextBox extentableTextBox59;
@@ -4427,7 +4455,7 @@
         private Controls.ExtentableTextBox extentableTextBox52;
         private Controls.ExtentableTextBox extentableTextBox51;
         private Controls.ExtentableTextBox extentableTextBox50;
-        private System.Windows.Forms.GroupBox groupBox5;
+        private System.Windows.Forms.GroupBox Items7xx;
         private Controls.ExtentableTextBox extentableTextBox70;
         private Controls.ExtentableTextBox extentableTextBox71;
         private Controls.ExtentableTextBox extentableTextBox69;
@@ -4437,7 +4465,7 @@
         private Controls.ExtentableTextBox extentableTextBox67;
         private Controls.ExtentableTextBox extentableTextBox65;
         private System.Windows.Forms.TabPage MainSFAF_3;
-        private System.Windows.Forms.GroupBox groupBox7;
+        private System.Windows.Forms.GroupBox Items9xx;
         private Controls.ExtentableTextBox extentableTextBox118;
         private Controls.ExtentableTextBox extentableTextBox117;
         private Controls.ExtentableTextBox extentableTextBox113;
@@ -4482,5 +4510,11 @@
         private NetPlugins2.IcsDBList c_Recievers;
         private System.Windows.Forms.TextBox c_CreatedDate;
         private System.Windows.Forms.TextBox c_ModifiedDate;
+        private NetPlugins2.IcsComboEdt c_classification;
+        private NetPlugins2.IcsDouble c_Long;
+        private NetPlugins2.IcsDouble c_Lat;
+        private NetPlugins2.IcsDouble icsDouble2;
+        private System.Windows.Forms.Label label27;
+        private NetPlugins2.IcsControls.IcsComboList c_Country;
     }
 }

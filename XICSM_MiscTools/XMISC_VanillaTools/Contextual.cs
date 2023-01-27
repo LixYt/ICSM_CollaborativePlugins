@@ -74,6 +74,12 @@ namespace XICSM.VanillaTools
                 lst.Add(new IMQueryMenuNode(L.Txt("Search for potential interferer"), null, SearchInterf.builder, IMQueryMenuNode.ExecMode.SelectionOfRecords));
             }
 
+            //SFAF
+            if (tableName == "SFAF" && nbSelMin >= 1)
+            {
+                lst.Add(new IMQueryMenuNode(L.Txt("Advanced editor"), null, EntityForms.SFAF.EditRecord, IMQueryMenuNode.ExecMode.FirstRecord));
+            }
+
             //Attached documents
             if (tableName == "DOCLINK" && nbSelMin == 1)
             {

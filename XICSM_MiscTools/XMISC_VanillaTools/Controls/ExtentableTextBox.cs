@@ -21,10 +21,13 @@ namespace XICSM.VanillaTools.Controls
         public Color LabelTextColor { get { return TheLabel.ForeColor; } set { TheLabel.ForeColor = value; } }
 
         [Category("_ExtentableTextBox")]
-        [Description("Extentable TextBox Text")]
+        [Description("Extentabl1e TextBox Text")]
         public string TextValue { 
             get { return TheValue.Text; } 
-            set { if (value.Length > 20) { ActivateContextOption_DisplayMore(); } TheValue.Text = value; } 
+            set { 
+                if (TextRenderer.MeasureText(value, TheValue.Font).Width >= TheValue.Width - 30) { ShowButton = true; }
+                TheValue.Text = value; 
+            }
         }
 
         [Category("_ExtentableTextBox")]
@@ -66,6 +69,9 @@ namespace XICSM.VanillaTools.Controls
         public ExtentableTextBox()
         {
             InitializeComponent();
+
+            ButtonMenu.Items.Add("Extend display");
+            ButtonMenu.ItemClicked += ButtonMenu_ItemClicked;
         }
 
         public void SetTextBoxSize()
@@ -73,15 +79,19 @@ namespace XICSM.VanillaTools.Controls
             TheValue.Width = ShowButton ? 150 : 120;
         }
 
-        public void ActivateContextOption_DisplayMore()
+        public void ButtonMenu_ItemClicked(object sender, ToolStripItemClickedEventArgs args)
         {
-            MenuItem m = new MenuItem("Display field full size", DisplayMore);
-            ContextMenu.MenuItems.Add(m);
+            if (args.ClickedItem.Text == "Extend display") 
+            {
+                StringEditor s = new StringEditor(TheValue.Text);
+                
+                if (s.ShowDialog() == DialogResult.OK)
+                {
+                    TheValue.Text = s.TextValue;
+                }
+            }
         }
-        public void DisplayMore(object sender, EventArgs e)
-        {
-            MessageBox.Show(TheValue.Text);
-        }
+
 
     }
 }
