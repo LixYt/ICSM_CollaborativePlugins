@@ -96,9 +96,9 @@
             this.Items9xx = new System.Windows.Forms.GroupBox();
             this.SFAF_TX = new System.Windows.Forms.TabPage();
             this.SFAF_RX = new System.Windows.Forms.TabPage();
-            this.label26 = new System.Windows.Forms.Label();
             this.label23 = new System.Windows.Forms.Label();
-            this.icsDBList2 = new NetPlugins2.IcsDBList();
+            this.c_ListOfRx = new NetPlugins2.IcsDBList();
+            this.Items4xx = new System.Windows.Forms.GroupBox();
             this.extentableTextBox25 = new XICSM.VanillaTools.Controls.ExtentableTextBox();
             this.extentableTextBox22 = new XICSM.VanillaTools.Controls.ExtentableTextBox();
             this.extentableTextBox17 = new XICSM.VanillaTools.Controls.ExtentableTextBox();
@@ -251,40 +251,31 @@
             this.extentableTextBox157 = new XICSM.VanillaTools.Controls.ExtentableTextBox();
             this.extentableTextBox158 = new XICSM.VanillaTools.Controls.ExtentableTextBox();
             this.extentableTextBox159 = new XICSM.VanillaTools.Controls.ExtentableTextBox();
+            this.extentableTextBox179 = new XICSM.VanillaTools.Controls.ExtentableTextBox();
+            this.extentableTextBox186 = new XICSM.VanillaTools.Controls.ExtentableTextBox();
+            this.extentableTextBox185 = new XICSM.VanillaTools.Controls.ExtentableTextBox();
             this.extentableTextBox119 = new XICSM.VanillaTools.Controls.ExtentableTextBox();
             this.extentableTextBox120 = new XICSM.VanillaTools.Controls.ExtentableTextBox();
+            this.extentableTextBox183 = new XICSM.VanillaTools.Controls.ExtentableTextBox();
             this.extentableTextBox121 = new XICSM.VanillaTools.Controls.ExtentableTextBox();
-            this.extentableTextBox123 = new XICSM.VanillaTools.Controls.ExtentableTextBox();
-            this.extentableTextBox124 = new XICSM.VanillaTools.Controls.ExtentableTextBox();
+            this.extentableTextBox181 = new XICSM.VanillaTools.Controls.ExtentableTextBox();
             this.extentableTextBox127 = new XICSM.VanillaTools.Controls.ExtentableTextBox();
             this.extentableTextBox139 = new XICSM.VanillaTools.Controls.ExtentableTextBox();
+            this.extentableTextBox177 = new XICSM.VanillaTools.Controls.ExtentableTextBox();
             this.extentableTextBox160 = new XICSM.VanillaTools.Controls.ExtentableTextBox();
+            this.extentableTextBox176 = new XICSM.VanillaTools.Controls.ExtentableTextBox();
             this.extentableTextBox161 = new XICSM.VanillaTools.Controls.ExtentableTextBox();
+            this.extentableTextBox175 = new XICSM.VanillaTools.Controls.ExtentableTextBox();
             this.extentableTextBox162 = new XICSM.VanillaTools.Controls.ExtentableTextBox();
             this.extentableTextBox163 = new XICSM.VanillaTools.Controls.ExtentableTextBox();
             this.extentableTextBox164 = new XICSM.VanillaTools.Controls.ExtentableTextBox();
+            this.extentableTextBox172 = new XICSM.VanillaTools.Controls.ExtentableTextBox();
             this.extentableTextBox165 = new XICSM.VanillaTools.Controls.ExtentableTextBox();
+            this.extentableTextBox171 = new XICSM.VanillaTools.Controls.ExtentableTextBox();
             this.extentableTextBox166 = new XICSM.VanillaTools.Controls.ExtentableTextBox();
             this.extentableTextBox167 = new XICSM.VanillaTools.Controls.ExtentableTextBox();
-            this.extentableTextBox168 = new XICSM.VanillaTools.Controls.ExtentableTextBox();
             this.extentableTextBox169 = new XICSM.VanillaTools.Controls.ExtentableTextBox();
-            this.extentableTextBox170 = new XICSM.VanillaTools.Controls.ExtentableTextBox();
-            this.extentableTextBox171 = new XICSM.VanillaTools.Controls.ExtentableTextBox();
-            this.extentableTextBox172 = new XICSM.VanillaTools.Controls.ExtentableTextBox();
-            this.extentableTextBox173 = new XICSM.VanillaTools.Controls.ExtentableTextBox();
-            this.extentableTextBox174 = new XICSM.VanillaTools.Controls.ExtentableTextBox();
-            this.extentableTextBox175 = new XICSM.VanillaTools.Controls.ExtentableTextBox();
-            this.extentableTextBox176 = new XICSM.VanillaTools.Controls.ExtentableTextBox();
-            this.extentableTextBox177 = new XICSM.VanillaTools.Controls.ExtentableTextBox();
-            this.extentableTextBox178 = new XICSM.VanillaTools.Controls.ExtentableTextBox();
-            this.extentableTextBox179 = new XICSM.VanillaTools.Controls.ExtentableTextBox();
-            this.extentableTextBox180 = new XICSM.VanillaTools.Controls.ExtentableTextBox();
-            this.extentableTextBox181 = new XICSM.VanillaTools.Controls.ExtentableTextBox();
-            this.extentableTextBox182 = new XICSM.VanillaTools.Controls.ExtentableTextBox();
-            this.extentableTextBox183 = new XICSM.VanillaTools.Controls.ExtentableTextBox();
-            this.extentableTextBox184 = new XICSM.VanillaTools.Controls.ExtentableTextBox();
-            this.extentableTextBox185 = new XICSM.VanillaTools.Controls.ExtentableTextBox();
-            this.extentableTextBox186 = new XICSM.VanillaTools.Controls.ExtentableTextBox();
+            this.extentableTextBox168 = new XICSM.VanillaTools.Controls.ExtentableTextBox();
             this.tabControl1.SuspendLayout();
             this.Summary.SuspendLayout();
             this.SummaryTransmitter.SuspendLayout();
@@ -300,6 +291,7 @@
             this.Items9xx.SuspendLayout();
             this.SFAF_TX.SuspendLayout();
             this.SFAF_RX.SuspendLayout();
+            this.Items4xx.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -378,7 +370,7 @@
             this.c_Recievers.AllowFilter = false;
             this.c_Recievers.BackColor = System.Drawing.SystemColors.Control;
             this.c_Recievers.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.c_Recievers.ConfigName = "SFAF_Rx_Sumary";
+            this.c_Recievers.ConfigName = "AdvSFAF_Recievers";
             this.c_Recievers.Filter = null;
             this.c_Recievers.Location = new System.Drawing.Point(296, 438);
             this.c_Recievers.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
@@ -388,6 +380,7 @@
             this.c_Recievers.Size = new System.Drawing.Size(828, 148);
             this.c_Recievers.TabIndex = 32;
             this.c_Recievers.Table = "SFAF_RX";
+            this.c_Recievers.OnRequery += new System.EventHandler(this.c_Recievers_OnRequery);
             // 
             // SummaryTransmitter
             // 
@@ -675,7 +668,7 @@
             // 
             this.c_MapDisplay.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.c_MapDisplay.CoverageName = null;
-            this.c_MapDisplay.DisplayCsys = null;
+            this.c_MapDisplay.DisplayCsys = "4DEC";
             this.c_MapDisplay.InputGeomPoints = null;
             this.c_MapDisplay.InputGeomRadiusM = 0D;
             this.c_MapDisplay.InputMode = null;
@@ -1172,59 +1165,15 @@
             // 
             // SFAF_RX
             // 
-            this.SFAF_RX.Controls.Add(this.label26);
+            this.SFAF_RX.Controls.Add(this.Items4xx);
             this.SFAF_RX.Controls.Add(this.label23);
-            this.SFAF_RX.Controls.Add(this.icsDBList2);
-            this.SFAF_RX.Controls.Add(this.extentableTextBox119);
-            this.SFAF_RX.Controls.Add(this.extentableTextBox120);
-            this.SFAF_RX.Controls.Add(this.extentableTextBox121);
-            this.SFAF_RX.Controls.Add(this.extentableTextBox123);
-            this.SFAF_RX.Controls.Add(this.extentableTextBox124);
-            this.SFAF_RX.Controls.Add(this.extentableTextBox127);
-            this.SFAF_RX.Controls.Add(this.extentableTextBox139);
-            this.SFAF_RX.Controls.Add(this.extentableTextBox160);
-            this.SFAF_RX.Controls.Add(this.extentableTextBox161);
-            this.SFAF_RX.Controls.Add(this.extentableTextBox162);
-            this.SFAF_RX.Controls.Add(this.extentableTextBox163);
-            this.SFAF_RX.Controls.Add(this.extentableTextBox164);
-            this.SFAF_RX.Controls.Add(this.extentableTextBox165);
-            this.SFAF_RX.Controls.Add(this.extentableTextBox166);
-            this.SFAF_RX.Controls.Add(this.extentableTextBox167);
-            this.SFAF_RX.Controls.Add(this.extentableTextBox168);
-            this.SFAF_RX.Controls.Add(this.extentableTextBox169);
-            this.SFAF_RX.Controls.Add(this.extentableTextBox170);
-            this.SFAF_RX.Controls.Add(this.extentableTextBox171);
-            this.SFAF_RX.Controls.Add(this.extentableTextBox172);
-            this.SFAF_RX.Controls.Add(this.extentableTextBox173);
-            this.SFAF_RX.Controls.Add(this.extentableTextBox174);
-            this.SFAF_RX.Controls.Add(this.extentableTextBox175);
-            this.SFAF_RX.Controls.Add(this.extentableTextBox176);
-            this.SFAF_RX.Controls.Add(this.extentableTextBox177);
-            this.SFAF_RX.Controls.Add(this.extentableTextBox178);
-            this.SFAF_RX.Controls.Add(this.extentableTextBox179);
-            this.SFAF_RX.Controls.Add(this.extentableTextBox180);
-            this.SFAF_RX.Controls.Add(this.extentableTextBox181);
-            this.SFAF_RX.Controls.Add(this.extentableTextBox182);
-            this.SFAF_RX.Controls.Add(this.extentableTextBox183);
-            this.SFAF_RX.Controls.Add(this.extentableTextBox184);
-            this.SFAF_RX.Controls.Add(this.extentableTextBox185);
-            this.SFAF_RX.Controls.Add(this.extentableTextBox186);
+            this.SFAF_RX.Controls.Add(this.c_ListOfRx);
             this.SFAF_RX.Location = new System.Drawing.Point(4, 22);
             this.SFAF_RX.Name = "SFAF_RX";
             this.SFAF_RX.Size = new System.Drawing.Size(1142, 606);
             this.SFAF_RX.TabIndex = 3;
             this.SFAF_RX.Text = "Recievers";
             this.SFAF_RX.UseVisualStyleBackColor = true;
-            // 
-            // label26
-            // 
-            this.label26.AutoSize = true;
-            this.label26.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label26.Location = new System.Drawing.Point(8, 220);
-            this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(148, 13);
-            this.label26.TabIndex = 134;
-            this.label26.Text = "Selected station informations :";
             // 
             // label23
             // 
@@ -1236,20 +1185,56 @@
             this.label23.TabIndex = 134;
             this.label23.Text = "Recievers attached to this SFAF station";
             // 
-            // icsDBList2
+            // c_ListOfRx
             // 
-            this.icsDBList2.BackColor = System.Drawing.SystemColors.Control;
-            this.icsDBList2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.icsDBList2.ConfigName = null;
-            this.icsDBList2.Filter = null;
-            this.icsDBList2.Location = new System.Drawing.Point(7, 31);
-            this.icsDBList2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.icsDBList2.Name = "icsDBList2";
-            this.icsDBList2.Param1 = 0;
-            this.icsDBList2.Param2 = 0;
-            this.icsDBList2.Size = new System.Drawing.Size(1128, 177);
-            this.icsDBList2.TabIndex = 133;
-            this.icsDBList2.Table = null;
+            this.c_ListOfRx.BackColor = System.Drawing.SystemColors.Control;
+            this.c_ListOfRx.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.c_ListOfRx.ConfigName = "AdvSFAF_ListOfRx";
+            this.c_ListOfRx.Filter = null;
+            this.c_ListOfRx.Location = new System.Drawing.Point(7, 31);
+            this.c_ListOfRx.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.c_ListOfRx.Name = "c_ListOfRx";
+            this.c_ListOfRx.Param1 = 0;
+            this.c_ListOfRx.Param2 = 0;
+            this.c_ListOfRx.Size = new System.Drawing.Size(1128, 177);
+            this.c_ListOfRx.TabIndex = 133;
+            this.c_ListOfRx.Table = "SFAF_RX";
+            this.c_ListOfRx.OnRequery += new System.EventHandler(this.c_ListOfRx_OnRequery);
+            this.c_ListOfRx.OnSelChanged += new System.EventHandler(this.c_ListOfRx_OnSelChanged);
+            // 
+            // Items4xx
+            // 
+            this.Items4xx.Controls.Add(this.extentableTextBox179);
+            this.Items4xx.Controls.Add(this.extentableTextBox186);
+            this.Items4xx.Controls.Add(this.extentableTextBox185);
+            this.Items4xx.Controls.Add(this.extentableTextBox119);
+            this.Items4xx.Controls.Add(this.extentableTextBox120);
+            this.Items4xx.Controls.Add(this.extentableTextBox183);
+            this.Items4xx.Controls.Add(this.extentableTextBox121);
+            this.Items4xx.Controls.Add(this.extentableTextBox181);
+            this.Items4xx.Controls.Add(this.extentableTextBox127);
+            this.Items4xx.Controls.Add(this.extentableTextBox139);
+            this.Items4xx.Controls.Add(this.extentableTextBox177);
+            this.Items4xx.Controls.Add(this.extentableTextBox160);
+            this.Items4xx.Controls.Add(this.extentableTextBox176);
+            this.Items4xx.Controls.Add(this.extentableTextBox161);
+            this.Items4xx.Controls.Add(this.extentableTextBox175);
+            this.Items4xx.Controls.Add(this.extentableTextBox162);
+            this.Items4xx.Controls.Add(this.extentableTextBox163);
+            this.Items4xx.Controls.Add(this.extentableTextBox164);
+            this.Items4xx.Controls.Add(this.extentableTextBox172);
+            this.Items4xx.Controls.Add(this.extentableTextBox165);
+            this.Items4xx.Controls.Add(this.extentableTextBox171);
+            this.Items4xx.Controls.Add(this.extentableTextBox166);
+            this.Items4xx.Controls.Add(this.extentableTextBox167);
+            this.Items4xx.Controls.Add(this.extentableTextBox169);
+            this.Items4xx.Controls.Add(this.extentableTextBox168);
+            this.Items4xx.Location = new System.Drawing.Point(10, 213);
+            this.Items4xx.Name = "Items4xx";
+            this.Items4xx.Size = new System.Drawing.Size(1124, 281);
+            this.Items4xx.TabIndex = 135;
+            this.Items4xx.TabStop = false;
+            this.Items4xx.Text = "Selected reciever (SFAF_RX)";
             // 
             // extentableTextBox25
             // 
@@ -1257,10 +1242,10 @@
             this.extentableTextBox25.BackgroundColor = System.Drawing.Color.Transparent;
             this.extentableTextBox25.ButtonBackColor = System.Drawing.Color.Transparent;
             this.extentableTextBox25.ButtonColor = System.Drawing.SystemColors.ControlText;
-            this.extentableTextBox25.LabelText = "SFAF_116";
+            this.extentableTextBox25.Name = "SFAF_116";
             this.extentableTextBox25.LabelTextColor = System.Drawing.SystemColors.ControlText;
             this.extentableTextBox25.Location = new System.Drawing.Point(6, 353);
-            this.extentableTextBox25.Name = "extentableTextBox25";
+            this.extentableTextBox25.LabelText = "Label25";
             this.extentableTextBox25.Size = new System.Drawing.Size(315, 22);
             this.extentableTextBox25.TabIndex = 36;
             this.extentableTextBox25.TextBoxBackColor = System.Drawing.SystemColors.Window;
@@ -1273,10 +1258,10 @@
             this.extentableTextBox22.BackgroundColor = System.Drawing.Color.Transparent;
             this.extentableTextBox22.ButtonBackColor = System.Drawing.Color.Transparent;
             this.extentableTextBox22.ButtonColor = System.Drawing.SystemColors.ControlText;
-            this.extentableTextBox22.LabelText = "SFAF_113";
+            this.extentableTextBox22.Name = "SFAF_113";
             this.extentableTextBox22.LabelTextColor = System.Drawing.SystemColors.ControlText;
             this.extentableTextBox22.Location = new System.Drawing.Point(6, 269);
-            this.extentableTextBox22.Name = "extentableTextBox22";
+            this.extentableTextBox22.LabelText = "Label22";
             this.extentableTextBox22.Size = new System.Drawing.Size(315, 22);
             this.extentableTextBox22.TabIndex = 36;
             this.extentableTextBox22.TextBoxBackColor = System.Drawing.SystemColors.Window;
@@ -1289,10 +1274,10 @@
             this.extentableTextBox17.BackgroundColor = System.Drawing.Color.Transparent;
             this.extentableTextBox17.ButtonBackColor = System.Drawing.Color.Transparent;
             this.extentableTextBox17.ButtonColor = System.Drawing.SystemColors.ControlText;
-            this.extentableTextBox17.LabelText = "SFAF_107";
+            this.extentableTextBox17.Name = "SFAF_107";
             this.extentableTextBox17.LabelTextColor = System.Drawing.SystemColors.ControlText;
             this.extentableTextBox17.Location = new System.Drawing.Point(6, 129);
-            this.extentableTextBox17.Name = "extentableTextBox17";
+            this.extentableTextBox17.LabelText = "Label17";
             this.extentableTextBox17.Size = new System.Drawing.Size(315, 22);
             this.extentableTextBox17.TabIndex = 36;
             this.extentableTextBox17.TextBoxBackColor = System.Drawing.SystemColors.Window;
@@ -1305,10 +1290,10 @@
             this.extentableTextBox24.BackgroundColor = System.Drawing.Color.Transparent;
             this.extentableTextBox24.ButtonBackColor = System.Drawing.Color.Transparent;
             this.extentableTextBox24.ButtonColor = System.Drawing.SystemColors.ControlText;
-            this.extentableTextBox24.LabelText = "SFAF_115";
+            this.extentableTextBox24.Name = "SFAF_115";
             this.extentableTextBox24.LabelTextColor = System.Drawing.SystemColors.ControlText;
             this.extentableTextBox24.Location = new System.Drawing.Point(6, 325);
-            this.extentableTextBox24.Name = "extentableTextBox24";
+            this.extentableTextBox24.LabelText = "Label24";
             this.extentableTextBox24.Size = new System.Drawing.Size(315, 22);
             this.extentableTextBox24.TabIndex = 36;
             this.extentableTextBox24.TextBoxBackColor = System.Drawing.SystemColors.Window;
@@ -1321,10 +1306,10 @@
             this.extentableTextBox21.BackgroundColor = System.Drawing.Color.Transparent;
             this.extentableTextBox21.ButtonBackColor = System.Drawing.Color.Transparent;
             this.extentableTextBox21.ButtonColor = System.Drawing.SystemColors.ControlText;
-            this.extentableTextBox21.LabelText = "SFAF_112";
+            this.extentableTextBox21.Name = "SFAF_112";
             this.extentableTextBox21.LabelTextColor = System.Drawing.SystemColors.ControlText;
             this.extentableTextBox21.Location = new System.Drawing.Point(6, 241);
-            this.extentableTextBox21.Name = "extentableTextBox21";
+            this.extentableTextBox21.LabelText = "Label21";
             this.extentableTextBox21.Size = new System.Drawing.Size(315, 22);
             this.extentableTextBox21.TabIndex = 36;
             this.extentableTextBox21.TextBoxBackColor = System.Drawing.SystemColors.Window;
@@ -1337,10 +1322,10 @@
             this.extentableTextBox39.BackgroundColor = System.Drawing.Color.Transparent;
             this.extentableTextBox39.ButtonBackColor = System.Drawing.Color.Transparent;
             this.extentableTextBox39.ButtonColor = System.Drawing.SystemColors.ControlText;
-            this.extentableTextBox39.LabelText = "SFAF_152";
+            this.extentableTextBox39.Name = "SFAF_152";
             this.extentableTextBox39.LabelTextColor = System.Drawing.SystemColors.ControlText;
             this.extentableTextBox39.Location = new System.Drawing.Point(362, 353);
-            this.extentableTextBox39.Name = "extentableTextBox39";
+            this.extentableTextBox39.LabelText = "Label39";
             this.extentableTextBox39.Size = new System.Drawing.Size(315, 22);
             this.extentableTextBox39.TabIndex = 36;
             this.extentableTextBox39.TextBoxBackColor = System.Drawing.SystemColors.Window;
@@ -1353,10 +1338,10 @@
             this.extentableTextBox37.BackgroundColor = System.Drawing.Color.Transparent;
             this.extentableTextBox37.ButtonBackColor = System.Drawing.Color.Transparent;
             this.extentableTextBox37.ButtonColor = System.Drawing.SystemColors.ControlText;
-            this.extentableTextBox37.LabelText = "SFAF_147";
+            this.extentableTextBox37.Name = "SFAF_147";
             this.extentableTextBox37.LabelTextColor = System.Drawing.SystemColors.ControlText;
             this.extentableTextBox37.Location = new System.Drawing.Point(362, 297);
-            this.extentableTextBox37.Name = "extentableTextBox37";
+            this.extentableTextBox37.LabelText = "Label37";
             this.extentableTextBox37.Size = new System.Drawing.Size(315, 22);
             this.extentableTextBox37.TabIndex = 36;
             this.extentableTextBox37.TextBoxBackColor = System.Drawing.SystemColors.Window;
@@ -1369,10 +1354,10 @@
             this.extentableTextBox38.BackgroundColor = System.Drawing.Color.Transparent;
             this.extentableTextBox38.ButtonBackColor = System.Drawing.Color.Transparent;
             this.extentableTextBox38.ButtonColor = System.Drawing.SystemColors.ControlText;
-            this.extentableTextBox38.LabelText = "SFAF_151";
+            this.extentableTextBox38.Name = "SFAF_151";
             this.extentableTextBox38.LabelTextColor = System.Drawing.SystemColors.ControlText;
             this.extentableTextBox38.Location = new System.Drawing.Point(362, 325);
-            this.extentableTextBox38.Name = "extentableTextBox38";
+            this.extentableTextBox38.LabelText = "Label38";
             this.extentableTextBox38.Size = new System.Drawing.Size(315, 22);
             this.extentableTextBox38.TabIndex = 36;
             this.extentableTextBox38.TextBoxBackColor = System.Drawing.SystemColors.Window;
@@ -1385,10 +1370,10 @@
             this.extentableTextBox36.BackgroundColor = System.Drawing.Color.Transparent;
             this.extentableTextBox36.ButtonBackColor = System.Drawing.Color.Transparent;
             this.extentableTextBox36.ButtonColor = System.Drawing.SystemColors.ControlText;
-            this.extentableTextBox36.LabelText = "SFAF_146";
+            this.extentableTextBox36.Name = "SFAF_146";
             this.extentableTextBox36.LabelTextColor = System.Drawing.SystemColors.ControlText;
             this.extentableTextBox36.Location = new System.Drawing.Point(362, 269);
-            this.extentableTextBox36.Name = "extentableTextBox36";
+            this.extentableTextBox36.LabelText = "Label36";
             this.extentableTextBox36.Size = new System.Drawing.Size(315, 22);
             this.extentableTextBox36.TabIndex = 36;
             this.extentableTextBox36.TextBoxBackColor = System.Drawing.SystemColors.Window;
@@ -1401,10 +1386,10 @@
             this.extentableTextBox33.BackgroundColor = System.Drawing.Color.Transparent;
             this.extentableTextBox33.ButtonBackColor = System.Drawing.Color.Transparent;
             this.extentableTextBox33.ButtonColor = System.Drawing.SystemColors.ControlText;
-            this.extentableTextBox33.LabelText = "SFAF_143";
+            this.extentableTextBox33.Name = "SFAF_143";
             this.extentableTextBox33.LabelTextColor = System.Drawing.SystemColors.ControlText;
             this.extentableTextBox33.Location = new System.Drawing.Point(362, 185);
-            this.extentableTextBox33.Name = "extentableTextBox33";
+            this.extentableTextBox33.LabelText = "Label33";
             this.extentableTextBox33.Size = new System.Drawing.Size(315, 22);
             this.extentableTextBox33.TabIndex = 36;
             this.extentableTextBox33.TextBoxBackColor = System.Drawing.SystemColors.Window;
@@ -1417,10 +1402,10 @@
             this.extentableTextBox29.BackgroundColor = System.Drawing.Color.Transparent;
             this.extentableTextBox29.ButtonBackColor = System.Drawing.Color.Transparent;
             this.extentableTextBox29.ButtonColor = System.Drawing.SystemColors.ControlText;
-            this.extentableTextBox29.LabelText = "SFAF_131";
+            this.extentableTextBox29.Name = "SFAF_131";
             this.extentableTextBox29.LabelTextColor = System.Drawing.SystemColors.ControlText;
             this.extentableTextBox29.Location = new System.Drawing.Point(362, 73);
-            this.extentableTextBox29.Name = "extentableTextBox29";
+            this.extentableTextBox29.LabelText = "Label29";
             this.extentableTextBox29.Size = new System.Drawing.Size(315, 22);
             this.extentableTextBox29.TabIndex = 36;
             this.extentableTextBox29.TextBoxBackColor = System.Drawing.SystemColors.Window;
@@ -1433,10 +1418,10 @@
             this.extentableTextBox16.BackgroundColor = System.Drawing.Color.Transparent;
             this.extentableTextBox16.ButtonBackColor = System.Drawing.Color.Transparent;
             this.extentableTextBox16.ButtonColor = System.Drawing.SystemColors.ControlText;
-            this.extentableTextBox16.LabelText = "SFAF_106";
+            this.extentableTextBox16.Name = "SFAF_106";
             this.extentableTextBox16.LabelTextColor = System.Drawing.SystemColors.ControlText;
             this.extentableTextBox16.Location = new System.Drawing.Point(6, 101);
-            this.extentableTextBox16.Name = "extentableTextBox16";
+            this.extentableTextBox16.LabelText = "Label16";
             this.extentableTextBox16.Size = new System.Drawing.Size(315, 22);
             this.extentableTextBox16.TabIndex = 36;
             this.extentableTextBox16.TextBoxBackColor = System.Drawing.SystemColors.Window;
@@ -1449,10 +1434,10 @@
             this.extentableTextBox23.BackgroundColor = System.Drawing.Color.Transparent;
             this.extentableTextBox23.ButtonBackColor = System.Drawing.Color.Transparent;
             this.extentableTextBox23.ButtonColor = System.Drawing.SystemColors.ControlText;
-            this.extentableTextBox23.LabelText = "SFAF_114";
+            this.extentableTextBox23.Name = "SFAF_114";
             this.extentableTextBox23.LabelTextColor = System.Drawing.SystemColors.ControlText;
             this.extentableTextBox23.Location = new System.Drawing.Point(6, 297);
-            this.extentableTextBox23.Name = "extentableTextBox23";
+            this.extentableTextBox23.LabelText = "Label23";
             this.extentableTextBox23.Size = new System.Drawing.Size(315, 22);
             this.extentableTextBox23.TabIndex = 37;
             this.extentableTextBox23.TextBoxBackColor = System.Drawing.SystemColors.Window;
@@ -1465,10 +1450,10 @@
             this.extentableTextBox20.BackgroundColor = System.Drawing.Color.Transparent;
             this.extentableTextBox20.ButtonBackColor = System.Drawing.Color.Transparent;
             this.extentableTextBox20.ButtonColor = System.Drawing.SystemColors.ControlText;
-            this.extentableTextBox20.LabelText = "SFAF_111";
+            this.extentableTextBox20.Name = "SFAF_111";
             this.extentableTextBox20.LabelTextColor = System.Drawing.SystemColors.ControlText;
             this.extentableTextBox20.Location = new System.Drawing.Point(6, 213);
-            this.extentableTextBox20.Name = "extentableTextBox20";
+            this.extentableTextBox20.LabelText = "Label20";
             this.extentableTextBox20.Size = new System.Drawing.Size(315, 22);
             this.extentableTextBox20.TabIndex = 37;
             this.extentableTextBox20.TextBoxBackColor = System.Drawing.SystemColors.Window;
@@ -1481,10 +1466,10 @@
             this.extentableTextBox35.BackgroundColor = System.Drawing.Color.Transparent;
             this.extentableTextBox35.ButtonBackColor = System.Drawing.Color.Transparent;
             this.extentableTextBox35.ButtonColor = System.Drawing.SystemColors.ControlText;
-            this.extentableTextBox35.LabelText = "SFAF_145";
+            this.extentableTextBox35.Name = "SFAF_145";
             this.extentableTextBox35.LabelTextColor = System.Drawing.SystemColors.ControlText;
             this.extentableTextBox35.Location = new System.Drawing.Point(362, 241);
-            this.extentableTextBox35.Name = "extentableTextBox35";
+            this.extentableTextBox35.LabelText = "Label35";
             this.extentableTextBox35.Size = new System.Drawing.Size(315, 22);
             this.extentableTextBox35.TabIndex = 37;
             this.extentableTextBox35.TextBoxBackColor = System.Drawing.SystemColors.Window;
@@ -1497,10 +1482,10 @@
             this.extentableTextBox32.BackgroundColor = System.Drawing.Color.Transparent;
             this.extentableTextBox32.ButtonBackColor = System.Drawing.Color.Transparent;
             this.extentableTextBox32.ButtonColor = System.Drawing.SystemColors.ControlText;
-            this.extentableTextBox32.LabelText = "SFAF_142";
+            this.extentableTextBox32.Name = "SFAF_142";
             this.extentableTextBox32.LabelTextColor = System.Drawing.SystemColors.ControlText;
             this.extentableTextBox32.Location = new System.Drawing.Point(362, 157);
-            this.extentableTextBox32.Name = "extentableTextBox32";
+            this.extentableTextBox32.LabelText = "Label32";
             this.extentableTextBox32.Size = new System.Drawing.Size(315, 22);
             this.extentableTextBox32.TabIndex = 37;
             this.extentableTextBox32.TextBoxBackColor = System.Drawing.SystemColors.Window;
@@ -1513,10 +1498,10 @@
             this.extentableTextBox28.BackgroundColor = System.Drawing.Color.Transparent;
             this.extentableTextBox28.ButtonBackColor = System.Drawing.Color.Transparent;
             this.extentableTextBox28.ButtonColor = System.Drawing.SystemColors.ControlText;
-            this.extentableTextBox28.LabelText = "SFAF_130";
+            this.extentableTextBox28.Name = "SFAF_130";
             this.extentableTextBox28.LabelTextColor = System.Drawing.SystemColors.ControlText;
             this.extentableTextBox28.Location = new System.Drawing.Point(362, 45);
-            this.extentableTextBox28.Name = "extentableTextBox28";
+            this.extentableTextBox28.LabelText = "Label28";
             this.extentableTextBox28.Size = new System.Drawing.Size(315, 22);
             this.extentableTextBox28.TabIndex = 37;
             this.extentableTextBox28.TextBoxBackColor = System.Drawing.SystemColors.Window;
@@ -1529,10 +1514,10 @@
             this.extentableTextBox15.BackgroundColor = System.Drawing.Color.Transparent;
             this.extentableTextBox15.ButtonBackColor = System.Drawing.Color.Transparent;
             this.extentableTextBox15.ButtonColor = System.Drawing.SystemColors.ControlText;
-            this.extentableTextBox15.LabelText = "SFAF_105";
+            this.extentableTextBox15.Name = "SFAF_105";
             this.extentableTextBox15.LabelTextColor = System.Drawing.SystemColors.ControlText;
             this.extentableTextBox15.Location = new System.Drawing.Point(6, 73);
-            this.extentableTextBox15.Name = "extentableTextBox15";
+            this.extentableTextBox15.LabelText = "Label15";
             this.extentableTextBox15.Size = new System.Drawing.Size(315, 22);
             this.extentableTextBox15.TabIndex = 37;
             this.extentableTextBox15.TextBoxBackColor = System.Drawing.SystemColors.Window;
@@ -1545,10 +1530,10 @@
             this.extentableTextBox19.BackgroundColor = System.Drawing.Color.Transparent;
             this.extentableTextBox19.ButtonBackColor = System.Drawing.Color.Transparent;
             this.extentableTextBox19.ButtonColor = System.Drawing.SystemColors.ControlText;
-            this.extentableTextBox19.LabelText = "SFAF_110";
+            this.extentableTextBox19.Name = "SFAF_110";
             this.extentableTextBox19.LabelTextColor = System.Drawing.SystemColors.ControlText;
             this.extentableTextBox19.Location = new System.Drawing.Point(6, 185);
-            this.extentableTextBox19.Name = "extentableTextBox19";
+            this.extentableTextBox19.LabelText = "Label19";
             this.extentableTextBox19.Size = new System.Drawing.Size(315, 22);
             this.extentableTextBox19.TabIndex = 34;
             this.extentableTextBox19.TextBoxBackColor = System.Drawing.SystemColors.Window;
@@ -1561,10 +1546,10 @@
             this.extentableTextBox34.BackgroundColor = System.Drawing.Color.Transparent;
             this.extentableTextBox34.ButtonBackColor = System.Drawing.Color.Transparent;
             this.extentableTextBox34.ButtonColor = System.Drawing.SystemColors.ControlText;
-            this.extentableTextBox34.LabelText = "SFAF_144";
+            this.extentableTextBox34.Name = "SFAF_144";
             this.extentableTextBox34.LabelTextColor = System.Drawing.SystemColors.ControlText;
             this.extentableTextBox34.Location = new System.Drawing.Point(362, 213);
-            this.extentableTextBox34.Name = "extentableTextBox34";
+            this.extentableTextBox34.LabelText = "Label34";
             this.extentableTextBox34.Size = new System.Drawing.Size(315, 22);
             this.extentableTextBox34.TabIndex = 34;
             this.extentableTextBox34.TextBoxBackColor = System.Drawing.SystemColors.Window;
@@ -1577,10 +1562,10 @@
             this.extentableTextBox31.BackgroundColor = System.Drawing.Color.Transparent;
             this.extentableTextBox31.ButtonBackColor = System.Drawing.Color.Transparent;
             this.extentableTextBox31.ButtonColor = System.Drawing.SystemColors.ControlText;
-            this.extentableTextBox31.LabelText = "SFAF_141";
+            this.extentableTextBox31.Name = "SFAF_141";
             this.extentableTextBox31.LabelTextColor = System.Drawing.SystemColors.ControlText;
             this.extentableTextBox31.Location = new System.Drawing.Point(362, 129);
-            this.extentableTextBox31.Name = "extentableTextBox31";
+            this.extentableTextBox31.LabelText = "Label31";
             this.extentableTextBox31.Size = new System.Drawing.Size(315, 22);
             this.extentableTextBox31.TabIndex = 34;
             this.extentableTextBox31.TextBoxBackColor = System.Drawing.SystemColors.Window;
@@ -1593,10 +1578,10 @@
             this.extentableTextBox27.BackgroundColor = System.Drawing.Color.Transparent;
             this.extentableTextBox27.ButtonBackColor = System.Drawing.Color.Transparent;
             this.extentableTextBox27.ButtonColor = System.Drawing.SystemColors.ControlText;
-            this.extentableTextBox27.LabelText = "SFAF_118";
+            this.extentableTextBox27.Name = "SFAF_118";
             this.extentableTextBox27.LabelTextColor = System.Drawing.SystemColors.ControlText;
             this.extentableTextBox27.Location = new System.Drawing.Point(362, 17);
-            this.extentableTextBox27.Name = "extentableTextBox27";
+            this.extentableTextBox27.LabelText = "Label27";
             this.extentableTextBox27.Size = new System.Drawing.Size(315, 22);
             this.extentableTextBox27.TabIndex = 34;
             this.extentableTextBox27.TextBoxBackColor = System.Drawing.SystemColors.Window;
@@ -1609,10 +1594,10 @@
             this.extentableTextBox14.BackgroundColor = System.Drawing.Color.Transparent;
             this.extentableTextBox14.ButtonBackColor = System.Drawing.Color.Transparent;
             this.extentableTextBox14.ButtonColor = System.Drawing.SystemColors.ControlText;
-            this.extentableTextBox14.LabelText = "SFAF_103";
+            this.extentableTextBox14.Name = "SFAF_103";
             this.extentableTextBox14.LabelTextColor = System.Drawing.SystemColors.ControlText;
             this.extentableTextBox14.Location = new System.Drawing.Point(6, 45);
-            this.extentableTextBox14.Name = "extentableTextBox14";
+            this.extentableTextBox14.LabelText = "Label14";
             this.extentableTextBox14.Size = new System.Drawing.Size(315, 22);
             this.extentableTextBox14.TabIndex = 34;
             this.extentableTextBox14.TextBoxBackColor = System.Drawing.SystemColors.Window;
@@ -1625,10 +1610,10 @@
             this.extentableTextBox18.BackgroundColor = System.Drawing.Color.Transparent;
             this.extentableTextBox18.ButtonBackColor = System.Drawing.Color.Transparent;
             this.extentableTextBox18.ButtonColor = System.Drawing.SystemColors.ControlText;
-            this.extentableTextBox18.LabelText = "SFAF_108";
+            this.extentableTextBox18.Name = "SFAF_108";
             this.extentableTextBox18.LabelTextColor = System.Drawing.SystemColors.ControlText;
             this.extentableTextBox18.Location = new System.Drawing.Point(6, 157);
-            this.extentableTextBox18.Name = "extentableTextBox18";
+            this.extentableTextBox18.LabelText = "Label18";
             this.extentableTextBox18.Size = new System.Drawing.Size(315, 22);
             this.extentableTextBox18.TabIndex = 35;
             this.extentableTextBox18.TextBoxBackColor = System.Drawing.SystemColors.Window;
@@ -1641,10 +1626,10 @@
             this.extentableTextBox30.BackgroundColor = System.Drawing.Color.Transparent;
             this.extentableTextBox30.ButtonBackColor = System.Drawing.Color.Transparent;
             this.extentableTextBox30.ButtonColor = System.Drawing.SystemColors.ControlText;
-            this.extentableTextBox30.LabelText = "SFAF_140";
+            this.extentableTextBox30.Name = "SFAF_140";
             this.extentableTextBox30.LabelTextColor = System.Drawing.SystemColors.ControlText;
             this.extentableTextBox30.Location = new System.Drawing.Point(362, 101);
-            this.extentableTextBox30.Name = "extentableTextBox30";
+            this.extentableTextBox30.LabelText = "Label30";
             this.extentableTextBox30.Size = new System.Drawing.Size(315, 22);
             this.extentableTextBox30.TabIndex = 35;
             this.extentableTextBox30.TextBoxBackColor = System.Drawing.SystemColors.Window;
@@ -1657,10 +1642,10 @@
             this.extentableTextBox26.BackgroundColor = System.Drawing.Color.Transparent;
             this.extentableTextBox26.ButtonBackColor = System.Drawing.Color.Transparent;
             this.extentableTextBox26.ButtonColor = System.Drawing.SystemColors.ControlText;
-            this.extentableTextBox26.LabelText = "SFAF_117";
+            this.extentableTextBox26.Name = "SFAF_117";
             this.extentableTextBox26.LabelTextColor = System.Drawing.SystemColors.ControlText;
             this.extentableTextBox26.Location = new System.Drawing.Point(6, 381);
-            this.extentableTextBox26.Name = "extentableTextBox26";
+            this.extentableTextBox26.LabelText = "Label26";
             this.extentableTextBox26.Size = new System.Drawing.Size(315, 22);
             this.extentableTextBox26.TabIndex = 35;
             this.extentableTextBox26.TextBoxBackColor = System.Drawing.SystemColors.Window;
@@ -1673,10 +1658,10 @@
             this.extentableTextBox13.BackgroundColor = System.Drawing.Color.Transparent;
             this.extentableTextBox13.ButtonBackColor = System.Drawing.Color.Transparent;
             this.extentableTextBox13.ButtonColor = System.Drawing.SystemColors.ControlText;
-            this.extentableTextBox13.LabelText = "SFAF_102";
+            this.extentableTextBox13.Name = "SFAF_102";
             this.extentableTextBox13.LabelTextColor = System.Drawing.SystemColors.ControlText;
             this.extentableTextBox13.Location = new System.Drawing.Point(6, 17);
-            this.extentableTextBox13.Name = "extentableTextBox13";
+            this.extentableTextBox13.LabelText = "Label13";
             this.extentableTextBox13.Size = new System.Drawing.Size(315, 22);
             this.extentableTextBox13.TabIndex = 35;
             this.extentableTextBox13.TextBoxBackColor = System.Drawing.SystemColors.Window;
@@ -1689,10 +1674,10 @@
             this.extentableTextBox12.BackgroundColor = System.Drawing.Color.Transparent;
             this.extentableTextBox12.ButtonBackColor = System.Drawing.Color.Transparent;
             this.extentableTextBox12.ButtonColor = System.Drawing.SystemColors.ControlText;
-            this.extentableTextBox12.LabelText = "SFAF_020";
+            this.extentableTextBox12.Name = "SFAF_020";
             this.extentableTextBox12.LabelTextColor = System.Drawing.SystemColors.ControlText;
             this.extentableTextBox12.Location = new System.Drawing.Point(6, 325);
-            this.extentableTextBox12.Name = "extentableTextBox12";
+            this.extentableTextBox12.LabelText = "Label12";
             this.extentableTextBox12.Size = new System.Drawing.Size(315, 22);
             this.extentableTextBox12.TabIndex = 36;
             this.extentableTextBox12.TextBoxBackColor = System.Drawing.SystemColors.Window;
@@ -1705,10 +1690,10 @@
             this.extentableTextBox6.BackgroundColor = System.Drawing.Color.Transparent;
             this.extentableTextBox6.ButtonBackColor = System.Drawing.Color.Transparent;
             this.extentableTextBox6.ButtonColor = System.Drawing.SystemColors.ControlText;
-            this.extentableTextBox6.LabelText = "SFAF_014";
+            this.extentableTextBox6.Name = "SFAF_014";
             this.extentableTextBox6.LabelTextColor = System.Drawing.SystemColors.ControlText;
             this.extentableTextBox6.Location = new System.Drawing.Point(5, 157);
-            this.extentableTextBox6.Name = "extentableTextBox6";
+            this.extentableTextBox6.LabelText = "Label6";
             this.extentableTextBox6.Size = new System.Drawing.Size(315, 22);
             this.extentableTextBox6.TabIndex = 36;
             this.extentableTextBox6.TextBoxBackColor = System.Drawing.SystemColors.Window;
@@ -1721,10 +1706,10 @@
             this.extentableTextBox11.BackgroundColor = System.Drawing.Color.Transparent;
             this.extentableTextBox11.ButtonBackColor = System.Drawing.Color.Transparent;
             this.extentableTextBox11.ButtonColor = System.Drawing.SystemColors.ControlText;
-            this.extentableTextBox11.LabelText = "SFAF_018";
+            this.extentableTextBox11.Name = "SFAF_018";
             this.extentableTextBox11.LabelTextColor = System.Drawing.SystemColors.ControlText;
             this.extentableTextBox11.Location = new System.Drawing.Point(6, 269);
-            this.extentableTextBox11.Name = "extentableTextBox11";
+            this.extentableTextBox11.LabelText = "Label11";
             this.extentableTextBox11.Size = new System.Drawing.Size(315, 22);
             this.extentableTextBox11.TabIndex = 36;
             this.extentableTextBox11.TextBoxBackColor = System.Drawing.SystemColors.Window;
@@ -1737,10 +1722,10 @@
             this.extentableTextBox3.BackgroundColor = System.Drawing.Color.Transparent;
             this.extentableTextBox3.ButtonBackColor = System.Drawing.Color.Transparent;
             this.extentableTextBox3.ButtonColor = System.Drawing.SystemColors.ControlText;
-            this.extentableTextBox3.LabelText = "SFAF_010";
+            this.extentableTextBox3.Name = "SFAF_010";
             this.extentableTextBox3.LabelTextColor = System.Drawing.SystemColors.ControlText;
             this.extentableTextBox3.Location = new System.Drawing.Point(5, 101);
-            this.extentableTextBox3.Name = "extentableTextBox3";
+            this.extentableTextBox3.LabelText = "Label3";
             this.extentableTextBox3.Size = new System.Drawing.Size(315, 22);
             this.extentableTextBox3.TabIndex = 36;
             this.extentableTextBox3.TextBoxBackColor = System.Drawing.SystemColors.Window;
@@ -1753,10 +1738,10 @@
             this.extentableTextBox10.BackgroundColor = System.Drawing.Color.Transparent;
             this.extentableTextBox10.ButtonBackColor = System.Drawing.Color.Transparent;
             this.extentableTextBox10.ButtonColor = System.Drawing.SystemColors.ControlText;
-            this.extentableTextBox10.LabelText = "SFAF_019";
+            this.extentableTextBox10.Name = "SFAF_019";
             this.extentableTextBox10.LabelTextColor = System.Drawing.SystemColors.ControlText;
             this.extentableTextBox10.Location = new System.Drawing.Point(6, 297);
-            this.extentableTextBox10.Name = "extentableTextBox10";
+            this.extentableTextBox10.LabelText = "Label10";
             this.extentableTextBox10.Size = new System.Drawing.Size(315, 22);
             this.extentableTextBox10.TabIndex = 37;
             this.extentableTextBox10.TextBoxBackColor = System.Drawing.SystemColors.Window;
@@ -1769,10 +1754,10 @@
             this.extentableTextBox5.BackgroundColor = System.Drawing.Color.Transparent;
             this.extentableTextBox5.ButtonBackColor = System.Drawing.Color.Transparent;
             this.extentableTextBox5.ButtonColor = System.Drawing.SystemColors.ControlText;
-            this.extentableTextBox5.LabelText = "SFAF_013";
+            this.extentableTextBox5.Name = "SFAF_013";
             this.extentableTextBox5.LabelTextColor = System.Drawing.SystemColors.ControlText;
             this.extentableTextBox5.Location = new System.Drawing.Point(5, 129);
-            this.extentableTextBox5.Name = "extentableTextBox5";
+            this.extentableTextBox5.LabelText = "Label5";
             this.extentableTextBox5.Size = new System.Drawing.Size(315, 22);
             this.extentableTextBox5.TabIndex = 37;
             this.extentableTextBox5.TextBoxBackColor = System.Drawing.SystemColors.Window;
@@ -1785,10 +1770,10 @@
             this.extentableTextBox9.BackgroundColor = System.Drawing.Color.Transparent;
             this.extentableTextBox9.ButtonBackColor = System.Drawing.Color.Transparent;
             this.extentableTextBox9.ButtonColor = System.Drawing.SystemColors.ControlText;
-            this.extentableTextBox9.LabelText = "SFAF_017";
+            this.extentableTextBox9.Name = "SFAF_017";
             this.extentableTextBox9.LabelTextColor = System.Drawing.SystemColors.ControlText;
             this.extentableTextBox9.Location = new System.Drawing.Point(6, 241);
-            this.extentableTextBox9.Name = "extentableTextBox9";
+            this.extentableTextBox9.LabelText = "Label9";
             this.extentableTextBox9.Size = new System.Drawing.Size(315, 22);
             this.extentableTextBox9.TabIndex = 37;
             this.extentableTextBox9.TextBoxBackColor = System.Drawing.SystemColors.Window;
@@ -1801,10 +1786,10 @@
             this.extentableTextBox4.BackgroundColor = System.Drawing.Color.Transparent;
             this.extentableTextBox4.ButtonBackColor = System.Drawing.Color.Transparent;
             this.extentableTextBox4.ButtonColor = System.Drawing.SystemColors.ControlText;
-            this.extentableTextBox4.LabelText = "SFAF_007";
+            this.extentableTextBox4.Name = "SFAF_007";
             this.extentableTextBox4.LabelTextColor = System.Drawing.SystemColors.ControlText;
             this.extentableTextBox4.Location = new System.Drawing.Point(5, 73);
-            this.extentableTextBox4.Name = "extentableTextBox4";
+            this.extentableTextBox4.LabelText = "Label4";
             this.extentableTextBox4.Size = new System.Drawing.Size(315, 22);
             this.extentableTextBox4.TabIndex = 37;
             this.extentableTextBox4.TextBoxBackColor = System.Drawing.SystemColors.Window;
@@ -1817,10 +1802,10 @@
             this.extentableTextBox8.BackgroundColor = System.Drawing.Color.Transparent;
             this.extentableTextBox8.ButtonBackColor = System.Drawing.Color.Transparent;
             this.extentableTextBox8.ButtonColor = System.Drawing.SystemColors.ControlText;
-            this.extentableTextBox8.LabelText = "SFAF_016";
+            this.extentableTextBox8.Name = "SFAF_016";
             this.extentableTextBox8.LabelTextColor = System.Drawing.SystemColors.ControlText;
             this.extentableTextBox8.Location = new System.Drawing.Point(6, 213);
-            this.extentableTextBox8.Name = "extentableTextBox8";
+            this.extentableTextBox8.LabelText = "Label8";
             this.extentableTextBox8.Size = new System.Drawing.Size(315, 22);
             this.extentableTextBox8.TabIndex = 34;
             this.extentableTextBox8.TextBoxBackColor = System.Drawing.SystemColors.Window;
@@ -1833,10 +1818,10 @@
             this.extentableTextBox2.BackgroundColor = System.Drawing.Color.Transparent;
             this.extentableTextBox2.ButtonBackColor = System.Drawing.Color.Transparent;
             this.extentableTextBox2.ButtonColor = System.Drawing.SystemColors.ControlText;
-            this.extentableTextBox2.LabelText = "SFAF_006";
+            this.extentableTextBox2.Name = "SFAF_006";
             this.extentableTextBox2.LabelTextColor = System.Drawing.SystemColors.ControlText;
             this.extentableTextBox2.Location = new System.Drawing.Point(5, 45);
-            this.extentableTextBox2.Name = "extentableTextBox2";
+            this.extentableTextBox2.LabelText = "Label2";
             this.extentableTextBox2.Size = new System.Drawing.Size(315, 22);
             this.extentableTextBox2.TabIndex = 34;
             this.extentableTextBox2.TextBoxBackColor = System.Drawing.SystemColors.Window;
@@ -1849,10 +1834,10 @@
             this.extentableTextBox7.BackgroundColor = System.Drawing.Color.Transparent;
             this.extentableTextBox7.ButtonBackColor = System.Drawing.Color.Transparent;
             this.extentableTextBox7.ButtonColor = System.Drawing.SystemColors.ControlText;
-            this.extentableTextBox7.LabelText = "SFAF_015";
+            this.extentableTextBox7.Name = "SFAF_015";
             this.extentableTextBox7.LabelTextColor = System.Drawing.SystemColors.ControlText;
             this.extentableTextBox7.Location = new System.Drawing.Point(6, 185);
-            this.extentableTextBox7.Name = "extentableTextBox7";
+            this.extentableTextBox7.LabelText = "Label7";
             this.extentableTextBox7.Size = new System.Drawing.Size(315, 22);
             this.extentableTextBox7.TabIndex = 35;
             this.extentableTextBox7.TextBoxBackColor = System.Drawing.SystemColors.Window;
@@ -1865,10 +1850,10 @@
             this.extentableTextBox1.BackgroundColor = System.Drawing.Color.Transparent;
             this.extentableTextBox1.ButtonBackColor = System.Drawing.Color.Transparent;
             this.extentableTextBox1.ButtonColor = System.Drawing.SystemColors.ControlText;
-            this.extentableTextBox1.LabelText = "SFAF_005";
+            this.extentableTextBox1.Name = "SFAF_005";
             this.extentableTextBox1.LabelTextColor = System.Drawing.SystemColors.ControlText;
             this.extentableTextBox1.Location = new System.Drawing.Point(5, 17);
-            this.extentableTextBox1.Name = "extentableTextBox1";
+            this.extentableTextBox1.LabelText = "Label1";
             this.extentableTextBox1.Size = new System.Drawing.Size(315, 22);
             this.extentableTextBox1.TabIndex = 35;
             this.extentableTextBox1.TextBoxBackColor = System.Drawing.SystemColors.Window;
@@ -1881,10 +1866,10 @@
             this.extentableTextBox72.BackgroundColor = System.Drawing.Color.Transparent;
             this.extentableTextBox72.ButtonBackColor = System.Drawing.Color.Transparent;
             this.extentableTextBox72.ButtonColor = System.Drawing.SystemColors.ControlText;
-            this.extentableTextBox72.LabelText = "SFAF_807";
+            this.extentableTextBox72.Name = "SFAF_807";
             this.extentableTextBox72.LabelTextColor = System.Drawing.SystemColors.ControlText;
             this.extentableTextBox72.Location = new System.Drawing.Point(9, 161);
-            this.extentableTextBox72.Name = "extentableTextBox72";
+            this.extentableTextBox72.LabelText = "Label72";
             this.extentableTextBox72.Size = new System.Drawing.Size(315, 22);
             this.extentableTextBox72.TabIndex = 49;
             this.extentableTextBox72.TextBoxBackColor = System.Drawing.SystemColors.Window;
@@ -1897,10 +1882,10 @@
             this.extentableTextBox73.BackgroundColor = System.Drawing.Color.Transparent;
             this.extentableTextBox73.ButtonBackColor = System.Drawing.Color.Transparent;
             this.extentableTextBox73.ButtonColor = System.Drawing.SystemColors.ControlText;
-            this.extentableTextBox73.LabelText = "SFAF_801";
+            this.extentableTextBox73.Name = "SFAF_801";
             this.extentableTextBox73.LabelTextColor = System.Drawing.SystemColors.ControlText;
             this.extentableTextBox73.Location = new System.Drawing.Point(9, 21);
-            this.extentableTextBox73.Name = "extentableTextBox73";
+            this.extentableTextBox73.LabelText = "Label73";
             this.extentableTextBox73.Size = new System.Drawing.Size(315, 22);
             this.extentableTextBox73.TabIndex = 46;
             this.extentableTextBox73.TextBoxBackColor = System.Drawing.SystemColors.Window;
@@ -1913,10 +1898,10 @@
             this.extentableTextBox74.BackgroundColor = System.Drawing.Color.Transparent;
             this.extentableTextBox74.ButtonBackColor = System.Drawing.Color.Transparent;
             this.extentableTextBox74.ButtonColor = System.Drawing.SystemColors.ControlText;
-            this.extentableTextBox74.LabelText = "SFAF_805";
+            this.extentableTextBox74.Name = "SFAF_805";
             this.extentableTextBox74.LabelTextColor = System.Drawing.SystemColors.ControlText;
             this.extentableTextBox74.Location = new System.Drawing.Point(9, 105);
-            this.extentableTextBox74.Name = "extentableTextBox74";
+            this.extentableTextBox74.LabelText = "Label74";
             this.extentableTextBox74.Size = new System.Drawing.Size(315, 22);
             this.extentableTextBox74.TabIndex = 47;
             this.extentableTextBox74.TextBoxBackColor = System.Drawing.SystemColors.Window;
@@ -1929,10 +1914,10 @@
             this.extentableTextBox75.BackgroundColor = System.Drawing.Color.Transparent;
             this.extentableTextBox75.ButtonBackColor = System.Drawing.Color.Transparent;
             this.extentableTextBox75.ButtonColor = System.Drawing.SystemColors.ControlText;
-            this.extentableTextBox75.LabelText = "SFAF_804";
+            this.extentableTextBox75.Name = "SFAF_804";
             this.extentableTextBox75.LabelTextColor = System.Drawing.SystemColors.ControlText;
             this.extentableTextBox75.Location = new System.Drawing.Point(9, 77);
-            this.extentableTextBox75.Name = "extentableTextBox75";
+            this.extentableTextBox75.LabelText = "Label75";
             this.extentableTextBox75.Size = new System.Drawing.Size(315, 22);
             this.extentableTextBox75.TabIndex = 48;
             this.extentableTextBox75.TextBoxBackColor = System.Drawing.SystemColors.Window;
@@ -1945,10 +1930,10 @@
             this.extentableTextBox76.BackgroundColor = System.Drawing.Color.Transparent;
             this.extentableTextBox76.ButtonBackColor = System.Drawing.Color.Transparent;
             this.extentableTextBox76.ButtonColor = System.Drawing.SystemColors.ControlText;
-            this.extentableTextBox76.LabelText = "SFAF_803";
+            this.extentableTextBox76.Name = "SFAF_803";
             this.extentableTextBox76.LabelTextColor = System.Drawing.SystemColors.ControlText;
             this.extentableTextBox76.Location = new System.Drawing.Point(9, 49);
-            this.extentableTextBox76.Name = "extentableTextBox76";
+            this.extentableTextBox76.LabelText = "Label76";
             this.extentableTextBox76.Size = new System.Drawing.Size(315, 22);
             this.extentableTextBox76.TabIndex = 44;
             this.extentableTextBox76.TextBoxBackColor = System.Drawing.SystemColors.Window;
@@ -1961,10 +1946,10 @@
             this.extentableTextBox77.BackgroundColor = System.Drawing.Color.Transparent;
             this.extentableTextBox77.ButtonBackColor = System.Drawing.Color.Transparent;
             this.extentableTextBox77.ButtonColor = System.Drawing.SystemColors.ControlText;
-            this.extentableTextBox77.LabelText = "SFAF_806";
+            this.extentableTextBox77.Name = "SFAF_806";
             this.extentableTextBox77.LabelTextColor = System.Drawing.SystemColors.ControlText;
             this.extentableTextBox77.Location = new System.Drawing.Point(9, 133);
-            this.extentableTextBox77.Name = "extentableTextBox77";
+            this.extentableTextBox77.LabelText = "Label77";
             this.extentableTextBox77.Size = new System.Drawing.Size(315, 22);
             this.extentableTextBox77.TabIndex = 45;
             this.extentableTextBox77.TextBoxBackColor = System.Drawing.SystemColors.Window;
@@ -1977,10 +1962,10 @@
             this.extentableTextBox49.BackgroundColor = System.Drawing.Color.Transparent;
             this.extentableTextBox49.ButtonBackColor = System.Drawing.Color.Transparent;
             this.extentableTextBox49.ButtonColor = System.Drawing.SystemColors.ControlText;
-            this.extentableTextBox49.LabelText = "SFAF_209";
+            this.extentableTextBox49.Name = "SFAF_209";
             this.extentableTextBox49.LabelTextColor = System.Drawing.SystemColors.ControlText;
             this.extentableTextBox49.Location = new System.Drawing.Point(6, 271);
-            this.extentableTextBox49.Name = "extentableTextBox49";
+            this.extentableTextBox49.LabelText = "Label49";
             this.extentableTextBox49.Size = new System.Drawing.Size(315, 22);
             this.extentableTextBox49.TabIndex = 36;
             this.extentableTextBox49.TextBoxBackColor = System.Drawing.SystemColors.Window;
@@ -1993,10 +1978,10 @@
             this.extentableTextBox48.BackgroundColor = System.Drawing.Color.Transparent;
             this.extentableTextBox48.ButtonBackColor = System.Drawing.Color.Transparent;
             this.extentableTextBox48.ButtonColor = System.Drawing.SystemColors.ControlText;
-            this.extentableTextBox48.LabelText = "SFAF_208";
+            this.extentableTextBox48.Name = "SFAF_208";
             this.extentableTextBox48.LabelTextColor = System.Drawing.SystemColors.ControlText;
             this.extentableTextBox48.Location = new System.Drawing.Point(5, 243);
-            this.extentableTextBox48.Name = "extentableTextBox48";
+            this.extentableTextBox48.LabelText = "Label48";
             this.extentableTextBox48.Size = new System.Drawing.Size(315, 22);
             this.extentableTextBox48.TabIndex = 36;
             this.extentableTextBox48.TextBoxBackColor = System.Drawing.SystemColors.Window;
@@ -2009,10 +1994,10 @@
             this.extentableTextBox47.BackgroundColor = System.Drawing.Color.Transparent;
             this.extentableTextBox47.ButtonBackColor = System.Drawing.Color.Transparent;
             this.extentableTextBox47.ButtonColor = System.Drawing.SystemColors.ControlText;
-            this.extentableTextBox47.LabelText = "SFAF_207";
+            this.extentableTextBox47.Name = "SFAF_207";
             this.extentableTextBox47.LabelTextColor = System.Drawing.SystemColors.ControlText;
             this.extentableTextBox47.Location = new System.Drawing.Point(6, 215);
-            this.extentableTextBox47.Name = "extentableTextBox47";
+            this.extentableTextBox47.LabelText = "Label47";
             this.extentableTextBox47.Size = new System.Drawing.Size(315, 22);
             this.extentableTextBox47.TabIndex = 36;
             this.extentableTextBox47.TextBoxBackColor = System.Drawing.SystemColors.Window;
@@ -2025,10 +2010,10 @@
             this.extentableTextBox43.BackgroundColor = System.Drawing.Color.Transparent;
             this.extentableTextBox43.ButtonBackColor = System.Drawing.Color.Transparent;
             this.extentableTextBox43.ButtonColor = System.Drawing.SystemColors.ControlText;
-            this.extentableTextBox43.LabelText = "SFAF_203";
+            this.extentableTextBox43.Name = "SFAF_203";
             this.extentableTextBox43.LabelTextColor = System.Drawing.SystemColors.ControlText;
             this.extentableTextBox43.Location = new System.Drawing.Point(6, 103);
-            this.extentableTextBox43.Name = "extentableTextBox43";
+            this.extentableTextBox43.LabelText = "Label43";
             this.extentableTextBox43.Size = new System.Drawing.Size(315, 22);
             this.extentableTextBox43.TabIndex = 36;
             this.extentableTextBox43.TextBoxBackColor = System.Drawing.SystemColors.Window;
@@ -2041,10 +2026,10 @@
             this.extentableTextBox46.BackgroundColor = System.Drawing.Color.Transparent;
             this.extentableTextBox46.ButtonBackColor = System.Drawing.Color.Transparent;
             this.extentableTextBox46.ButtonColor = System.Drawing.SystemColors.ControlText;
-            this.extentableTextBox46.LabelText = "SFAF_204";
+            this.extentableTextBox46.Name = "SFAF_204";
             this.extentableTextBox46.LabelTextColor = System.Drawing.SystemColors.ControlText;
             this.extentableTextBox46.Location = new System.Drawing.Point(6, 131);
-            this.extentableTextBox46.Name = "extentableTextBox46";
+            this.extentableTextBox46.LabelText = "Label46";
             this.extentableTextBox46.Size = new System.Drawing.Size(315, 22);
             this.extentableTextBox46.TabIndex = 35;
             this.extentableTextBox46.TextBoxBackColor = System.Drawing.SystemColors.Window;
@@ -2057,10 +2042,10 @@
             this.extentableTextBox45.BackgroundColor = System.Drawing.Color.Transparent;
             this.extentableTextBox45.ButtonBackColor = System.Drawing.Color.Transparent;
             this.extentableTextBox45.ButtonColor = System.Drawing.SystemColors.ControlText;
-            this.extentableTextBox45.LabelText = "SFAF_205";
+            this.extentableTextBox45.Name = "SFAF_205";
             this.extentableTextBox45.LabelTextColor = System.Drawing.SystemColors.ControlText;
             this.extentableTextBox45.Location = new System.Drawing.Point(6, 159);
-            this.extentableTextBox45.Name = "extentableTextBox45";
+            this.extentableTextBox45.LabelText = "Label45";
             this.extentableTextBox45.Size = new System.Drawing.Size(315, 22);
             this.extentableTextBox45.TabIndex = 34;
             this.extentableTextBox45.TextBoxBackColor = System.Drawing.SystemColors.Window;
@@ -2073,10 +2058,10 @@
             this.extentableTextBox40.BackgroundColor = System.Drawing.Color.Transparent;
             this.extentableTextBox40.ButtonBackColor = System.Drawing.Color.Transparent;
             this.extentableTextBox40.ButtonColor = System.Drawing.SystemColors.ControlText;
-            this.extentableTextBox40.LabelText = "SFAF_200";
+            this.extentableTextBox40.Name = "SFAF_200";
             this.extentableTextBox40.LabelTextColor = System.Drawing.SystemColors.ControlText;
             this.extentableTextBox40.Location = new System.Drawing.Point(6, 19);
-            this.extentableTextBox40.Name = "extentableTextBox40";
+            this.extentableTextBox40.LabelText = "Label40";
             this.extentableTextBox40.Size = new System.Drawing.Size(315, 22);
             this.extentableTextBox40.TabIndex = 35;
             this.extentableTextBox40.TextBoxBackColor = System.Drawing.SystemColors.Window;
@@ -2089,10 +2074,10 @@
             this.extentableTextBox44.BackgroundColor = System.Drawing.Color.Transparent;
             this.extentableTextBox44.ButtonBackColor = System.Drawing.Color.Transparent;
             this.extentableTextBox44.ButtonColor = System.Drawing.SystemColors.ControlText;
-            this.extentableTextBox44.LabelText = "SFAF_206";
+            this.extentableTextBox44.Name = "SFAF_206";
             this.extentableTextBox44.LabelTextColor = System.Drawing.SystemColors.ControlText;
             this.extentableTextBox44.Location = new System.Drawing.Point(6, 187);
-            this.extentableTextBox44.Name = "extentableTextBox44";
+            this.extentableTextBox44.LabelText = "Label44";
             this.extentableTextBox44.Size = new System.Drawing.Size(315, 22);
             this.extentableTextBox44.TabIndex = 37;
             this.extentableTextBox44.TextBoxBackColor = System.Drawing.SystemColors.Window;
@@ -2105,10 +2090,10 @@
             this.extentableTextBox41.BackgroundColor = System.Drawing.Color.Transparent;
             this.extentableTextBox41.ButtonBackColor = System.Drawing.Color.Transparent;
             this.extentableTextBox41.ButtonColor = System.Drawing.SystemColors.ControlText;
-            this.extentableTextBox41.LabelText = "SFAF_201";
+            this.extentableTextBox41.Name = "SFAF_201";
             this.extentableTextBox41.LabelTextColor = System.Drawing.SystemColors.ControlText;
             this.extentableTextBox41.Location = new System.Drawing.Point(6, 47);
-            this.extentableTextBox41.Name = "extentableTextBox41";
+            this.extentableTextBox41.LabelText = "Label41";
             this.extentableTextBox41.Size = new System.Drawing.Size(315, 22);
             this.extentableTextBox41.TabIndex = 34;
             this.extentableTextBox41.TextBoxBackColor = System.Drawing.SystemColors.Window;
@@ -2121,10 +2106,10 @@
             this.extentableTextBox42.BackgroundColor = System.Drawing.Color.Transparent;
             this.extentableTextBox42.ButtonBackColor = System.Drawing.Color.Transparent;
             this.extentableTextBox42.ButtonColor = System.Drawing.SystemColors.ControlText;
-            this.extentableTextBox42.LabelText = "SFAF_202";
+            this.extentableTextBox42.Name = "SFAF_202";
             this.extentableTextBox42.LabelTextColor = System.Drawing.SystemColors.ControlText;
             this.extentableTextBox42.Location = new System.Drawing.Point(6, 75);
-            this.extentableTextBox42.Name = "extentableTextBox42";
+            this.extentableTextBox42.LabelText = "Label42";
             this.extentableTextBox42.Size = new System.Drawing.Size(315, 22);
             this.extentableTextBox42.TabIndex = 37;
             this.extentableTextBox42.TextBoxBackColor = System.Drawing.SystemColors.Window;
@@ -2137,10 +2122,10 @@
             this.extentableTextBox63.BackgroundColor = System.Drawing.Color.Transparent;
             this.extentableTextBox63.ButtonBackColor = System.Drawing.Color.Transparent;
             this.extentableTextBox63.ButtonColor = System.Drawing.SystemColors.ControlText;
-            this.extentableTextBox63.LabelText = "SFAF_531";
+            this.extentableTextBox63.Name = "SFAF_531";
             this.extentableTextBox63.LabelTextColor = System.Drawing.SystemColors.ControlText;
             this.extentableTextBox63.Location = new System.Drawing.Point(362, 185);
-            this.extentableTextBox63.Name = "extentableTextBox63";
+            this.extentableTextBox63.LabelText = "Label63";
             this.extentableTextBox63.Size = new System.Drawing.Size(315, 22);
             this.extentableTextBox63.TabIndex = 36;
             this.extentableTextBox63.TextBoxBackColor = System.Drawing.SystemColors.Window;
@@ -2153,10 +2138,10 @@
             this.extentableTextBox61.BackgroundColor = System.Drawing.Color.Transparent;
             this.extentableTextBox61.ButtonBackColor = System.Drawing.Color.Transparent;
             this.extentableTextBox61.ButtonColor = System.Drawing.SystemColors.ControlText;
-            this.extentableTextBox61.LabelText = "SFAF_521";
+            this.extentableTextBox61.Name = "SFAF_521";
             this.extentableTextBox61.LabelTextColor = System.Drawing.SystemColors.ControlText;
             this.extentableTextBox61.Location = new System.Drawing.Point(362, 129);
-            this.extentableTextBox61.Name = "extentableTextBox61";
+            this.extentableTextBox61.LabelText = "Label61";
             this.extentableTextBox61.Size = new System.Drawing.Size(315, 22);
             this.extentableTextBox61.TabIndex = 36;
             this.extentableTextBox61.TextBoxBackColor = System.Drawing.SystemColors.Window;
@@ -2169,10 +2154,10 @@
             this.extentableTextBox59.BackgroundColor = System.Drawing.Color.Transparent;
             this.extentableTextBox59.ButtonBackColor = System.Drawing.Color.Transparent;
             this.extentableTextBox59.ButtonColor = System.Drawing.SystemColors.ControlText;
-            this.extentableTextBox59.LabelText = "SFAF_513";
+            this.extentableTextBox59.Name = "SFAF_513";
             this.extentableTextBox59.LabelTextColor = System.Drawing.SystemColors.ControlText;
             this.extentableTextBox59.Location = new System.Drawing.Point(362, 74);
-            this.extentableTextBox59.Name = "extentableTextBox59";
+            this.extentableTextBox59.LabelText = "Label59";
             this.extentableTextBox59.Size = new System.Drawing.Size(315, 22);
             this.extentableTextBox59.TabIndex = 36;
             this.extentableTextBox59.TextBoxBackColor = System.Drawing.SystemColors.Window;
@@ -2185,10 +2170,10 @@
             this.extentableTextBox57.BackgroundColor = System.Drawing.Color.Transparent;
             this.extentableTextBox57.ButtonBackColor = System.Drawing.Color.Transparent;
             this.extentableTextBox57.ButtonColor = System.Drawing.SystemColors.ControlText;
-            this.extentableTextBox57.LabelText = "SFAF_511";
+            this.extentableTextBox57.Name = "SFAF_511";
             this.extentableTextBox57.LabelTextColor = System.Drawing.SystemColors.ControlText;
             this.extentableTextBox57.Location = new System.Drawing.Point(362, 18);
-            this.extentableTextBox57.Name = "extentableTextBox57";
+            this.extentableTextBox57.LabelText = "Label57";
             this.extentableTextBox57.Size = new System.Drawing.Size(315, 22);
             this.extentableTextBox57.TabIndex = 36;
             this.extentableTextBox57.TextBoxBackColor = System.Drawing.SystemColors.Window;
@@ -2201,10 +2186,10 @@
             this.extentableTextBox55.BackgroundColor = System.Drawing.Color.Transparent;
             this.extentableTextBox55.ButtonBackColor = System.Drawing.Color.Transparent;
             this.extentableTextBox55.ButtonColor = System.Drawing.SystemColors.ControlText;
-            this.extentableTextBox55.LabelText = "SFAF_503";
+            this.extentableTextBox55.Name = "SFAF_503";
             this.extentableTextBox55.LabelTextColor = System.Drawing.SystemColors.ControlText;
             this.extentableTextBox55.Location = new System.Drawing.Point(6, 103);
-            this.extentableTextBox55.Name = "extentableTextBox55";
+            this.extentableTextBox55.LabelText = "Label55";
             this.extentableTextBox55.Size = new System.Drawing.Size(315, 22);
             this.extentableTextBox55.TabIndex = 36;
             this.extentableTextBox55.TextBoxBackColor = System.Drawing.SystemColors.Window;
@@ -2217,10 +2202,10 @@
             this.extentableTextBox62.BackgroundColor = System.Drawing.Color.Transparent;
             this.extentableTextBox62.ButtonBackColor = System.Drawing.Color.Transparent;
             this.extentableTextBox62.ButtonColor = System.Drawing.SystemColors.ControlText;
-            this.extentableTextBox62.LabelText = "SFAF_530";
+            this.extentableTextBox62.Name = "SFAF_530";
             this.extentableTextBox62.LabelTextColor = System.Drawing.SystemColors.ControlText;
             this.extentableTextBox62.Location = new System.Drawing.Point(362, 157);
-            this.extentableTextBox62.Name = "extentableTextBox62";
+            this.extentableTextBox62.LabelText = "Label62";
             this.extentableTextBox62.Size = new System.Drawing.Size(315, 22);
             this.extentableTextBox62.TabIndex = 37;
             this.extentableTextBox62.TextBoxBackColor = System.Drawing.SystemColors.Window;
@@ -2233,10 +2218,10 @@
             this.extentableTextBox54.BackgroundColor = System.Drawing.Color.Transparent;
             this.extentableTextBox54.ButtonBackColor = System.Drawing.Color.Transparent;
             this.extentableTextBox54.ButtonColor = System.Drawing.SystemColors.ControlText;
-            this.extentableTextBox54.LabelText = "SFAF_504";
+            this.extentableTextBox54.Name = "SFAF_504";
             this.extentableTextBox54.LabelTextColor = System.Drawing.SystemColors.ControlText;
             this.extentableTextBox54.Location = new System.Drawing.Point(6, 131);
-            this.extentableTextBox54.Name = "extentableTextBox54";
+            this.extentableTextBox54.LabelText = "Label54";
             this.extentableTextBox54.Size = new System.Drawing.Size(315, 22);
             this.extentableTextBox54.TabIndex = 35;
             this.extentableTextBox54.TextBoxBackColor = System.Drawing.SystemColors.Window;
@@ -2249,10 +2234,10 @@
             this.extentableTextBox60.BackgroundColor = System.Drawing.Color.Transparent;
             this.extentableTextBox60.ButtonBackColor = System.Drawing.Color.Transparent;
             this.extentableTextBox60.ButtonColor = System.Drawing.SystemColors.ControlText;
-            this.extentableTextBox60.LabelText = "SFAF_520";
+            this.extentableTextBox60.Name = "SFAF_520";
             this.extentableTextBox60.LabelTextColor = System.Drawing.SystemColors.ControlText;
             this.extentableTextBox60.Location = new System.Drawing.Point(362, 101);
-            this.extentableTextBox60.Name = "extentableTextBox60";
+            this.extentableTextBox60.LabelText = "Label60";
             this.extentableTextBox60.Size = new System.Drawing.Size(315, 22);
             this.extentableTextBox60.TabIndex = 37;
             this.extentableTextBox60.TextBoxBackColor = System.Drawing.SystemColors.Window;
@@ -2265,10 +2250,10 @@
             this.extentableTextBox58.BackgroundColor = System.Drawing.Color.Transparent;
             this.extentableTextBox58.ButtonBackColor = System.Drawing.Color.Transparent;
             this.extentableTextBox58.ButtonColor = System.Drawing.SystemColors.ControlText;
-            this.extentableTextBox58.LabelText = "SFAF_512";
+            this.extentableTextBox58.Name = "SFAF_512";
             this.extentableTextBox58.LabelTextColor = System.Drawing.SystemColors.ControlText;
             this.extentableTextBox58.Location = new System.Drawing.Point(362, 46);
-            this.extentableTextBox58.Name = "extentableTextBox58";
+            this.extentableTextBox58.LabelText = "Label58";
             this.extentableTextBox58.Size = new System.Drawing.Size(315, 22);
             this.extentableTextBox58.TabIndex = 37;
             this.extentableTextBox58.TextBoxBackColor = System.Drawing.SystemColors.Window;
@@ -2281,10 +2266,10 @@
             this.extentableTextBox56.BackgroundColor = System.Drawing.Color.Transparent;
             this.extentableTextBox56.ButtonBackColor = System.Drawing.Color.Transparent;
             this.extentableTextBox56.ButtonColor = System.Drawing.SystemColors.ControlText;
-            this.extentableTextBox56.LabelText = "SFAF_506";
+            this.extentableTextBox56.Name = "SFAF_506";
             this.extentableTextBox56.LabelTextColor = System.Drawing.SystemColors.ControlText;
             this.extentableTextBox56.Location = new System.Drawing.Point(6, 187);
-            this.extentableTextBox56.Name = "extentableTextBox56";
+            this.extentableTextBox56.LabelText = "Label56";
             this.extentableTextBox56.Size = new System.Drawing.Size(315, 22);
             this.extentableTextBox56.TabIndex = 37;
             this.extentableTextBox56.TextBoxBackColor = System.Drawing.SystemColors.Window;
@@ -2297,10 +2282,10 @@
             this.extentableTextBox53.BackgroundColor = System.Drawing.Color.Transparent;
             this.extentableTextBox53.ButtonBackColor = System.Drawing.Color.Transparent;
             this.extentableTextBox53.ButtonColor = System.Drawing.SystemColors.ControlText;
-            this.extentableTextBox53.LabelText = "SFAF_505";
+            this.extentableTextBox53.Name = "SFAF_505";
             this.extentableTextBox53.LabelTextColor = System.Drawing.SystemColors.ControlText;
             this.extentableTextBox53.Location = new System.Drawing.Point(6, 159);
-            this.extentableTextBox53.Name = "extentableTextBox53";
+            this.extentableTextBox53.LabelText = "Label53";
             this.extentableTextBox53.Size = new System.Drawing.Size(315, 22);
             this.extentableTextBox53.TabIndex = 34;
             this.extentableTextBox53.TextBoxBackColor = System.Drawing.SystemColors.Window;
@@ -2313,10 +2298,10 @@
             this.extentableTextBox52.BackgroundColor = System.Drawing.Color.Transparent;
             this.extentableTextBox52.ButtonBackColor = System.Drawing.Color.Transparent;
             this.extentableTextBox52.ButtonColor = System.Drawing.SystemColors.ControlText;
-            this.extentableTextBox52.LabelText = "SFAF_500";
+            this.extentableTextBox52.Name = "SFAF_500";
             this.extentableTextBox52.LabelTextColor = System.Drawing.SystemColors.ControlText;
             this.extentableTextBox52.Location = new System.Drawing.Point(6, 19);
-            this.extentableTextBox52.Name = "extentableTextBox52";
+            this.extentableTextBox52.LabelText = "Label52";
             this.extentableTextBox52.Size = new System.Drawing.Size(315, 22);
             this.extentableTextBox52.TabIndex = 35;
             this.extentableTextBox52.TextBoxBackColor = System.Drawing.SystemColors.Window;
@@ -2329,10 +2314,10 @@
             this.extentableTextBox51.BackgroundColor = System.Drawing.Color.Transparent;
             this.extentableTextBox51.ButtonBackColor = System.Drawing.Color.Transparent;
             this.extentableTextBox51.ButtonColor = System.Drawing.SystemColors.ControlText;
-            this.extentableTextBox51.LabelText = "SFAF_501";
+            this.extentableTextBox51.Name = "SFAF_501";
             this.extentableTextBox51.LabelTextColor = System.Drawing.SystemColors.ControlText;
             this.extentableTextBox51.Location = new System.Drawing.Point(6, 47);
-            this.extentableTextBox51.Name = "extentableTextBox51";
+            this.extentableTextBox51.LabelText = "Label51";
             this.extentableTextBox51.Size = new System.Drawing.Size(315, 22);
             this.extentableTextBox51.TabIndex = 34;
             this.extentableTextBox51.TextBoxBackColor = System.Drawing.SystemColors.Window;
@@ -2345,10 +2330,10 @@
             this.extentableTextBox50.BackgroundColor = System.Drawing.Color.Transparent;
             this.extentableTextBox50.ButtonBackColor = System.Drawing.Color.Transparent;
             this.extentableTextBox50.ButtonColor = System.Drawing.SystemColors.ControlText;
-            this.extentableTextBox50.LabelText = "SFAF_502";
+            this.extentableTextBox50.Name = "SFAF_502";
             this.extentableTextBox50.LabelTextColor = System.Drawing.SystemColors.ControlText;
             this.extentableTextBox50.Location = new System.Drawing.Point(6, 75);
-            this.extentableTextBox50.Name = "extentableTextBox50";
+            this.extentableTextBox50.LabelText = "Label50";
             this.extentableTextBox50.Size = new System.Drawing.Size(315, 22);
             this.extentableTextBox50.TabIndex = 37;
             this.extentableTextBox50.TextBoxBackColor = System.Drawing.SystemColors.Window;
@@ -2361,10 +2346,10 @@
             this.extentableTextBox70.BackgroundColor = System.Drawing.Color.Transparent;
             this.extentableTextBox70.ButtonBackColor = System.Drawing.Color.Transparent;
             this.extentableTextBox70.ButtonColor = System.Drawing.SystemColors.ControlText;
-            this.extentableTextBox70.LabelText = "SFAF_716";
+            this.extentableTextBox70.Name = "SFAF_716";
             this.extentableTextBox70.LabelTextColor = System.Drawing.SystemColors.ControlText;
             this.extentableTextBox70.Location = new System.Drawing.Point(9, 213);
-            this.extentableTextBox70.Name = "extentableTextBox70";
+            this.extentableTextBox70.LabelText = "Label70";
             this.extentableTextBox70.Size = new System.Drawing.Size(315, 22);
             this.extentableTextBox70.TabIndex = 45;
             this.extentableTextBox70.TextBoxBackColor = System.Drawing.SystemColors.Window;
@@ -2377,10 +2362,10 @@
             this.extentableTextBox71.BackgroundColor = System.Drawing.Color.Transparent;
             this.extentableTextBox71.ButtonBackColor = System.Drawing.Color.Transparent;
             this.extentableTextBox71.ButtonColor = System.Drawing.SystemColors.ControlText;
-            this.extentableTextBox71.LabelText = "SFAF_715";
+            this.extentableTextBox71.Name = "SFAF_715";
             this.extentableTextBox71.LabelTextColor = System.Drawing.SystemColors.ControlText;
             this.extentableTextBox71.Location = new System.Drawing.Point(9, 185);
-            this.extentableTextBox71.Name = "extentableTextBox71";
+            this.extentableTextBox71.LabelText = "Label71";
             this.extentableTextBox71.Size = new System.Drawing.Size(315, 22);
             this.extentableTextBox71.TabIndex = 44;
             this.extentableTextBox71.TextBoxBackColor = System.Drawing.SystemColors.Window;
@@ -2393,10 +2378,10 @@
             this.extentableTextBox69.BackgroundColor = System.Drawing.Color.Transparent;
             this.extentableTextBox69.ButtonBackColor = System.Drawing.Color.Transparent;
             this.extentableTextBox69.ButtonColor = System.Drawing.SystemColors.ControlText;
-            this.extentableTextBox69.LabelText = "SFAF_711";
+            this.extentableTextBox69.Name = "SFAF_711";
             this.extentableTextBox69.LabelTextColor = System.Drawing.SystemColors.ControlText;
             this.extentableTextBox69.Location = new System.Drawing.Point(9, 157);
-            this.extentableTextBox69.Name = "extentableTextBox69";
+            this.extentableTextBox69.LabelText = "Label69";
             this.extentableTextBox69.Size = new System.Drawing.Size(315, 22);
             this.extentableTextBox69.TabIndex = 43;
             this.extentableTextBox69.TextBoxBackColor = System.Drawing.SystemColors.Window;
@@ -2409,10 +2394,10 @@
             this.extentableTextBox66.BackgroundColor = System.Drawing.Color.Transparent;
             this.extentableTextBox66.ButtonBackColor = System.Drawing.Color.Transparent;
             this.extentableTextBox66.ButtonColor = System.Drawing.SystemColors.ControlText;
-            this.extentableTextBox66.LabelText = "SFAF_701";
+            this.extentableTextBox66.Name = "SFAF_701";
             this.extentableTextBox66.LabelTextColor = System.Drawing.SystemColors.ControlText;
             this.extentableTextBox66.Location = new System.Drawing.Point(9, 17);
-            this.extentableTextBox66.Name = "extentableTextBox66";
+            this.extentableTextBox66.LabelText = "Label66";
             this.extentableTextBox66.Size = new System.Drawing.Size(315, 22);
             this.extentableTextBox66.TabIndex = 40;
             this.extentableTextBox66.TextBoxBackColor = System.Drawing.SystemColors.Window;
@@ -2425,10 +2410,10 @@
             this.extentableTextBox64.BackgroundColor = System.Drawing.Color.Transparent;
             this.extentableTextBox64.ButtonBackColor = System.Drawing.Color.Transparent;
             this.extentableTextBox64.ButtonColor = System.Drawing.SystemColors.ControlText;
-            this.extentableTextBox64.LabelText = "SFAF_707";
+            this.extentableTextBox64.Name = "SFAF_707";
             this.extentableTextBox64.LabelTextColor = System.Drawing.SystemColors.ControlText;
             this.extentableTextBox64.Location = new System.Drawing.Point(9, 101);
-            this.extentableTextBox64.Name = "extentableTextBox64";
+            this.extentableTextBox64.LabelText = "Label64";
             this.extentableTextBox64.Size = new System.Drawing.Size(315, 22);
             this.extentableTextBox64.TabIndex = 41;
             this.extentableTextBox64.TextBoxBackColor = System.Drawing.SystemColors.Window;
@@ -2441,10 +2426,10 @@
             this.extentableTextBox68.BackgroundColor = System.Drawing.Color.Transparent;
             this.extentableTextBox68.ButtonBackColor = System.Drawing.Color.Transparent;
             this.extentableTextBox68.ButtonColor = System.Drawing.SystemColors.ControlText;
-            this.extentableTextBox68.LabelText = "SFAF_704";
+            this.extentableTextBox68.Name = "SFAF_704";
             this.extentableTextBox68.LabelTextColor = System.Drawing.SystemColors.ControlText;
             this.extentableTextBox68.Location = new System.Drawing.Point(9, 73);
-            this.extentableTextBox68.Name = "extentableTextBox68";
+            this.extentableTextBox68.LabelText = "Label68";
             this.extentableTextBox68.Size = new System.Drawing.Size(315, 22);
             this.extentableTextBox68.TabIndex = 42;
             this.extentableTextBox68.TextBoxBackColor = System.Drawing.SystemColors.Window;
@@ -2457,10 +2442,10 @@
             this.extentableTextBox67.BackgroundColor = System.Drawing.Color.Transparent;
             this.extentableTextBox67.ButtonBackColor = System.Drawing.Color.Transparent;
             this.extentableTextBox67.ButtonColor = System.Drawing.SystemColors.ControlText;
-            this.extentableTextBox67.LabelText = "SFAF_702";
+            this.extentableTextBox67.Name = "SFAF_702";
             this.extentableTextBox67.LabelTextColor = System.Drawing.SystemColors.ControlText;
             this.extentableTextBox67.Location = new System.Drawing.Point(9, 45);
-            this.extentableTextBox67.Name = "extentableTextBox67";
+            this.extentableTextBox67.LabelText = "Label67";
             this.extentableTextBox67.Size = new System.Drawing.Size(315, 22);
             this.extentableTextBox67.TabIndex = 38;
             this.extentableTextBox67.TextBoxBackColor = System.Drawing.SystemColors.Window;
@@ -2473,10 +2458,10 @@
             this.extentableTextBox65.BackgroundColor = System.Drawing.Color.Transparent;
             this.extentableTextBox65.ButtonBackColor = System.Drawing.Color.Transparent;
             this.extentableTextBox65.ButtonColor = System.Drawing.SystemColors.ControlText;
-            this.extentableTextBox65.LabelText = "SFAF_710";
+            this.extentableTextBox65.Name = "SFAF_710";
             this.extentableTextBox65.LabelTextColor = System.Drawing.SystemColors.ControlText;
             this.extentableTextBox65.Location = new System.Drawing.Point(9, 129);
-            this.extentableTextBox65.Name = "extentableTextBox65";
+            this.extentableTextBox65.LabelText = "Label65";
             this.extentableTextBox65.Size = new System.Drawing.Size(315, 22);
             this.extentableTextBox65.TabIndex = 39;
             this.extentableTextBox65.TextBoxBackColor = System.Drawing.SystemColors.Window;
@@ -2489,10 +2474,10 @@
             this.extentableTextBox118.BackgroundColor = System.Drawing.Color.Transparent;
             this.extentableTextBox118.ButtonBackColor = System.Drawing.Color.Transparent;
             this.extentableTextBox118.ButtonColor = System.Drawing.SystemColors.ControlText;
-            this.extentableTextBox118.LabelText = "SFAF_999";
+            this.extentableTextBox118.Name = "SFAF_999";
             this.extentableTextBox118.LabelTextColor = System.Drawing.SystemColors.ControlText;
             this.extentableTextBox118.Location = new System.Drawing.Point(648, 353);
-            this.extentableTextBox118.Name = "extentableTextBox118";
+            this.extentableTextBox118.LabelText = "Label118";
             this.extentableTextBox118.Size = new System.Drawing.Size(315, 22);
             this.extentableTextBox118.TabIndex = 60;
             this.extentableTextBox118.TextBoxBackColor = System.Drawing.SystemColors.Window;
@@ -2505,10 +2490,10 @@
             this.extentableTextBox117.BackgroundColor = System.Drawing.Color.Transparent;
             this.extentableTextBox117.ButtonBackColor = System.Drawing.Color.Transparent;
             this.extentableTextBox117.ButtonColor = System.Drawing.SystemColors.ControlText;
-            this.extentableTextBox117.LabelText = "SFAF_998";
+            this.extentableTextBox117.Name = "SFAF_998";
             this.extentableTextBox117.LabelTextColor = System.Drawing.SystemColors.ControlText;
             this.extentableTextBox117.Location = new System.Drawing.Point(648, 325);
-            this.extentableTextBox117.Name = "extentableTextBox117";
+            this.extentableTextBox117.LabelText = "Label117";
             this.extentableTextBox117.Size = new System.Drawing.Size(315, 22);
             this.extentableTextBox117.TabIndex = 60;
             this.extentableTextBox117.TextBoxBackColor = System.Drawing.SystemColors.Window;
@@ -2521,10 +2506,10 @@
             this.extentableTextBox113.BackgroundColor = System.Drawing.Color.Transparent;
             this.extentableTextBox113.ButtonBackColor = System.Drawing.Color.Transparent;
             this.extentableTextBox113.ButtonColor = System.Drawing.SystemColors.ControlText;
-            this.extentableTextBox113.LabelText = "SFAF_994";
+            this.extentableTextBox113.Name = "SFAF_994";
             this.extentableTextBox113.LabelTextColor = System.Drawing.SystemColors.ControlText;
             this.extentableTextBox113.Location = new System.Drawing.Point(648, 213);
-            this.extentableTextBox113.Name = "extentableTextBox113";
+            this.extentableTextBox113.LabelText = "Label113";
             this.extentableTextBox113.Size = new System.Drawing.Size(315, 22);
             this.extentableTextBox113.TabIndex = 60;
             this.extentableTextBox113.TextBoxBackColor = System.Drawing.SystemColors.Window;
@@ -2537,10 +2522,10 @@
             this.extentableTextBox107.BackgroundColor = System.Drawing.Color.Transparent;
             this.extentableTextBox107.ButtonBackColor = System.Drawing.Color.Transparent;
             this.extentableTextBox107.ButtonColor = System.Drawing.SystemColors.ControlText;
-            this.extentableTextBox107.LabelText = "SFAF_988";
+            this.extentableTextBox107.Name = "SFAF_988";
             this.extentableTextBox107.LabelTextColor = System.Drawing.SystemColors.ControlText;
             this.extentableTextBox107.Location = new System.Drawing.Point(648, 45);
-            this.extentableTextBox107.Name = "extentableTextBox107";
+            this.extentableTextBox107.LabelText = "Label107";
             this.extentableTextBox107.Size = new System.Drawing.Size(315, 22);
             this.extentableTextBox107.TabIndex = 60;
             this.extentableTextBox107.TextBoxBackColor = System.Drawing.SystemColors.Window;
@@ -2553,10 +2538,10 @@
             this.extentableTextBox116.BackgroundColor = System.Drawing.Color.Transparent;
             this.extentableTextBox116.ButtonBackColor = System.Drawing.Color.Transparent;
             this.extentableTextBox116.ButtonColor = System.Drawing.SystemColors.ControlText;
-            this.extentableTextBox116.LabelText = "SFAF_997";
+            this.extentableTextBox116.Name = "SFAF_997";
             this.extentableTextBox116.LabelTextColor = System.Drawing.SystemColors.ControlText;
             this.extentableTextBox116.Location = new System.Drawing.Point(648, 297);
-            this.extentableTextBox116.Name = "extentableTextBox116";
+            this.extentableTextBox116.LabelText = "Label116";
             this.extentableTextBox116.Size = new System.Drawing.Size(315, 22);
             this.extentableTextBox116.TabIndex = 59;
             this.extentableTextBox116.TextBoxBackColor = System.Drawing.SystemColors.Window;
@@ -2569,10 +2554,10 @@
             this.extentableTextBox112.BackgroundColor = System.Drawing.Color.Transparent;
             this.extentableTextBox112.ButtonBackColor = System.Drawing.Color.Transparent;
             this.extentableTextBox112.ButtonColor = System.Drawing.SystemColors.ControlText;
-            this.extentableTextBox112.LabelText = "SFAF_993";
+            this.extentableTextBox112.Name = "SFAF_993";
             this.extentableTextBox112.LabelTextColor = System.Drawing.SystemColors.ControlText;
             this.extentableTextBox112.Location = new System.Drawing.Point(648, 185);
-            this.extentableTextBox112.Name = "extentableTextBox112";
+            this.extentableTextBox112.LabelText = "Label112";
             this.extentableTextBox112.Size = new System.Drawing.Size(315, 22);
             this.extentableTextBox112.TabIndex = 59;
             this.extentableTextBox112.TextBoxBackColor = System.Drawing.SystemColors.Window;
@@ -2585,10 +2570,10 @@
             this.extentableTextBox86.BackgroundColor = System.Drawing.Color.Transparent;
             this.extentableTextBox86.ButtonBackColor = System.Drawing.Color.Transparent;
             this.extentableTextBox86.ButtonColor = System.Drawing.SystemColors.ControlText;
-            this.extentableTextBox86.LabelText = "SFAF_952";
+            this.extentableTextBox86.Name = "SFAF_952";
             this.extentableTextBox86.LabelTextColor = System.Drawing.SystemColors.ControlText;
             this.extentableTextBox86.Location = new System.Drawing.Point(327, 17);
-            this.extentableTextBox86.Name = "extentableTextBox86";
+            this.extentableTextBox86.LabelText = "Label86";
             this.extentableTextBox86.Size = new System.Drawing.Size(315, 22);
             this.extentableTextBox86.TabIndex = 60;
             this.extentableTextBox86.TextBoxBackColor = System.Drawing.SystemColors.Window;
@@ -2601,10 +2586,10 @@
             this.extentableTextBox106.BackgroundColor = System.Drawing.Color.Transparent;
             this.extentableTextBox106.ButtonBackColor = System.Drawing.Color.Transparent;
             this.extentableTextBox106.ButtonColor = System.Drawing.SystemColors.ControlText;
-            this.extentableTextBox106.LabelText = "SFAF_986";
+            this.extentableTextBox106.Name = "SFAF_986";
             this.extentableTextBox106.LabelTextColor = System.Drawing.SystemColors.ControlText;
             this.extentableTextBox106.Location = new System.Drawing.Point(648, 17);
-            this.extentableTextBox106.Name = "extentableTextBox106";
+            this.extentableTextBox106.LabelText = "Label106";
             this.extentableTextBox106.Size = new System.Drawing.Size(315, 22);
             this.extentableTextBox106.TabIndex = 59;
             this.extentableTextBox106.TextBoxBackColor = System.Drawing.SystemColors.Window;
@@ -2617,10 +2602,10 @@
             this.extentableTextBox115.BackgroundColor = System.Drawing.Color.Transparent;
             this.extentableTextBox115.ButtonBackColor = System.Drawing.Color.Transparent;
             this.extentableTextBox115.ButtonColor = System.Drawing.SystemColors.ControlText;
-            this.extentableTextBox115.LabelText = "SFAF_996";
+            this.extentableTextBox115.Name = "SFAF_996";
             this.extentableTextBox115.LabelTextColor = System.Drawing.SystemColors.ControlText;
             this.extentableTextBox115.Location = new System.Drawing.Point(648, 269);
-            this.extentableTextBox115.Name = "extentableTextBox115";
+            this.extentableTextBox115.LabelText = "Label115";
             this.extentableTextBox115.Size = new System.Drawing.Size(315, 22);
             this.extentableTextBox115.TabIndex = 58;
             this.extentableTextBox115.TextBoxBackColor = System.Drawing.SystemColors.Window;
@@ -2633,10 +2618,10 @@
             this.extentableTextBox111.BackgroundColor = System.Drawing.Color.Transparent;
             this.extentableTextBox111.ButtonBackColor = System.Drawing.Color.Transparent;
             this.extentableTextBox111.ButtonColor = System.Drawing.SystemColors.ControlText;
-            this.extentableTextBox111.LabelText = "SFAF_992";
+            this.extentableTextBox111.Name = "SFAF_992";
             this.extentableTextBox111.LabelTextColor = System.Drawing.SystemColors.ControlText;
             this.extentableTextBox111.Location = new System.Drawing.Point(648, 157);
-            this.extentableTextBox111.Name = "extentableTextBox111";
+            this.extentableTextBox111.LabelText = "Label111";
             this.extentableTextBox111.Size = new System.Drawing.Size(315, 22);
             this.extentableTextBox111.TabIndex = 58;
             this.extentableTextBox111.TextBoxBackColor = System.Drawing.SystemColors.Window;
@@ -2649,10 +2634,10 @@
             this.extentableTextBox87.BackgroundColor = System.Drawing.Color.Transparent;
             this.extentableTextBox87.ButtonBackColor = System.Drawing.Color.Transparent;
             this.extentableTextBox87.ButtonColor = System.Drawing.SystemColors.ControlText;
-            this.extentableTextBox87.LabelText = "SFAF_950";
+            this.extentableTextBox87.Name = "SFAF_950";
             this.extentableTextBox87.LabelTextColor = System.Drawing.SystemColors.ControlText;
             this.extentableTextBox87.Location = new System.Drawing.Point(6, 381);
-            this.extentableTextBox87.Name = "extentableTextBox87";
+            this.extentableTextBox87.LabelText = "Label87";
             this.extentableTextBox87.Size = new System.Drawing.Size(315, 22);
             this.extentableTextBox87.TabIndex = 59;
             this.extentableTextBox87.TextBoxBackColor = System.Drawing.SystemColors.Window;
@@ -2665,10 +2650,10 @@
             this.extentableTextBox105.BackgroundColor = System.Drawing.Color.Transparent;
             this.extentableTextBox105.ButtonBackColor = System.Drawing.Color.Transparent;
             this.extentableTextBox105.ButtonColor = System.Drawing.SystemColors.ControlText;
-            this.extentableTextBox105.LabelText = "SFAF_985";
+            this.extentableTextBox105.Name = "SFAF_985";
             this.extentableTextBox105.LabelTextColor = System.Drawing.SystemColors.ControlText;
             this.extentableTextBox105.Location = new System.Drawing.Point(327, 381);
-            this.extentableTextBox105.Name = "extentableTextBox105";
+            this.extentableTextBox105.LabelText = "Label105";
             this.extentableTextBox105.Size = new System.Drawing.Size(315, 22);
             this.extentableTextBox105.TabIndex = 58;
             this.extentableTextBox105.TextBoxBackColor = System.Drawing.SystemColors.Window;
@@ -2681,10 +2666,10 @@
             this.extentableTextBox110.BackgroundColor = System.Drawing.Color.Transparent;
             this.extentableTextBox110.ButtonBackColor = System.Drawing.Color.Transparent;
             this.extentableTextBox110.ButtonColor = System.Drawing.SystemColors.ControlText;
-            this.extentableTextBox110.LabelText = "SFAF_990";
+            this.extentableTextBox110.Name = "SFAF_990";
             this.extentableTextBox110.LabelTextColor = System.Drawing.SystemColors.ControlText;
             this.extentableTextBox110.Location = new System.Drawing.Point(648, 101);
-            this.extentableTextBox110.Name = "extentableTextBox110";
+            this.extentableTextBox110.LabelText = "Label110";
             this.extentableTextBox110.Size = new System.Drawing.Size(315, 22);
             this.extentableTextBox110.TabIndex = 56;
             this.extentableTextBox110.TextBoxBackColor = System.Drawing.SystemColors.Window;
@@ -2697,10 +2682,10 @@
             this.extentableTextBox88.BackgroundColor = System.Drawing.Color.Transparent;
             this.extentableTextBox88.ButtonBackColor = System.Drawing.Color.Transparent;
             this.extentableTextBox88.ButtonColor = System.Drawing.SystemColors.ControlText;
-            this.extentableTextBox88.LabelText = "SFAF_928";
+            this.extentableTextBox88.Name = "SFAF_928";
             this.extentableTextBox88.LabelTextColor = System.Drawing.SystemColors.ControlText;
             this.extentableTextBox88.Location = new System.Drawing.Point(6, 353);
-            this.extentableTextBox88.Name = "extentableTextBox88";
+            this.extentableTextBox88.LabelText = "Label88";
             this.extentableTextBox88.Size = new System.Drawing.Size(315, 22);
             this.extentableTextBox88.TabIndex = 58;
             this.extentableTextBox88.TextBoxBackColor = System.Drawing.SystemColors.Window;
@@ -2713,10 +2698,10 @@
             this.extentableTextBox104.BackgroundColor = System.Drawing.Color.Transparent;
             this.extentableTextBox104.ButtonBackColor = System.Drawing.Color.Transparent;
             this.extentableTextBox104.ButtonColor = System.Drawing.SystemColors.ControlText;
-            this.extentableTextBox104.LabelText = "SFAF_983";
+            this.extentableTextBox104.Name = "SFAF_983";
             this.extentableTextBox104.LabelTextColor = System.Drawing.SystemColors.ControlText;
             this.extentableTextBox104.Location = new System.Drawing.Point(327, 325);
-            this.extentableTextBox104.Name = "extentableTextBox104";
+            this.extentableTextBox104.LabelText = "Label104";
             this.extentableTextBox104.Size = new System.Drawing.Size(315, 22);
             this.extentableTextBox104.TabIndex = 56;
             this.extentableTextBox104.TextBoxBackColor = System.Drawing.SystemColors.Window;
@@ -2729,10 +2714,10 @@
             this.extentableTextBox109.BackgroundColor = System.Drawing.Color.Transparent;
             this.extentableTextBox109.ButtonBackColor = System.Drawing.Color.Transparent;
             this.extentableTextBox109.ButtonColor = System.Drawing.SystemColors.ControlText;
-            this.extentableTextBox109.LabelText = "SFAF_989";
+            this.extentableTextBox109.Name = "SFAF_989";
             this.extentableTextBox109.LabelTextColor = System.Drawing.SystemColors.ControlText;
             this.extentableTextBox109.Location = new System.Drawing.Point(648, 73);
-            this.extentableTextBox109.Name = "extentableTextBox109";
+            this.extentableTextBox109.LabelText = "Label109";
             this.extentableTextBox109.Size = new System.Drawing.Size(315, 22);
             this.extentableTextBox109.TabIndex = 57;
             this.extentableTextBox109.TextBoxBackColor = System.Drawing.SystemColors.Window;
@@ -2745,10 +2730,10 @@
             this.extentableTextBox89.BackgroundColor = System.Drawing.Color.Transparent;
             this.extentableTextBox89.ButtonBackColor = System.Drawing.Color.Transparent;
             this.extentableTextBox89.ButtonColor = System.Drawing.SystemColors.ControlText;
-            this.extentableTextBox89.LabelText = "SFAF_926";
+            this.extentableTextBox89.Name = "SFAF_926";
             this.extentableTextBox89.LabelTextColor = System.Drawing.SystemColors.ControlText;
             this.extentableTextBox89.Location = new System.Drawing.Point(6, 297);
-            this.extentableTextBox89.Name = "extentableTextBox89";
+            this.extentableTextBox89.LabelText = "Label89";
             this.extentableTextBox89.Size = new System.Drawing.Size(315, 22);
             this.extentableTextBox89.TabIndex = 56;
             this.extentableTextBox89.TextBoxBackColor = System.Drawing.SystemColors.Window;
@@ -2761,10 +2746,10 @@
             this.extentableTextBox103.BackgroundColor = System.Drawing.Color.Transparent;
             this.extentableTextBox103.ButtonBackColor = System.Drawing.Color.Transparent;
             this.extentableTextBox103.ButtonColor = System.Drawing.SystemColors.ControlText;
-            this.extentableTextBox103.LabelText = "SFAF_982";
+            this.extentableTextBox103.Name = "SFAF_982";
             this.extentableTextBox103.LabelTextColor = System.Drawing.SystemColors.ControlText;
             this.extentableTextBox103.Location = new System.Drawing.Point(327, 297);
-            this.extentableTextBox103.Name = "extentableTextBox103";
+            this.extentableTextBox103.LabelText = "Label103";
             this.extentableTextBox103.Size = new System.Drawing.Size(315, 22);
             this.extentableTextBox103.TabIndex = 57;
             this.extentableTextBox103.TextBoxBackColor = System.Drawing.SystemColors.Window;
@@ -2777,10 +2762,10 @@
             this.extentableTextBox90.BackgroundColor = System.Drawing.Color.Transparent;
             this.extentableTextBox90.ButtonBackColor = System.Drawing.Color.Transparent;
             this.extentableTextBox90.ButtonColor = System.Drawing.SystemColors.ControlText;
-            this.extentableTextBox90.LabelText = "SFAF_924";
+            this.extentableTextBox90.Name = "SFAF_924";
             this.extentableTextBox90.LabelTextColor = System.Drawing.SystemColors.ControlText;
             this.extentableTextBox90.Location = new System.Drawing.Point(6, 269);
-            this.extentableTextBox90.Name = "extentableTextBox90";
+            this.extentableTextBox90.LabelText = "Label90";
             this.extentableTextBox90.Size = new System.Drawing.Size(315, 22);
             this.extentableTextBox90.TabIndex = 57;
             this.extentableTextBox90.TextBoxBackColor = System.Drawing.SystemColors.Window;
@@ -2793,10 +2778,10 @@
             this.extentableTextBox102.BackgroundColor = System.Drawing.Color.Transparent;
             this.extentableTextBox102.ButtonBackColor = System.Drawing.Color.Transparent;
             this.extentableTextBox102.ButtonColor = System.Drawing.SystemColors.ControlText;
-            this.extentableTextBox102.LabelText = "SFAF_965";
+            this.extentableTextBox102.Name = "SFAF_965";
             this.extentableTextBox102.LabelTextColor = System.Drawing.SystemColors.ControlText;
             this.extentableTextBox102.Location = new System.Drawing.Point(327, 269);
-            this.extentableTextBox102.Name = "extentableTextBox102";
+            this.extentableTextBox102.LabelText = "Label102";
             this.extentableTextBox102.Size = new System.Drawing.Size(315, 22);
             this.extentableTextBox102.TabIndex = 54;
             this.extentableTextBox102.TextBoxBackColor = System.Drawing.SystemColors.Window;
@@ -2809,10 +2794,10 @@
             this.extentableTextBox114.BackgroundColor = System.Drawing.Color.Transparent;
             this.extentableTextBox114.ButtonBackColor = System.Drawing.Color.Transparent;
             this.extentableTextBox114.ButtonColor = System.Drawing.SystemColors.ControlText;
-            this.extentableTextBox114.LabelText = "SFAF_995";
+            this.extentableTextBox114.Name = "SFAF_995";
             this.extentableTextBox114.LabelTextColor = System.Drawing.SystemColors.ControlText;
             this.extentableTextBox114.Location = new System.Drawing.Point(648, 241);
-            this.extentableTextBox114.Name = "extentableTextBox114";
+            this.extentableTextBox114.LabelText = "Label114";
             this.extentableTextBox114.Size = new System.Drawing.Size(315, 22);
             this.extentableTextBox114.TabIndex = 55;
             this.extentableTextBox114.TextBoxBackColor = System.Drawing.SystemColors.Window;
@@ -2825,10 +2810,10 @@
             this.extentableTextBox108.BackgroundColor = System.Drawing.Color.Transparent;
             this.extentableTextBox108.ButtonBackColor = System.Drawing.Color.Transparent;
             this.extentableTextBox108.ButtonColor = System.Drawing.SystemColors.ControlText;
-            this.extentableTextBox108.LabelText = "SFAF_991";
+            this.extentableTextBox108.Name = "SFAF_991";
             this.extentableTextBox108.LabelTextColor = System.Drawing.SystemColors.ControlText;
             this.extentableTextBox108.Location = new System.Drawing.Point(648, 129);
-            this.extentableTextBox108.Name = "extentableTextBox108";
+            this.extentableTextBox108.LabelText = "Label108";
             this.extentableTextBox108.Size = new System.Drawing.Size(315, 22);
             this.extentableTextBox108.TabIndex = 55;
             this.extentableTextBox108.TextBoxBackColor = System.Drawing.SystemColors.Window;
@@ -2841,10 +2826,10 @@
             this.extentableTextBox91.BackgroundColor = System.Drawing.Color.Transparent;
             this.extentableTextBox91.ButtonBackColor = System.Drawing.Color.Transparent;
             this.extentableTextBox91.ButtonColor = System.Drawing.SystemColors.ControlText;
-            this.extentableTextBox91.LabelText = "SFAF_922";
+            this.extentableTextBox91.Name = "SFAF_922";
             this.extentableTextBox91.LabelTextColor = System.Drawing.SystemColors.ControlText;
             this.extentableTextBox91.Location = new System.Drawing.Point(6, 241);
-            this.extentableTextBox91.Name = "extentableTextBox91";
+            this.extentableTextBox91.LabelText = "Label91";
             this.extentableTextBox91.Size = new System.Drawing.Size(315, 22);
             this.extentableTextBox91.TabIndex = 54;
             this.extentableTextBox91.TextBoxBackColor = System.Drawing.SystemColors.Window;
@@ -2857,10 +2842,10 @@
             this.extentableTextBox101.BackgroundColor = System.Drawing.Color.Transparent;
             this.extentableTextBox101.ButtonBackColor = System.Drawing.Color.Transparent;
             this.extentableTextBox101.ButtonColor = System.Drawing.SystemColors.ControlText;
-            this.extentableTextBox101.LabelText = "SFAF_984";
+            this.extentableTextBox101.Name = "SFAF_984";
             this.extentableTextBox101.LabelTextColor = System.Drawing.SystemColors.ControlText;
             this.extentableTextBox101.Location = new System.Drawing.Point(327, 353);
-            this.extentableTextBox101.Name = "extentableTextBox101";
+            this.extentableTextBox101.LabelText = "Label101";
             this.extentableTextBox101.Size = new System.Drawing.Size(315, 22);
             this.extentableTextBox101.TabIndex = 55;
             this.extentableTextBox101.TextBoxBackColor = System.Drawing.SystemColors.Window;
@@ -2873,10 +2858,10 @@
             this.extentableTextBox92.BackgroundColor = System.Drawing.Color.Transparent;
             this.extentableTextBox92.ButtonBackColor = System.Drawing.Color.Transparent;
             this.extentableTextBox92.ButtonColor = System.Drawing.SystemColors.ControlText;
-            this.extentableTextBox92.LabelText = "SFAF_927";
+            this.extentableTextBox92.Name = "SFAF_927";
             this.extentableTextBox92.LabelTextColor = System.Drawing.SystemColors.ControlText;
             this.extentableTextBox92.Location = new System.Drawing.Point(6, 325);
-            this.extentableTextBox92.Name = "extentableTextBox92";
+            this.extentableTextBox92.LabelText = "Label92";
             this.extentableTextBox92.Size = new System.Drawing.Size(315, 22);
             this.extentableTextBox92.TabIndex = 55;
             this.extentableTextBox92.TextBoxBackColor = System.Drawing.SystemColors.Window;
@@ -2889,10 +2874,10 @@
             this.extentableTextBox100.BackgroundColor = System.Drawing.Color.Transparent;
             this.extentableTextBox100.ButtonBackColor = System.Drawing.Color.Transparent;
             this.extentableTextBox100.ButtonColor = System.Drawing.SystemColors.ControlText;
-            this.extentableTextBox100.LabelText = "SFAF_964";
+            this.extentableTextBox100.Name = "SFAF_964";
             this.extentableTextBox100.LabelTextColor = System.Drawing.SystemColors.ControlText;
             this.extentableTextBox100.Location = new System.Drawing.Point(327, 241);
-            this.extentableTextBox100.Name = "extentableTextBox100";
+            this.extentableTextBox100.LabelText = "Label100";
             this.extentableTextBox100.Size = new System.Drawing.Size(315, 22);
             this.extentableTextBox100.TabIndex = 53;
             this.extentableTextBox100.TextBoxBackColor = System.Drawing.SystemColors.Window;
@@ -2905,10 +2890,10 @@
             this.extentableTextBox78.BackgroundColor = System.Drawing.Color.Transparent;
             this.extentableTextBox78.ButtonBackColor = System.Drawing.Color.Transparent;
             this.extentableTextBox78.ButtonColor = System.Drawing.SystemColors.ControlText;
-            this.extentableTextBox78.LabelText = "SFAF_911";
+            this.extentableTextBox78.Name = "SFAF_911";
             this.extentableTextBox78.LabelTextColor = System.Drawing.SystemColors.ControlText;
             this.extentableTextBox78.Location = new System.Drawing.Point(6, 213);
-            this.extentableTextBox78.Name = "extentableTextBox78";
+            this.extentableTextBox78.LabelText = "Label78";
             this.extentableTextBox78.Size = new System.Drawing.Size(315, 22);
             this.extentableTextBox78.TabIndex = 53;
             this.extentableTextBox78.TextBoxBackColor = System.Drawing.SystemColors.Window;
@@ -2921,10 +2906,10 @@
             this.extentableTextBox99.BackgroundColor = System.Drawing.Color.Transparent;
             this.extentableTextBox99.ButtonBackColor = System.Drawing.Color.Transparent;
             this.extentableTextBox99.ButtonColor = System.Drawing.SystemColors.ControlText;
-            this.extentableTextBox99.LabelText = "SFAF_963";
+            this.extentableTextBox99.Name = "SFAF_963";
             this.extentableTextBox99.LabelTextColor = System.Drawing.SystemColors.ControlText;
             this.extentableTextBox99.Location = new System.Drawing.Point(327, 213);
-            this.extentableTextBox99.Name = "extentableTextBox99";
+            this.extentableTextBox99.LabelText = "Label99";
             this.extentableTextBox99.Size = new System.Drawing.Size(315, 22);
             this.extentableTextBox99.TabIndex = 52;
             this.extentableTextBox99.TextBoxBackColor = System.Drawing.SystemColors.Window;
@@ -2937,10 +2922,10 @@
             this.extentableTextBox98.BackgroundColor = System.Drawing.Color.Transparent;
             this.extentableTextBox98.ButtonBackColor = System.Drawing.Color.Transparent;
             this.extentableTextBox98.ButtonColor = System.Drawing.SystemColors.ControlText;
-            this.extentableTextBox98.LabelText = "SFAF_959";
+            this.extentableTextBox98.Name = "SFAF_959";
             this.extentableTextBox98.LabelTextColor = System.Drawing.SystemColors.ControlText;
             this.extentableTextBox98.Location = new System.Drawing.Point(327, 185);
-            this.extentableTextBox98.Name = "extentableTextBox98";
+            this.extentableTextBox98.LabelText = "Label98";
             this.extentableTextBox98.Size = new System.Drawing.Size(315, 22);
             this.extentableTextBox98.TabIndex = 51;
             this.extentableTextBox98.TextBoxBackColor = System.Drawing.SystemColors.Window;
@@ -2953,10 +2938,10 @@
             this.extentableTextBox79.BackgroundColor = System.Drawing.Color.Transparent;
             this.extentableTextBox79.ButtonBackColor = System.Drawing.Color.Transparent;
             this.extentableTextBox79.ButtonColor = System.Drawing.SystemColors.ControlText;
-            this.extentableTextBox79.LabelText = "SFAF_910";
+            this.extentableTextBox79.Name = "SFAF_910";
             this.extentableTextBox79.LabelTextColor = System.Drawing.SystemColors.ControlText;
             this.extentableTextBox79.Location = new System.Drawing.Point(6, 185);
-            this.extentableTextBox79.Name = "extentableTextBox79";
+            this.extentableTextBox79.LabelText = "Label79";
             this.extentableTextBox79.Size = new System.Drawing.Size(315, 22);
             this.extentableTextBox79.TabIndex = 52;
             this.extentableTextBox79.TextBoxBackColor = System.Drawing.SystemColors.Window;
@@ -2969,10 +2954,10 @@
             this.extentableTextBox97.BackgroundColor = System.Drawing.Color.Transparent;
             this.extentableTextBox97.ButtonBackColor = System.Drawing.Color.Transparent;
             this.extentableTextBox97.ButtonColor = System.Drawing.SystemColors.ControlText;
-            this.extentableTextBox97.LabelText = "SFAF_953";
+            this.extentableTextBox97.Name = "SFAF_953";
             this.extentableTextBox97.LabelTextColor = System.Drawing.SystemColors.ControlText;
             this.extentableTextBox97.Location = new System.Drawing.Point(327, 45);
-            this.extentableTextBox97.Name = "extentableTextBox97";
+            this.extentableTextBox97.LabelText = "Label97";
             this.extentableTextBox97.Size = new System.Drawing.Size(315, 22);
             this.extentableTextBox97.TabIndex = 48;
             this.extentableTextBox97.TextBoxBackColor = System.Drawing.SystemColors.Window;
@@ -2985,10 +2970,10 @@
             this.extentableTextBox80.BackgroundColor = System.Drawing.Color.Transparent;
             this.extentableTextBox80.ButtonBackColor = System.Drawing.Color.Transparent;
             this.extentableTextBox80.ButtonColor = System.Drawing.SystemColors.ControlText;
-            this.extentableTextBox80.LabelText = "SFAF_907";
+            this.extentableTextBox80.Name = "SFAF_907";
             this.extentableTextBox80.LabelTextColor = System.Drawing.SystemColors.ControlText;
             this.extentableTextBox80.Location = new System.Drawing.Point(6, 157);
-            this.extentableTextBox80.Name = "extentableTextBox80";
+            this.extentableTextBox80.LabelText = "Label80";
             this.extentableTextBox80.Size = new System.Drawing.Size(315, 22);
             this.extentableTextBox80.TabIndex = 51;
             this.extentableTextBox80.TextBoxBackColor = System.Drawing.SystemColors.Window;
@@ -3001,10 +2986,10 @@
             this.extentableTextBox96.BackgroundColor = System.Drawing.Color.Transparent;
             this.extentableTextBox96.ButtonBackColor = System.Drawing.Color.Transparent;
             this.extentableTextBox96.ButtonColor = System.Drawing.SystemColors.ControlText;
-            this.extentableTextBox96.LabelText = "SFAF_958";
+            this.extentableTextBox96.Name = "SFAF_958";
             this.extentableTextBox96.LabelTextColor = System.Drawing.SystemColors.ControlText;
             this.extentableTextBox96.Location = new System.Drawing.Point(327, 129);
-            this.extentableTextBox96.Name = "extentableTextBox96";
+            this.extentableTextBox96.LabelText = "Label96";
             this.extentableTextBox96.Size = new System.Drawing.Size(315, 22);
             this.extentableTextBox96.TabIndex = 49;
             this.extentableTextBox96.TextBoxBackColor = System.Drawing.SystemColors.Window;
@@ -3017,10 +3002,10 @@
             this.extentableTextBox81.BackgroundColor = System.Drawing.Color.Transparent;
             this.extentableTextBox81.ButtonBackColor = System.Drawing.Color.Transparent;
             this.extentableTextBox81.ButtonColor = System.Drawing.SystemColors.ControlText;
-            this.extentableTextBox81.LabelText = "SFAF_901";
+            this.extentableTextBox81.Name = "SFAF_901";
             this.extentableTextBox81.LabelTextColor = System.Drawing.SystemColors.ControlText;
             this.extentableTextBox81.Location = new System.Drawing.Point(6, 17);
-            this.extentableTextBox81.Name = "extentableTextBox81";
+            this.extentableTextBox81.LabelText = "Label81";
             this.extentableTextBox81.Size = new System.Drawing.Size(315, 22);
             this.extentableTextBox81.TabIndex = 48;
             this.extentableTextBox81.TextBoxBackColor = System.Drawing.SystemColors.Window;
@@ -3033,10 +3018,10 @@
             this.extentableTextBox95.BackgroundColor = System.Drawing.Color.Transparent;
             this.extentableTextBox95.ButtonBackColor = System.Drawing.Color.Transparent;
             this.extentableTextBox95.ButtonColor = System.Drawing.SystemColors.ControlText;
-            this.extentableTextBox95.LabelText = "SFAF_957";
+            this.extentableTextBox95.Name = "SFAF_957";
             this.extentableTextBox95.LabelTextColor = System.Drawing.SystemColors.ControlText;
             this.extentableTextBox95.Location = new System.Drawing.Point(327, 101);
-            this.extentableTextBox95.Name = "extentableTextBox95";
+            this.extentableTextBox95.LabelText = "Label95";
             this.extentableTextBox95.Size = new System.Drawing.Size(315, 22);
             this.extentableTextBox95.TabIndex = 50;
             this.extentableTextBox95.TextBoxBackColor = System.Drawing.SystemColors.Window;
@@ -3049,10 +3034,10 @@
             this.extentableTextBox82.BackgroundColor = System.Drawing.Color.Transparent;
             this.extentableTextBox82.ButtonBackColor = System.Drawing.Color.Transparent;
             this.extentableTextBox82.ButtonColor = System.Drawing.SystemColors.ControlText;
-            this.extentableTextBox82.LabelText = "SFAF_905";
+            this.extentableTextBox82.Name = "SFAF_905";
             this.extentableTextBox82.LabelTextColor = System.Drawing.SystemColors.ControlText;
             this.extentableTextBox82.Location = new System.Drawing.Point(6, 101);
-            this.extentableTextBox82.Name = "extentableTextBox82";
+            this.extentableTextBox82.LabelText = "Label82";
             this.extentableTextBox82.Size = new System.Drawing.Size(315, 22);
             this.extentableTextBox82.TabIndex = 49;
             this.extentableTextBox82.TextBoxBackColor = System.Drawing.SystemColors.Window;
@@ -3065,10 +3050,10 @@
             this.extentableTextBox94.BackgroundColor = System.Drawing.Color.Transparent;
             this.extentableTextBox94.ButtonBackColor = System.Drawing.Color.Transparent;
             this.extentableTextBox94.ButtonColor = System.Drawing.SystemColors.ControlText;
-            this.extentableTextBox94.LabelText = "SFAF_956";
+            this.extentableTextBox94.Name = "SFAF_956";
             this.extentableTextBox94.LabelTextColor = System.Drawing.SystemColors.ControlText;
             this.extentableTextBox94.Location = new System.Drawing.Point(327, 73);
-            this.extentableTextBox94.Name = "extentableTextBox94";
+            this.extentableTextBox94.LabelText = "Label94";
             this.extentableTextBox94.Size = new System.Drawing.Size(315, 22);
             this.extentableTextBox94.TabIndex = 46;
             this.extentableTextBox94.TextBoxBackColor = System.Drawing.SystemColors.Window;
@@ -3081,10 +3066,10 @@
             this.extentableTextBox83.BackgroundColor = System.Drawing.Color.Transparent;
             this.extentableTextBox83.ButtonBackColor = System.Drawing.Color.Transparent;
             this.extentableTextBox83.ButtonColor = System.Drawing.SystemColors.ControlText;
-            this.extentableTextBox83.LabelText = "SFAF_904";
+            this.extentableTextBox83.Name = "SFAF_904";
             this.extentableTextBox83.LabelTextColor = System.Drawing.SystemColors.ControlText;
             this.extentableTextBox83.Location = new System.Drawing.Point(6, 73);
-            this.extentableTextBox83.Name = "extentableTextBox83";
+            this.extentableTextBox83.LabelText = "Label83";
             this.extentableTextBox83.Size = new System.Drawing.Size(315, 22);
             this.extentableTextBox83.TabIndex = 50;
             this.extentableTextBox83.TextBoxBackColor = System.Drawing.SystemColors.Window;
@@ -3097,10 +3082,10 @@
             this.extentableTextBox93.BackgroundColor = System.Drawing.Color.Transparent;
             this.extentableTextBox93.ButtonBackColor = System.Drawing.Color.Transparent;
             this.extentableTextBox93.ButtonColor = System.Drawing.SystemColors.ControlText;
-            this.extentableTextBox93.LabelText = "SFAF_958";
+            this.extentableTextBox93.Name = "SFAF_958";
             this.extentableTextBox93.LabelTextColor = System.Drawing.SystemColors.ControlText;
             this.extentableTextBox93.Location = new System.Drawing.Point(327, 157);
-            this.extentableTextBox93.Name = "extentableTextBox93";
+            this.extentableTextBox93.LabelText = "Label93";
             this.extentableTextBox93.Size = new System.Drawing.Size(315, 22);
             this.extentableTextBox93.TabIndex = 47;
             this.extentableTextBox93.TextBoxBackColor = System.Drawing.SystemColors.Window;
@@ -3113,10 +3098,10 @@
             this.extentableTextBox84.BackgroundColor = System.Drawing.Color.Transparent;
             this.extentableTextBox84.ButtonBackColor = System.Drawing.Color.Transparent;
             this.extentableTextBox84.ButtonColor = System.Drawing.SystemColors.ControlText;
-            this.extentableTextBox84.LabelText = "SFAF_903";
+            this.extentableTextBox84.Name = "SFAF_903";
             this.extentableTextBox84.LabelTextColor = System.Drawing.SystemColors.ControlText;
             this.extentableTextBox84.Location = new System.Drawing.Point(6, 45);
-            this.extentableTextBox84.Name = "extentableTextBox84";
+            this.extentableTextBox84.LabelText = "Label84";
             this.extentableTextBox84.Size = new System.Drawing.Size(315, 22);
             this.extentableTextBox84.TabIndex = 46;
             this.extentableTextBox84.TextBoxBackColor = System.Drawing.SystemColors.Window;
@@ -3129,10 +3114,10 @@
             this.extentableTextBox85.BackgroundColor = System.Drawing.Color.Transparent;
             this.extentableTextBox85.ButtonBackColor = System.Drawing.Color.Transparent;
             this.extentableTextBox85.ButtonColor = System.Drawing.SystemColors.ControlText;
-            this.extentableTextBox85.LabelText = "SFAF_906";
+            this.extentableTextBox85.Name = "SFAF_906";
             this.extentableTextBox85.LabelTextColor = System.Drawing.SystemColors.ControlText;
             this.extentableTextBox85.Location = new System.Drawing.Point(6, 129);
-            this.extentableTextBox85.Name = "extentableTextBox85";
+            this.extentableTextBox85.LabelText = "Label85";
             this.extentableTextBox85.Size = new System.Drawing.Size(315, 22);
             this.extentableTextBox85.TabIndex = 47;
             this.extentableTextBox85.TextBoxBackColor = System.Drawing.SystemColors.Window;
@@ -3145,10 +3130,10 @@
             this.extentableTextBox122.BackgroundColor = System.Drawing.Color.Transparent;
             this.extentableTextBox122.ButtonBackColor = System.Drawing.Color.Transparent;
             this.extentableTextBox122.ButtonColor = System.Drawing.SystemColors.ControlText;
-            this.extentableTextBox122.LabelText = "SFAF_361";
+            this.extentableTextBox122.Name = "SFAF_361";
             this.extentableTextBox122.LabelTextColor = System.Drawing.SystemColors.ControlText;
             this.extentableTextBox122.Location = new System.Drawing.Point(650, 146);
-            this.extentableTextBox122.Name = "extentableTextBox122";
+            this.extentableTextBox122.LabelText = "Label122";
             this.extentableTextBox122.Size = new System.Drawing.Size(315, 22);
             this.extentableTextBox122.TabIndex = 98;
             this.extentableTextBox122.TextBoxBackColor = System.Drawing.SystemColors.Window;
@@ -3161,10 +3146,10 @@
             this.extentableTextBox125.BackgroundColor = System.Drawing.Color.Transparent;
             this.extentableTextBox125.ButtonBackColor = System.Drawing.Color.Transparent;
             this.extentableTextBox125.ButtonColor = System.Drawing.SystemColors.ControlText;
-            this.extentableTextBox125.LabelText = "SFAF_342";
+            this.extentableTextBox125.Name = "SFAF_342";
             this.extentableTextBox125.LabelTextColor = System.Drawing.SystemColors.ControlText;
             this.extentableTextBox125.Location = new System.Drawing.Point(329, 62);
-            this.extentableTextBox125.Name = "extentableTextBox125";
+            this.extentableTextBox125.LabelText = "Label125";
             this.extentableTextBox125.Size = new System.Drawing.Size(315, 22);
             this.extentableTextBox125.TabIndex = 97;
             this.extentableTextBox125.TextBoxBackColor = System.Drawing.SystemColors.Window;
@@ -3177,10 +3162,10 @@
             this.extentableTextBox126.BackgroundColor = System.Drawing.Color.Transparent;
             this.extentableTextBox126.ButtonBackColor = System.Drawing.Color.Transparent;
             this.extentableTextBox126.ButtonColor = System.Drawing.SystemColors.ControlText;
-            this.extentableTextBox126.LabelText = "SFAF_360";
+            this.extentableTextBox126.Name = "SFAF_360";
             this.extentableTextBox126.LabelTextColor = System.Drawing.SystemColors.ControlText;
             this.extentableTextBox126.Location = new System.Drawing.Point(650, 118);
-            this.extentableTextBox126.Name = "extentableTextBox126";
+            this.extentableTextBox126.LabelText = "Label126";
             this.extentableTextBox126.Size = new System.Drawing.Size(315, 22);
             this.extentableTextBox126.TabIndex = 93;
             this.extentableTextBox126.TextBoxBackColor = System.Drawing.SystemColors.Window;
@@ -3193,10 +3178,10 @@
             this.extentableTextBox128.BackgroundColor = System.Drawing.Color.Transparent;
             this.extentableTextBox128.ButtonBackColor = System.Drawing.Color.Transparent;
             this.extentableTextBox128.ButtonColor = System.Drawing.SystemColors.ControlText;
-            this.extentableTextBox128.LabelText = "SFAF_374";
+            this.extentableTextBox128.Name = "SFAF_374";
             this.extentableTextBox128.LabelTextColor = System.Drawing.SystemColors.ControlText;
             this.extentableTextBox128.Location = new System.Drawing.Point(650, 258);
-            this.extentableTextBox128.Name = "extentableTextBox128";
+            this.extentableTextBox128.LabelText = "Label128";
             this.extentableTextBox128.Size = new System.Drawing.Size(315, 22);
             this.extentableTextBox128.TabIndex = 89;
             this.extentableTextBox128.TextBoxBackColor = System.Drawing.SystemColors.Window;
@@ -3209,10 +3194,10 @@
             this.extentableTextBox129.BackgroundColor = System.Drawing.Color.Transparent;
             this.extentableTextBox129.ButtonBackColor = System.Drawing.Color.Transparent;
             this.extentableTextBox129.ButtonColor = System.Drawing.SystemColors.ControlText;
-            this.extentableTextBox129.LabelText = "SFAF_341";
+            this.extentableTextBox129.Name = "SFAF_341";
             this.extentableTextBox129.LabelTextColor = System.Drawing.SystemColors.ControlText;
             this.extentableTextBox129.Location = new System.Drawing.Point(329, 34);
-            this.extentableTextBox129.Name = "extentableTextBox129";
+            this.extentableTextBox129.LabelText = "Label129";
             this.extentableTextBox129.Size = new System.Drawing.Size(315, 22);
             this.extentableTextBox129.TabIndex = 96;
             this.extentableTextBox129.TextBoxBackColor = System.Drawing.SystemColors.Window;
@@ -3225,10 +3210,10 @@
             this.extentableTextBox130.BackgroundColor = System.Drawing.Color.Transparent;
             this.extentableTextBox130.ButtonBackColor = System.Drawing.Color.Transparent;
             this.extentableTextBox130.ButtonColor = System.Drawing.SystemColors.ControlText;
-            this.extentableTextBox130.LabelText = "SFAF_359";
+            this.extentableTextBox130.Name = "SFAF_359";
             this.extentableTextBox130.LabelTextColor = System.Drawing.SystemColors.ControlText;
             this.extentableTextBox130.Location = new System.Drawing.Point(650, 90);
-            this.extentableTextBox130.Name = "extentableTextBox130";
+            this.extentableTextBox130.LabelText = "Label130";
             this.extentableTextBox130.Size = new System.Drawing.Size(315, 22);
             this.extentableTextBox130.TabIndex = 91;
             this.extentableTextBox130.TextBoxBackColor = System.Drawing.SystemColors.Window;
@@ -3241,10 +3226,10 @@
             this.extentableTextBox131.BackgroundColor = System.Drawing.Color.Transparent;
             this.extentableTextBox131.ButtonBackColor = System.Drawing.Color.Transparent;
             this.extentableTextBox131.ButtonColor = System.Drawing.SystemColors.ControlText;
-            this.extentableTextBox131.LabelText = "SFAF_363";
+            this.extentableTextBox131.Name = "SFAF_363";
             this.extentableTextBox131.LabelTextColor = System.Drawing.SystemColors.ControlText;
             this.extentableTextBox131.Location = new System.Drawing.Point(650, 202);
-            this.extentableTextBox131.Name = "extentableTextBox131";
+            this.extentableTextBox131.LabelText = "Label131";
             this.extentableTextBox131.Size = new System.Drawing.Size(315, 22);
             this.extentableTextBox131.TabIndex = 85;
             this.extentableTextBox131.TextBoxBackColor = System.Drawing.SystemColors.Window;
@@ -3257,10 +3242,10 @@
             this.extentableTextBox132.BackgroundColor = System.Drawing.Color.Transparent;
             this.extentableTextBox132.ButtonBackColor = System.Drawing.Color.Transparent;
             this.extentableTextBox132.ButtonColor = System.Drawing.SystemColors.ControlText;
-            this.extentableTextBox132.LabelText = "SFAF_340";
+            this.extentableTextBox132.Name = "SFAF_340";
             this.extentableTextBox132.LabelTextColor = System.Drawing.SystemColors.ControlText;
             this.extentableTextBox132.Location = new System.Drawing.Point(329, 6);
-            this.extentableTextBox132.Name = "extentableTextBox132";
+            this.extentableTextBox132.LabelText = "Label132";
             this.extentableTextBox132.Size = new System.Drawing.Size(315, 22);
             this.extentableTextBox132.TabIndex = 92;
             this.extentableTextBox132.TextBoxBackColor = System.Drawing.SystemColors.Window;
@@ -3273,10 +3258,10 @@
             this.extentableTextBox133.BackgroundColor = System.Drawing.Color.Transparent;
             this.extentableTextBox133.ButtonBackColor = System.Drawing.Color.Transparent;
             this.extentableTextBox133.ButtonColor = System.Drawing.SystemColors.ControlText;
-            this.extentableTextBox133.LabelText = "SFAF_357";
+            this.extentableTextBox133.Name = "SFAF_357";
             this.extentableTextBox133.LabelTextColor = System.Drawing.SystemColors.ControlText;
             this.extentableTextBox133.Location = new System.Drawing.Point(650, 34);
-            this.extentableTextBox133.Name = "extentableTextBox133";
+            this.extentableTextBox133.LabelText = "Label133";
             this.extentableTextBox133.Size = new System.Drawing.Size(315, 22);
             this.extentableTextBox133.TabIndex = 84;
             this.extentableTextBox133.TextBoxBackColor = System.Drawing.SystemColors.Window;
@@ -3289,10 +3274,10 @@
             this.extentableTextBox134.BackgroundColor = System.Drawing.Color.Transparent;
             this.extentableTextBox134.ButtonBackColor = System.Drawing.Color.Transparent;
             this.extentableTextBox134.ButtonColor = System.Drawing.SystemColors.ControlText;
-            this.extentableTextBox134.LabelText = "SFAF_362";
+            this.extentableTextBox134.Name = "SFAF_362";
             this.extentableTextBox134.LabelTextColor = System.Drawing.SystemColors.ControlText;
             this.extentableTextBox134.Location = new System.Drawing.Point(650, 174);
-            this.extentableTextBox134.Name = "extentableTextBox134";
+            this.extentableTextBox134.LabelText = "Label134";
             this.extentableTextBox134.Size = new System.Drawing.Size(315, 22);
             this.extentableTextBox134.TabIndex = 87;
             this.extentableTextBox134.TextBoxBackColor = System.Drawing.SystemColors.Window;
@@ -3305,10 +3290,10 @@
             this.extentableTextBox135.BackgroundColor = System.Drawing.Color.Transparent;
             this.extentableTextBox135.ButtonBackColor = System.Drawing.Color.Transparent;
             this.extentableTextBox135.ButtonColor = System.Drawing.SystemColors.ControlText;
-            this.extentableTextBox135.LabelText = "SFAF_319";
+            this.extentableTextBox135.Name = "SFAF_319";
             this.extentableTextBox135.LabelTextColor = System.Drawing.SystemColors.ControlText;
             this.extentableTextBox135.Location = new System.Drawing.Point(8, 286);
-            this.extentableTextBox135.Name = "extentableTextBox135";
+            this.extentableTextBox135.LabelText = "Label135";
             this.extentableTextBox135.Size = new System.Drawing.Size(315, 22);
             this.extentableTextBox135.TabIndex = 83;
             this.extentableTextBox135.TextBoxBackColor = System.Drawing.SystemColors.Window;
@@ -3321,10 +3306,10 @@
             this.extentableTextBox136.BackgroundColor = System.Drawing.Color.Transparent;
             this.extentableTextBox136.ButtonBackColor = System.Drawing.Color.Transparent;
             this.extentableTextBox136.ButtonColor = System.Drawing.SystemColors.ControlText;
-            this.extentableTextBox136.LabelText = "SFAF_356";
+            this.extentableTextBox136.Name = "SFAF_356";
             this.extentableTextBox136.LabelTextColor = System.Drawing.SystemColors.ControlText;
             this.extentableTextBox136.Location = new System.Drawing.Point(650, 6);
-            this.extentableTextBox136.Name = "extentableTextBox136";
+            this.extentableTextBox136.LabelText = "Label136";
             this.extentableTextBox136.Size = new System.Drawing.Size(315, 22);
             this.extentableTextBox136.TabIndex = 86;
             this.extentableTextBox136.TextBoxBackColor = System.Drawing.SystemColors.Window;
@@ -3337,10 +3322,10 @@
             this.extentableTextBox137.BackgroundColor = System.Drawing.Color.Transparent;
             this.extentableTextBox137.ButtonBackColor = System.Drawing.Color.Transparent;
             this.extentableTextBox137.ButtonColor = System.Drawing.SystemColors.ControlText;
-            this.extentableTextBox137.LabelText = "SFAF_318";
+            this.extentableTextBox137.Name = "SFAF_318";
             this.extentableTextBox137.LabelTextColor = System.Drawing.SystemColors.ControlText;
             this.extentableTextBox137.Location = new System.Drawing.Point(8, 258);
-            this.extentableTextBox137.Name = "extentableTextBox137";
+            this.extentableTextBox137.LabelText = "Label137";
             this.extentableTextBox137.Size = new System.Drawing.Size(315, 22);
             this.extentableTextBox137.TabIndex = 88;
             this.extentableTextBox137.TextBoxBackColor = System.Drawing.SystemColors.Window;
@@ -3353,10 +3338,10 @@
             this.extentableTextBox138.BackgroundColor = System.Drawing.Color.Transparent;
             this.extentableTextBox138.ButtonBackColor = System.Drawing.Color.Transparent;
             this.extentableTextBox138.ButtonColor = System.Drawing.SystemColors.ControlText;
-            this.extentableTextBox138.LabelText = "SFAF_355";
+            this.extentableTextBox138.Name = "SFAF_355";
             this.extentableTextBox138.LabelTextColor = System.Drawing.SystemColors.ControlText;
             this.extentableTextBox138.Location = new System.Drawing.Point(329, 314);
-            this.extentableTextBox138.Name = "extentableTextBox138";
+            this.extentableTextBox138.LabelText = "Label138";
             this.extentableTextBox138.Size = new System.Drawing.Size(315, 22);
             this.extentableTextBox138.TabIndex = 78;
             this.extentableTextBox138.TextBoxBackColor = System.Drawing.SystemColors.Window;
@@ -3369,10 +3354,10 @@
             this.extentableTextBox140.BackgroundColor = System.Drawing.Color.Transparent;
             this.extentableTextBox140.ButtonBackColor = System.Drawing.Color.Transparent;
             this.extentableTextBox140.ButtonColor = System.Drawing.SystemColors.ControlText;
-            this.extentableTextBox140.LabelText = "SFAF_373";
+            this.extentableTextBox140.Name = "SFAF_373";
             this.extentableTextBox140.LabelTextColor = System.Drawing.SystemColors.ControlText;
             this.extentableTextBox140.Location = new System.Drawing.Point(650, 230);
-            this.extentableTextBox140.Name = "extentableTextBox140";
+            this.extentableTextBox140.LabelText = "Label140";
             this.extentableTextBox140.Size = new System.Drawing.Size(315, 22);
             this.extentableTextBox140.TabIndex = 81;
             this.extentableTextBox140.TextBoxBackColor = System.Drawing.SystemColors.Window;
@@ -3385,10 +3370,10 @@
             this.extentableTextBox141.BackgroundColor = System.Drawing.Color.Transparent;
             this.extentableTextBox141.ButtonBackColor = System.Drawing.Color.Transparent;
             this.extentableTextBox141.ButtonColor = System.Drawing.SystemColors.ControlText;
-            this.extentableTextBox141.LabelText = "SFAF_317";
+            this.extentableTextBox141.Name = "SFAF_317";
             this.extentableTextBox141.LabelTextColor = System.Drawing.SystemColors.ControlText;
             this.extentableTextBox141.Location = new System.Drawing.Point(8, 230);
-            this.extentableTextBox141.Name = "extentableTextBox141";
+            this.extentableTextBox141.LabelText = "Label141";
             this.extentableTextBox141.Size = new System.Drawing.Size(315, 22);
             this.extentableTextBox141.TabIndex = 77;
             this.extentableTextBox141.TextBoxBackColor = System.Drawing.SystemColors.Window;
@@ -3401,10 +3386,10 @@
             this.extentableTextBox142.BackgroundColor = System.Drawing.Color.Transparent;
             this.extentableTextBox142.ButtonBackColor = System.Drawing.Color.Transparent;
             this.extentableTextBox142.ButtonColor = System.Drawing.SystemColors.ControlText;
-            this.extentableTextBox142.LabelText = "SFAF_358";
+            this.extentableTextBox142.Name = "SFAF_358";
             this.extentableTextBox142.LabelTextColor = System.Drawing.SystemColors.ControlText;
             this.extentableTextBox142.Location = new System.Drawing.Point(650, 62);
-            this.extentableTextBox142.Name = "extentableTextBox142";
+            this.extentableTextBox142.LabelText = "Label142";
             this.extentableTextBox142.Size = new System.Drawing.Size(315, 22);
             this.extentableTextBox142.TabIndex = 80;
             this.extentableTextBox142.TextBoxBackColor = System.Drawing.SystemColors.Window;
@@ -3417,10 +3402,10 @@
             this.extentableTextBox143.BackgroundColor = System.Drawing.Color.Transparent;
             this.extentableTextBox143.ButtonBackColor = System.Drawing.Color.Transparent;
             this.extentableTextBox143.ButtonColor = System.Drawing.SystemColors.ControlText;
-            this.extentableTextBox143.LabelText = "SFAF_321";
+            this.extentableTextBox143.Name = "SFAF_321";
             this.extentableTextBox143.LabelTextColor = System.Drawing.SystemColors.ControlText;
             this.extentableTextBox143.Location = new System.Drawing.Point(8, 314);
-            this.extentableTextBox143.Name = "extentableTextBox143";
+            this.extentableTextBox143.LabelText = "Label143";
             this.extentableTextBox143.Size = new System.Drawing.Size(315, 22);
             this.extentableTextBox143.TabIndex = 79;
             this.extentableTextBox143.TextBoxBackColor = System.Drawing.SystemColors.Window;
@@ -3433,10 +3418,10 @@
             this.extentableTextBox144.BackgroundColor = System.Drawing.Color.Transparent;
             this.extentableTextBox144.ButtonBackColor = System.Drawing.Color.Transparent;
             this.extentableTextBox144.ButtonColor = System.Drawing.SystemColors.ControlText;
-            this.extentableTextBox144.LabelText = "SFAF_354";
+            this.extentableTextBox144.Name = "SFAF_354";
             this.extentableTextBox144.LabelTextColor = System.Drawing.SystemColors.ControlText;
             this.extentableTextBox144.Location = new System.Drawing.Point(329, 286);
-            this.extentableTextBox144.Name = "extentableTextBox144";
+            this.extentableTextBox144.LabelText = "Label144";
             this.extentableTextBox144.Size = new System.Drawing.Size(315, 22);
             this.extentableTextBox144.TabIndex = 76;
             this.extentableTextBox144.TextBoxBackColor = System.Drawing.SystemColors.Window;
@@ -3449,10 +3434,10 @@
             this.extentableTextBox145.BackgroundColor = System.Drawing.Color.Transparent;
             this.extentableTextBox145.ButtonBackColor = System.Drawing.Color.Transparent;
             this.extentableTextBox145.ButtonColor = System.Drawing.SystemColors.ControlText;
-            this.extentableTextBox145.LabelText = "SFAF_316";
+            this.extentableTextBox145.Name = "SFAF_316";
             this.extentableTextBox145.LabelTextColor = System.Drawing.SystemColors.ControlText;
             this.extentableTextBox145.Location = new System.Drawing.Point(8, 202);
-            this.extentableTextBox145.Name = "extentableTextBox145";
+            this.extentableTextBox145.LabelText = "Label145";
             this.extentableTextBox145.Size = new System.Drawing.Size(315, 22);
             this.extentableTextBox145.TabIndex = 75;
             this.extentableTextBox145.TextBoxBackColor = System.Drawing.SystemColors.Window;
@@ -3465,10 +3450,10 @@
             this.extentableTextBox146.BackgroundColor = System.Drawing.Color.Transparent;
             this.extentableTextBox146.ButtonBackColor = System.Drawing.Color.Transparent;
             this.extentableTextBox146.ButtonColor = System.Drawing.SystemColors.ControlText;
-            this.extentableTextBox146.LabelText = "SFAF_349";
+            this.extentableTextBox146.Name = "SFAF_349";
             this.extentableTextBox146.LabelTextColor = System.Drawing.SystemColors.ControlText;
             this.extentableTextBox146.Location = new System.Drawing.Point(329, 258);
-            this.extentableTextBox146.Name = "extentableTextBox146";
+            this.extentableTextBox146.LabelText = "Label146";
             this.extentableTextBox146.Size = new System.Drawing.Size(315, 22);
             this.extentableTextBox146.TabIndex = 73;
             this.extentableTextBox146.TextBoxBackColor = System.Drawing.SystemColors.Window;
@@ -3481,10 +3466,10 @@
             this.extentableTextBox147.BackgroundColor = System.Drawing.Color.Transparent;
             this.extentableTextBox147.ButtonBackColor = System.Drawing.Color.Transparent;
             this.extentableTextBox147.ButtonColor = System.Drawing.SystemColors.ControlText;
-            this.extentableTextBox147.LabelText = "SFAF_348";
+            this.extentableTextBox147.Name = "SFAF_348";
             this.extentableTextBox147.LabelTextColor = System.Drawing.SystemColors.ControlText;
             this.extentableTextBox147.Location = new System.Drawing.Point(329, 230);
-            this.extentableTextBox147.Name = "extentableTextBox147";
+            this.extentableTextBox147.LabelText = "Label147";
             this.extentableTextBox147.Size = new System.Drawing.Size(315, 22);
             this.extentableTextBox147.TabIndex = 71;
             this.extentableTextBox147.TextBoxBackColor = System.Drawing.SystemColors.Window;
@@ -3497,10 +3482,10 @@
             this.extentableTextBox148.BackgroundColor = System.Drawing.Color.Transparent;
             this.extentableTextBox148.ButtonBackColor = System.Drawing.Color.Transparent;
             this.extentableTextBox148.ButtonColor = System.Drawing.SystemColors.ControlText;
-            this.extentableTextBox148.LabelText = "SFAF_315";
+            this.extentableTextBox148.Name = "SFAF_315";
             this.extentableTextBox148.LabelTextColor = System.Drawing.SystemColors.ControlText;
             this.extentableTextBox148.Location = new System.Drawing.Point(8, 174);
-            this.extentableTextBox148.Name = "extentableTextBox148";
+            this.extentableTextBox148.LabelText = "Label148";
             this.extentableTextBox148.Size = new System.Drawing.Size(315, 22);
             this.extentableTextBox148.TabIndex = 74;
             this.extentableTextBox148.TextBoxBackColor = System.Drawing.SystemColors.Window;
@@ -3513,10 +3498,10 @@
             this.extentableTextBox149.BackgroundColor = System.Drawing.Color.Transparent;
             this.extentableTextBox149.ButtonBackColor = System.Drawing.Color.Transparent;
             this.extentableTextBox149.ButtonColor = System.Drawing.SystemColors.ControlText;
-            this.extentableTextBox149.LabelText = "SFAF_343";
+            this.extentableTextBox149.Name = "SFAF_343";
             this.extentableTextBox149.LabelTextColor = System.Drawing.SystemColors.ControlText;
             this.extentableTextBox149.Location = new System.Drawing.Point(329, 90);
-            this.extentableTextBox149.Name = "extentableTextBox149";
+            this.extentableTextBox149.LabelText = "Label149";
             this.extentableTextBox149.Size = new System.Drawing.Size(315, 22);
             this.extentableTextBox149.TabIndex = 66;
             this.extentableTextBox149.TextBoxBackColor = System.Drawing.SystemColors.Window;
@@ -3529,10 +3514,10 @@
             this.extentableTextBox150.BackgroundColor = System.Drawing.Color.Transparent;
             this.extentableTextBox150.ButtonBackColor = System.Drawing.Color.Transparent;
             this.extentableTextBox150.ButtonColor = System.Drawing.SystemColors.ControlText;
-            this.extentableTextBox150.LabelText = "SFAF_306";
+            this.extentableTextBox150.Name = "SFAF_306";
             this.extentableTextBox150.LabelTextColor = System.Drawing.SystemColors.ControlText;
             this.extentableTextBox150.Location = new System.Drawing.Point(8, 146);
-            this.extentableTextBox150.Name = "extentableTextBox150";
+            this.extentableTextBox150.LabelText = "Label150";
             this.extentableTextBox150.Size = new System.Drawing.Size(315, 22);
             this.extentableTextBox150.TabIndex = 72;
             this.extentableTextBox150.TextBoxBackColor = System.Drawing.SystemColors.Window;
@@ -3545,10 +3530,10 @@
             this.extentableTextBox151.BackgroundColor = System.Drawing.Color.Transparent;
             this.extentableTextBox151.ButtonBackColor = System.Drawing.Color.Transparent;
             this.extentableTextBox151.ButtonColor = System.Drawing.SystemColors.ControlText;
-            this.extentableTextBox151.LabelText = "SFAF_346";
+            this.extentableTextBox151.Name = "SFAF_346";
             this.extentableTextBox151.LabelTextColor = System.Drawing.SystemColors.ControlText;
             this.extentableTextBox151.Location = new System.Drawing.Point(329, 174);
-            this.extentableTextBox151.Name = "extentableTextBox151";
+            this.extentableTextBox151.LabelText = "Label151";
             this.extentableTextBox151.Size = new System.Drawing.Size(315, 22);
             this.extentableTextBox151.TabIndex = 68;
             this.extentableTextBox151.TextBoxBackColor = System.Drawing.SystemColors.Window;
@@ -3561,10 +3546,10 @@
             this.extentableTextBox152.BackgroundColor = System.Drawing.Color.Transparent;
             this.extentableTextBox152.ButtonBackColor = System.Drawing.Color.Transparent;
             this.extentableTextBox152.ButtonColor = System.Drawing.SystemColors.ControlText;
-            this.extentableTextBox152.LabelText = "SFAF_300";
+            this.extentableTextBox152.Name = "SFAF_300";
             this.extentableTextBox152.LabelTextColor = System.Drawing.SystemColors.ControlText;
             this.extentableTextBox152.Location = new System.Drawing.Point(8, 6);
-            this.extentableTextBox152.Name = "extentableTextBox152";
+            this.extentableTextBox152.LabelText = "Label152";
             this.extentableTextBox152.Size = new System.Drawing.Size(315, 22);
             this.extentableTextBox152.TabIndex = 65;
             this.extentableTextBox152.TextBoxBackColor = System.Drawing.SystemColors.Window;
@@ -3577,10 +3562,10 @@
             this.extentableTextBox153.BackgroundColor = System.Drawing.Color.Transparent;
             this.extentableTextBox153.ButtonBackColor = System.Drawing.Color.Transparent;
             this.extentableTextBox153.ButtonColor = System.Drawing.SystemColors.ControlText;
-            this.extentableTextBox153.LabelText = "SFAF_345";
+            this.extentableTextBox153.Name = "SFAF_345";
             this.extentableTextBox153.LabelTextColor = System.Drawing.SystemColors.ControlText;
             this.extentableTextBox153.Location = new System.Drawing.Point(329, 146);
-            this.extentableTextBox153.Name = "extentableTextBox153";
+            this.extentableTextBox153.LabelText = "Label153";
             this.extentableTextBox153.Size = new System.Drawing.Size(315, 22);
             this.extentableTextBox153.TabIndex = 69;
             this.extentableTextBox153.TextBoxBackColor = System.Drawing.SystemColors.Window;
@@ -3593,10 +3578,10 @@
             this.extentableTextBox154.BackgroundColor = System.Drawing.Color.Transparent;
             this.extentableTextBox154.ButtonBackColor = System.Drawing.Color.Transparent;
             this.extentableTextBox154.ButtonColor = System.Drawing.SystemColors.ControlText;
-            this.extentableTextBox154.LabelText = "SFAF_303";
+            this.extentableTextBox154.Name = "SFAF_303";
             this.extentableTextBox154.LabelTextColor = System.Drawing.SystemColors.ControlText;
             this.extentableTextBox154.Location = new System.Drawing.Point(8, 90);
-            this.extentableTextBox154.Name = "extentableTextBox154";
+            this.extentableTextBox154.LabelText = "Label154";
             this.extentableTextBox154.Size = new System.Drawing.Size(315, 22);
             this.extentableTextBox154.TabIndex = 67;
             this.extentableTextBox154.TextBoxBackColor = System.Drawing.SystemColors.Window;
@@ -3609,10 +3594,10 @@
             this.extentableTextBox155.BackgroundColor = System.Drawing.Color.Transparent;
             this.extentableTextBox155.ButtonBackColor = System.Drawing.Color.Transparent;
             this.extentableTextBox155.ButtonColor = System.Drawing.SystemColors.ControlText;
-            this.extentableTextBox155.LabelText = "SFAF_344";
+            this.extentableTextBox155.Name = "SFAF_344";
             this.extentableTextBox155.LabelTextColor = System.Drawing.SystemColors.ControlText;
             this.extentableTextBox155.Location = new System.Drawing.Point(329, 118);
-            this.extentableTextBox155.Name = "extentableTextBox155";
+            this.extentableTextBox155.LabelText = "Label155";
             this.extentableTextBox155.Size = new System.Drawing.Size(315, 22);
             this.extentableTextBox155.TabIndex = 62;
             this.extentableTextBox155.TextBoxBackColor = System.Drawing.SystemColors.Window;
@@ -3625,10 +3610,10 @@
             this.extentableTextBox156.BackgroundColor = System.Drawing.Color.Transparent;
             this.extentableTextBox156.ButtonBackColor = System.Drawing.Color.Transparent;
             this.extentableTextBox156.ButtonColor = System.Drawing.SystemColors.ControlText;
-            this.extentableTextBox156.LabelText = "SFAF_302";
+            this.extentableTextBox156.Name = "SFAF_302";
             this.extentableTextBox156.LabelTextColor = System.Drawing.SystemColors.ControlText;
             this.extentableTextBox156.Location = new System.Drawing.Point(8, 62);
-            this.extentableTextBox156.Name = "extentableTextBox156";
+            this.extentableTextBox156.LabelText = "Label156";
             this.extentableTextBox156.Size = new System.Drawing.Size(315, 22);
             this.extentableTextBox156.TabIndex = 70;
             this.extentableTextBox156.TextBoxBackColor = System.Drawing.SystemColors.Window;
@@ -3641,10 +3626,10 @@
             this.extentableTextBox157.BackgroundColor = System.Drawing.Color.Transparent;
             this.extentableTextBox157.ButtonBackColor = System.Drawing.Color.Transparent;
             this.extentableTextBox157.ButtonColor = System.Drawing.SystemColors.ControlText;
-            this.extentableTextBox157.LabelText = "SFAF_347";
+            this.extentableTextBox157.Name = "SFAF_347";
             this.extentableTextBox157.LabelTextColor = System.Drawing.SystemColors.ControlText;
             this.extentableTextBox157.Location = new System.Drawing.Point(329, 202);
-            this.extentableTextBox157.Name = "extentableTextBox157";
+            this.extentableTextBox157.LabelText = "Label157";
             this.extentableTextBox157.Size = new System.Drawing.Size(315, 22);
             this.extentableTextBox157.TabIndex = 64;
             this.extentableTextBox157.TextBoxBackColor = System.Drawing.SystemColors.Window;
@@ -3657,10 +3642,10 @@
             this.extentableTextBox158.BackgroundColor = System.Drawing.Color.Transparent;
             this.extentableTextBox158.ButtonBackColor = System.Drawing.Color.Transparent;
             this.extentableTextBox158.ButtonColor = System.Drawing.SystemColors.ControlText;
-            this.extentableTextBox158.LabelText = "SFAF_301";
+            this.extentableTextBox158.Name = "SFAF_301";
             this.extentableTextBox158.LabelTextColor = System.Drawing.SystemColors.ControlText;
             this.extentableTextBox158.Location = new System.Drawing.Point(8, 34);
-            this.extentableTextBox158.Name = "extentableTextBox158";
+            this.extentableTextBox158.LabelText = "Label158";
             this.extentableTextBox158.Size = new System.Drawing.Size(315, 22);
             this.extentableTextBox158.TabIndex = 61;
             this.extentableTextBox158.TextBoxBackColor = System.Drawing.SystemColors.Window;
@@ -3673,15 +3658,63 @@
             this.extentableTextBox159.BackgroundColor = System.Drawing.Color.Transparent;
             this.extentableTextBox159.ButtonBackColor = System.Drawing.Color.Transparent;
             this.extentableTextBox159.ButtonColor = System.Drawing.SystemColors.ControlText;
-            this.extentableTextBox159.LabelText = "SFAF_304";
+            this.extentableTextBox159.Name = "SFAF_304";
             this.extentableTextBox159.LabelTextColor = System.Drawing.SystemColors.ControlText;
             this.extentableTextBox159.Location = new System.Drawing.Point(8, 118);
-            this.extentableTextBox159.Name = "extentableTextBox159";
+            this.extentableTextBox159.LabelText = "Label159";
             this.extentableTextBox159.Size = new System.Drawing.Size(315, 22);
             this.extentableTextBox159.TabIndex = 63;
             this.extentableTextBox159.TextBoxBackColor = System.Drawing.SystemColors.Window;
             this.extentableTextBox159.TextBoxColor = System.Drawing.SystemColors.WindowText;
             this.extentableTextBox159.TextValue = "";
+            // 
+            // extentableTextBox179
+            // 
+            this.extentableTextBox179.BackColor = System.Drawing.Color.Transparent;
+            this.extentableTextBox179.BackgroundColor = System.Drawing.Color.Transparent;
+            this.extentableTextBox179.ButtonBackColor = System.Drawing.Color.Transparent;
+            this.extentableTextBox179.ButtonColor = System.Drawing.SystemColors.ControlText;
+            this.extentableTextBox179.Name = "SFAF_400";
+            this.extentableTextBox179.LabelTextColor = System.Drawing.SystemColors.ControlText;
+            this.extentableTextBox179.Location = new System.Drawing.Point(6, 19);
+            this.extentableTextBox179.LabelText = "Label179";
+            this.extentableTextBox179.Size = new System.Drawing.Size(315, 22);
+            this.extentableTextBox179.TabIndex = 103;
+            this.extentableTextBox179.TextBoxBackColor = System.Drawing.SystemColors.Window;
+            this.extentableTextBox179.TextBoxColor = System.Drawing.SystemColors.WindowText;
+            this.extentableTextBox179.TextValue = "";
+            // 
+            // extentableTextBox186
+            // 
+            this.extentableTextBox186.BackColor = System.Drawing.Color.Transparent;
+            this.extentableTextBox186.BackgroundColor = System.Drawing.Color.Transparent;
+            this.extentableTextBox186.ButtonBackColor = System.Drawing.Color.Transparent;
+            this.extentableTextBox186.ButtonColor = System.Drawing.SystemColors.ControlText;
+            this.extentableTextBox186.Name = "SFAF_404";
+            this.extentableTextBox186.LabelTextColor = System.Drawing.SystemColors.ControlText;
+            this.extentableTextBox186.Location = new System.Drawing.Point(6, 131);
+            this.extentableTextBox186.LabelText = "Label186";
+            this.extentableTextBox186.Size = new System.Drawing.Size(315, 22);
+            this.extentableTextBox186.TabIndex = 101;
+            this.extentableTextBox186.TextBoxBackColor = System.Drawing.SystemColors.Window;
+            this.extentableTextBox186.TextBoxColor = System.Drawing.SystemColors.WindowText;
+            this.extentableTextBox186.TextValue = "";
+            // 
+            // extentableTextBox185
+            // 
+            this.extentableTextBox185.BackColor = System.Drawing.Color.Transparent;
+            this.extentableTextBox185.BackgroundColor = System.Drawing.Color.Transparent;
+            this.extentableTextBox185.ButtonBackColor = System.Drawing.Color.Transparent;
+            this.extentableTextBox185.ButtonColor = System.Drawing.SystemColors.ControlText;
+            this.extentableTextBox185.Name = "SFAF_401";
+            this.extentableTextBox185.LabelTextColor = System.Drawing.SystemColors.ControlText;
+            this.extentableTextBox185.Location = new System.Drawing.Point(6, 47);
+            this.extentableTextBox185.LabelText = "Label185";
+            this.extentableTextBox185.Size = new System.Drawing.Size(315, 22);
+            this.extentableTextBox185.TabIndex = 99;
+            this.extentableTextBox185.TextBoxBackColor = System.Drawing.SystemColors.Window;
+            this.extentableTextBox185.TextBoxColor = System.Drawing.SystemColors.WindowText;
+            this.extentableTextBox185.TextValue = "";
             // 
             // extentableTextBox119
             // 
@@ -3689,10 +3722,10 @@
             this.extentableTextBox119.BackgroundColor = System.Drawing.Color.Transparent;
             this.extentableTextBox119.ButtonBackColor = System.Drawing.Color.Transparent;
             this.extentableTextBox119.ButtonColor = System.Drawing.SystemColors.ControlText;
-            this.extentableTextBox119.LabelText = "SFAF_461";
+            this.extentableTextBox119.Name = "SFAF_461";
             this.extentableTextBox119.LabelTextColor = System.Drawing.SystemColors.ControlText;
-            this.extentableTextBox119.Location = new System.Drawing.Point(649, 406);
-            this.extentableTextBox119.Name = "extentableTextBox119";
+            this.extentableTextBox119.Location = new System.Drawing.Point(648, 131);
+            this.extentableTextBox119.LabelText = "Label119";
             this.extentableTextBox119.Size = new System.Drawing.Size(315, 22);
             this.extentableTextBox119.TabIndex = 132;
             this.extentableTextBox119.TextBoxBackColor = System.Drawing.SystemColors.Window;
@@ -3705,15 +3738,31 @@
             this.extentableTextBox120.BackgroundColor = System.Drawing.Color.Transparent;
             this.extentableTextBox120.ButtonBackColor = System.Drawing.Color.Transparent;
             this.extentableTextBox120.ButtonColor = System.Drawing.SystemColors.ControlText;
-            this.extentableTextBox120.LabelText = "SFAF_442";
+            this.extentableTextBox120.Name = "SFAF_442";
             this.extentableTextBox120.LabelTextColor = System.Drawing.SystemColors.ControlText;
-            this.extentableTextBox120.Location = new System.Drawing.Point(328, 294);
-            this.extentableTextBox120.Name = "extentableTextBox120";
+            this.extentableTextBox120.Location = new System.Drawing.Point(327, 103);
+            this.extentableTextBox120.LabelText = "Label120";
             this.extentableTextBox120.Size = new System.Drawing.Size(315, 22);
             this.extentableTextBox120.TabIndex = 131;
             this.extentableTextBox120.TextBoxBackColor = System.Drawing.SystemColors.Window;
             this.extentableTextBox120.TextBoxColor = System.Drawing.SystemColors.WindowText;
             this.extentableTextBox120.TextValue = "";
+            // 
+            // extentableTextBox183
+            // 
+            this.extentableTextBox183.BackColor = System.Drawing.Color.Transparent;
+            this.extentableTextBox183.BackgroundColor = System.Drawing.Color.Transparent;
+            this.extentableTextBox183.ButtonBackColor = System.Drawing.Color.Transparent;
+            this.extentableTextBox183.ButtonColor = System.Drawing.SystemColors.ControlText;
+            this.extentableTextBox183.Name = "SFAF_402";
+            this.extentableTextBox183.LabelTextColor = System.Drawing.SystemColors.ControlText;
+            this.extentableTextBox183.Location = new System.Drawing.Point(6, 75);
+            this.extentableTextBox183.LabelText = "Label183";
+            this.extentableTextBox183.Size = new System.Drawing.Size(315, 22);
+            this.extentableTextBox183.TabIndex = 108;
+            this.extentableTextBox183.TextBoxBackColor = System.Drawing.SystemColors.Window;
+            this.extentableTextBox183.TextBoxColor = System.Drawing.SystemColors.WindowText;
+            this.extentableTextBox183.TextValue = "";
             // 
             // extentableTextBox121
             // 
@@ -3721,47 +3770,31 @@
             this.extentableTextBox121.BackgroundColor = System.Drawing.Color.Transparent;
             this.extentableTextBox121.ButtonBackColor = System.Drawing.Color.Transparent;
             this.extentableTextBox121.ButtonColor = System.Drawing.SystemColors.ControlText;
-            this.extentableTextBox121.LabelText = "SFAF_460";
+            this.extentableTextBox121.Name = "SFAF_460";
             this.extentableTextBox121.LabelTextColor = System.Drawing.SystemColors.ControlText;
-            this.extentableTextBox121.Location = new System.Drawing.Point(649, 378);
-            this.extentableTextBox121.Name = "extentableTextBox121";
+            this.extentableTextBox121.Location = new System.Drawing.Point(648, 103);
+            this.extentableTextBox121.LabelText = "Label121";
             this.extentableTextBox121.Size = new System.Drawing.Size(315, 22);
             this.extentableTextBox121.TabIndex = 129;
             this.extentableTextBox121.TextBoxBackColor = System.Drawing.SystemColors.Window;
             this.extentableTextBox121.TextBoxColor = System.Drawing.SystemColors.WindowText;
             this.extentableTextBox121.TextValue = "";
             // 
-            // extentableTextBox123
+            // extentableTextBox181
             // 
-            this.extentableTextBox123.BackColor = System.Drawing.Color.Transparent;
-            this.extentableTextBox123.BackgroundColor = System.Drawing.Color.Transparent;
-            this.extentableTextBox123.ButtonBackColor = System.Drawing.Color.Transparent;
-            this.extentableTextBox123.ButtonColor = System.Drawing.SystemColors.ControlText;
-            this.extentableTextBox123.LabelText = "SFAF_474";
-            this.extentableTextBox123.LabelTextColor = System.Drawing.SystemColors.ControlText;
-            this.extentableTextBox123.Location = new System.Drawing.Point(649, 518);
-            this.extentableTextBox123.Name = "extentableTextBox123";
-            this.extentableTextBox123.Size = new System.Drawing.Size(315, 22);
-            this.extentableTextBox123.TabIndex = 126;
-            this.extentableTextBox123.TextBoxBackColor = System.Drawing.SystemColors.Window;
-            this.extentableTextBox123.TextBoxColor = System.Drawing.SystemColors.WindowText;
-            this.extentableTextBox123.TextValue = "";
-            // 
-            // extentableTextBox124
-            // 
-            this.extentableTextBox124.BackColor = System.Drawing.Color.Transparent;
-            this.extentableTextBox124.BackgroundColor = System.Drawing.Color.Transparent;
-            this.extentableTextBox124.ButtonBackColor = System.Drawing.Color.Transparent;
-            this.extentableTextBox124.ButtonColor = System.Drawing.SystemColors.ControlText;
-            this.extentableTextBox124.LabelText = "SFAF_441";
-            this.extentableTextBox124.LabelTextColor = System.Drawing.SystemColors.ControlText;
-            this.extentableTextBox124.Location = new System.Drawing.Point(328, 266);
-            this.extentableTextBox124.Name = "extentableTextBox124";
-            this.extentableTextBox124.Size = new System.Drawing.Size(315, 22);
-            this.extentableTextBox124.TabIndex = 130;
-            this.extentableTextBox124.TextBoxBackColor = System.Drawing.SystemColors.Window;
-            this.extentableTextBox124.TextBoxColor = System.Drawing.SystemColors.WindowText;
-            this.extentableTextBox124.TextValue = "";
+            this.extentableTextBox181.BackColor = System.Drawing.Color.Transparent;
+            this.extentableTextBox181.BackgroundColor = System.Drawing.Color.Transparent;
+            this.extentableTextBox181.ButtonBackColor = System.Drawing.Color.Transparent;
+            this.extentableTextBox181.ButtonColor = System.Drawing.SystemColors.ControlText;
+            this.extentableTextBox181.Name = "SFAF_403";
+            this.extentableTextBox181.LabelTextColor = System.Drawing.SystemColors.ControlText;
+            this.extentableTextBox181.Location = new System.Drawing.Point(6, 103);
+            this.extentableTextBox181.LabelText = "Label181";
+            this.extentableTextBox181.Size = new System.Drawing.Size(315, 22);
+            this.extentableTextBox181.TabIndex = 105;
+            this.extentableTextBox181.TextBoxBackColor = System.Drawing.SystemColors.Window;
+            this.extentableTextBox181.TextBoxColor = System.Drawing.SystemColors.WindowText;
+            this.extentableTextBox181.TextValue = "";
             // 
             // extentableTextBox127
             // 
@@ -3769,10 +3802,10 @@
             this.extentableTextBox127.BackgroundColor = System.Drawing.Color.Transparent;
             this.extentableTextBox127.ButtonBackColor = System.Drawing.Color.Transparent;
             this.extentableTextBox127.ButtonColor = System.Drawing.SystemColors.ControlText;
-            this.extentableTextBox127.LabelText = "SFAF_459";
+            this.extentableTextBox127.Name = "SFAF_459";
             this.extentableTextBox127.LabelTextColor = System.Drawing.SystemColors.ControlText;
-            this.extentableTextBox127.Location = new System.Drawing.Point(649, 350);
-            this.extentableTextBox127.Name = "extentableTextBox127";
+            this.extentableTextBox127.Location = new System.Drawing.Point(648, 75);
+            this.extentableTextBox127.LabelText = "Label127";
             this.extentableTextBox127.Size = new System.Drawing.Size(315, 22);
             this.extentableTextBox127.TabIndex = 127;
             this.extentableTextBox127.TextBoxBackColor = System.Drawing.SystemColors.Window;
@@ -3785,15 +3818,31 @@
             this.extentableTextBox139.BackgroundColor = System.Drawing.Color.Transparent;
             this.extentableTextBox139.ButtonBackColor = System.Drawing.Color.Transparent;
             this.extentableTextBox139.ButtonColor = System.Drawing.SystemColors.ControlText;
-            this.extentableTextBox139.LabelText = "SFAF_463";
+            this.extentableTextBox139.Name = "SFAF_463";
             this.extentableTextBox139.LabelTextColor = System.Drawing.SystemColors.ControlText;
-            this.extentableTextBox139.Location = new System.Drawing.Point(649, 462);
-            this.extentableTextBox139.Name = "extentableTextBox139";
+            this.extentableTextBox139.Location = new System.Drawing.Point(648, 187);
+            this.extentableTextBox139.LabelText = "Label139";
             this.extentableTextBox139.Size = new System.Drawing.Size(315, 22);
             this.extentableTextBox139.TabIndex = 122;
             this.extentableTextBox139.TextBoxBackColor = System.Drawing.SystemColors.Window;
             this.extentableTextBox139.TextBoxColor = System.Drawing.SystemColors.WindowText;
             this.extentableTextBox139.TextValue = "";
+            // 
+            // extentableTextBox177
+            // 
+            this.extentableTextBox177.BackColor = System.Drawing.Color.Transparent;
+            this.extentableTextBox177.BackgroundColor = System.Drawing.Color.Transparent;
+            this.extentableTextBox177.ButtonBackColor = System.Drawing.Color.Transparent;
+            this.extentableTextBox177.ButtonColor = System.Drawing.SystemColors.ControlText;
+            this.extentableTextBox177.Name = "SFAF_406";
+            this.extentableTextBox177.LabelTextColor = System.Drawing.SystemColors.ControlText;
+            this.extentableTextBox177.Location = new System.Drawing.Point(6, 159);
+            this.extentableTextBox177.LabelText = "Label177";
+            this.extentableTextBox177.Size = new System.Drawing.Size(315, 22);
+            this.extentableTextBox177.TabIndex = 110;
+            this.extentableTextBox177.TextBoxBackColor = System.Drawing.SystemColors.Window;
+            this.extentableTextBox177.TextBoxColor = System.Drawing.SystemColors.WindowText;
+            this.extentableTextBox177.TextValue = "";
             // 
             // extentableTextBox160
             // 
@@ -3801,15 +3850,31 @@
             this.extentableTextBox160.BackgroundColor = System.Drawing.Color.Transparent;
             this.extentableTextBox160.ButtonBackColor = System.Drawing.Color.Transparent;
             this.extentableTextBox160.ButtonColor = System.Drawing.SystemColors.ControlText;
-            this.extentableTextBox160.LabelText = "SFAF_440";
+            this.extentableTextBox160.Name = "SFAF_440";
             this.extentableTextBox160.LabelTextColor = System.Drawing.SystemColors.ControlText;
-            this.extentableTextBox160.Location = new System.Drawing.Point(328, 238);
-            this.extentableTextBox160.Name = "extentableTextBox160";
+            this.extentableTextBox160.Location = new System.Drawing.Point(327, 75);
+            this.extentableTextBox160.LabelText = "Label160";
             this.extentableTextBox160.Size = new System.Drawing.Size(315, 22);
             this.extentableTextBox160.TabIndex = 128;
             this.extentableTextBox160.TextBoxBackColor = System.Drawing.SystemColors.Window;
             this.extentableTextBox160.TextBoxColor = System.Drawing.SystemColors.WindowText;
             this.extentableTextBox160.TextValue = "";
+            // 
+            // extentableTextBox176
+            // 
+            this.extentableTextBox176.BackColor = System.Drawing.Color.Transparent;
+            this.extentableTextBox176.BackgroundColor = System.Drawing.Color.Transparent;
+            this.extentableTextBox176.ButtonBackColor = System.Drawing.Color.Transparent;
+            this.extentableTextBox176.ButtonColor = System.Drawing.SystemColors.ControlText;
+            this.extentableTextBox176.Name = "SFAF_443";
+            this.extentableTextBox176.LabelTextColor = System.Drawing.SystemColors.ControlText;
+            this.extentableTextBox176.Location = new System.Drawing.Point(327, 131);
+            this.extentableTextBox176.LabelText = "Label176";
+            this.extentableTextBox176.Size = new System.Drawing.Size(315, 22);
+            this.extentableTextBox176.TabIndex = 104;
+            this.extentableTextBox176.TextBoxBackColor = System.Drawing.SystemColors.Window;
+            this.extentableTextBox176.TextBoxColor = System.Drawing.SystemColors.WindowText;
+            this.extentableTextBox176.TextValue = "";
             // 
             // extentableTextBox161
             // 
@@ -3817,15 +3882,31 @@
             this.extentableTextBox161.BackgroundColor = System.Drawing.Color.Transparent;
             this.extentableTextBox161.ButtonBackColor = System.Drawing.Color.Transparent;
             this.extentableTextBox161.ButtonColor = System.Drawing.SystemColors.ControlText;
-            this.extentableTextBox161.LabelText = "SFAF_457";
+            this.extentableTextBox161.Name = "SFAF_457";
             this.extentableTextBox161.LabelTextColor = System.Drawing.SystemColors.ControlText;
-            this.extentableTextBox161.Location = new System.Drawing.Point(649, 294);
-            this.extentableTextBox161.Name = "extentableTextBox161";
+            this.extentableTextBox161.Location = new System.Drawing.Point(648, 19);
+            this.extentableTextBox161.LabelText = "Label161";
             this.extentableTextBox161.Size = new System.Drawing.Size(315, 22);
             this.extentableTextBox161.TabIndex = 121;
             this.extentableTextBox161.TextBoxBackColor = System.Drawing.SystemColors.Window;
             this.extentableTextBox161.TextBoxColor = System.Drawing.SystemColors.WindowText;
             this.extentableTextBox161.TextValue = "";
+            // 
+            // extentableTextBox175
+            // 
+            this.extentableTextBox175.BackColor = System.Drawing.Color.Transparent;
+            this.extentableTextBox175.BackgroundColor = System.Drawing.Color.Transparent;
+            this.extentableTextBox175.ButtonBackColor = System.Drawing.Color.Transparent;
+            this.extentableTextBox175.ButtonColor = System.Drawing.SystemColors.ControlText;
+            this.extentableTextBox175.Name = "SFAF_415";
+            this.extentableTextBox175.LabelTextColor = System.Drawing.SystemColors.ControlText;
+            this.extentableTextBox175.Location = new System.Drawing.Point(6, 187);
+            this.extentableTextBox175.LabelText = "Label175";
+            this.extentableTextBox175.Size = new System.Drawing.Size(315, 22);
+            this.extentableTextBox175.TabIndex = 112;
+            this.extentableTextBox175.TextBoxBackColor = System.Drawing.SystemColors.Window;
+            this.extentableTextBox175.TextBoxColor = System.Drawing.SystemColors.WindowText;
+            this.extentableTextBox175.TextValue = "";
             // 
             // extentableTextBox162
             // 
@@ -3833,10 +3914,10 @@
             this.extentableTextBox162.BackgroundColor = System.Drawing.Color.Transparent;
             this.extentableTextBox162.ButtonBackColor = System.Drawing.Color.Transparent;
             this.extentableTextBox162.ButtonColor = System.Drawing.SystemColors.ControlText;
-            this.extentableTextBox162.LabelText = "SFAF_462";
+            this.extentableTextBox162.Name = "SFAF_462";
             this.extentableTextBox162.LabelTextColor = System.Drawing.SystemColors.ControlText;
-            this.extentableTextBox162.Location = new System.Drawing.Point(649, 434);
-            this.extentableTextBox162.Name = "extentableTextBox162";
+            this.extentableTextBox162.Location = new System.Drawing.Point(648, 159);
+            this.extentableTextBox162.LabelText = "Label162";
             this.extentableTextBox162.Size = new System.Drawing.Size(315, 22);
             this.extentableTextBox162.TabIndex = 124;
             this.extentableTextBox162.TextBoxBackColor = System.Drawing.SystemColors.Window;
@@ -3849,10 +3930,10 @@
             this.extentableTextBox163.BackgroundColor = System.Drawing.Color.Transparent;
             this.extentableTextBox163.ButtonBackColor = System.Drawing.Color.Transparent;
             this.extentableTextBox163.ButtonColor = System.Drawing.SystemColors.ControlText;
-            this.extentableTextBox163.LabelText = "SFAF_419";
+            this.extentableTextBox163.Name = "SFAF_419";
             this.extentableTextBox163.LabelTextColor = System.Drawing.SystemColors.ControlText;
-            this.extentableTextBox163.Location = new System.Drawing.Point(7, 518);
-            this.extentableTextBox163.Name = "extentableTextBox163";
+            this.extentableTextBox163.Location = new System.Drawing.Point(327, 47);
+            this.extentableTextBox163.LabelText = "Label163";
             this.extentableTextBox163.Size = new System.Drawing.Size(315, 22);
             this.extentableTextBox163.TabIndex = 120;
             this.extentableTextBox163.TextBoxBackColor = System.Drawing.SystemColors.Window;
@@ -3865,15 +3946,31 @@
             this.extentableTextBox164.BackgroundColor = System.Drawing.Color.Transparent;
             this.extentableTextBox164.ButtonBackColor = System.Drawing.Color.Transparent;
             this.extentableTextBox164.ButtonColor = System.Drawing.SystemColors.ControlText;
-            this.extentableTextBox164.LabelText = "SFAF_456";
+            this.extentableTextBox164.Name = "SFAF_456";
             this.extentableTextBox164.LabelTextColor = System.Drawing.SystemColors.ControlText;
-            this.extentableTextBox164.Location = new System.Drawing.Point(649, 266);
-            this.extentableTextBox164.Name = "extentableTextBox164";
+            this.extentableTextBox164.Location = new System.Drawing.Point(327, 215);
+            this.extentableTextBox164.LabelText = "Label164";
             this.extentableTextBox164.Size = new System.Drawing.Size(315, 22);
             this.extentableTextBox164.TabIndex = 123;
             this.extentableTextBox164.TextBoxBackColor = System.Drawing.SystemColors.Window;
             this.extentableTextBox164.TextBoxColor = System.Drawing.SystemColors.WindowText;
             this.extentableTextBox164.TextValue = "";
+            // 
+            // extentableTextBox172
+            // 
+            this.extentableTextBox172.BackColor = System.Drawing.Color.Transparent;
+            this.extentableTextBox172.BackgroundColor = System.Drawing.Color.Transparent;
+            this.extentableTextBox172.ButtonBackColor = System.Drawing.Color.Transparent;
+            this.extentableTextBox172.ButtonColor = System.Drawing.SystemColors.ControlText;
+            this.extentableTextBox172.Name = "SFAF_416";
+            this.extentableTextBox172.LabelTextColor = System.Drawing.SystemColors.ControlText;
+            this.extentableTextBox172.Location = new System.Drawing.Point(6, 215);
+            this.extentableTextBox172.LabelText = "Label172";
+            this.extentableTextBox172.Size = new System.Drawing.Size(315, 22);
+            this.extentableTextBox172.TabIndex = 113;
+            this.extentableTextBox172.TextBoxBackColor = System.Drawing.SystemColors.Window;
+            this.extentableTextBox172.TextBoxColor = System.Drawing.SystemColors.WindowText;
+            this.extentableTextBox172.TextValue = "";
             // 
             // extentableTextBox165
             // 
@@ -3881,15 +3978,31 @@
             this.extentableTextBox165.BackgroundColor = System.Drawing.Color.Transparent;
             this.extentableTextBox165.ButtonBackColor = System.Drawing.Color.Transparent;
             this.extentableTextBox165.ButtonColor = System.Drawing.SystemColors.ControlText;
-            this.extentableTextBox165.LabelText = "SFAF_418";
+            this.extentableTextBox165.Name = "SFAF_418";
             this.extentableTextBox165.LabelTextColor = System.Drawing.SystemColors.ControlText;
-            this.extentableTextBox165.Location = new System.Drawing.Point(7, 490);
-            this.extentableTextBox165.Name = "extentableTextBox165";
+            this.extentableTextBox165.Location = new System.Drawing.Point(327, 19);
+            this.extentableTextBox165.LabelText = "Label165";
             this.extentableTextBox165.Size = new System.Drawing.Size(315, 22);
             this.extentableTextBox165.TabIndex = 125;
             this.extentableTextBox165.TextBoxBackColor = System.Drawing.SystemColors.Window;
             this.extentableTextBox165.TextBoxColor = System.Drawing.SystemColors.WindowText;
             this.extentableTextBox165.TextValue = "";
+            // 
+            // extentableTextBox171
+            // 
+            this.extentableTextBox171.BackColor = System.Drawing.Color.Transparent;
+            this.extentableTextBox171.BackgroundColor = System.Drawing.Color.Transparent;
+            this.extentableTextBox171.ButtonBackColor = System.Drawing.Color.Transparent;
+            this.extentableTextBox171.ButtonColor = System.Drawing.SystemColors.ControlText;
+            this.extentableTextBox171.Name = "SFAF_454";
+            this.extentableTextBox171.LabelTextColor = System.Drawing.SystemColors.ControlText;
+            this.extentableTextBox171.Location = new System.Drawing.Point(327, 159);
+            this.extentableTextBox171.LabelText = "Label171";
+            this.extentableTextBox171.Size = new System.Drawing.Size(315, 22);
+            this.extentableTextBox171.TabIndex = 114;
+            this.extentableTextBox171.TextBoxBackColor = System.Drawing.SystemColors.Window;
+            this.extentableTextBox171.TextBoxColor = System.Drawing.SystemColors.WindowText;
+            this.extentableTextBox171.TextValue = "";
             // 
             // extentableTextBox166
             // 
@@ -3897,10 +4010,10 @@
             this.extentableTextBox166.BackgroundColor = System.Drawing.Color.Transparent;
             this.extentableTextBox166.ButtonBackColor = System.Drawing.Color.Transparent;
             this.extentableTextBox166.ButtonColor = System.Drawing.SystemColors.ControlText;
-            this.extentableTextBox166.LabelText = "SFAF_455";
+            this.extentableTextBox166.Name = "SFAF_455";
             this.extentableTextBox166.LabelTextColor = System.Drawing.SystemColors.ControlText;
-            this.extentableTextBox166.Location = new System.Drawing.Point(649, 238);
-            this.extentableTextBox166.Name = "extentableTextBox166";
+            this.extentableTextBox166.Location = new System.Drawing.Point(327, 187);
+            this.extentableTextBox166.LabelText = "Label166";
             this.extentableTextBox166.Size = new System.Drawing.Size(315, 22);
             this.extentableTextBox166.TabIndex = 116;
             this.extentableTextBox166.TextBoxBackColor = System.Drawing.SystemColors.Window;
@@ -3913,31 +4026,15 @@
             this.extentableTextBox167.BackgroundColor = System.Drawing.Color.Transparent;
             this.extentableTextBox167.ButtonBackColor = System.Drawing.Color.Transparent;
             this.extentableTextBox167.ButtonColor = System.Drawing.SystemColors.ControlText;
-            this.extentableTextBox167.LabelText = "SFAF_473";
+            this.extentableTextBox167.Name = "SFAF_473";
             this.extentableTextBox167.LabelTextColor = System.Drawing.SystemColors.ControlText;
-            this.extentableTextBox167.Location = new System.Drawing.Point(649, 490);
-            this.extentableTextBox167.Name = "extentableTextBox167";
+            this.extentableTextBox167.Location = new System.Drawing.Point(648, 215);
+            this.extentableTextBox167.LabelText = "Label167";
             this.extentableTextBox167.Size = new System.Drawing.Size(315, 22);
             this.extentableTextBox167.TabIndex = 119;
             this.extentableTextBox167.TextBoxBackColor = System.Drawing.SystemColors.Window;
             this.extentableTextBox167.TextBoxColor = System.Drawing.SystemColors.WindowText;
             this.extentableTextBox167.TextValue = "";
-            // 
-            // extentableTextBox168
-            // 
-            this.extentableTextBox168.BackColor = System.Drawing.Color.Transparent;
-            this.extentableTextBox168.BackgroundColor = System.Drawing.Color.Transparent;
-            this.extentableTextBox168.ButtonBackColor = System.Drawing.Color.Transparent;
-            this.extentableTextBox168.ButtonColor = System.Drawing.SystemColors.ControlText;
-            this.extentableTextBox168.LabelText = "SFAF_417";
-            this.extentableTextBox168.LabelTextColor = System.Drawing.SystemColors.ControlText;
-            this.extentableTextBox168.Location = new System.Drawing.Point(7, 462);
-            this.extentableTextBox168.Name = "extentableTextBox168";
-            this.extentableTextBox168.Size = new System.Drawing.Size(315, 22);
-            this.extentableTextBox168.TabIndex = 115;
-            this.extentableTextBox168.TextBoxBackColor = System.Drawing.SystemColors.Window;
-            this.extentableTextBox168.TextBoxColor = System.Drawing.SystemColors.WindowText;
-            this.extentableTextBox168.TextValue = "";
             // 
             // extentableTextBox169
             // 
@@ -3945,287 +4042,31 @@
             this.extentableTextBox169.BackgroundColor = System.Drawing.Color.Transparent;
             this.extentableTextBox169.ButtonBackColor = System.Drawing.Color.Transparent;
             this.extentableTextBox169.ButtonColor = System.Drawing.SystemColors.ControlText;
-            this.extentableTextBox169.LabelText = "SFAF_458";
+            this.extentableTextBox169.Name = "SFAF_458";
             this.extentableTextBox169.LabelTextColor = System.Drawing.SystemColors.ControlText;
-            this.extentableTextBox169.Location = new System.Drawing.Point(649, 322);
-            this.extentableTextBox169.Name = "extentableTextBox169";
+            this.extentableTextBox169.Location = new System.Drawing.Point(648, 47);
+            this.extentableTextBox169.LabelText = "Label169";
             this.extentableTextBox169.Size = new System.Drawing.Size(315, 22);
             this.extentableTextBox169.TabIndex = 118;
             this.extentableTextBox169.TextBoxBackColor = System.Drawing.SystemColors.Window;
             this.extentableTextBox169.TextBoxColor = System.Drawing.SystemColors.WindowText;
             this.extentableTextBox169.TextValue = "";
             // 
-            // extentableTextBox170
+            // extentableTextBox168
             // 
-            this.extentableTextBox170.BackColor = System.Drawing.Color.Transparent;
-            this.extentableTextBox170.BackgroundColor = System.Drawing.Color.Transparent;
-            this.extentableTextBox170.ButtonBackColor = System.Drawing.Color.Transparent;
-            this.extentableTextBox170.ButtonColor = System.Drawing.SystemColors.ControlText;
-            this.extentableTextBox170.LabelText = "SFAF_421";
-            this.extentableTextBox170.LabelTextColor = System.Drawing.SystemColors.ControlText;
-            this.extentableTextBox170.Location = new System.Drawing.Point(7, 546);
-            this.extentableTextBox170.Name = "extentableTextBox170";
-            this.extentableTextBox170.Size = new System.Drawing.Size(315, 22);
-            this.extentableTextBox170.TabIndex = 117;
-            this.extentableTextBox170.TextBoxBackColor = System.Drawing.SystemColors.Window;
-            this.extentableTextBox170.TextBoxColor = System.Drawing.SystemColors.WindowText;
-            this.extentableTextBox170.TextValue = "";
-            // 
-            // extentableTextBox171
-            // 
-            this.extentableTextBox171.BackColor = System.Drawing.Color.Transparent;
-            this.extentableTextBox171.BackgroundColor = System.Drawing.Color.Transparent;
-            this.extentableTextBox171.ButtonBackColor = System.Drawing.Color.Transparent;
-            this.extentableTextBox171.ButtonColor = System.Drawing.SystemColors.ControlText;
-            this.extentableTextBox171.LabelText = "SFAF_454";
-            this.extentableTextBox171.LabelTextColor = System.Drawing.SystemColors.ControlText;
-            this.extentableTextBox171.Location = new System.Drawing.Point(328, 518);
-            this.extentableTextBox171.Name = "extentableTextBox171";
-            this.extentableTextBox171.Size = new System.Drawing.Size(315, 22);
-            this.extentableTextBox171.TabIndex = 114;
-            this.extentableTextBox171.TextBoxBackColor = System.Drawing.SystemColors.Window;
-            this.extentableTextBox171.TextBoxColor = System.Drawing.SystemColors.WindowText;
-            this.extentableTextBox171.TextValue = "";
-            // 
-            // extentableTextBox172
-            // 
-            this.extentableTextBox172.BackColor = System.Drawing.Color.Transparent;
-            this.extentableTextBox172.BackgroundColor = System.Drawing.Color.Transparent;
-            this.extentableTextBox172.ButtonBackColor = System.Drawing.Color.Transparent;
-            this.extentableTextBox172.ButtonColor = System.Drawing.SystemColors.ControlText;
-            this.extentableTextBox172.LabelText = "SFAF_416";
-            this.extentableTextBox172.LabelTextColor = System.Drawing.SystemColors.ControlText;
-            this.extentableTextBox172.Location = new System.Drawing.Point(7, 434);
-            this.extentableTextBox172.Name = "extentableTextBox172";
-            this.extentableTextBox172.Size = new System.Drawing.Size(315, 22);
-            this.extentableTextBox172.TabIndex = 113;
-            this.extentableTextBox172.TextBoxBackColor = System.Drawing.SystemColors.Window;
-            this.extentableTextBox172.TextBoxColor = System.Drawing.SystemColors.WindowText;
-            this.extentableTextBox172.TextValue = "";
-            // 
-            // extentableTextBox173
-            // 
-            this.extentableTextBox173.BackColor = System.Drawing.Color.Transparent;
-            this.extentableTextBox173.BackgroundColor = System.Drawing.Color.Transparent;
-            this.extentableTextBox173.ButtonBackColor = System.Drawing.Color.Transparent;
-            this.extentableTextBox173.ButtonColor = System.Drawing.SystemColors.ControlText;
-            this.extentableTextBox173.LabelText = "SFAF_449";
-            this.extentableTextBox173.LabelTextColor = System.Drawing.SystemColors.ControlText;
-            this.extentableTextBox173.Location = new System.Drawing.Point(328, 490);
-            this.extentableTextBox173.Name = "extentableTextBox173";
-            this.extentableTextBox173.Size = new System.Drawing.Size(315, 22);
-            this.extentableTextBox173.TabIndex = 111;
-            this.extentableTextBox173.TextBoxBackColor = System.Drawing.SystemColors.Window;
-            this.extentableTextBox173.TextBoxColor = System.Drawing.SystemColors.WindowText;
-            this.extentableTextBox173.TextValue = "";
-            // 
-            // extentableTextBox174
-            // 
-            this.extentableTextBox174.BackColor = System.Drawing.Color.Transparent;
-            this.extentableTextBox174.BackgroundColor = System.Drawing.Color.Transparent;
-            this.extentableTextBox174.ButtonBackColor = System.Drawing.Color.Transparent;
-            this.extentableTextBox174.ButtonColor = System.Drawing.SystemColors.ControlText;
-            this.extentableTextBox174.LabelText = "SFAF_448";
-            this.extentableTextBox174.LabelTextColor = System.Drawing.SystemColors.ControlText;
-            this.extentableTextBox174.Location = new System.Drawing.Point(328, 462);
-            this.extentableTextBox174.Name = "extentableTextBox174";
-            this.extentableTextBox174.Size = new System.Drawing.Size(315, 22);
-            this.extentableTextBox174.TabIndex = 109;
-            this.extentableTextBox174.TextBoxBackColor = System.Drawing.SystemColors.Window;
-            this.extentableTextBox174.TextBoxColor = System.Drawing.SystemColors.WindowText;
-            this.extentableTextBox174.TextValue = "";
-            // 
-            // extentableTextBox175
-            // 
-            this.extentableTextBox175.BackColor = System.Drawing.Color.Transparent;
-            this.extentableTextBox175.BackgroundColor = System.Drawing.Color.Transparent;
-            this.extentableTextBox175.ButtonBackColor = System.Drawing.Color.Transparent;
-            this.extentableTextBox175.ButtonColor = System.Drawing.SystemColors.ControlText;
-            this.extentableTextBox175.LabelText = "SFAF_415";
-            this.extentableTextBox175.LabelTextColor = System.Drawing.SystemColors.ControlText;
-            this.extentableTextBox175.Location = new System.Drawing.Point(7, 406);
-            this.extentableTextBox175.Name = "extentableTextBox175";
-            this.extentableTextBox175.Size = new System.Drawing.Size(315, 22);
-            this.extentableTextBox175.TabIndex = 112;
-            this.extentableTextBox175.TextBoxBackColor = System.Drawing.SystemColors.Window;
-            this.extentableTextBox175.TextBoxColor = System.Drawing.SystemColors.WindowText;
-            this.extentableTextBox175.TextValue = "";
-            // 
-            // extentableTextBox176
-            // 
-            this.extentableTextBox176.BackColor = System.Drawing.Color.Transparent;
-            this.extentableTextBox176.BackgroundColor = System.Drawing.Color.Transparent;
-            this.extentableTextBox176.ButtonBackColor = System.Drawing.Color.Transparent;
-            this.extentableTextBox176.ButtonColor = System.Drawing.SystemColors.ControlText;
-            this.extentableTextBox176.LabelText = "SFAF_443";
-            this.extentableTextBox176.LabelTextColor = System.Drawing.SystemColors.ControlText;
-            this.extentableTextBox176.Location = new System.Drawing.Point(328, 322);
-            this.extentableTextBox176.Name = "extentableTextBox176";
-            this.extentableTextBox176.Size = new System.Drawing.Size(315, 22);
-            this.extentableTextBox176.TabIndex = 104;
-            this.extentableTextBox176.TextBoxBackColor = System.Drawing.SystemColors.Window;
-            this.extentableTextBox176.TextBoxColor = System.Drawing.SystemColors.WindowText;
-            this.extentableTextBox176.TextValue = "";
-            // 
-            // extentableTextBox177
-            // 
-            this.extentableTextBox177.BackColor = System.Drawing.Color.Transparent;
-            this.extentableTextBox177.BackgroundColor = System.Drawing.Color.Transparent;
-            this.extentableTextBox177.ButtonBackColor = System.Drawing.Color.Transparent;
-            this.extentableTextBox177.ButtonColor = System.Drawing.SystemColors.ControlText;
-            this.extentableTextBox177.LabelText = "SFAF_406";
-            this.extentableTextBox177.LabelTextColor = System.Drawing.SystemColors.ControlText;
-            this.extentableTextBox177.Location = new System.Drawing.Point(7, 378);
-            this.extentableTextBox177.Name = "extentableTextBox177";
-            this.extentableTextBox177.Size = new System.Drawing.Size(315, 22);
-            this.extentableTextBox177.TabIndex = 110;
-            this.extentableTextBox177.TextBoxBackColor = System.Drawing.SystemColors.Window;
-            this.extentableTextBox177.TextBoxColor = System.Drawing.SystemColors.WindowText;
-            this.extentableTextBox177.TextValue = "";
-            // 
-            // extentableTextBox178
-            // 
-            this.extentableTextBox178.BackColor = System.Drawing.Color.Transparent;
-            this.extentableTextBox178.BackgroundColor = System.Drawing.Color.Transparent;
-            this.extentableTextBox178.ButtonBackColor = System.Drawing.Color.Transparent;
-            this.extentableTextBox178.ButtonColor = System.Drawing.SystemColors.ControlText;
-            this.extentableTextBox178.LabelText = "SFAF_446";
-            this.extentableTextBox178.LabelTextColor = System.Drawing.SystemColors.ControlText;
-            this.extentableTextBox178.Location = new System.Drawing.Point(328, 406);
-            this.extentableTextBox178.Name = "extentableTextBox178";
-            this.extentableTextBox178.Size = new System.Drawing.Size(315, 22);
-            this.extentableTextBox178.TabIndex = 106;
-            this.extentableTextBox178.TextBoxBackColor = System.Drawing.SystemColors.Window;
-            this.extentableTextBox178.TextBoxColor = System.Drawing.SystemColors.WindowText;
-            this.extentableTextBox178.TextValue = "";
-            // 
-            // extentableTextBox179
-            // 
-            this.extentableTextBox179.BackColor = System.Drawing.Color.Transparent;
-            this.extentableTextBox179.BackgroundColor = System.Drawing.Color.Transparent;
-            this.extentableTextBox179.ButtonBackColor = System.Drawing.Color.Transparent;
-            this.extentableTextBox179.ButtonColor = System.Drawing.SystemColors.ControlText;
-            this.extentableTextBox179.LabelText = "SFAF_400";
-            this.extentableTextBox179.LabelTextColor = System.Drawing.SystemColors.ControlText;
-            this.extentableTextBox179.Location = new System.Drawing.Point(7, 238);
-            this.extentableTextBox179.Name = "extentableTextBox179";
-            this.extentableTextBox179.Size = new System.Drawing.Size(315, 22);
-            this.extentableTextBox179.TabIndex = 103;
-            this.extentableTextBox179.TextBoxBackColor = System.Drawing.SystemColors.Window;
-            this.extentableTextBox179.TextBoxColor = System.Drawing.SystemColors.WindowText;
-            this.extentableTextBox179.TextValue = "";
-            // 
-            // extentableTextBox180
-            // 
-            this.extentableTextBox180.BackColor = System.Drawing.Color.Transparent;
-            this.extentableTextBox180.BackgroundColor = System.Drawing.Color.Transparent;
-            this.extentableTextBox180.ButtonBackColor = System.Drawing.Color.Transparent;
-            this.extentableTextBox180.ButtonColor = System.Drawing.SystemColors.ControlText;
-            this.extentableTextBox180.LabelText = "SFAF_445";
-            this.extentableTextBox180.LabelTextColor = System.Drawing.SystemColors.ControlText;
-            this.extentableTextBox180.Location = new System.Drawing.Point(328, 378);
-            this.extentableTextBox180.Name = "extentableTextBox180";
-            this.extentableTextBox180.Size = new System.Drawing.Size(315, 22);
-            this.extentableTextBox180.TabIndex = 107;
-            this.extentableTextBox180.TextBoxBackColor = System.Drawing.SystemColors.Window;
-            this.extentableTextBox180.TextBoxColor = System.Drawing.SystemColors.WindowText;
-            this.extentableTextBox180.TextValue = "";
-            // 
-            // extentableTextBox181
-            // 
-            this.extentableTextBox181.BackColor = System.Drawing.Color.Transparent;
-            this.extentableTextBox181.BackgroundColor = System.Drawing.Color.Transparent;
-            this.extentableTextBox181.ButtonBackColor = System.Drawing.Color.Transparent;
-            this.extentableTextBox181.ButtonColor = System.Drawing.SystemColors.ControlText;
-            this.extentableTextBox181.LabelText = "SFAF_403";
-            this.extentableTextBox181.LabelTextColor = System.Drawing.SystemColors.ControlText;
-            this.extentableTextBox181.Location = new System.Drawing.Point(7, 322);
-            this.extentableTextBox181.Name = "extentableTextBox181";
-            this.extentableTextBox181.Size = new System.Drawing.Size(315, 22);
-            this.extentableTextBox181.TabIndex = 105;
-            this.extentableTextBox181.TextBoxBackColor = System.Drawing.SystemColors.Window;
-            this.extentableTextBox181.TextBoxColor = System.Drawing.SystemColors.WindowText;
-            this.extentableTextBox181.TextValue = "";
-            // 
-            // extentableTextBox182
-            // 
-            this.extentableTextBox182.BackColor = System.Drawing.Color.Transparent;
-            this.extentableTextBox182.BackgroundColor = System.Drawing.Color.Transparent;
-            this.extentableTextBox182.ButtonBackColor = System.Drawing.Color.Transparent;
-            this.extentableTextBox182.ButtonColor = System.Drawing.SystemColors.ControlText;
-            this.extentableTextBox182.LabelText = "SFAF_444";
-            this.extentableTextBox182.LabelTextColor = System.Drawing.SystemColors.ControlText;
-            this.extentableTextBox182.Location = new System.Drawing.Point(328, 350);
-            this.extentableTextBox182.Name = "extentableTextBox182";
-            this.extentableTextBox182.Size = new System.Drawing.Size(315, 22);
-            this.extentableTextBox182.TabIndex = 100;
-            this.extentableTextBox182.TextBoxBackColor = System.Drawing.SystemColors.Window;
-            this.extentableTextBox182.TextBoxColor = System.Drawing.SystemColors.WindowText;
-            this.extentableTextBox182.TextValue = "";
-            // 
-            // extentableTextBox183
-            // 
-            this.extentableTextBox183.BackColor = System.Drawing.Color.Transparent;
-            this.extentableTextBox183.BackgroundColor = System.Drawing.Color.Transparent;
-            this.extentableTextBox183.ButtonBackColor = System.Drawing.Color.Transparent;
-            this.extentableTextBox183.ButtonColor = System.Drawing.SystemColors.ControlText;
-            this.extentableTextBox183.LabelText = "SFAF_402";
-            this.extentableTextBox183.LabelTextColor = System.Drawing.SystemColors.ControlText;
-            this.extentableTextBox183.Location = new System.Drawing.Point(7, 294);
-            this.extentableTextBox183.Name = "extentableTextBox183";
-            this.extentableTextBox183.Size = new System.Drawing.Size(315, 22);
-            this.extentableTextBox183.TabIndex = 108;
-            this.extentableTextBox183.TextBoxBackColor = System.Drawing.SystemColors.Window;
-            this.extentableTextBox183.TextBoxColor = System.Drawing.SystemColors.WindowText;
-            this.extentableTextBox183.TextValue = "";
-            // 
-            // extentableTextBox184
-            // 
-            this.extentableTextBox184.BackColor = System.Drawing.Color.Transparent;
-            this.extentableTextBox184.BackgroundColor = System.Drawing.Color.Transparent;
-            this.extentableTextBox184.ButtonBackColor = System.Drawing.Color.Transparent;
-            this.extentableTextBox184.ButtonColor = System.Drawing.SystemColors.ControlText;
-            this.extentableTextBox184.LabelText = "SFAF_447";
-            this.extentableTextBox184.LabelTextColor = System.Drawing.SystemColors.ControlText;
-            this.extentableTextBox184.Location = new System.Drawing.Point(328, 434);
-            this.extentableTextBox184.Name = "extentableTextBox184";
-            this.extentableTextBox184.Size = new System.Drawing.Size(315, 22);
-            this.extentableTextBox184.TabIndex = 102;
-            this.extentableTextBox184.TextBoxBackColor = System.Drawing.SystemColors.Window;
-            this.extentableTextBox184.TextBoxColor = System.Drawing.SystemColors.WindowText;
-            this.extentableTextBox184.TextValue = "";
-            // 
-            // extentableTextBox185
-            // 
-            this.extentableTextBox185.BackColor = System.Drawing.Color.Transparent;
-            this.extentableTextBox185.BackgroundColor = System.Drawing.Color.Transparent;
-            this.extentableTextBox185.ButtonBackColor = System.Drawing.Color.Transparent;
-            this.extentableTextBox185.ButtonColor = System.Drawing.SystemColors.ControlText;
-            this.extentableTextBox185.LabelText = "SFAF_401";
-            this.extentableTextBox185.LabelTextColor = System.Drawing.SystemColors.ControlText;
-            this.extentableTextBox185.Location = new System.Drawing.Point(7, 266);
-            this.extentableTextBox185.Name = "extentableTextBox185";
-            this.extentableTextBox185.Size = new System.Drawing.Size(315, 22);
-            this.extentableTextBox185.TabIndex = 99;
-            this.extentableTextBox185.TextBoxBackColor = System.Drawing.SystemColors.Window;
-            this.extentableTextBox185.TextBoxColor = System.Drawing.SystemColors.WindowText;
-            this.extentableTextBox185.TextValue = "";
-            // 
-            // extentableTextBox186
-            // 
-            this.extentableTextBox186.BackColor = System.Drawing.Color.Transparent;
-            this.extentableTextBox186.BackgroundColor = System.Drawing.Color.Transparent;
-            this.extentableTextBox186.ButtonBackColor = System.Drawing.Color.Transparent;
-            this.extentableTextBox186.ButtonColor = System.Drawing.SystemColors.ControlText;
-            this.extentableTextBox186.LabelText = "SFAF_404";
-            this.extentableTextBox186.LabelTextColor = System.Drawing.SystemColors.ControlText;
-            this.extentableTextBox186.Location = new System.Drawing.Point(7, 350);
-            this.extentableTextBox186.Name = "extentableTextBox186";
-            this.extentableTextBox186.Size = new System.Drawing.Size(315, 22);
-            this.extentableTextBox186.TabIndex = 101;
-            this.extentableTextBox186.TextBoxBackColor = System.Drawing.SystemColors.Window;
-            this.extentableTextBox186.TextBoxColor = System.Drawing.SystemColors.WindowText;
-            this.extentableTextBox186.TextValue = "";
+            this.extentableTextBox168.BackColor = System.Drawing.Color.Transparent;
+            this.extentableTextBox168.BackgroundColor = System.Drawing.Color.Transparent;
+            this.extentableTextBox168.ButtonBackColor = System.Drawing.Color.Transparent;
+            this.extentableTextBox168.ButtonColor = System.Drawing.SystemColors.ControlText;
+            this.extentableTextBox168.Name = "SFAF_417";
+            this.extentableTextBox168.LabelTextColor = System.Drawing.SystemColors.ControlText;
+            this.extentableTextBox168.Location = new System.Drawing.Point(6, 243);
+            this.extentableTextBox168.LabelText = "Label168";
+            this.extentableTextBox168.Size = new System.Drawing.Size(315, 22);
+            this.extentableTextBox168.TabIndex = 115;
+            this.extentableTextBox168.TextBoxBackColor = System.Drawing.SystemColors.Window;
+            this.extentableTextBox168.TextBoxColor = System.Drawing.SystemColors.WindowText;
+            this.extentableTextBox168.TextValue = "";
             // 
             // SFAF
             // 
@@ -4253,6 +4094,7 @@
             this.SFAF_TX.ResumeLayout(false);
             this.SFAF_RX.ResumeLayout(false);
             this.SFAF_RX.PerformLayout();
+            this.Items4xx.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -4386,12 +4228,10 @@
         private Controls.ExtentableTextBox extentableTextBox158;
         private Controls.ExtentableTextBox extentableTextBox159;
         private System.Windows.Forms.Label label23;
-        private NetPlugins2.IcsDBList icsDBList2;
+        private NetPlugins2.IcsDBList c_ListOfRx;
         private Controls.ExtentableTextBox extentableTextBox119;
         private Controls.ExtentableTextBox extentableTextBox120;
         private Controls.ExtentableTextBox extentableTextBox121;
-        private Controls.ExtentableTextBox extentableTextBox123;
-        private Controls.ExtentableTextBox extentableTextBox124;
         private Controls.ExtentableTextBox extentableTextBox127;
         private Controls.ExtentableTextBox extentableTextBox139;
         private Controls.ExtentableTextBox extentableTextBox160;
@@ -4404,24 +4244,16 @@
         private Controls.ExtentableTextBox extentableTextBox167;
         private Controls.ExtentableTextBox extentableTextBox168;
         private Controls.ExtentableTextBox extentableTextBox169;
-        private Controls.ExtentableTextBox extentableTextBox170;
         private Controls.ExtentableTextBox extentableTextBox171;
         private Controls.ExtentableTextBox extentableTextBox172;
-        private Controls.ExtentableTextBox extentableTextBox173;
-        private Controls.ExtentableTextBox extentableTextBox174;
         private Controls.ExtentableTextBox extentableTextBox175;
         private Controls.ExtentableTextBox extentableTextBox176;
         private Controls.ExtentableTextBox extentableTextBox177;
-        private Controls.ExtentableTextBox extentableTextBox178;
         private Controls.ExtentableTextBox extentableTextBox179;
-        private Controls.ExtentableTextBox extentableTextBox180;
         private Controls.ExtentableTextBox extentableTextBox181;
-        private Controls.ExtentableTextBox extentableTextBox182;
         private Controls.ExtentableTextBox extentableTextBox183;
-        private Controls.ExtentableTextBox extentableTextBox184;
         private Controls.ExtentableTextBox extentableTextBox185;
         private Controls.ExtentableTextBox extentableTextBox186;
-        private System.Windows.Forms.Label label26;
         private System.Windows.Forms.GroupBox Items8xx;
         private Controls.ExtentableTextBox extentableTextBox72;
         private Controls.ExtentableTextBox extentableTextBox73;
@@ -4516,5 +4348,6 @@
         private NetPlugins2.IcsDouble icsDouble2;
         private System.Windows.Forms.Label label27;
         private NetPlugins2.IcsControls.IcsComboList c_Country;
+        private System.Windows.Forms.GroupBox Items4xx;
     }
 }

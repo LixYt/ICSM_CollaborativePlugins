@@ -17,7 +17,10 @@ namespace XICSM.VanillaTools.Controls
         public StringEditor(string txt = "")
         {
             InitializeComponent();
-            textBox1.Text = txt;
+            TextValue = txt;
+
+            textBox1.Multiline = TextValue.Contains(Environment.NewLine);
+            Height += TextValue.Split('\n').Count() * 15;
         }
 
         private void button1_Click(object sender, EventArgs e)

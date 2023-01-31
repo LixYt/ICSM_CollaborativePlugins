@@ -13,6 +13,7 @@ using OrmCs;
 using ICSM;
 using FormsCs;
 using XICSM.VanillaTools.Controls;
+using DatalayerCs;
 
 namespace XICSM.VanillaTools.EntityForms
 {
@@ -20,7 +21,7 @@ namespace XICSM.VanillaTools.EntityForms
     {
         private YSfaf Sfaf;
         private YSfafTx SfafTx;
-
+        private Transmitters tp = new Transmitters(); 
         public static bool EditRecord(int isId, IntPtr owner)
         {
             if (isId.IsNull()) return false;
@@ -52,12 +53,30 @@ namespace XICSM.VanillaTools.EntityForms
 
         {
             InitializeComponent();
+            c_Recievers.ResetToDefaultQuery();
+            c_ListOfRx.ResetToDefaultQuery();
+
+            c_Recievers.Init(); 
+            c_ListOfRx.Init();
+            
+
             Sfaf = ys;
             SfafTx = new YSfafTx(); SfafTx.Fetch(Sfaf.m_id);
             FillSumaryTab();
             BindSfafToControls();
 
             Text = $"SFAF SERIAL = {Sfaf.m_sfaf_102} ({Sfaf.m_sfaf_005}) - {SfafTx.m_site_name}";
+
+            c_MapDisplay.RegisterVectorLayer(tp);
+            tp.StStroke.color = "rgba(161,0,255,1)"; tp.StFill.color = "rgba(161,0,255,0.02)";
+            tp.StImage.fill.color = "rgba(161,0,255,0.02)"; tp.StImage.type = "crux";
+            
+            tp.LoadFromAllStation(ys.m_id, ys.m_table_name); //to modify in order to handle Tx and Rx positions + handle Radius
+            
+            c_MapDisplay.CenterOn(SfafTx.m_longitude, SfafTx.m_latitude);
+
+            c_Recievers.Requery();
+            c_ListOfRx.Requery();
         }
 
         public void FillSumaryTab()
@@ -88,7 +107,6 @@ namespace XICSM.VanillaTools.EntityForms
             c_Status.DataBindings.Add(new Binding("Value", Sfaf, "m_sfaf_010"));
 
             c_Recievers.Filter = $"SFAF_ID = {Sfaf.m_id}";
-            c_Recievers.Requery();
 
         }
 
@@ -97,20 +115,68 @@ namespace XICSM.VanillaTools.EntityForms
             BindingTool(Items0xx);
             BindingTool(Items1xx);
             BindingTool(Items2xx);
-            BindingTool(SFAF_TX);
+            BindingTool(SFAF_TX, SfafTx);
             BindingTool(Items5xx);
             BindingTool(Items7xx);
             BindingTool(Items8xx);
             BindingTool(Items9xx);
+
+            c_ListOfRx.Filter = $"SFAF_ID = {Sfaf.m_id}"; 
         }
 
         public void BindingTool(Control c)
         {
             foreach (ExtentableTextBox etb in c.Controls)
             {
-                string propName = "m_" + etb.LabelText.ToLower();
+                string propName = "m_" + etb.Name.ToLower();
+                string LTxt = "label_" + etb.Name;
+                etb.LabelText = L.Txt(LTxt);
                 etb.DataBindings.Add(new Binding("TextValue", Sfaf, propName));
             }
+        }
+
+        public void BindingTool(Control c, YSfafTx tx)
+        {
+            foreach (ExtentableTextBox etb in c.Controls)
+            {
+                string propName = "m_" + etb.Name.ToLower();
+                string LTxt = "label_" + etb.Name;
+                etb.LabelText = L.Txt(LTxt);
+                etb.DataBindings.Add(new Binding("TextValue", tx, propName));
+            }
+        }
+
+        public void BindingToolRx(Control c, YSfafRx rx)
+        {
+            foreach (ExtentableTextBox etb in c.Controls)
+            {
+                etb.DataBindings.Clear();
+                string propName = "m_" + etb.Name.ToLower();
+                string LTxt = "label_" + etb.Name;
+                etb.LabelText = L.Txt(LTxt);
+                etb.DataBindings.Add(new Binding("TextValue", rx, propName));
+            }
+        }
+
+        private void c_ListOfRx_OnRequery(object sender, EventArgs e)
+        {
+            c_ListOfRx.MustBePresent("ID");
+            c_ListOfRx.SetFilter(c_ListOfRx.Filter);
+        }
+
+        private void c_Recievers_OnRequery(object sender, EventArgs e)
+        {
+            c_Recievers.MustBePresent("ID");
+            c_Recievers.SetFilter(c_Recievers.Filter);
+        }
+
+        private void c_ListOfRx_OnSelChanged(object sender, EventArgs e)
+        {   
+            YSfafRx rx = new YSfafRx();
+            string oql = c_ListOfRx.GetSelectionAsOQLFilter(true);
+            if (oql == "[ID] IN ()") return;
+            rx.Fetch(oql);
+            BindingToolRx(Items4xx, rx);
         }
     }
 }
