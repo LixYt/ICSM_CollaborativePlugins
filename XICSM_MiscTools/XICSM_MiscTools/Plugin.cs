@@ -8,11 +8,16 @@ using OrmCs;
 using DatalayerCs;
 using NetPlugins2;
 using System.Windows.Forms;
+using XICSM.PluginManager;
+using System.Diagnostics;
 
 namespace XICSM.MiscTools
 {
-    public class Plugin : IPlugin
+    public class Plugin : IPlugin, IPluginDetails
     {
+        public int Interface => 2;
+        DateTime IPlugin.Version => new DateTime(2023, 2, 15, 10, 34, 0);
+
         public string Description { get { return "Miscellaneous Tools"; } }
         public string Ident { get { return "MiscTools"; } }
         public string MenuGroupName { get { return "Miscellaneous"; } }
@@ -110,6 +115,11 @@ namespace XICSM.MiscTools
             if (!OrmCs.OrmSchema.ParseSchema(appFolder, "MiscTools", "XICSM_MiscTools", out string err)) MessageBox.Show("Unable to load 'MiscTools.Schema' :" + err);
         }
         public double SchemaVersion { get { return 20221015.1503; } }
+
+        public string GitURL => "";
+
+        public string DocumentationUrl => "";
+
         public void RegisterBoard(IMBoard b)
         {
             b.RegisterQueryMenuBuilder("XMISC_QUERYSTORE", Contextual.onGetQueryMenu);
@@ -117,21 +127,29 @@ namespace XICSM.MiscTools
         }
         public void GetMainMenu(IMMainMenu mainMenu) 
         {
-            string TranslationName = L.TxT("Translations");
-            mainMenu.SetInsertLocation("Tools\\Administrator", IMMainMenu.InsertLocation.After);
-            mainMenu.InsertItem("Tools\\"+ TranslationName + "\\" + L.Txt("Import SYS_LANG file in Translation table"), ImportLangFile, "XMISC_TRANSLATIONS");
-            mainMenu.InsertItem("Tools\\" + TranslationName + "\\" + L.Txt("Export Translation records to SYS_LANG file"), ExportLangFile, "XMISC_TRANSLATIONS");
-            mainMenu.InsertItem("Tools\\" + TranslationName + "\\" + L.Txt("Consolidate imported translations with STRINGS file"), ImportSTRINGSFile, "XMISC_TRANSLATIONS");
+            if (PluginsManager.UserCanUseFeature("MiscTools", "Translations"))
+            {
+                string TranslationName = L.TxT("Translations");
+                mainMenu.SetInsertLocation("Tools\\Administrator", IMMainMenu.InsertLocation.After);
+                mainMenu.InsertItem("Tools\\" + TranslationName + "\\" + L.Txt("Import SYS_LANG file in Translation table"), ImportLangFile, "XMISC_TRANSLATIONS");
+                mainMenu.InsertItem("Tools\\" + TranslationName + "\\" + L.Txt("Export Translation records to SYS_LANG file"), ExportLangFile, "XMISC_TRANSLATIONS");
+                mainMenu.InsertItem("Tools\\" + TranslationName + "\\" + L.Txt("Consolidate imported translations with STRINGS file"), ImportSTRINGSFile, "XMISC_TRANSLATIONS");
+            }
 
             mainMenu.SetInsertLocation("Help\\*", IMMainMenu.InsertLocation.Top);
             mainMenu.InsertItem("Help\\" + MenuGroupName + "\\" + L.TxT("Version"), VersionInfo, "XMISC_TRANSLATIONS");
             mainMenu.InsertItem("Help\\" + MenuGroupName + "\\" + L.TxT("Help and resources"), PluginResources, "XMISC_TRANSLATIONS");
+            
         }
 
         public bool OtherMessage(string message, object inParam, ref object outParam) 
         {
             outParam = null;
-            if (message == "EditRecord")
+            if (message == "ON_OPEN_WORKSPACE")
+            {
+                RegisterPluginFeatures();
+            }
+            else if (message == "EditRecord")
             {
                 IntPtr owner = (IntPtr)IM.GetMainWindow();
                 string[] s = ((string)inParam).Split('/');
@@ -140,6 +158,10 @@ namespace XICSM.MiscTools
                 if (s[0] == "XMISC_TRANSLATIONS") { outParam = TranslationEditor.EditRecord(id, owner); return true; }
                 if (s[0] == "XMISC_QUERYSTORE") { outParam = QueryStoreEditor.EditRecord(id, owner); return true; }
                 return false;
+            }
+            else
+            {
+                Debug.WriteLine($"Uncatched message : {message} | {inParam} | {outParam}");
             }
 
             return false; 
@@ -192,5 +214,10 @@ namespace XICSM.MiscTools
             System.Diagnostics.Process.Start("https://github.com/LixYt/ICSM_CollaborativePlugins"); }
         
 
+        public void RegisterPluginFeatures()
+        {
+            PluginsManager.RegisterPluginFeature("MiscTools", "Translations", true, L.Txt("Helps manage, update and store translations of ICS Manager"));
+            PluginsManager.RegisterPluginFeature("MiscTools", "QueryStore", true, L.Txt("Helps store and share queries and custom expressions for ICS Manager"));
+        }
     }
 }

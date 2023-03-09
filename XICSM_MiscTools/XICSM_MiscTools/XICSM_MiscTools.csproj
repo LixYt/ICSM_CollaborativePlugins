@@ -342,10 +342,12 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
-    <Folder Include="Controls\" />
-  </ItemGroup>
-  <ItemGroup>
+    <ProjectReference Include="..\PluginManager\PluginManager.csproj">
+      <Project>{67ED9447-0DA7-4748-8F15-037C110D3BC9}</Project>
+      <Name>PluginManager</Name>
+    </ProjectReference>
     <ProjectReference Include="..\XMISC_VanillaTools\XMISC_VanillaTools.csproj">
       <Project>{fc884b82-da26-473a-ad2a-3739458fc8b5}</Project>
       <Name>XMISC_VanillaTools</Name>

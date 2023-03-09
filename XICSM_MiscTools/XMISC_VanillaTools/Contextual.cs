@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using XICSM.MiscTools;
+using XICSM.PluginManager;
 using XICSM.VanillaTools.Tools;
 
 namespace XICSM.VanillaTools
@@ -16,42 +17,41 @@ namespace XICSM.VanillaTools
     class Contextual
     {
         public static List<IMQueryMenuNode> onGetQueryMenu(string tableName, int nbSelMin)
-
-
         {
             List<IMQueryMenuNode> lst = new List<IMQueryMenuNode>();
             List<IMQueryMenuNode> lst_DataCopy = new List<IMQueryMenuNode>();
-            
+
             //All tables
-            if (nbSelMin >= 1 && IM.GetWorkspaceString("VanillaContextualTools") == "Display")
+            if (nbSelMin == 1 && PluginsManager.UserCanUseFeature("VanillaTools", "BetaTestFeatures"))
+            {
+                lst.Add(new IMQueryMenuNode(L.Txt("Export as Json"), null, ExportAsJson, IMQueryMenuNode.ExecMode.FirstRecord));
+            }
+                
+            if (nbSelMin >= 1 && PluginsManager.UserCanUseFeature("VanillaTools", "SmartCopy"))
             {
                 if (nbSelMin == 1)
                 {
-                    lst.Add(new IMQueryMenuNode(L.Txt("Export as Json"), null, ExportAsJson, IMQueryMenuNode.ExecMode.FirstRecord));
                     lst_DataCopy.Add(new IMQueryMenuNode(L.Txt("Copy (Select data/fields to copy)"), null, SelectDataToCopy, IMQueryMenuNode.ExecMode.FirstRecord));
                 }
                 else if (nbSelMin > 1)
                 {
                     lst.Add(new IMQueryMenuNode(L.Txt("Export as Json"), null, ExportAllAsJson, IMQueryMenuNode.ExecMode.EachRecord));
                 }
-                else { }
-
                 if (nbSelMin >= 1 && IM.GetWorkspaceString("SmartCopy_Table") == tableName)
-                {      
+                {
                     lst_DataCopy.Add(new IMQueryMenuNode(L.Txt("Paste"), null, SetSelectedData, IMQueryMenuNode.ExecMode.SelectionOfRecords));
                 }
+                lst.Add(new IMQueryMenuNode(L.Txt("Smart copy"), lst_DataCopy));
             }
 
             //Microwaves
-            if (tableName == "MICROWA" && nbSelMin == 1 &&
-                IM.GetWorkspaceString("VanillaContextualTools") == "Display")
+            if (tableName == "MICROWA" && nbSelMin == 1 && PluginsManager.UserCanUseFeature("VanillaTools", "ConverterMwToMobSta"))
             {
                 lst.Add(new IMQueryMenuNode(L.Txt("Convert to Other Terrestrial Stations"), null, Converter.ConvertMwToOt, IMQueryMenuNode.ExecMode.FirstRecord));
             }
             
             //Other Terrestrial Stations
-            if (tableName.Contains("MOB_STATION") && 
-                    IM.GetWorkspaceString("VanillaContextualTools") == "Display")
+            if (tableName.Contains("MOB_STATION") && PluginsManager.UserCanUseFeature("VanillaTools", "ConverterMobStaFreqs"))
             {
                 List<IMQueryMenuNode> lst2 = new List<IMQueryMenuNode>();
                 if (nbSelMin == 1)
@@ -69,19 +69,19 @@ namespace XICSM.VanillaTools
             }
 
             //Views
-            if (tableName == "ALL_TXRX_FREQ" && nbSelMin >= 1)
+            if (tableName == "ALL_TXRX_FREQ" && nbSelMin >= 1 && PluginsManager.UserCanUseFeature("VanillaTools", "BetaTestFeatures"))
             {
                 lst.Add(new IMQueryMenuNode(L.Txt("Search for potential interferer"), null, SearchInterf.builder, IMQueryMenuNode.ExecMode.SelectionOfRecords));
             }
 
             //SFAF
-            if (tableName == "SFAF" && nbSelMin >= 1)
+            if (tableName == "SFAF" && nbSelMin >= 1 && PluginsManager.UserCanUseFeature("VanillaTools", "EntityFormSFAF"))
             {
                 lst.Add(new IMQueryMenuNode(L.Txt("Advanced editor"), null, EntityForms.SFAF.EditRecord, IMQueryMenuNode.ExecMode.FirstRecord));
             }
 
             //Attached documents
-            if (tableName == "DOCLINK" && nbSelMin == 1)
+            if (tableName == "DOCLINK" && nbSelMin == 1 && PluginsManager.UserCanUseFeature("VanillaTools", "CheckDocLink"))
             {
                 List<IMQueryMenuNode> lst_DocLink = new List<IMQueryMenuNode>();
                     lst.Add(new IMQueryMenuNode(L.Txt("Does this document exist ?"), null, TableTools.DocLinkTools.CheckDoc, IMQueryMenuNode.ExecMode.FirstRecord));
@@ -91,19 +91,13 @@ namespace XICSM.VanillaTools
             }
             
             //Allocations
-            if (tableName == "RR_NOTE" && nbSelMin == 1)
+            if (tableName == "RR_NOTE" && nbSelMin == 1 && PluginsManager.UserCanUseFeature("VanillaTools", "BetaTestFeatures"))
             {
                 lst.Add(new IMQueryMenuNode(L.Txt("Compare to previous version"), null, TableTools.AllocationsTools.CheckNote, IMQueryMenuNode.ExecMode.FirstRecord));
             }
 
-            if (lst_DataCopy.Count > 0 ) lst.Add(new IMQueryMenuNode(L.Txt("Smart copy"), lst_DataCopy));
             return lst;
         }
-
-
-
-
-
         public static bool ExportAsJson(IMQueryMenuNode.Context context)
         {
             Yyy y = Yyy.CreateObject(context.TableName);
@@ -123,7 +117,6 @@ namespace XICSM.VanillaTools
             }
             return false;
         }
-
         public static bool ExportAllAsJson(IMQueryMenuNode.Context context)
         {
             string json = "";
@@ -151,7 +144,6 @@ namespace XICSM.VanillaTools
             }
             return false;
         }
-
         public static bool SelectDataToCopy(IMQueryMenuNode.Context context)
         {
             Yyy obj = Yyy.CreateObject(context.TableName);
@@ -167,7 +159,6 @@ namespace XICSM.VanillaTools
 
             return false;
         }
-
         public static bool SetSelectedData(IMQueryMenuNode.Context context)
         {
             if (context.TableName != IM.GetWorkspaceString("SmartCopy_Table"))

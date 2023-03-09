@@ -8,6 +8,7 @@ using OrmCs;
 using FormsCs;
 using System.Windows.Forms;
 using DatalayerCs;
+using XICSM.PluginManager;
 
 namespace XICSM.MiscTools
 {
@@ -16,7 +17,7 @@ namespace XICSM.MiscTools
         public static List<IMQueryMenuNode> onGetQueryMenu(string tableName, int nbSelMin)
         {
             List<IMQueryMenuNode> lst = new List<IMQueryMenuNode>();
-            if (tableName == "XMISC_QUERYSTORE")
+            if (tableName == "XMISC_QUERYSTORE" && PluginsManager.UserCanUseFeature("MiscTools", "QueryStore"))
             {
                 lst.Add(new IMQueryMenuNode(L.Txt("New query configuration"), null, QueryStore.NewRecord, IMQueryMenuNode.ExecMode.Table));
                 lst.Add(new IMQueryMenuNode(L.Txt("New query configuration from clipboard"), null, QueryStore.NewRecordFromClipboard, IMQueryMenuNode.ExecMode.Table));
@@ -31,7 +32,7 @@ namespace XICSM.MiscTools
                     lst.Add(new IMQueryMenuNode(L.Txt("Delete query configuration selection"), null, QueryStore.DeleteRecords, IMQueryMenuNode.ExecMode.SelectionOfRecords));
                 }
             }         
-            if (tableName == "XMISC_TRANSLATIONS")
+            if (tableName == "XMISC_TRANSLATIONS" && PluginsManager.UserCanUseFeature("MiscTools", "Translations"))
             {
                 if (nbSelMin == 1)
                 {

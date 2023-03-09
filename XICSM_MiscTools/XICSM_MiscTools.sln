@@ -1,13 +1,15 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 17
-VisualStudioVersion = 17.4.33205.214
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.33214.272
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XICSM_MiscTools", "XICSM_MiscTools\XICSM_MiscTools.csproj", "{AC417552-2BCE-4396-BC91-9564200A97C1}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XICSM_TicketSystem", "XICSM_TicketSystem\XICSM_TicketSystem.csproj", "{F518074C-9691-47C9-A293-3852AC194457}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XMISC_VanillaTools", "XMISC_VanillaTools\XMISC_VanillaTools.csproj", "{FC884B82-DA26-473A-AD2A-3739458FC8B5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PluginManager", "PluginManager\PluginManager.csproj", "{67ED9447-0DA7-4748-8F15-037C110D3BC9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -34,6 +36,12 @@ Global
 		{FC884B82-DA26-473A-AD2A-3739458FC8B5}.Publish|Any CPU.Build.0 = Debug|Any CPU
 		{FC884B82-DA26-473A-AD2A-3739458FC8B5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FC884B82-DA26-473A-AD2A-3739458FC8B5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{67ED9447-0DA7-4748-8F15-037C110D3BC9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{67ED9447-0DA7-4748-8F15-037C110D3BC9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{67ED9447-0DA7-4748-8F15-037C110D3BC9}.Publish|Any CPU.ActiveCfg = Debug|Any CPU
+		{67ED9447-0DA7-4748-8F15-037C110D3BC9}.Publish|Any CPU.Build.0 = Debug|Any CPU
+		{67ED9447-0DA7-4748-8F15-037C110D3BC9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{67ED9447-0DA7-4748-8F15-037C110D3BC9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

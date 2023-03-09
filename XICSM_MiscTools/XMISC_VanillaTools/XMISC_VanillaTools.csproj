@@ -263,5 +263,11 @@
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\PluginManager\PluginManager.csproj">
+      <Project>{67ed9447-0da7-4748-8f15-037c110d3bc9}</Project>
+      <Name>PluginManager</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

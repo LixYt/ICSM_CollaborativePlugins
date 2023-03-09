@@ -9,16 +9,23 @@ using NetPlugins2Ext;
 using System.Windows.Forms;
 using System.Diagnostics;
 using System.IO;
+using XICSM.PluginManager;
 
 namespace XICSM.VanillaTools
 {
-    public class Plugin : IPlugin
+    public class Plugin : IPlugin, IPluginDetails
     {
-        public string Description { get { return L.TxT("Vanilla Tools (this plugin does not modify the database structure)"); } }
         public string Ident { get { return L.TxT("VanillaTools"); } }
-        public string MenuGroupName { get { return L.TxT("Vanilla Tools"); } }
-        public string Version = "1.3.0.0";
+        public int Interface => 2;
+        
+        DateTime IPlugin.Version => new DateTime(2023,2,15,10,34,0);
+        public double SchemaVersion { get { return 0; } }
 
+        public string Description { get { return L.TxT("Vanilla Tools (this plugin does not modify the database structure)"); } }
+
+        public string MenuGroupName { get { return L.TxT("Vanilla Tools"); } }
+        public string GitURL => "URL not defined";
+        public string DocumentationUrl => "URL not defined";
         public Plugin()
         {
             //Reset pending Smart copy process
@@ -27,29 +34,29 @@ namespace XICSM.VanillaTools
             IM.SetWorkspaceString("SmartCopy_SourceID", "");
         }
         public void RegisterSchema(IMSchema s)
-        { /* Should never be used in this plugin */ }
-        public double SchemaVersion { get { return 0; } }
+        {
+            /* Should never be used in this plugin */
+        }
         public void RegisterBoard(IMBoard b) 
         {
             b.RegisterQueryMenuBuilder(null, Contextual.onGetQueryMenu);
-            /*b.RegisterQueryMenuBuilder("ALL_TXRX_FREQ", Contextual.onGetQueryMenu);
-            b.RegisterQueryMenuBuilder("DOCLINK", Contextual.onGetQueryMenu);
-            b.RegisterQueryMenuBuilder("MICROWA", Contextual.onGetQueryMenu);*/
         }
         public void GetMainMenu(IMMainMenu mainMenu)
         {
             mainMenu.SetInsertLocation("Tools\\Administrator", IMMainMenu.InsertLocation.After);
-            mainMenu.InsertItem("Tools\\" + MenuGroupName + "\\" + L.Txt("Clean workspace directory"), CleanWorkspaceDir, "DOCLINK");
-            mainMenu.InsertItem("Tools\\" + MenuGroupName + "\\" + L.Txt("Verify attached documents"), CheckDocLink, "DOCLINK");
-            mainMenu.InsertItem("Tools\\" + MenuGroupName + "\\" + L.Txt("Version/info"), VersionBox, "DOCLINK");
-
-
-            mainMenu.SetInsertLocation("Configuration\\User Preferences", IMMainMenu.InsertLocation.After);
-            mainMenu.InsertItem("Configuration\\User Preferences" + "\\" + L.Txt("Show/Hide beta test and demo menu"), ToggleDemoMenu, "DOCLINK");
-            mainMenu.InsertItem("Configuration\\User Preferences" + "\\" + L.Txt("Toggle Vanilla tools"), ToggleVanillaTools, "DOCLINK");
+            
+            if (PluginsManager.UserCanUseFeature("VanillaTools", "CleanWorkspaceDir"))
+            {
+                mainMenu.InsertItem("Tools\\" + MenuGroupName + "\\" + L.Txt("Clean workspace directory"), CleanWorkspaceDir, "DOCLINK");
+            }
+            
+            if (PluginsManager.UserCanUseFeature("VanillaTools", "CheckDocLink"))
+            {
+                mainMenu.InsertItem("Tools\\" + MenuGroupName + "\\" + L.Txt("Verify attached documents"), CheckDocLink, "DOCLINK");
+            }
 
             //Demo and Test of new features
-            if (IM.GetWorkspaceString("TestAndDemo") == "Display")
+            if (PluginsManager.UserCanUseFeature("VanillaTools", "BetaTestFeatures"))
             {
                 string demo = L.TxT("Test & Demo");
                 mainMenu.SetInsertLocation("Tools", IMMainMenu.InsertLocation.After);
@@ -57,17 +64,19 @@ namespace XICSM.VanillaTools
                 mainMenu.InsertItem(demo + "\\" + L.Txt("Geoview Query on ANFR"), GeoviewQueryTester, "XMISC_TRANSLATIONS");
                 mainMenu.InsertItem(demo + "\\" + L.Txt("Geoview Query on MOB_STATION"), GeoviewQueryTester2, "XMISC_TRANSLATIONS");
             }
-            else if (IM.GetWorkspaceString("TestAndDemo") != "Hide")
-            {
-                IM.SetWorkspaceString("TestAndDemo", "Hide");
-            }
-            else { }
-
         }
         public bool OtherMessage(string message, object inParam, ref object outParam)
         {
+            if (message == "ON_OPEN_WORKSPACE")
+            {
+                RegisterPluginFeatures();
+            }
+            else
+            {
+                Debug.WriteLine($"Uncatched message : {message} | {inParam} | {outParam}");
+            }
+            
             outParam = null;
-            Debug.WriteLine($"Uncatched message : {message} | {inParam} | {outParam}");
             return false;
         }
         public bool UpgradeDatabase(IMSchema s, double dbCurVersion)
@@ -75,21 +84,23 @@ namespace XICSM.VanillaTools
             /* Should never be used in this plugin */
             return true;
         }
-        
+
+        #region Plugin Manager
+        public void RegisterPluginFeatures()
+        {
+            PluginsManager.RegisterPluginFeature("VanillaTools", "BetaTestFeatures", true, L.TxT("Features that aren't yet stable. Use at your own risks.")); ;
+
+            PluginsManager.RegisterPluginFeature("VanillaTools", "CheckDocLink", true, L.Txt("Helps to find borken documents link and fix it"));
+            PluginsManager.RegisterPluginFeature("VanillaTools", "CleanWorkspaceDir", true, L.TxT("Clean the opened workspace directory of trash and temp file such as ICS Manager crashdump files or .tmp files"));
+            PluginsManager.RegisterPluginFeature("VanillaTools", "EntityFormSFAF", true, L.TxT("Replace the default SFAF window with a more advanded one"));
+            PluginsManager.RegisterPluginFeature("VanillaTools", "ConverterMwToMobSta", false, L.TxT("A very simple converter that transforms a Microwave link in a pair of Other Terrestrial station."));
+            PluginsManager.RegisterPluginFeature("VanillaTools", "ConverterMobStaFreqs", true, L.TxT("A bunch of tools to modify and correct Other Terrestrial Stations (invert Tx/Rx freq for instance).")); ;
+            PluginsManager.RegisterPluginFeature("VanillaTools", "SmartCopy", true, L.TxT("A powerfull tool to copy some fields from a record to other(s) record(s) of the same table.")); ;
+            
+        }
+        #endregion
 
         #region MainMenu fonctions
-        public void ToggleDemoMenu()
-        {
-            IM.SetWorkspaceString("TestAndDemo", 
-                (IM.GetWorkspaceString("TestAndDemo") == "Display" ? "Hide" : "Display") );
-            MessageBox.Show(L.TxT("Demo menu will appear or disappear after reopening your workspace."));
-        }
-        public void ToggleVanillaTools()
-        {
-            IM.SetWorkspaceString("VanillaContextualTools", 
-                (IM.GetWorkspaceString("VanillaContextualTools") == "Display" ? "Hide" : "Display"));
-        }
-
         public void CleanWorkspaceDir()
         {
             string dir = IM.GetWorkspaceFolder();
@@ -108,14 +119,6 @@ namespace XICSM.VanillaTools
                 { File.Delete(fileName); log.Info(L.Txt("Delete file : ") + fileName); }
             }
             log.Display(L.Txt("Deleted files after workspace clean up"));
-        }
-
-        public void VersionBox()
-        {
-            MessageBox.Show($"Plugin name : {Ident}\r\n" +
-                $"Description : {Description}\r\n" +
-                $"Version : {Version}\r\n" +
-                $"More info at : https://github.com/LixYt/ICSM_CollaborativePlugins");
         }
         public void CheckDocLink()
         {
@@ -156,6 +159,8 @@ namespace XICSM.VanillaTools
             f.Controls.Add(g);
             f.ShowDialog();
         }
+
+        
 
         #endregion
     }
