@@ -9,7 +9,6 @@ using System.Drawing;
 using System.Threading;
 using FormsCs;
 using NetPlugins2;
-using DatalayerCs;
 using XICSM.VanillaTools.Tools;
 
 namespace XICSM.MiscTools
@@ -24,7 +23,7 @@ namespace XICSM.MiscTools
         Thread workerThread;
 
         //color settings for EXW & ICSTELECOM export
-        private int ColorWanted = 1; private int ColorMicrowa = 9; private int ColorMs = 10; private int ColorMs2 = 8; private int ColorSfaf=6;
+        //private int ColorWanted = 1; private int ColorMicrowa = 9; private int ColorMs = 10; private int ColorMs2 = 8; private int ColorSfaf=6;
 
         //Bags Unwanted
         private IcsmBag BagWanted = new IcsmBag("ALL_TXRXFREQ");

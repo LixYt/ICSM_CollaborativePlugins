@@ -8,6 +8,7 @@ using OrmCs;
 using FormsCs;
 using System.Windows.Forms;
 using NetPlugins2;
+using DatalayerCs;
 
 namespace XICSM.MiscTools
 {
@@ -48,7 +49,7 @@ namespace XICSM.MiscTools
         {
             YXmiscQuerystore y = new YXmiscQuerystore(); y.Fetch(context.TableId);
             Clipboard.SetText(y.m_itemstore);
-            MessageBox.Show("Query configuration set into clipboard. Go into the correct query and past it into the query editor.");
+            MessageBox.Show(L.TxT("Query configuration set into clipboard. Go into the correct query and past it into the query editor."));
             return false; //Return true if query should be refreshed due to modification of some record(s)
         }
     }

@@ -164,8 +164,8 @@ namespace XICSM.MiscTools
                 try
                 {
                     YXmiscTranslations itemTranslation = null;
-
-                    FileStream fileStream = File.OpenRead(l.SelectedItem);
+                    string filePath = new Uri($@"{path}\{l.SelectedItem}").LocalPath;
+                    FileStream fileStream = File.OpenRead(filePath);
                     StreamReader streamReader = new StreamReader(fileStream, Encoding.UTF8, true, 128);
 
                     string str;
@@ -327,7 +327,7 @@ namespace XICSM.MiscTools
 
                 if (saveFileDialog1.ShowDialog() == DialogResult.OK)
                 {
-                    string OutFile = $"LANGUAGE  \r\n";
+                    string OutFile = L.TxT("LANGUAGE  \r\n");
 
                     for (translations.OpenRs(); !translations.IsEOF(); translations.MoveNext())
                     {

@@ -1,4 +1,5 @@
-﻿using ICSM;
+﻿using DatalayerCs;
+using ICSM;
 using OrmCs;
 using System;
 using System.Collections.Generic;
@@ -20,6 +21,8 @@ namespace XICSM.VanillaTools.Tools
         public FieldSelector(Yyy yO)
         {
             InitializeComponent();
+
+            Text = L.Txt("Field selector");
 
             yObject = yO;
             GetListOfField(yObject);

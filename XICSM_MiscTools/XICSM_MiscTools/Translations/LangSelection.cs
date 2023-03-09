@@ -1,4 +1,5 @@
-﻿using FormsCs;
+﻿using DatalayerCs;
+using FormsCs;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -19,6 +20,7 @@ namespace XICSM.MiscTools
         {
             InitializeComponent();
 
+            Text = L.Txt("Language selection");
             c_lang.Items.AddRange(Langs.ToArray());
         }
 

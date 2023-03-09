@@ -26,8 +26,10 @@ namespace XICSM.MiscTools
             YXmiscQuerystore y = new YXmiscQuerystore();
             y.Fetch(isId);
             QueryStoreEditor dlg = new QueryStoreEditor(y);
-            EntityEditOptions opt = new EntityEditOptions();
-            opt.CurForm = owner;
+            EntityEditOptions opt = new EntityEditOptions
+            {
+                CurForm = owner
+            };
             return dlg.Edit("XMISC_QUERYSTORE", isId, opt);
         }
         public static bool EditRecord(IMQueryMenuNode.Context context)
@@ -38,7 +40,7 @@ namespace XICSM.MiscTools
             QueryStoreEditor edt = new QueryStoreEditor(y);
             edt.ShowDialog();
 
-            return (edt.DialogResult == DialogResult.OK ? true : false); //Return true if query should be refreshed due to modification of some record(s)
+            return (edt.DialogResult == DialogResult.OK); //Return true if query should be refreshed due to modification of some record(s)
         }
         public QueryStoreEditor()
         {
@@ -65,9 +67,11 @@ namespace XICSM.MiscTools
             l_created.Text = L.Txt("Created");
             l_created.Text = L.Txt("Modified");
 
-            yQS = new YXmiscQuerystore();
-            yQS.m_itemstore = s;
-            yQS.m_table_name = FindTableName(s);
+            yQS = new YXmiscQuerystore
+            {
+                m_itemstore = s,
+                m_table_name = FindTableName(s)
+            };
             Bindings();
         }
 

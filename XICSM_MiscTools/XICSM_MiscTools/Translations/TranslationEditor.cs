@@ -25,8 +25,10 @@ namespace XICSM.MiscTools
             YXmiscTranslations y = new YXmiscTranslations();
             y.Fetch(isId);
             TranslationEditor dlg = new TranslationEditor(y);
-            EntityEditOptions opt = new EntityEditOptions();
-            opt.CurForm = owner;
+            EntityEditOptions opt = new EntityEditOptions
+            {
+                CurForm = owner
+            };
             //dlg.ShowDialog();
             return dlg.Edit("XMISC_TRANSLATIONS", isId, opt);
         }
@@ -38,7 +40,7 @@ namespace XICSM.MiscTools
             TranslationEditor edt = new TranslationEditor(y);
             edt.ShowDialog();
 
-            return (edt.DialogResult == DialogResult.OK ? true : false); //Return true if query should be refreshed due to modification of some record(s)
+            return (edt.DialogResult == DialogResult.OK); //Return true if query should be refreshed due to modification of some record(s)
         }
 
         public TranslationEditor(YXmiscTranslations y)
