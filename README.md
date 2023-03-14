@@ -12,29 +12,22 @@ Feel free to contribute. Wiki, Readme.md, push request, bug report and feature r
 
 ## Features
 
+### PluginManager
+
+PluginManager is like a root plugin for all plugins in this repository. It provides a complementary SDK in order to enable management of plugin on the administration side of ICS Manager. Such feature are not yet implemented into ICS Manager native SDK.
+
+Two tables/queries are added by this plugin : XSYS_PFEATURES (Plugins features management table) and XSYS_PF_RIGHTS (Open source plugins rights). Each plugins declares it's own feature in XSYS_PFEATURES. Administrator can ENABLE/DISABLE features to users and uses Task forces to set which user can use those features.
+Feature to Taskforces are stored into XSYS_PF_RIGHTS. 
+
+If no taskfroce is set on a feature, then everyone can use it (if XSYS_PFEATURES.ENABLE = 1). ICS Manager DB owner can always use any declared feature.
+
 ### Plugin Vanilla
 
-This plugin MUST NOT alter database structures. 
-You will find only tools that does not requires database alteration.
-
-Contains :
-- smart copy (copy-paste data of a selection of fields from a specific record to any records of the same table)
-- Json file export
-- Converter of microwaves records to Other Terrestrial Stations (for instance, to move data that should not have been in MICROWA)
-- Frequencies tools : swap Tx/Rx freqs, Set Tx/Rx freqs to Half-Duplex (Tx and Rx will be set to the same value if one of them is null)
-- Search for potentiel interferer (still Work In Progress) from ALL_TXRX_FREQ view
-- Attached documents tools (checkers, opening, dir opening)
-- Compare RR_Notes
-
-Nota : some feature needs to be activated using the menu User Configuration.
-Nota2 : Some stuff are not yet ready to be used or tested. 
-You can still activate them using the "Test and demo" option in User configuration menu.
+In this plugin, you will only finds tools that does not requires database structure modifications.
+Feature list and details are describe into wiki pages (https://github.com/LixYt/ICSM_CollaborativePlugins/wiki).
 
 ### Plugin MiscTools
 
 This plugin WILL alter database structures. 
 
-Contains : 
-- A Query, Query customization and custom expression table that make easier to share and archive queries
-- A Translations table and tools that provide an easy way to update language files for ICSM Translations
-Nota : Anyone can fork this part to use any Translation API
+Feature list and details are describe into wiki pages (https://github.com/LixYt/ICSM_CollaborativePlugins/wiki).
