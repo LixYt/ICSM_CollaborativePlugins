@@ -20,9 +20,9 @@ namespace XICSM.PluginManager
 
         public DateTime Version => new DateTime(2023, 2, 24, 0, 0, 0);
 
-        public string Description => "Base plugin for open source plugins";
+        public string Description => L.Txt("Base plugin for open source plugins");
 
-        public string Ident => L.TxT("PluginManager");
+        public string Ident => "PluginManager";
 
         public string GitURL => "URL not defined";
 
