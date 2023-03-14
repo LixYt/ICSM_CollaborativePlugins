@@ -69,9 +69,9 @@ namespace XICSM.MiscTools
         }
         public double SchemaVersion { get { return 20221015.1503; } }
 
-        public string GitURL => "";
+        public string GitURL => "https://github.com/LixYt/ICSM_CollaborativePlugins";
 
-        public string DocumentationUrl => "";
+        public string DocumentationUrl => "https://github.com/LixYt/ICSM_CollaborativePlugins/wiki/Misc-Plugin";
 
         public void RegisterBoard(IMBoard b)
         {

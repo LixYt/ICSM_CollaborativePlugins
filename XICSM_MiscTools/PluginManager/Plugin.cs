@@ -24,9 +24,9 @@ namespace XICSM.PluginManager
 
         public string Ident => "PluginManager";
 
-        public string GitURL => "URL not defined";
+        public string GitURL => "https://github.com/LixYt/ICSM_CollaborativePlugins";
 
-        public string DocumentationUrl => "URL not defined";
+        public string DocumentationUrl => "https://github.com/LixYt/ICSM_CollaborativePlugins/wiki/PluginManager";
 
         public void RegisterSchema(IMSchema s)
         {
@@ -143,6 +143,8 @@ namespace XICSM.PluginManager
             if (tableName == "XSYS_PFEATURES" && PluginsManager.UserCanUseFeature("PluginManager", "PluginsRights")) 
             {
                 lst.Add(new IMQueryMenuNode(L.Txt("Allow a taskforce to use this feature"), null, Contextual.AddTaskforce, IMQueryMenuNode.ExecMode.FirstRecord));
+                lst.Add(new IMQueryMenuNode(L.Txt("Get GIT URL"), null, Contextual.GetGitUrl, IMQueryMenuNode.ExecMode.FirstRecord));
+                lst.Add(new IMQueryMenuNode(L.Txt("Get Documentation URL"), null, Contextual.GetDocUrl, IMQueryMenuNode.ExecMode.FirstRecord));
                 lst.Add(new IMQueryMenuNode(L.Txt("Toggle enable state"), null, Contextual.ToggleEnable, IMQueryMenuNode.ExecMode.FirstRecord));
             }
 

@@ -24,8 +24,8 @@ namespace XICSM.VanillaTools
         public string Description { get { return L.TxT("Vanilla Tools (this plugin does not modify the database structure)"); } }
 
         public string MenuGroupName { get { return L.TxT("Vanilla Tools"); } }
-        public string GitURL => "URL not defined";
-        public string DocumentationUrl => "URL not defined";
+        public string GitURL => "https://github.com/LixYt/ICSM_CollaborativePlugins";
+        public string DocumentationUrl => "https://github.com/LixYt/ICSM_CollaborativePlugins/wiki/Vanilla-Plugin";
         public Plugin()
         {
             //Reset pending Smart copy process
