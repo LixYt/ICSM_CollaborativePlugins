@@ -77,7 +77,7 @@ namespace XICSM.VanillaTools
             //SFAF
             if (tableName == "SFAF" && nbSelMin >= 1 && PluginsManager.UserCanUseFeature("VanillaTools", "EntityFormSFAF"))
             {
-                lst.Add(new IMQueryMenuNode(L.Txt("Advanced editor"), null, EntityForms.SFAF.EditRecord, IMQueryMenuNode.ExecMode.FirstRecord));
+                lst.Add(new IMQueryMenuNode(L.Txt("Advanced editor"), null, EntityForms.SfafEntityForm.EditRecord, IMQueryMenuNode.ExecMode.FirstRecord));
             }
 
             //Attached documents

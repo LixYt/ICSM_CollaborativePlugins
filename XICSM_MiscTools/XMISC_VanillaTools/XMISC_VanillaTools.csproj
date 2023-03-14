@@ -73,8 +73,8 @@
       <HintPath>..\..\..\..\ATDI\ICSM\NetPlugins2.dll</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <HintPath>..\packages\Newtonsoft.Json.10.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.13.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="OrmCs">
       <HintPath>..\..\..\..\ATDI\ICSM\OrmCs.dll</HintPath>
@@ -109,11 +109,11 @@
       <DependentUpon>StringEditor.cs</DependentUpon>
     </Compile>
     <Compile Include="Converters\Converter.cs" />
-    <Compile Include="EntityForms\SFAF.cs">
+    <Compile Include="EntityForms\SfafEntityForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="EntityForms\SFAF.Designer.cs">
-      <DependentUpon>SFAF.cs</DependentUpon>
+    <Compile Include="EntityForms\SfafEntityForm.Designer.cs">
+      <DependentUpon>SfafEntityForm.cs</DependentUpon>
     </Compile>
     <Compile Include="IngeneeringTools\SearchInterf.cs">
       <SubType>Form</SubType>
@@ -187,8 +187,8 @@
     <EmbeddedResource Include="Controls\StringEditor.resx">
       <DependentUpon>StringEditor.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="EntityForms\SFAF.resx">
-      <DependentUpon>SFAF.cs</DependentUpon>
+    <EmbeddedResource Include="EntityForms\SfafEntityForm.resx">
+      <DependentUpon>SfafEntityForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="IngeneeringTools\SearchInterf.resx">
       <DependentUpon>SearchInterf.cs</DependentUpon>
@@ -238,6 +238,12 @@
     <Content Include="Images\microws.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Images\miliRadio.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\miliRadio2.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Images\nato.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -245,6 +251,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Images\sat.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\tank.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Images\warfare.png">
@@ -261,13 +270,13 @@
     <Folder Include="Enums\" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\PluginManager\PluginManager.csproj">
       <Project>{67ed9447-0da7-4748-8f15-037c110d3bc9}</Project>
       <Name>PluginManager</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

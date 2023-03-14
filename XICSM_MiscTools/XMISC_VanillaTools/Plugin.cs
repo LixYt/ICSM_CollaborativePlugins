@@ -28,6 +28,7 @@ namespace XICSM.VanillaTools
         public string DocumentationUrl => "URL not defined";
         public Plugin()
         {
+            if (!IM.PluginIsLoaded("PluginManager")) { MessageBox.Show(L.Txt("Plugin Vanilla requires PluginManager to work properly.")); }
             //Reset pending Smart copy process
             IM.SetWorkspaceString("SmartCopy_Fields", "");
             IM.SetWorkspaceString("SmartCopy_Table", "");
