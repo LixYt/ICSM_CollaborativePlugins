@@ -26,7 +26,7 @@
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
-    <OutputPath>..\..\..\..\ATDI\ICSM\</OutputPath>
+    <OutputPath>..\..\..\..\atdi\icsm\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -79,7 +79,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="PluginManager.Schema" />
+    <None Include="PluginManager.Schema">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="SelectTaskForce.resx">
