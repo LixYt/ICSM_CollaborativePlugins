@@ -14,8 +14,10 @@ using System.Windows.Forms;
 
 namespace XICSM.VanillaTools.Tools
 {
+
     public partial class FieldSelector : Form
     {
+        private List<KeyValuePair<string, string>> TreeViewNodes = new List<KeyValuePair<string, string>>();
         Yyy yObject;
         public List<string> SelectedFields = new List<string>();
         public FieldSelector(Yyy yO)
@@ -31,7 +33,7 @@ namespace XICSM.VanillaTools.Tools
 
         public void GetListOfField(Yyy y)
         {
-            foreach (var prop in y.GetType().GetProperties())
+            foreach (var prop in y.GetType().GetProperties().ToList().OrderBy(x => x.Name.Substring(2)).ToList())
             {
                 if (!prop.Name.StartsWith("m_")) continue;
                 if (Char.IsUpper(prop.Name, 2)) { }
@@ -40,10 +42,16 @@ namespace XICSM.VanillaTools.Tools
                     string commonName = y.zeta.Fields.ToList().FindLast(x => x.Name.ToLower() == prop.Name.Substring(2)).Info;
                     try
                     {
-                        ListOfFields.Nodes.Add(prop.Name, $"{prop.Name.Substring(2)} ({commonName}) ==> {prop.GetValue(y, null)}");
+                        TreeViewNodes.Add(new KeyValuePair<string, string>(prop.Name, $"{prop.Name.Substring(2)} ({commonName}) ==> {prop.GetValue(y, null)}"));
                     }
                     catch(Exception ex) { Debug.WriteLine(ex.Message); }
                 }
+            }
+
+            TreeViewNodes = TreeViewNodes.OrderBy(x => x.Key).ToList();
+            foreach (KeyValuePair<string, string> KVP in TreeViewNodes)
+            {
+                ListOfFields.Nodes.Add(KVP.Key, KVP.Value);
             }
         }
 
@@ -59,6 +67,17 @@ namespace XICSM.VanillaTools.Tools
         private void c_cancel_Click(object sender, EventArgs e)
         {
             DialogResult = DialogResult.Cancel;
+        }
+
+        private void Filtering_TextChanged(object sender, EventArgs e)
+        {
+            TreeViewNodes = TreeViewNodes.OrderBy(x => x.Key).ToList();
+            ListOfFields.Nodes.Clear();
+            List<KeyValuePair<string, string>> FilteredTreeViewNodes = TreeViewNodes.Where(x => x.Key.Contains(Filtering.Text)).ToList();
+            foreach (KeyValuePair<string, string> KVP in FilteredTreeViewNodes)
+            {
+                ListOfFields.Nodes.Add(KVP.Key, KVP.Value);
+            }
         }
     }
 }

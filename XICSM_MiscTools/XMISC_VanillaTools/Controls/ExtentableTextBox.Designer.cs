@@ -63,6 +63,7 @@ namespace XICSM.VanillaTools.Controls
             this.TheButton.Text = "...";
             this.TheButton.UseVisualStyleBackColor = true;
             this.TheButton.Visible = false;
+            this.TheButton.Click += new System.EventHandler(this.TheButton_Click);
             // 
             // ButtonMenu
             // 

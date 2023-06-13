@@ -23,7 +23,7 @@ namespace XICSM.MiscTools
                 lst.Add(new IMQueryMenuNode(L.Txt("New query configuration from clipboard"), null, QueryStore.NewRecordFromClipboard, IMQueryMenuNode.ExecMode.Table));
                 if (nbSelMin == 1)
                 {
-                    lst.Add(new IMQueryMenuNode(L.Txt("Get this configuration"), null, QueryStore.GetConfig, IMQueryMenuNode.ExecMode.FirstRecord));
+                    lst.Add(new IMQueryMenuNode(L.Txt("Copy this element to clipboard"), null, QueryStore.GetConfig, IMQueryMenuNode.ExecMode.FirstRecord));
                     lst.Add(new IMQueryMenuNode(L.Txt("Edit query record"), null, QueryStoreEditor.EditRecord, IMQueryMenuNode.ExecMode.FirstRecord));
                     lst.Add(new IMQueryMenuNode(L.Txt("Delete query record"), null, QueryStore.DeleteRecord, IMQueryMenuNode.ExecMode.FirstRecord));
                 }

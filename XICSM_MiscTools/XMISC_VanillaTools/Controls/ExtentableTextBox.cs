@@ -83,15 +83,25 @@ namespace XICSM.VanillaTools.Controls
         {
             if (args.ClickedItem.Text == "Extend display") 
             {
-                StringEditor s = new StringEditor(TheValue.Text);
-                
-                if (s.ShowDialog() == DialogResult.OK)
-                {
-                    TheValue.Text = s.TextValue;
-                }
+                OpenStringEditor(TheValue.Text);
             }
         }
 
+        public void OpenStringEditor(string text)
+        {
+            StringEditor s = new StringEditor(text);
+            s.StartPosition = FormStartPosition.Manual;
+            s.Location = Cursor.Position;
 
+            if (s.ShowDialog() == DialogResult.OK)
+            {
+                TheValue.Text = s.TextValue;
+            }
+        }
+
+        private void TheButton_Click(object sender, EventArgs e)
+        {
+            OpenStringEditor(TheValue.Text);
+        }
     }
 }

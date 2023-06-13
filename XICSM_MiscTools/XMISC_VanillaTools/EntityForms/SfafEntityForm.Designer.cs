@@ -60,7 +60,6 @@
             this.c_CreatedBy = new System.Windows.Forms.TextBox();
             this.c_ClassSta = new NetPlugins2.IcsControls.IcsComboList();
             this.c_MapDisplay = new NetPlugins2.IcsOpenlayers3();
-            this.c_Status = new NetPlugins2.IcsStatus();
             this.c_EOUSE = new NetPlugins2.IcsDateTime();
             this.c_BIUSE = new NetPlugins2.IcsDateTime();
             this.c_DesignEm = new NetPlugins2.IcsDesigEmiss();
@@ -69,6 +68,7 @@
             this.c_BwMin = new NetPlugins2.IcsDouble();
             this.label21 = new System.Windows.Forms.Label();
             this.label20 = new System.Windows.Forms.Label();
+            this.c_classification = new System.Windows.Forms.TextBox();
             this.label25 = new System.Windows.Forms.Label();
             this.c_Bw = new NetPlugins2.IcsDouble();
             this.label24 = new System.Windows.Forms.Label();
@@ -84,6 +84,7 @@
             this.label22 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.MainSFAF_1 = new System.Windows.Forms.TabPage();
+            this.ItemsGroup3 = new System.Windows.Forms.GroupBox();
             this.Save1 = new System.Windows.Forms.Button();
             this.ItemsGroup2 = new System.Windows.Forms.GroupBox();
             this.ItemsGroup1 = new System.Windows.Forms.GroupBox();
@@ -104,8 +105,7 @@
             this.Items4xx = new System.Windows.Forms.GroupBox();
             this.label23 = new System.Windows.Forms.Label();
             this.c_ListOfRx = new NetPlugins2.IcsDBList();
-            this.ItemsGroup3 = new System.Windows.Forms.GroupBox();
-            this.c_classification = new System.Windows.Forms.TextBox();
+            this.c_Status = new NetPlugins2.IcsCombo();
             this.SFAF_130 = new XICSM.VanillaTools.Controls.ExtentableTextBox();
             this.SFAF_140 = new XICSM.VanillaTools.Controls.ExtentableTextBox();
             this.SFAF_141 = new XICSM.VanillaTools.Controls.ExtentableTextBox();
@@ -286,6 +286,7 @@
             this.Summary.SuspendLayout();
             this.SummaryTransmitter.SuspendLayout();
             this.MainSFAF_1.SuspendLayout();
+            this.ItemsGroup3.SuspendLayout();
             this.ItemsGroup2.SuspendLayout();
             this.ItemsGroup1.SuspendLayout();
             this.MainSFAF_2.SuspendLayout();
@@ -299,7 +300,6 @@
             this.Items3xx.SuspendLayout();
             this.SFAF_RX.SuspendLayout();
             this.Items4xx.SuspendLayout();
-            this.ItemsGroup3.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -319,6 +319,7 @@
             // 
             // Summary
             // 
+            this.Summary.Controls.Add(this.c_Status);
             this.Summary.Controls.Add(this.c_Recievers);
             this.Summary.Controls.Add(this.SummaryTransmitter);
             this.Summary.Controls.Add(this.c_ModifiedDate);
@@ -327,7 +328,6 @@
             this.Summary.Controls.Add(this.c_CreatedBy);
             this.Summary.Controls.Add(this.c_ClassSta);
             this.Summary.Controls.Add(this.c_MapDisplay);
-            this.Summary.Controls.Add(this.c_Status);
             this.Summary.Controls.Add(this.c_EOUSE);
             this.Summary.Controls.Add(this.c_BIUSE);
             this.Summary.Controls.Add(this.c_DesignEm);
@@ -481,11 +481,11 @@
             // 
             this.c_Country.EnclosingComma = false;
             this.c_Country.EriLovName = "eri_COUNTRY";
-            this.c_Country.Location = new System.Drawing.Point(139, 16);
+            this.c_Country.Location = new System.Drawing.Point(137, 16);
             this.c_Country.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.c_Country.Name = "c_Country";
-            this.c_Country.ReadOnly = false;
-            this.c_Country.Size = new System.Drawing.Size(139, 20);
+            this.c_Country.ReadOnly = true;
+            this.c_Country.Size = new System.Drawing.Size(145, 20);
             this.c_Country.TabIndex = 28;
             this.c_Country.Value = "";
             // 
@@ -523,7 +523,7 @@
             this.c_Polar.Location = new System.Drawing.Point(139, 262);
             this.c_Polar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.c_Polar.Name = "c_Polar";
-            this.c_Polar.ReadOnly = false;
+            this.c_Polar.ReadOnly = true;
             this.c_Polar.Size = new System.Drawing.Size(139, 20);
             this.c_Polar.TabIndex = 28;
             this.c_Polar.Value = "";
@@ -657,7 +657,7 @@
             this.c_ClassSta.Location = new System.Drawing.Point(142, 90);
             this.c_ClassSta.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.c_ClassSta.Name = "c_ClassSta";
-            this.c_ClassSta.ReadOnly = false;
+            this.c_ClassSta.ReadOnly = true;
             this.c_ClassSta.Size = new System.Drawing.Size(144, 20);
             this.c_ClassSta.TabIndex = 28;
             this.c_ClassSta.Value = "";
@@ -679,18 +679,6 @@
             this.c_MapDisplay.StartLati = 40D;
             this.c_MapDisplay.StartLongi = -4D;
             this.c_MapDisplay.TabIndex = 27;
-            // 
-            // c_Status
-            // 
-            this.c_Status.Location = new System.Drawing.Point(142, 33);
-            this.c_Status.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.c_Status.MaxLen = 50;
-            this.c_Status.Name = "c_Status";
-            this.c_Status.ReadOnly = true;
-            this.c_Status.Size = new System.Drawing.Size(144, 20);
-            this.c_Status.Subtype = "eri_SfafAdminDataTypeAction";
-            this.c_Status.TabIndex = 26;
-            this.c_Status.Value = "";
             // 
             // c_EOUSE
             // 
@@ -770,6 +758,14 @@
             this.label20.Size = new System.Drawing.Size(37, 13);
             this.label20.TabIndex = 21;
             this.label20.Text = "Status";
+            // 
+            // c_classification
+            // 
+            this.c_classification.Location = new System.Drawing.Point(142, 63);
+            this.c_classification.Name = "c_classification";
+            this.c_classification.ReadOnly = true;
+            this.c_classification.Size = new System.Drawing.Size(144, 20);
+            this.c_classification.TabIndex = 29;
             // 
             // label25
             // 
@@ -913,6 +909,27 @@
             this.MainSFAF_1.TabIndex = 1;
             this.MainSFAF_1.Text = " SFAF 1/3";
             this.MainSFAF_1.UseVisualStyleBackColor = true;
+            // 
+            // ItemsGroup3
+            // 
+            this.ItemsGroup3.Controls.Add(this.SFAF_130);
+            this.ItemsGroup3.Controls.Add(this.SFAF_140);
+            this.ItemsGroup3.Controls.Add(this.SFAF_141);
+            this.ItemsGroup3.Controls.Add(this.SFAF_144);
+            this.ItemsGroup3.Controls.Add(this.SFAF_152);
+            this.ItemsGroup3.Controls.Add(this.SFAF_142);
+            this.ItemsGroup3.Controls.Add(this.SFAF_147);
+            this.ItemsGroup3.Controls.Add(this.SFAF_145);
+            this.ItemsGroup3.Controls.Add(this.SFAF_151);
+            this.ItemsGroup3.Controls.Add(this.SFAF_131);
+            this.ItemsGroup3.Controls.Add(this.SFAF_146);
+            this.ItemsGroup3.Controls.Add(this.SFAF_143);
+            this.ItemsGroup3.Location = new System.Drawing.Point(693, 6);
+            this.ItemsGroup3.Name = "ItemsGroup3";
+            this.ItemsGroup3.Size = new System.Drawing.Size(370, 413);
+            this.ItemsGroup3.TabIndex = 4;
+            this.ItemsGroup3.TabStop = false;
+            this.ItemsGroup3.Text = "ItemsGroup3";
             // 
             // Save1
             // 
@@ -1287,34 +1304,19 @@
             this.c_ListOfRx.OnRequery += new System.EventHandler(this.c_ListOfRx_OnRequery);
             this.c_ListOfRx.OnSelChanged += new System.EventHandler(this.c_ListOfRx_OnSelChanged);
             // 
-            // ItemsGroup3
+            // c_Status
             // 
-            this.ItemsGroup3.Controls.Add(this.SFAF_130);
-            this.ItemsGroup3.Controls.Add(this.SFAF_140);
-            this.ItemsGroup3.Controls.Add(this.SFAF_141);
-            this.ItemsGroup3.Controls.Add(this.SFAF_144);
-            this.ItemsGroup3.Controls.Add(this.SFAF_152);
-            this.ItemsGroup3.Controls.Add(this.SFAF_142);
-            this.ItemsGroup3.Controls.Add(this.SFAF_147);
-            this.ItemsGroup3.Controls.Add(this.SFAF_145);
-            this.ItemsGroup3.Controls.Add(this.SFAF_151);
-            this.ItemsGroup3.Controls.Add(this.SFAF_131);
-            this.ItemsGroup3.Controls.Add(this.SFAF_146);
-            this.ItemsGroup3.Controls.Add(this.SFAF_143);
-            this.ItemsGroup3.Location = new System.Drawing.Point(693, 6);
-            this.ItemsGroup3.Name = "ItemsGroup3";
-            this.ItemsGroup3.Size = new System.Drawing.Size(370, 413);
-            this.ItemsGroup3.TabIndex = 4;
-            this.ItemsGroup3.TabStop = false;
-            this.ItemsGroup3.Text = "ItemsGroup3";
-            // 
-            // c_classification
-            // 
-            this.c_classification.Location = new System.Drawing.Point(142, 63);
-            this.c_classification.Name = "c_classification";
-            this.c_classification.ReadOnly = true;
-            this.c_classification.Size = new System.Drawing.Size(144, 20);
-            this.c_classification.TabIndex = 29;
+            this.c_Status.Coded = true;
+            this.c_Status.Location = new System.Drawing.Point(142, 31);
+            this.c_Status.Margin = new System.Windows.Forms.Padding(0);
+            this.c_Status.MaxLen = 50;
+            this.c_Status.Name = "c_Status";
+            this.c_Status.ReadOnly = true;
+            this.c_Status.Size = new System.Drawing.Size(144, 22);
+            this.c_Status.Subtype = "eri_SfafAdminDataTypeAction";
+            this.c_Status.TabIndex = 33;
+            this.c_Status.Upperc = false;
+            this.c_Status.Value = "";
             // 
             // SFAF_130
             // 
@@ -4146,6 +4148,7 @@
             this.SummaryTransmitter.ResumeLayout(false);
             this.SummaryTransmitter.PerformLayout();
             this.MainSFAF_1.ResumeLayout(false);
+            this.ItemsGroup3.ResumeLayout(false);
             this.ItemsGroup2.ResumeLayout(false);
             this.ItemsGroup1.ResumeLayout(false);
             this.MainSFAF_2.ResumeLayout(false);
@@ -4160,7 +4163,6 @@
             this.SFAF_RX.ResumeLayout(false);
             this.SFAF_RX.PerformLayout();
             this.Items4xx.ResumeLayout(false);
-            this.ItemsGroup3.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -4175,7 +4177,6 @@
         private NetPlugins2.IcsControls.IcsComboList c_Polar;
         private NetPlugins2.IcsControls.IcsComboList c_ClassSta;
         private NetPlugins2.IcsOpenlayers3 c_MapDisplay;
-        private NetPlugins2.IcsStatus c_Status;
         private NetPlugins2.IcsDateTime c_EOUSE;
         private NetPlugins2.IcsDateTime c_BIUSE;
         private NetPlugins2.IcsDesigEmiss c_DesignEm;
@@ -4421,5 +4422,6 @@
         private System.Windows.Forms.Button SaveThisRx;
         private System.Windows.Forms.GroupBox ItemsGroup3;
         private System.Windows.Forms.TextBox c_classification;
+        private NetPlugins2.IcsCombo c_Status;
     }
 }

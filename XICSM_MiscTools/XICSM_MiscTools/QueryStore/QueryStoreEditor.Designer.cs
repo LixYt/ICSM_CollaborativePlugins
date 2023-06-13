@@ -56,30 +56,30 @@
             // CancelExit
             // 
             this.CancelExit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.CancelExit.Location = new System.Drawing.Point(482, 429);
+            this.CancelExit.Location = new System.Drawing.Point(505, 429);
             this.CancelExit.Name = "CancelExit";
             this.CancelExit.Size = new System.Drawing.Size(96, 23);
-            this.CancelExit.TabIndex = 0;
+            this.CancelExit.TabIndex = 21;
             this.CancelExit.Text = "Cancel and exit";
             this.CancelExit.Click += new System.EventHandler(this.CancelExit_Click);
             // 
             // Save
             // 
             this.Save.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.Save.Location = new System.Drawing.Point(401, 429);
+            this.Save.Location = new System.Drawing.Point(607, 429);
             this.Save.Name = "Save";
             this.Save.Size = new System.Drawing.Size(75, 23);
-            this.Save.TabIndex = 1;
+            this.Save.TabIndex = 22;
             this.Save.Text = "Save";
             this.Save.Click += new System.EventHandler(this.Save_Click);
             // 
             // SaveExit
             // 
             this.SaveExit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.SaveExit.Location = new System.Drawing.Point(584, 429);
+            this.SaveExit.Location = new System.Drawing.Point(401, 429);
             this.SaveExit.Name = "SaveExit";
             this.SaveExit.Size = new System.Drawing.Size(98, 23);
-            this.SaveExit.TabIndex = 2;
+            this.SaveExit.TabIndex = 20;
             this.SaveExit.Text = "Save and exit";
             this.SaveExit.Click += new System.EventHandler(this.SaveExit_Click);
             // 
@@ -118,7 +118,7 @@
             this.c_paste.Location = new System.Drawing.Point(21, 312);
             this.c_paste.Name = "c_paste";
             this.c_paste.Size = new System.Drawing.Size(82, 54);
-            this.c_paste.TabIndex = 6;
+            this.c_paste.TabIndex = 7;
             this.c_paste.Text = "import from\r\nclipboard";
             this.c_paste.Click += new System.EventHandler(this.c_paste_Click);
             // 
@@ -129,7 +129,7 @@
             this.c_name.Location = new System.Drawing.Point(109, 67);
             this.c_name.Name = "c_name";
             this.c_name.Size = new System.Drawing.Size(573, 20);
-            this.c_name.TabIndex = 7;
+            this.c_name.TabIndex = 1;
             // 
             // c_desc
             // 
@@ -139,7 +139,7 @@
             this.c_desc.Multiline = true;
             this.c_desc.Name = "c_desc";
             this.c_desc.Size = new System.Drawing.Size(573, 50);
-            this.c_desc.TabIndex = 8;
+            this.c_desc.TabIndex = 5;
             // 
             // c_item
             // 
@@ -150,7 +150,7 @@
             this.c_item.Multiline = true;
             this.c_item.Name = "c_item";
             this.c_item.Size = new System.Drawing.Size(573, 117);
-            this.c_item.TabIndex = 9;
+            this.c_item.TabIndex = 6;
             // 
             // l_type
             // 
@@ -180,7 +180,7 @@
             this.c_table.Margin = new System.Windows.Forms.Padding(0);
             this.c_table.Name = "c_table";
             this.c_table.Size = new System.Drawing.Size(573, 21);
-            this.c_table.TabIndex = 12;
+            this.c_table.TabIndex = 4;
             // 
             // c_type
             // 
@@ -195,7 +195,7 @@
             this.c_type.ReadOnly = false;
             this.c_type.Size = new System.Drawing.Size(573, 25);
             this.c_type.Subtype = "eri_QueryStoreType";
-            this.c_type.TabIndex = 13;
+            this.c_type.TabIndex = 2;
             this.c_type.Upperc = false;
             this.c_type.Value = "";
             // 
@@ -207,7 +207,7 @@
             this.C_CreatedDate.Name = "C_CreatedDate";
             this.C_CreatedDate.ReadOnly = true;
             this.C_CreatedDate.Size = new System.Drawing.Size(152, 20);
-            this.C_CreatedDate.TabIndex = 14;
+            this.C_CreatedDate.TabIndex = 9;
             // 
             // C_ModifiedDate
             // 
@@ -217,7 +217,7 @@
             this.C_ModifiedDate.Name = "C_ModifiedDate";
             this.C_ModifiedDate.ReadOnly = true;
             this.C_ModifiedDate.Size = new System.Drawing.Size(152, 20);
-            this.C_ModifiedDate.TabIndex = 15;
+            this.C_ModifiedDate.TabIndex = 11;
             // 
             // C_CreatedBy
             // 
@@ -227,7 +227,7 @@
             this.C_CreatedBy.Name = "C_CreatedBy";
             this.C_CreatedBy.ReadOnly = true;
             this.C_CreatedBy.Size = new System.Drawing.Size(152, 20);
-            this.C_CreatedBy.TabIndex = 16;
+            this.C_CreatedBy.TabIndex = 8;
             // 
             // C_ModifiedBy
             // 
@@ -237,7 +237,7 @@
             this.C_ModifiedBy.Name = "C_ModifiedBy";
             this.C_ModifiedBy.ReadOnly = true;
             this.C_ModifiedBy.Size = new System.Drawing.Size(152, 20);
-            this.C_ModifiedBy.TabIndex = 17;
+            this.C_ModifiedBy.TabIndex = 10;
             // 
             // l_created
             // 
@@ -281,8 +281,9 @@
             this.c_Engines.Location = new System.Drawing.Point(212, 127);
             this.c_Engines.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.c_Engines.Name = "c_Engines";
+            this.c_Engines.ReadOnly = false;
             this.c_Engines.Size = new System.Drawing.Size(470, 22);
-            this.c_Engines.TabIndex = 19;
+            this.c_Engines.TabIndex = 3;
             this.c_Engines.Value = "";
             // 
             // QueryStoreEditor

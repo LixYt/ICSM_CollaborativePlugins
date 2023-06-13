@@ -66,7 +66,7 @@ namespace XICSM.VanillaTools.EntityForms
             FillSumaryTab();
             BindSfafToControls();
 
-            Text = $"SFAF SERIAL = {Sfaf.m_sfaf_102} ({Sfaf.m_sfaf_005}) - {SfafTx.m_site_name}";
+            Text = $"SFAF.ID = {Sfaf.m_id} --- SFAF SERIAL = {Sfaf.m_sfaf_102} ({Sfaf.m_sfaf_005}) - {SfafTx.m_site_name}";
 
             c_MapDisplay.RegisterVectorLayer(tp);
             c_MapDisplay.RegisterVectorLayer(tpRx);
