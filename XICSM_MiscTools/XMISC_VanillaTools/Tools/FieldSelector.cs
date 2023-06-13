@@ -71,12 +71,9 @@ namespace XICSM.VanillaTools.Tools
 
         private void Filtering_TextChanged(object sender, EventArgs e)
         {
-            TreeViewNodes = TreeViewNodes.OrderBy(x => x.Key).ToList();
-            ListOfFields.Nodes.Clear();
-            List<KeyValuePair<string, string>> FilteredTreeViewNodes = TreeViewNodes.Where(x => x.Key.Contains(Filtering.Text)).ToList();
-            foreach (KeyValuePair<string, string> KVP in FilteredTreeViewNodes)
+            foreach (TreeNode n in ListOfFields.Nodes)
             {
-                ListOfFields.Nodes.Add(KVP.Key, KVP.Value);
+                n.ForeColor = n.Text.Contains(Filtering.Text) ? Color.Red : Color.Black;
             }
         }
     }

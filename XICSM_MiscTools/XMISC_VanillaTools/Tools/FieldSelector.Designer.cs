@@ -72,7 +72,7 @@ namespace XICSM.VanillaTools.Tools
             // 
             // Filtering
             // 
-            this.Filtering.Location = new System.Drawing.Point(67, 8);
+            this.Filtering.Location = new System.Drawing.Point(184, 8);
             this.Filtering.Name = "Filtering";
             this.Filtering.Size = new System.Drawing.Size(373, 20);
             this.Filtering.TabIndex = 2;
@@ -83,9 +83,9 @@ namespace XICSM.VanillaTools.Tools
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(32, 11);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(29, 13);
+            this.label1.Size = new System.Drawing.Size(146, 13);
             this.label1.TabIndex = 3;
-            this.label1.Text = "Filter";
+            this.label1.Text = "Highlight elements contening ";
             // 
             // FieldSelector
             // 
